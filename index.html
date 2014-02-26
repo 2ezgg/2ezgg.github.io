@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+		<meta name="description" content="2ez.gg is your league of legends home page. Browsing lol related web sites has never been so easy!">
+		<title>2ez.gg - Everything League of Legends.</title>
+		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />
+		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">	
+	</head>
+	<body>
+		<p id="back-top" style="display: none;">
+			<a href="#top"><span></span></a>
+		</p>
+		<div id="top-header-message">
+			<script id="riot-online-message-template" type="text/x-handlebars-template">
+	            	<span class="notify-title" style="display:block;margin-bottom:6px;">The RiotGames stream is active.</span>
+					<span class="streams-list"><a href="http://www.twitch.tv/riotgames" target="_blank">Twitch</a> | <a href="https://www.youtube.com/user/LoLChampSeries?feature=watch" target="_blank">Youtube</a> | <a href="http://www.azubu.tv/channel/detail.do?cn_id=2125982449001">AzubuTv</a>
+					</span>
+					<span class="close-riot">[x]</span>
+	        </script>
+			<script id="streamer-online-message-template" type="text/x-handlebars-template">
+	            	{{#each this}}
+	            		<div class="favourite-online-entry" style="display:block;margin-top:20px;">
+	            		{{#if twitch}}
+	           				<span class="notify-title" ><a href="http://www.twitch.tv/{{name}}" target="_blank">{{name}}</a> is online.</span>
+
+						{{else}}
+						<span class="notify-title" ><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}" target="_blank">{{name}}</a> is online.</span>
+										
+						{{/if}}
+						
+					<span class="close-favourite">[x]</span>
+					</div>
+	            	{{/each}}
+	        </script>
+			<div id="riot-online"></div>
+			<div id="favourite-online"></div>
+		</div>
+		<span id="sound"></span>
+		<div class="nav-expand"></div>
+
+		<div id="sidebar">
+			<div id="sidebar-content">
+				<div class="holder quater-buttons logo clear" style="padding-bottom:18px;padding-top:18px;">
+					<span><a href="http://localhost/lolapp"><img src="assets/img/logo.png" alt="2ez.gg"/></a></span>
+					<ul>
+						<a class="nav-button no-iframe" id="settings" data-name="settings-area" href="#settings-area">
+							<li>	
+								<span class="header-options settings-tooltip" title="Settings" style="background-image:url('assets/img/cog.png')"></span>
+							</li>
+						</a>
+					</ul>
+				</div>
+
+				<div class="remaining holder half-buttons" style="padding-bottom:22px">
+					<ul>		
+						<a class="nav-button website-misc no-iframe" id="reddit" data-name="redditthreads" href="#redditthreads">
+							<li>	
+								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit
+							</li>
+						</a>
+						<a class="nav-button website-misc no-iframe" id="youtube" data-name="youtubevideos" href="#youtubevideos">
+							<li>	
+								<span class="lol-image" style="background-position:0px 0px;"></span>LoL Videos
+							</li>
+						</a>
+						<a class="nav-button website-misc no-iframe" id="twitch" data-name="twitchstreams" href="#twitchstreams">
+							<li>
+								<span class="lol-image" style="background-position:-32px 0px;"></span>Twitch
+								<span class="update-info twitch-online tooltip" title="Followed Streamers Online"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc" id="league" data-name="league" target="_blank" href="http://na.leagueoflegends.com/en/news/game-updates/">
+							<li>
+								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News	
+								<span class="update-info league-news tooltip" title="New Updates"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="reign" data-name="reign" target="_blank" href="http://www.reignofgaming.net/news"> 
+							<li>
+								<span class="lol-image" style="background-position:-64px 0px;"></span>RoG
+								<span class="update-info reign-news tooltip" title="New Articles"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="ongamers" data-name="ongamers" target="_blank" href="http://www.ongamers.com/league-of-legends/6000-2/"> 
+							<li>	
+								<span class="lol-image" style="background-position:-64px -16px;"></span>onGamers
+								<span class="update-info ongamers-news tooltip" title="New Articles"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://ertu.de/jungle/"> 
+							<li>
+								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
+							</li>
+						</a>	
+					</ul>
+				</div>
+
+				<div class="name-input holder">
+					<input type="text" class="name" placeholder="Summoner Name" style="width:250px;">
+					<select class="server">
+						<option value="na">NA</option>
+						<option value="euw">EUW</option>
+						<option value="eune">EUNE</option>
+						<option value="oce">OCE</option>
+						<option value="br">BR</option>
+						<option value="tr">TR</option>
+						<option value="ru">RU</option>
+						<option value="lan">LAN</option>
+						<option value="las">LAS</option>
+					</select>
+				</div>
+			
+
+				<div class="namebuttons holder half-buttons"  style="padding-bottom:22px">
+					<ul>
+
+						<a class="nav-button website-name iframe-capable" id="king" data-name="king" data-url="http://www.lolking.net" target="_blank" href="http://www.lolking.net">
+							<li>
+								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing
+							</li>
+						</a>
+
+						<a class="nav-button website-name iframe-capable" id="nexus" data-name="nexus" data-url="http://www.lolnexus.com" target="_blank" href="http://www.lolnexus.com" >
+							<li>
+								<span class="lol-image" style="background-position:0px -16px;"></span>Nexus
+							</li>
+						</a>
+
+						<a class="nav-button website-name iframe-capable" id="gg" data-name="gg" data-url="http://op.gg/" target="_blank" href="http://op.gg/">
+							<li>
+								<span class="lol-image" style="background-position:-48px -16px;"></span>OP GG 
+							</li>
+						</a>
+
+						<a class="nav-button website-name iframe-capable" id="now" data-name="now" data-url="http://www.lolking.net/now/" target="_blank" href="http://www.lolking.net/now/">
+							<li>
+								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing Now
+							</li>
+						</a>
+						
+						<a class="nav-button website-name iframe-capable" id="kassad" data-name="kassad" data-url="http://quickfind.kassad.in/" target="_blank" href="http://quickfind.kassad.in/">
+							<li>
+								<span class="lol-image" style="background-position:-32px -16px;"></span>Kassad.In
+							</li>
+						</a>
+						
+					</ul>
+				</div>
+
+				<div class="champ-input holder">
+					<input type="text" class="champ" placeholder="Champ Name"  style="width:270px;">
+					<div class="champ-list">
+						<script id="champion-template" type="text/x-handlebars-template">
+		            		{{#each this}}
+		            			<div class="champ-list-entry clear" data-name="{{name}}"><span class="champ-img" style="background-position:{{xpos}}px {{ypos}}px;"/><span class="champ-text">{{name}}</span></div>
+		            		{{/each}}
+		            	</script>
+						<div id="champ-drop">
+		      			</div>
+					</div>		
+				</div>
+
+				<div class="championbuttons holder half-buttons" style="padding-bottom:30px;">
+					<ul>
+						<a class="nav-button website-champ iframe-capable" id="champselect" data-name="champselect" data-url="http://www.championselect.net" target="_blank" href="http://www.championselect.net">
+							<li>
+								<span class="lol-image" style="background-position:0px -32px;"></span>Counters	
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="tsm" data-name="tsm" data-url="http://www.solomid.net" target="_blank" href="http://www.solomid.net">
+							<li>
+								
+								<span class="lol-image iframe-capable" style="background-position:-16px -32px;"></span>SoloMid
+								
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="moba" data-name="moba" data-url="http://www.mobafire.com" target="_blank" href="http://www.mobafire.com">
+							<li>	
+									<span class="lol-image" style="background-position:-32px -32px;"></span>Mobafire
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="lolpro" data-name="lolpro" data-url="http://www.lolpro.com" target="_blank" href="http://www.lolpro.com"> 
+							<li>
+								<span class="lol-image" style="background-position:-48px -32px;"></span>LoLPro
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="kingchamp" data-name="kingchamp" data-url="http://www.lolking.net/champions/" target="_blank" href="http://www.lolking.net/champions/">  
+							<li>
+								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing Stats
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="elo" data-name="elo" data-url="http://www.elophant.com" target="_blank" href="http://www.elophant.com"> 
+							<li>
+								<span class="lol-image" style="background-position:-64px -32px;"></span>Elophant
+							</li>
+						</a> 
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="iframe-holder"></div>
+
+		<div id="main-content">
+
+			<header>2ez.gg</header>
+
+			<div id="settings-content">
+				<h2 style="margin-bottom:30px;margin-top:30px">2ez.gg Settings</h2>
+
+				<table width="100%">
+					<tr>
+						<td>
+							<select class="redditNewTab">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>Open Reddit threads in new tabs.</td>
+					</tr>
+					<tr class="settings-odd">
+						<td>
+							<select class="twitchVisualNotifications">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>Twitch visual notifications.</td>
+					</tr>
+					<tr>
+						<td>
+							<select class="twitchAudioNotifications">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>Twitch audio notifications.</td>
+					</tr>
+					<tr class="settings-odd">
+						<td>
+							<select class="eSportsNotifications">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>Show notification with stream links to Riot Games when online.</td>
+					</tr>
+					<tr>
+						<td>
+							<select class="defaultNameLink">
+								<option value="king">LoLKing</option>
+								<option value="nexus">Nexus</option>
+								<option value="gg">OP GG</option>
+								<option value="now">LolKing Now</option>
+								<option value="kassad">Kassad.In</option>
+							</select>
+						</td>
+						<td>Default link to open after 'enter' key is pressed in 'summoner name' text field.</td>
+					</tr>
+					<tr class="settings-odd">
+						<td>
+							<select class="defaultChampLink">
+								<option value="champselect">Counters</option>
+								<option value="tsm">SoloMid</option>
+								<option value="moba">Mobafire</option>
+								<option value="lolpro">LolPro</option>
+								<option value="kingchamp">LolKing Stats</option>
+								<option value="elo">Elophant</option>
+							</select>
+						</td>
+						<td>Default link to open after 'enter' key is pressed in 'champion name' text field.</td>
+					</tr>
+					<tr>
+						<td>
+							<select class="smartEnter">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>Smart enter key (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
+					</tr>
+					<tr>
+						<td>
+							<select class="newWindow">
+								<option value="on">On</option>
+								<option value="off">Off</option>
+							</select>
+						</td>
+						<td>For monitors/mobile phones with a resolution of less than 860px use mobile version (highly recommended for mobile phones for performance issues).</td>
+					</tr>
+				</table>
+				<input type="submit" class="settings-update" value="Update Settings">
+				
+				<p style="margin-top:40px;margin-bottom:20px">
+					Find a website breaking bug? Or have a suggestion? Head over to <a href="#">github</a>
+				</p>
+
+				<p>
+					Wanna talk? You can get a hold of me on Reddit <a href="http://reddit.com/u/joeldo">u/joeldo</a>
+				</p>
+			</div>
+
+
+			<div id="reddit-content">
+			<div style="margin-left: 15px;margin-top: -97px;"> 
+
+				<div id="mobile-reddit-options">
+					<select class="dropdown-subreddit">
+						<option value="leagueoflegends" data-subreddit="leagueoflegends">r/LeagueOfLegends</option>
+						<option value="loleventvods" data-subreddit="loleventvods">r/LoLeventVoDs</option>
+					</select>
+					<select class="dropdown-reddit-options">
+						<option value="hot" data-type="hot" data-duration="">Hot</option>
+						<option value="new" data-type="new" data-duration="">New</option>
+						<option value="tophour" data-type="top" data-duration="hour">Top - Hour</option>
+						<option value="topday" data-type="top" data-duration="day">Top - Day</option>
+						<option value="topmonth" data-type="top" data-duration="month">Top - Month</option>
+						<option value="topyear" data-type="top" data-duration="year">Top - Year</option>
+						<option value="topall" data-type="top" data-duration="all">Top - All</option>
+						<option value="rising" data-type="rising" data-duration="">Rising</option>
+						<option value="controversial" data-type="controversial" data-duration="">Controversial</option>
+
+					</select>
+
+				</div>
+
+				<div id="normal-reddit-options" >
+					<div id="reddit-subreddits">
+						<a href="#"><span class="subreddit-setting subreddit-leagueoflegends setting-chosen" data-subreddit="leagueoflegends" data-type="hot">r/LeagueOfLegends</span>
+						
+						<span class="subreddit-setting subreddit-loleventvods" data-subreddit="loleventvods" data-type="hot">r/LoLeventVoDs</span>
+						</a>				
+
+					</div>
+					<div id="reddit-options" style="margin-top:53px">
+						<a href="#"><span class="hot-reddit reddit-setting setting-chosen" data-type="hot" data-duration="">Hot</span>
+						<span class="new-reddit reddit-setting" data-type="new" data-duration="">New</span>
+						<span class="reddit-sub-setting">Top</span>
+							<span class="hourtop-reddit top-reddit reddit-setting" data-type="top" data-duration="hour">Hour</span>
+							<span class="daytop-reddit top-reddit reddit-setting" data-type="top" data-duration="day">Day</span>
+							<span class="monthtop-reddit top-reddit reddit-setting" data-type="top" data-duration="month">Month</span>
+							<span class="yeartop-reddit top-reddit reddit-setting" data-type="top" data-duration="year">Year</span>
+							<span class="alltop-reddit top-reddit reddit-setting" data-type="top" data-duration="all">All Time</span>
+						<span class="rising-reddit reddit-setting" data-type="rising" data-duration="">Rising</span>
+						<span class="controversial-reddit reddit-setting" data-type="controversial" data-duration="">Controversial</span></a>
+						</div>
+					</div>
+				</div>
+				
+
+				<script id="reddit-template" type="text/x-handlebars-template">
+					<div class="reddit-thread clear">
+						<span class="reddit-rank">{{redditRank}}</span>
+						
+						<span class="reddit-score">{{score}}</span>
+						
+						<a href="{{url}}"><span class="reddit-thumb clear"><img src="{{thumbnail}}" alt></span></a>
+						
+						<div class="reddit-written clear">
+							
+								<a href="{{url}}" class="reddit-title">{{{title}}}</a>
+								<span class="reddit-domain">({{domain}})</span>
+
+								<div style="margin-top: 6px;">
+									{{#if content.length}}
+										<span class="reddit-show-more original-state-content"></span>
+									{{/if}}
+									{{#if videoEmbed}}
+										<span class="reddit-show-more original-state-media"></span>
+									{{/if}}
+								
+									<div class="reddit-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" style="font-weight:bold">{{author}}</a>
+										{{#if authorFlair}}
+											<span class="flair flair-{{authorFlair}}" title=""></span>
+										{{/if}}	
+									</div>
+
+									<div class="reddit-comments"><a href="http://www.reddit.com{{permalink}}">{{commentsTotal}} Comments</a></div>
+									
+									<div class="reddit-expand">
+										{{#if content.length}}
+											<div class="decode">{{{content}}}</div>
+										{{/if}}
+										{{#if videoEmbed}}
+											<div class="reddit-youtube-prev" data-url="{{videoEmbed}}">
+											</div>
+										{{/if}}
+
+									</div>
+									
+								</div>
+						</div>	
+					</div>
+				</script>
+
+
+				<div id="reddit-threads">
+				</div>
+
+				<div id="reddit-progress">
+					<img src="assets/img/loader.gif" />
+				</div>
+
+			</div>
+
+
+			<div id="youtube-content">
+
+					<div style="margin-left: 15px;margin-top: -39px;margin-bottom: 15px;">
+
+						<div id="mobile-youtube-options">
+							<select class="dropdown-youtube-options">
+								<option value="hot" data-type="hot" data-duration="">Hot</option>
+								<option value="new" data-type="new" data-duration="">New</option>
+								<option value="tophour" data-type="top" data-duration="hour">Top - Hour</option>
+								<option value="topday" data-type="top" data-duration="day">Top - Day</option>
+								<option value="topmonth" data-type="top" data-duration="month">Top - Month</option>
+								<option value="topyear" data-type="top" data-duration="year">Top - Year</option>
+								<option value="topall" data-type="top" data-duration="all">Top - All</option>
+								<option value="rising" data-type="rising" data-duration="">Rising</option>
+								<option value="controversial" data-type="controversial" data-duration="">Controversial</option>
+							</select>
+						</div>
+					
+						<div id="normal-youtube-options" >
+
+							<span class="hot-youtube youtube-setting setting-chosen" data-type="hot" data-duration="">Hot</span>
+							<span class="new-youtube youtube-setting" data-type="new" data-duration="">New</span>
+							<span class="youtube-sub-setting">Top</span>
+								<span class="hourtop-youtube top-youtube youtube-setting" data-type="top" data-duration="hour">Hour</span>
+								<span class="daytop-youtube top-youtube youtube-setting" data-type="top" data-duration="day">Day</span>
+								<span class="monthtop-youtube top-youtube youtube-setting" data-type="top" data-duration="month">Month</span>
+								<span class="yeartop-youtube top-youtube youtube-setting" data-type="top" data-duration="year">Year</span>
+								<span class="alltop-youtube top-youtube youtube-setting" data-type="top" data-duration="all">All Time</span>
+							<span class="rising-reddit youtube-setting" data-type="rising" data-duration="">Rising</span>
+							<span class="controversial-reddit youtube-setting" data-type="controversial" data-duration="">Controversial</span>
+						</div>
+
+					</div>
+				
+				<script id="youtube-template" type="text/x-handlebars-template">
+					
+						<div class="youtube-thread clear">
+							<div class="top-youtube clear">
+								<span class="youtube-rank">{{videoRank}}</span>
+								<span class="youtube-score">{{score}}</span>
+								<span class="youtube-title"><a href="{{url}}" target="_blank">{{{title}}}</a></span>
+							</div> 
+							<div class="video-container">
+								<iframe width="560" height="315" src="{{videoEmbed}}" frameborder="0" allowfullscreen></iframe>
+
+							</div>
+							<div class="youtube-comments"><a href="http://www.reddit.com{{permalink}}" target="_blank">{{commentsTotal}} Reddit Comments</a></div>
+							<div class="youtube-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" target="_blank" style="font-weight:bold">{{author}}</a>
+							</div>
+						</div>
+					
+				</script>
+				<div id="youtube-threads">
+				</div>
+
+				<div id="youtube-progress">
+					<img src="assets/img/loader.gif" />
+				</div>
+
+			</div>
+
+
+			<div id="twitch-content">
+				<script id="twitch-template" type="text/x-handlebars-template">
+						<div id="twitch-user-{{name}}" style="padding-left: 30px;padding-top: 10px;">
+							
+							<div class="twitch-stream-info">
+								<span class="twitch-user-name"><a href="http://www.twitch.tv/{{name}}">
+								{{displayName}}</a></span>
+								<span class="twitch-viewers">{{viewTotal}}</span>
+							</div>
+
+							<div class="twitch-video-chat" >
+								
+								<div class="twitch-video" style="width:600px;height:250px">
+								<object type="application/x-shockwave-flash" height="100%" width="100%" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel={{name}}" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param class="twitch-player" name="flashvars" value="hostname=www.twitch.tv&channel={{name}}&auto_play=false&start_volume=25" /></object>
+								</div>
+
+								<div class="twitch-chat">
+									<div class="twitch-chat-area"></div>
+									<span class="view-twitch-chat" data-name="{{name}}"></span>
+								</div>
+
+							 </div>
+							
+						</div>
+					
+				</script>
+
+				<div id="twitch-online-content"></div>
+
+
+				<div class="twitch-sidebar clear">
+						<script id="twitch-users-online-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name"><div><img src="{{thumbnailUrl}}" class="view-this-stream" data-id="{{id}}" data-type="favourite" style="width:100%"/></div><div class="twitch-user-online"></div><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span><span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+							{{/each}}
+						</script>
+						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">	
+						
+								<div class="twitch-name"><div><img src="{{thumbnailUrl}}" class="view-this-stream" data-id="{{id}}" data-type="top" style="width:100%"/></div><div class="twitch-user-online"></div><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span><span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+							
+						</script>
+						
+						<script id="azubu-users-online-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+							{{/each}}
+						</script>
+
+						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">	
+							
+								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+							
+						</script>
+
+						<script id="twitch-add-user-online-template" type="text/x-handlebars-template">	
+							
+								<div class="twitch-name">{{name}}<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+							
+						</script>
+						<script id="twitch-users-offline-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name" style="border-right: 1px solid black"><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+							{{/each}}
+						</script>
+						<script id="azubu-users-offline-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name" style="border-right: 1px solid black"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">{{name}}</a><span class="remove-twitch tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+							{{/each}}
+						</script>
+						<script id="twitch-top-online-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name"><img src="{{thumbnailUrl}}"  class="view-this-stream" data-id="{{id}}" data-type="top" style="width:100%"/><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span>
+									{{#if isAlreadyAdded}}
+										<span class="favourited-streamer tooltip-left" title="You have this streamer favourited">&#60;3</span>	
+									{{else}}
+										<a class="add-top-champ tooltip-left" data-id="{{id}}" data-name="{{name}}" title="Add streamer to favourites">
+										[+]
+										</a>
+									{{/if}}
+								</div>
+
+							{{/each}}
+						</script>
+						<script id="azubu-top-online-template" type="text/x-handlebars-template">	
+							{{#each this}}
+								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a>
+									{{#if isAlreadyAdded}}
+										<span class="favourited-streamer tooltip-left"  title="You have this streamer favourited">&#60;3</span>	
+									{{else}}
+										<a class="add-top-champ tooltip-left" data-count="{{count}}" data-name="{{id}}" title="Add streamer to your favourites">
+										[+]
+										</a>
+									{{/if}}
+								</div>
+
+							{{/each}}
+						</script>
+			
+					<div style="position: relative;padding-left: 25px;" class="clear">
+
+						<div style="margin-top:10px;margin-bottom:10px;text-transform:none">
+							<input type="text" class="champ-addition" placeholder="Streamer's Twitch/Azubu URL" style="width:200px;">
+							<input type="submit" value="Add Streamer" class="add-champ">
+								<span style="display:block;margin-top:18px;margin-bottom:18px;">
+									<p>
+										You can add a streamer to your favourites using their stream URL above, or click the [+] button next to a streamers name below. I've added a few to get you started.
+									</p>
+									<p>
+										Note: Only Azubu streams present on liveleaguestream.com can be followed.
+									</p>
+								</span>
+				 		</div>
+						<div id="stream-favourite-list" style="margin-right:1%">			
+							<div class="streamers-header header-favourite">Favourites Online</div>
+							<div id="twitch-list-online"></div>
+							<div id="azubu-list-online"></div>			
+						</div>
+						<div id="stream-top-list" style="margin-right:1%">
+							<div class="streamers-header header-top-online">Top Streamers Online</div>
+							<div id="twitch-top-streamers">	</div>
+							<div id="azubu-top-streamers"></div>
+				 		</div>
+				 		<div id="stream-offline-list" style="margin-right:1%">
+							<div class="streamers-header header-offline">Favourites Offline</div>
+							<div id="twitch-list-offline">	</div>
+							
+							<div id="azubu-list-offline">	</div>	
+				 		</div>
+
+		  			</div>
+
+				</div>
+		
+
+			</div>
+		</div>
+		
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="assets/js/retina.js"></script>
+		<script src="assets/js/perfect-scrollbar.js"></script>
+		<script src="assets/js/jqueryui.js"></script>
+		<script src="assets/js/moment.js"></script>
+		<script src="assets/js/livestamp.js"></script>
+		<script src="assets/js/tipsy.js"></script>
+		<script src="assets/js/handlebars.js"></script>
+		<script src="assets/js/master.js"></script>
+
+	</body>
+</html>
+

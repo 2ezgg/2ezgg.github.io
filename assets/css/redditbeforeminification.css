@@ -1,0 +1,2878 @@
+.flair:after {
+    background: url(http://e.thumbs.redditmedia.com/68-SZccC42SzkLbp.png) no-repeat scroll 16px 16px transparent;
+    display: inline-block;
+    height: 16px;
+    margin-left: 3px;
+    vertical-align: middle;
+    width: 16px;
+    margin-bottom: -5px;
+}
+
+.flair-riot:after {
+    content: "";
+    background: url(http://f.thumbs.redditmedia.com/-VxHGICQTh2x-DV5.png) no-repeat scroll 24px 16px transparent;
+    background-position: 0px 0px;
+    width: 24px
+}
+
+.flair-aatrox:after {
+    content: "";
+    background-position: 0px -0px
+}
+
+.flair-ahri:after {
+    content: "";
+    background-position: -16px -0px
+}
+
+.flair-akali:after {
+    content: "";
+    background-position: -32px -0px
+}
+
+.flair-alistar:after {
+    content: "";
+    background-position: -48px -0px
+}
+
+.flair-amumu:after {
+    content: "";
+    background-position: -64px -0px
+}
+
+.flair-anivia:after {
+    content: "";
+    background-position: -80px -0px
+}
+
+.flair-annie:after {
+    content: "";
+    background-position: -96px -0px
+}
+
+.flair-ashe:after {
+    content: "";
+    background-position: -112px -0px
+}
+
+.flair-blitzcrank:after {
+    content: "";
+    background-position: -128px -0px
+}
+
+.flair-brand:after {
+    content: "";
+    background-position: -144px -0px
+}
+
+.flair-caitlyn:after {
+    content: "";
+    background-position: 0px -16px
+}
+
+.flair-cassiopeia:after {
+    content: "";
+    background-position: -16px -16px
+}
+
+.flair-chogath:after {
+    content: "";
+    background-position: -32px -16px
+}
+
+.flair-corki:after {
+    content: "";
+    background-position: -48px -16px
+}
+
+.flair-darius:after {
+    content: "";
+    background-position: -64px -16px
+}
+
+.flair-diana:after {
+    content: "";
+    background-position: -80px -16px
+}
+
+.flair-drmundo:after {
+    content: "";
+    background-position: -96px -16px
+}
+
+.flair-draven:after {
+    content: "";
+    background-position: -112px -16px
+}
+
+.flair-elise:after {
+    content: "";
+    background-position: -128px -16px
+}
+
+.flair-evelynn:after {
+    content: "";
+    background-position: -144px -16px
+}
+
+.flair-ezreal:after {
+    content: "";
+    background-position: 0px -32px
+}
+
+.flair-fiddlesticks:after {
+    content: "";
+    background-position: -16px -32px
+}
+
+.flair-fiora:after {
+    content: "";
+    background-position: -32px -32px
+}
+
+.flair-fizz:after {
+    content: "";
+    background-position: -48px -32px
+}
+
+.flair-galio:after {
+    content: "";
+    background-position: -64px -32px
+}
+
+.flair-gangplank:after {
+    content: "";
+    background-position: -80px -32px
+}
+
+.flair-garen:after {
+    content: "";
+    background-position: -96px -32px
+}
+
+.flair-gragas:after {
+    content: "";
+    background-position: -112px -32px
+}
+
+.flair-graves:after {
+    content: "";
+    background-position: -128px -32px
+}
+
+.flair-hecarim:after {
+    content: "";
+    background-position: -144px -32px
+}
+
+.flair-heimerdinger:after {
+    content: "";
+    background-position: 0px -48px
+}
+
+.flair-irelia:after {
+    content: "";
+    background-position: -16px -48px
+}
+
+.flair-janna:after {
+    content: "";
+    background-position: -32px -48px
+}
+
+.flair-jarvaniv:after {
+    content: "";
+    background-position: -48px -48px
+}
+
+.flair-jax:after {
+    content: "";
+    background-position: -64px -48px
+}
+
+.flair-jayce:after {
+    content: "";
+    background-position: -80px -48px
+}
+
+.flair-jinx:after {
+    content: "";
+    background-position: -96px -48px
+}
+
+.flair-karma:after {
+    content: "";
+    background-position: -112px -48px
+}
+
+.flair-karthus:after {
+    content: "";
+    background-position: -128px -48px
+}
+
+.flair-kassadin:after {
+    content: "";
+    background-position: -144px -48px
+}
+
+.flair-katarina:after {
+    content: "";
+    background-position: 0px -64px
+}
+
+.flair-kayle:after {
+    content: "";
+    background-position: -16px -64px
+}
+
+.flair-kennen:after {
+    content: "";
+    background-position: -32px -64px
+}
+
+.flair-khazix:after {
+    content: "";
+    background-position: -48px -64px
+}
+
+.flair-kogmaw:after {
+    content: "";
+    background-position: -64px -64px
+}
+
+.flair-leblanc:after {
+    content: "";
+    background-position: -80px -64px
+}
+
+.flair-leesin:after {
+    content: "";
+    background-position: -96px -64px
+}
+
+.flair-leona:after {
+    content: "";
+    background-position: -112px -64px
+}
+
+.flair-lissandra:after {
+    content: "";
+    background-position: -128px -64px
+}
+
+.flair-lucian:after {
+    content: "";
+    background-position: -144px -64px
+}
+
+.flair-lulu:after {
+    content: "";
+    background-position: 0px -80px
+}
+
+.flair-lux:after {
+    content: "";
+    background-position: -16px -80px
+}
+
+.flair-malphite:after {
+    content: "";
+    background-position: -32px -80px
+}
+
+.flair-malzahar:after {
+    content: "";
+    background-position: -48px -80px
+}
+
+.flair-maokai:after {
+    content: "";
+    background-position: -64px -80px
+}
+
+.flair-masteryi:after {
+    content: "";
+    background-position: -80px -80px
+}
+
+.flair-missfortune:after {
+    content: "";
+    background-position: -96px -80px
+}
+
+.flair-monkeyking:after {
+    content: "";
+    background-position: -112px -80px
+}
+
+.flair-mordekaiser:after {
+    content: "";
+    background-position: -128px -80px
+}
+
+.flair-morgana:after {
+    content: "";
+    background-position: -144px -80px
+}
+
+.flair-nami:after {
+    content: "";
+    background-position: 0px -96px
+}
+
+.flair-nasus:after {
+    content: "";
+    background-position: -16px -96px
+}
+
+.flair-nautilus:after {
+    content: "";
+    background-position: -32px -96px
+}
+
+.flair-nidalee:after {
+    content: "";
+    background-position: -48px -96px
+}
+
+.flair-nocturne:after {
+    content: "";
+    background-position: -64px -96px
+}
+
+.flair-nunu:after {
+    content: "";
+    background-position: -80px -96px
+}
+
+.flair-olaf:after {
+    content: "";
+    background-position: -96px -96px
+}
+
+.flair-orianna:after {
+    content: "";
+    background-position: -112px -96px
+}
+
+.flair-pantheon:after {
+    content: "";
+    background-position: -128px -96px
+}
+
+.flair-poppy:after {
+    content: "";
+    background-position: -144px -96px
+}
+
+.flair-quinn:after {
+    content: "";
+    background-position: 0px -112px
+}
+
+.flair-rammus:after {
+    content: "";
+    background-position: -16px -112px
+}
+
+.flair-renekton:after {
+    content: "";
+    background-position: -32px -112px
+}
+
+.flair-rengar:after {
+    content: "";
+    background-position: -48px -112px
+}
+
+.flair-riven:after {
+    content: "";
+    background-position: -64px -112px
+}
+
+.flair-rumble:after {
+    content: "";
+    background-position: -80px -112px
+}
+
+.flair-ryze:after {
+    content: "";
+    background-position: -96px -112px
+}
+
+.flair-sejuani:after {
+    content: "";
+    background-position: -112px -112px
+}
+
+.flair-shaco:after {
+    content: "";
+    background-position: -128px -112px
+}
+
+.flair-shen:after {
+    content: "";
+    background-position: -144px -112px
+}
+
+.flair-shyvana:after {
+    content: "";
+    background-position: 0px -128px
+}
+
+.flair-singed:after {
+    content: "";
+    background-position: -16px -128px
+}
+
+.flair-sion:after {
+    content: "";
+    background-position: -32px -128px
+}
+
+.flair-sivir:after {
+    content: "";
+    background-position: -48px -128px
+}
+
+.flair-skarner:after {
+    content: "";
+    background-position: -64px -128px
+}
+
+.flair-sona:after {
+    content: "";
+    background-position: -80px -128px
+}
+
+.flair-soraka:after {
+    content: "";
+    background-position: -96px -128px
+}
+
+.flair-swain:after {
+    content: "";
+    background-position: -112px -128px
+}
+
+.flair-syndra:after {
+    content: "";
+    background-position: -128px -128px
+}
+
+.flair-talon:after {
+    content: "";
+    background-position: -144px -128px
+}
+
+.flair-taric:after {
+    content: "";
+    background-position: 0px -144px
+}
+
+.flair-teemo:after {
+    content: "";
+    background-position: -16px -144px
+}
+
+.flair-thresh:after {
+    content: "";
+    background-position: -32px -144px
+}
+
+.flair-tristana:after {
+    content: "";
+    background-position: -48px -144px
+}
+
+.flair-trundle:after {
+    content: "";
+    background-position: -64px -144px
+}
+
+.flair-tryndamere:after {
+    content: "";
+    background-position: -80px -144px
+}
+
+.flair-twistedfate:after {
+    content: "";
+    background-position: -96px -144px
+}
+
+.flair-twitch:after {
+    content: "";
+    background-position: -112px -144px
+}
+
+.flair-udyr:after {
+    content: "";
+    background-position: -128px -144px
+}
+
+.flair-urgot:after {
+    content: "";
+    background-position: -144px -144px
+}
+
+.flair-varus:after {
+    content: "";
+    background-position: 0px -160px
+}
+
+.flair-vayne:after {
+    content: "";
+    background-position: -16px -160px
+}
+
+.flair-veigar:after {
+    content: "";
+    background-position: -32px -160px
+}
+
+.flair-vi:after {
+    content: "";
+    background-position: -48px -160px
+}
+
+.flair-viktor:after {
+    content: "";
+    background-position: -64px -160px
+}
+
+.flair-vladimir:after {
+    content: "";
+    background-position: -80px -160px
+}
+
+.flair-volibear:after {
+    content: "";
+    background-position: -96px -160px
+}
+
+.flair-warwick:after {
+    content: "";
+    background-position: -112px -160px
+}
+
+.flair-xerath:after {
+    content: "";
+    background-position: -128px -160px
+}
+
+.flair-xinzhao:after {
+    content: "";
+    background-position: -144px -160px
+}
+
+.flair-yasuo:after {
+    content: "";
+    background-position: 0px -176px
+}
+
+.flair-yorick:after {
+    content: "";
+    background-position: -16px -176px
+}
+
+.flair-zac:after {
+    content: "";
+    background-position: -32px -176px
+}
+
+.flair-zed:after {
+    content: "";
+    background-position: -48px -176px
+}
+
+.flair-ziggs:after {
+    content: "";
+    background-position: -64px -176px
+}
+
+.flair-zilean:after {
+    content: "";
+    background-position: -80px -176px
+}
+
+.flair-zyra:after {
+    content: "";
+    background-position: -96px -176px
+}
+
+.flair-tsm:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -0px
+}
+
+.flair-clg:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -0px
+}
+
+.flair-dignitas:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -0px
+}
+
+.flair-curse:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -0px
+}
+
+.flair-coast:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -0px
+}
+
+.flair-xdgg:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -0px
+}
+
+.flair-cloudnine:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -120px
+}
+
+.flair-evil:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -24px
+}
+
+.flair-skg:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -24px
+}
+
+.flair-fnatic:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -24px
+}
+
+.flair-gambit:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -24px
+}
+
+.flair-alliance:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -24px
+}
+
+.flair-wolves:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -24px
+}
+
+.flair-millenium:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -120px
+}
+
+.flair-roccat:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -24px
+}
+
+.flair-shcxd:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px 0px
+}
+
+.flair-ninjas:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -24px
+}
+
+.flair-meetyourmakers:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -120px
+}
+
+.flair-lemondogs:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 48px;
+    background-position: -168px -120px
+}
+
+.flair-ultravires:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -144px
+}
+
+.flair-jokers:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -48px
+}
+
+.flair-titans:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -48px
+}
+
+.flair-hunters:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -48px
+}
+
+.flair-eagles:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -48px
+}
+
+.flair-tpa:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -48px
+}
+
+.flair-sgs:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -48px
+}
+
+.flair-ahq:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -48px
+}
+
+.flair-fantastic:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -48px
+}
+
+.flair-mineski:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -144px
+}
+
+.flair-fulllouis:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -168px
+}
+
+.flair-taipeisnipers:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    height: 24px;
+    width: 48px;
+    background-position: -24px -168px
+}
+
+.flair-hka:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -168px
+}
+
+.flair-infinite:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -168px
+}
+
+.flair-we:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -72px
+}
+
+.flair-royal:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -72px
+}
+
+.flair-omg:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -72px
+}
+
+.flair-positive:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -72px
+}
+
+.flair-livemore:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -72px
+}
+
+.flair-ig:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -72px
+}
+
+.flair-woa:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -72px
+}
+
+.flair-lgd:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 16px 48px transparent;
+    height: 16px;
+    width: 48px;
+    background-position: 0px -144px
+}
+
+.flair-lmqtianci:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -168px
+}
+
+.flair-energypacemaker:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -168px
+}
+
+.flair-youngglory:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -192px -168px
+}
+
+.flair-najinshield:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -96px
+}
+
+.flair-najinsword:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -96px
+}
+
+.flair-incrediblemiracle:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -96px
+}
+
+.flair-samsunggalaxy:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -96px
+}
+
+.flair-skt1:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -96px -96px
+}
+
+.flair-cjentusblaze:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -96px
+}
+
+.flair-cjentusfrost:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -96px
+}
+
+.flair-ktrolster:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    height: 24px;
+    width: 48px;
+    background-position: -168px -96px
+}
+
+.flair-greenwings:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -120px -168px
+}
+
+.flair-xenicsstorm:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    height: 24px;
+    width: 48px;
+    background-position: -96px -144px
+}
+
+.flair-alienware:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -144px
+}
+
+.flair-teamnb:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -144px
+}
+
+.flair-teamdark:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -192px -144px
+}
+
+.flair-avarosan:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: 0px -120px
+}
+
+.flair-frostguard:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -24px -120px
+}
+
+.flair-winterclaw:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -48px -120px
+}
+
+html[lang^="dd"] .flair-tsm:after {
+    background-position: -192px -24px
+}
+
+html[lang^="dd"] .flair-clg:after {
+    background-position: -192px -48px
+}
+
+.flair-alternate:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -144px -120px
+}
+
+.flair-ggeu:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -72px -144px
+}
+
+.flair-kmt:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    height: 24px;
+    width: 24px;
+    background-position: -168px -24px
+}
+
+.flair-ega:after {
+    content: "";
+    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    height: 24px;
+    width: 48px;
+    background-position: -72px -24px
+}
+
+.flair-tsm:hover:after {
+    content: "Team Solo Mid (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-clg:hover:after {
+    content: "Counter Logic Gaming (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-dignitas:hover:after {
+    content: "Team Dignitas (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-curse:hover:after {
+    content: "Team Curse (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-coast:hover:after {
+    content: "Team Coast (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-xdgg:hover:after {
+    content: "XDG Gaming (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-cloudnine:hover:after {
+    content: "Cloud 9 (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-evil:hover:after {
+    content: "Evil Geniuses (NA LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-fnatic:hover:after {
+    content: "Fnatic (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-gambit:hover:after {
+    content: "Gambit Gaming (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-alliance:hover:after {
+    content: "Alliance (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-wolves:hover:after {
+    content: "Copenhagen Wolves (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-millenium:hover:after {
+    content: "Millenium (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-roccat:hover:after {
+    content: "ROCCAT (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-meetyourmakers:hover:after {
+    content: "Meet your Makers (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-shcxd:hover:after {
+    content: "Supa Hot Crew XD (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-jokers:hover:after {
+    content: "Saigon Jokers (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-titans:hover:after {
+    content: "Bangkok Titans (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-hunters:hover:after {
+    content: "KL Hunters (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-tpa:hover:after {
+    content: "Azubu Taipei Assassins (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-taipeisnipers:hover:after {
+    content: "Azubu Taipei Snipers (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-sgs:hover:after {
+    content: "Saigon Sentinels (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-fantastic:hover:after {
+    content: "Saigon Fantastic 5 (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-ahq:hover:after {
+    content: "ahq e-Sports Club (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-mineski:hover:after {
+    content: "Mineski (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-fulllouis:hover:after {
+    content: "Full Louis (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-hka:hover:after {
+    content: "HK Attitude (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-infinite:hover:after {
+    content: "Team Infinite (Garena Pro League)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-we:hover:after {
+    content: "Team WE (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-royal:hover:after {
+    content: "Royal Club (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-omg:hover:after {
+    content: "OMG (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-positive:hover:after {
+    content: "Positive Energy (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-ig:hover:after {
+    content: "Invictus Gaming (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-lmqtianci:hover:after {
+    content: "LMQ Tian Ci (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-energypacemaker:hover:after {
+    content: "Energy Pacekamer.HK (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-lgd:hover:after {
+    content: "LGD Gaming (LPL)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-najinshield:hover:after {
+    content: "Najin White Shield (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-najinsword:hover:after {
+    content: "Najin Black Sword (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-samsunggalaxy:hover:after {
+    content: "Samsung Galaxy Blue/Ozone (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-skt1:hover:after {
+    content: "SK Telecom T1 #1/2 (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-xenicsstorm:hover:after {
+    content: "Xenics Storm (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-greenwings:hover:after {
+    content: "Jin Air Greenwings Falcons/Stealths (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-incrediblemiracle:hover:after {
+    content: "Incredible Miracle (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-ktrolster:hover:after {
+    content: "KT Rolster (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-cjentusfrost:hover:after {
+    content: "CJ Entus Frost (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-cjentusblaze:hover:after {
+    content: "CJ Entus Blaze (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-alienware:hover:after {
+    content: "Alienware Andromeda (OGN The Champions)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.linkflair .thumbnail,.linkflair .thumbnail.self {
+    background: url(http://d.thumbs.redditmedia.com/SrqKFMqm9r52_I1Q.jpg) no-repeat scroll 54px 54px transparent;
+    height: 54px;
+    margin-left: 13px;
+    margin-right: 23px;
+    width: 54px
+}
+
+.linkflair .thumbnail img,.linkflair .entry .title .linkflairlabel {
+    display: none
+}
+
+.linkflair-aatrox .thumbnail,.linkflair-aatrox .thumbnail.self {
+    background-position: 0px -0px
+}
+
+.linkflair-ahri .thumbnail,.linkflair-ahri .thumbnail.self {
+    background-position: -54px -0px
+}
+
+.linkflair-akali .thumbnail,.linkflair-akali .thumbnail.self {
+    background-position: -108px -0px
+}
+
+.linkflair-alistar .thumbnail,.linkflair-alistar .thumbnail.self {
+    background-position: -162px -0px
+}
+
+.linkflair-amumu .thumbnail,.linkflair-amumu .thumbnail.self {
+    background-position: -216px -0px
+}
+
+.linkflair-anivia .thumbnail,.linkflair-anivia .thumbnail.self {
+    background-position: -270px -0px
+}
+
+.linkflair-annie .thumbnail,.linkflair-annie .thumbnail.self {
+    background-position: -324px -0px
+}
+
+.linkflair-ashe .thumbnail,.linkflair-ashe .thumbnail.self {
+    background-position: -378px -0px
+}
+
+.linkflair-blitzcrank .thumbnail,.linkflair-blitzcrank .thumbnail.self {
+    background-position: -432px -0px
+}
+
+.linkflair-brand .thumbnail,.linkflair-brand .thumbnail.self {
+    background-position: -486px -0px
+}
+
+.linkflair-caitlyn .thumbnail,.linkflair-caitlyn .thumbnail.self {
+    background-position: 0px -54px
+}
+
+.linkflair-cassiopeia .thumbnail,.linkflair-cassiopeia .thumbnail.self {
+    background-position: -54px -54px
+}
+
+.linkflair-chogath .thumbnail,.linkflair-chogath .thumbnail.self {
+    background-position: -108px -54px
+}
+
+.linkflair-corki .thumbnail,.linkflair-corki .thumbnail.self {
+    background-position: -162px -54px
+}
+
+.linkflair-darius .thumbnail,.linkflair-darius .thumbnail.self {
+    background-position: -216px -54px
+}
+
+.linkflair-diana .thumbnail,.linkflair-diana .thumbnail.self {
+    background-position: -270px -54px
+}
+
+.linkflair-drmundo .thumbnail,.linkflair-drmundo .thumbnail.self {
+    background-position: -324px -54px
+}
+
+.linkflair-draven .thumbnail,.linkflair-draven .thumbnail.self {
+    background-position: -378px -54px
+}
+
+.linkflair-elise .thumbnail,.linkflair-elise .thumbnail.self {
+    background-position: -432px -54px
+}
+
+.linkflair-evelynn .thumbnail,.linkflair-evelynn .thumbnail.self {
+    background-position: -486px -54px
+}
+
+.linkflair-ezreal .thumbnail,.linkflair-ezreal .thumbnail.self {
+    background-position: 0px -108px
+}
+
+.linkflair-fiddlesticks .thumbnail,.linkflair-fiddlesticks .thumbnail.self {
+    background-position: -54px -108px
+}
+
+.linkflair-fiora .thumbnail,.linkflair-fiora .thumbnail.self {
+    background-position: -108px -108px
+}
+
+.linkflair-fizz .thumbnail,.linkflair-fizz .thumbnail.self {
+    background-position: -162px -108px
+}
+
+.linkflair-galio .thumbnail,.linkflair-galio .thumbnail.self {
+    background-position: -216px -108px
+}
+
+.linkflair-gangplank .thumbnail,.linkflair-gangplank .thumbnail.self {
+    background-position: -270px -108px
+}
+
+.linkflair-garen .thumbnail,.linkflair-garen .thumbnail.self {
+    background-position: -324px -108px
+}
+
+.linkflair-gragas .thumbnail,.linkflair-gragas .thumbnail.self {
+    background-position: -378px -108px
+}
+
+.linkflair-graves .thumbnail,.linkflair-graves .thumbnail.self {
+    background-position: -432px -108px
+}
+
+.linkflair-hecarim .thumbnail,.linkflair-hecarim .thumbnail.self {
+    background-position: -486px -108px
+}
+
+.linkflair-heimerdinger .thumbnail,.linkflair-heimerdinger .thumbnail.self {
+    background-position: 0px -162px
+}
+
+.linkflair-irelia .thumbnail,.linkflair-irelia .thumbnail.self {
+    background-position: -54px -162px
+}
+
+.linkflair-janna .thumbnail,.linkflair-janna .thumbnail.self {
+    background-position: -108px -162px
+}
+
+.linkflair-jarvaniv .thumbnail,.linkflair-jarvaniv .thumbnail.self {
+    background-position: -162px -162px
+}
+
+.linkflair-jax .thumbnail,.linkflair-jax .thumbnail.self {
+    background-position: -216px -162px
+}
+
+.linkflair-jayce .thumbnail,.linkflair-jayce .thumbnail.self {
+    background-position: -270px -162px
+}
+
+.linkflair-jinx .thumbnail,.linkflair-jinx .thumbnail.self {
+    background-position: -324px -162px
+}
+
+.linkflair-karma .thumbnail,.linkflair-karma .thumbnail.self {
+    background-position: -378px -162px
+}
+
+.linkflair-karthus .thumbnail,.linkflair-karthus .thumbnail.self {
+    background-position: -432px -162px
+}
+
+.linkflair-kassadin .thumbnail,.linkflair-kassadin .thumbnail.self {
+    background-position: -486px -162px
+}
+
+.linkflair-katarina .thumbnail,.linkflair-katarina .thumbnail.self {
+    background-position: 0px -216px
+}
+
+.linkflair-kayle .thumbnail,.linkflair-kayle .thumbnail.self {
+    background-position: -54px -216px
+}
+
+.linkflair-kennen .thumbnail,.linkflair-kennen .thumbnail.self {
+    background-position: -108px -216px
+}
+
+.linkflair-khazix .thumbnail,.linkflair-khazix .thumbnail.self {
+    background-position: -162px -216px
+}
+
+.linkflair-kogmaw .thumbnail,.linkflair-kogmaw .thumbnail.self {
+    background-position: -216px -216px
+}
+
+.linkflair-leblanc .thumbnail,.linkflair-leblanc .thumbnail.self {
+    background-position: -270px -216px
+}
+
+.linkflair-leesin .thumbnail,.linkflair-leesin .thumbnail.self {
+    background-position: -324px -216px
+}
+
+.linkflair-leona .thumbnail,.linkflair-leona .thumbnail.self {
+    background-position: -378px -216px
+}
+
+.linkflair-lissandra .thumbnail,.linkflair-lissandra .thumbnail.self {
+    background-position: -432px -216px
+}
+
+.linkflair-lucian .thumbnail,.linkflair-lucian .thumbnail.self {
+    background-position: -486px -216px
+}
+
+.linkflair-lulu .thumbnail,.linkflair-lulu .thumbnail.self {
+    background-position: 0px -270px
+}
+
+.linkflair-lux .thumbnail,.linkflair-lux .thumbnail.self {
+    background-position: -54px -270px
+}
+
+.linkflair-malphite .thumbnail,.linkflair-malphite .thumbnail.self {
+    background-position: -108px -270px
+}
+
+.linkflair-malzahar .thumbnail,.linkflair-malzahar .thumbnail.self {
+    background-position: -162px -270px
+}
+
+.linkflair-maokai .thumbnail,.linkflair-maokai .thumbnail.self {
+    background-position: -216px -270px
+}
+
+.linkflair-masteryi .thumbnail,.linkflair-masteryi .thumbnail.self {
+    background-position: -270px -270px
+}
+
+.linkflair-missfortune .thumbnail,.linkflair-missfortune .thumbnail.self {
+    background-position: -324px -270px
+}
+
+.linkflair-monkeyking .thumbnail,.linkflair-monkeyking .thumbnail.self {
+    background-position: -378px -270px
+}
+
+.linkflair-mordekaiser .thumbnail,.linkflair-mordekaiser .thumbnail.self {
+    background-position: -432px -270px
+}
+
+.linkflair-morgana .thumbnail,.linkflair-morgana .thumbnail.self {
+    background-position: -486px -270px
+}
+
+.linkflair-nami .thumbnail,.linkflair-nami .thumbnail.self {
+    background-position: 0px -324px
+}
+
+.linkflair-nasus .thumbnail,.linkflair-nasus .thumbnail.self {
+    background-position: -54px -324px
+}
+
+.linkflair-nautilus .thumbnail,.linkflair-nautilus .thumbnail.self {
+    background-position: -108px -324px
+}
+
+.linkflair-nidalee .thumbnail,.linkflair-nidalee .thumbnail.self {
+    background-position: -162px -324px
+}
+
+.linkflair-nocturne .thumbnail,.linkflair-nocturne .thumbnail.self {
+    background-position: -216px -324px
+}
+
+.linkflair-nunu .thumbnail,.linkflair-nunu .thumbnail.self {
+    background-position: -270px -324px
+}
+
+.linkflair-olaf .thumbnail,.linkflair-olaf .thumbnail.self {
+    background-position: -324px -324px
+}
+
+.linkflair-orianna .thumbnail,.linkflair-orianna .thumbnail.self {
+    background-position: -378px -324px
+}
+
+.linkflair-pantheon .thumbnail,.linkflair-pantheon .thumbnail.self {
+    background-position: -432px -324px
+}
+
+.linkflair-poppy .thumbnail,.linkflair-poppy .thumbnail.self {
+    background-position: -486px -324px
+}
+
+.linkflair-quinn .thumbnail,.linkflair-quinn .thumbnail.self {
+    background-position: 0px -378px
+}
+
+.linkflair-rammus .thumbnail,.linkflair-rammus .thumbnail.self {
+    background-position: -54px -378px
+}
+
+.linkflair-renekton .thumbnail,.linkflair-renekton .thumbnail.self {
+    background-position: -108px -378px
+}
+
+.linkflair-rengar .thumbnail,.linkflair-rengar .thumbnail.self {
+    background-position: -162px -378px
+}
+
+.linkflair-riven .thumbnail,.linkflair-riven .thumbnail.self {
+    background-position: -216px -378px
+}
+
+.linkflair-rumble .thumbnail,.linkflair-rumble .thumbnail.self {
+    background-position: -270px -378px
+}
+
+.linkflair-ryze .thumbnail,.linkflair-ryze .thumbnail.self {
+    background-position: -324px -378px
+}
+
+.linkflair-sejuani .thumbnail,.linkflair-sejuani .thumbnail.self {
+    background-position: -378px -378px
+}
+
+.linkflair-shaco .thumbnail,.linkflair-shaco .thumbnail.self {
+    background-position: -432px -378px
+}
+
+.linkflair-shen .thumbnail,.linkflair-shen .thumbnail.self {
+    background-position: -486px -378px
+}
+
+.linkflair-shyvana .thumbnail,.linkflair-shyvana .thumbnail.self {
+    background-position: 0px -432px
+}
+
+.linkflair-singed .thumbnail,.linkflair-singed .thumbnail.self {
+    background-position: -54px -432px
+}
+
+.linkflair-sion .thumbnail,.linkflair-sion .thumbnail.self {
+    background-position: -108px -432px
+}
+
+.linkflair-sivir .thumbnail,.linkflair-sivir .thumbnail.self {
+    background-position: -162px -432px
+}
+
+.linkflair-skarner .thumbnail,.linkflair-skarner .thumbnail.self {
+    background-position: -216px -432px
+}
+
+.linkflair-sona .thumbnail,.linkflair-sona .thumbnail.self {
+    background-position: -270px -432px
+}
+
+.linkflair-soraka .thumbnail,.linkflair-soraka .thumbnail.self {
+    background-position: -324px -432px
+}
+
+.linkflair-swain .thumbnail,.linkflair-swain .thumbnail.self {
+    background-position: -378px -432px
+}
+
+.linkflair-syndra .thumbnail,.linkflair-syndra .thumbnail.self {
+    background-position: -432px -432px
+}
+
+.linkflair-talon .thumbnail,.linkflair-talon .thumbnail.self {
+    background-position: -486px -432px
+}
+
+.linkflair-taric .thumbnail,.linkflair-taric .thumbnail.self {
+    background-position: 0px -486px
+}
+
+.linkflair-teemo .thumbnail,.linkflair-teemo .thumbnail.self {
+    background-position: -54px -486px
+}
+
+.linkflair-thresh .thumbnail,.linkflair-thresh .thumbnail.self {
+    background-position: -108px -486px
+}
+
+.linkflair-tristana .thumbnail,.linkflair-tristana .thumbnail.self {
+    background-position: -162px -486px
+}
+
+.linkflair-trundle .thumbnail,.linkflair-trundle .thumbnail.self {
+    background-position: -216px -486px
+}
+
+.linkflair-tryndamere .thumbnail,.linkflair-tryndamere .thumbnail.self {
+    background-position: -270px -486px
+}
+
+.linkflair-twistedfate .thumbnail,.linkflair-twistedfate .thumbnail.self {
+    background-position: -324px -486px
+}
+
+.linkflair-twitch .thumbnail,.linkflair-twitch .thumbnail.self {
+    background-position: -378px -486px
+}
+
+.linkflair-udyr .thumbnail,.linkflair-udyr .thumbnail.self {
+    background-position: -432px -486px
+}
+
+.linkflair-urgot .thumbnail,.linkflair-urgot .thumbnail.self {
+    background-position: -486px -486px
+}
+
+.linkflair-varus .thumbnail,.linkflair-varus .thumbnail.self {
+    background-position: 0px -540px
+}
+
+.linkflair-vayne .thumbnail,.linkflair-vayne .thumbnail.self {
+    background-position: -54px -540px
+}
+
+.linkflair-veigar .thumbnail,.linkflair-veigar .thumbnail.self {
+    background-position: -108px -540px
+}
+
+.linkflair-vi .thumbnail,.linkflair-vi .thumbnail.self {
+    background-position: -162px -540px
+}
+
+.linkflair-viktor .thumbnail,.linkflair-viktor .thumbnail.self {
+    background-position: -216px -540px
+}
+
+.linkflair-vladimir .thumbnail,.linkflair-vladimir .thumbnail.self {
+    background-position: -270px -540px
+}
+
+.linkflair-volibear .thumbnail,.linkflair-volibear .thumbnail.self {
+    background-position: -324px -540px
+}
+
+.linkflair-warwick .thumbnail,.linkflair-warwick .thumbnail.self {
+    background-position: -378px -540px
+}
+
+.linkflair-xerath .thumbnail,.linkflair-xerath .thumbnail.self {
+    background-position: -432px -540px
+}
+
+.linkflair-xinzhao .thumbnail,.linkflair-xinzhao .thumbnail.self {
+    background-position: -486px -540px
+}
+
+.linkflair-yasuo .thumbnail,.linkflair-yasuo .thumbnail.self {
+    background-position: 0px -594px
+}
+
+.linkflair-yorick .thumbnail,.linkflair-yorick .thumbnail.self {
+    background-position: -54px -594px
+}
+
+.linkflair-zac .thumbnail,.linkflair-zac .thumbnail.self {
+    background-position: -108px -594px
+}
+
+.linkflair-zed .thumbnail,.linkflair-zed .thumbnail.self {
+    background-position: -162px -594px
+}
+
+.linkflair-ziggs .thumbnail,.linkflair-ziggs .thumbnail.self {
+    background-position: -216px -594px
+}
+
+.linkflair-zilean .thumbnail,.linkflair-zilean .thumbnail.self {
+    background-position: -270px -594px
+}
+
+.linkflair-zyra .thumbnail,.linkflair-zyra .thumbnail.self {
+    background-position: -324px -594px
+}
+
+a[href="/aatrox"]:nth-of-type(n):after,a[href="/ahri"]:nth-of-type(n):after,a[href="/akali"]:nth-of-type(n):after,a[href="/alistar"]:nth-of-type(n):after,a[href="/amumu"]:nth-of-type(n):after,a[href="/anivia"]:nth-of-type(n):after,a[href="/annie"]:nth-of-type(n):after,a[href="/ashe"]:nth-of-type(n):after,a[href="/blitzcrank"]:nth-of-type(n):after,a[href="/brand"]:nth-of-type(n):after,a[href="/caitlyn"]:nth-of-type(n):after,a[href="/cassiopeia"]:nth-of-type(n):after,a[href="/chogath"]:nth-of-type(n):after,a[href="/corki"]:nth-of-type(n):after,a[href="/darius"]:nth-of-type(n):after,a[href="/diana"]:nth-of-type(n):after,a[href="/drmundo"]:nth-of-type(n):after,a[href="/draven"]:nth-of-type(n):after,a[href="/elise"]:nth-of-type(n):after,a[href="/evelynn"]:nth-of-type(n):after,a[href="/ezreal"]:nth-of-type(n):after,a[href="/fiddlesticks"]:nth-of-type(n):after,a[href="/fiora"]:nth-of-type(n):after,a[href="/fizz"]:nth-of-type(n):after,a[href="/galio"]:nth-of-type(n):after,a[href="/gangplank"]:nth-of-type(n):after,a[href="/garen"]:nth-of-type(n):after,a[href="/gragas"]:nth-of-type(n):after,a[href="/graves"]:nth-of-type(n):after,a[href="/hecarim"]:nth-of-type(n):after,a[href="/heimerdinger"]:nth-of-type(n):after,a[href="/irelia"]:nth-of-type(n):after,a[href="/janna"]:nth-of-type(n):after,a[href="/jarvaniv"]:nth-of-type(n):after,a[href="/jax"]:nth-of-type(n):after,a[href="/jayce"]:nth-of-type(n):after,a[href="/jinx"]:nth-of-type(n):after,a[href="/karma"]:nth-of-type(n):after,a[href="/karthus"]:nth-of-type(n):after,a[href="/kassadin"]:nth-of-type(n):after,a[href="/katarina"]:nth-of-type(n):after,a[href="/kayle"]:nth-of-type(n):after,a[href="/kennen"]:nth-of-type(n):after,a[href="/khazix"]:nth-of-type(n):after,a[href="/kogmaw"]:nth-of-type(n):after,a[href="/leblanc"]:nth-of-type(n):after,a[href="/leesin"]:nth-of-type(n):after,a[href="/leona"]:nth-of-type(n):after,a[href="/lissandra"]:nth-of-type(n):after,a[href="/lucian"]:nth-of-type(n):after,a[href="/lulu"]:nth-of-type(n):after,a[href="/lux"]:nth-of-type(n):after,a[href="/malphite"]:nth-of-type(n):after,a[href="/malzahar"]:nth-of-type(n):after,a[href="/maokai"]:nth-of-type(n):after,a[href="/masteryi"]:nth-of-type(n):after,a[href="/missfortune"]:nth-of-type(n):after,a[href="/wukong"]:nth-of-type(n):after,a[href="/mordekaiser"]:nth-of-type(n):after,a[href="/morgana"]:nth-of-type(n):after,a[href="/nami"]:nth-of-type(n):after,a[href="/nasus"]:nth-of-type(n):after,a[href="/nautilus"]:nth-of-type(n):after,a[href="/nidalee"]:nth-of-type(n):after,a[href="/nocturne"]:nth-of-type(n):after,a[href="/nunu"]:nth-of-type(n):after,a[href="/olaf"]:nth-of-type(n):after,a[href="/orianna"]:nth-of-type(n):after,a[href="/pantheon"]:nth-of-type(n):after,a[href="/poppy"]:nth-of-type(n):after,a[href="/quinn"]:nth-of-type(n):after,a[href="/rammus"]:nth-of-type(n):after,a[href="/renekton"]:nth-of-type(n):after,a[href="/rengar"]:nth-of-type(n):after,a[href="/riven"]:nth-of-type(n):after,a[href="/rumble"]:nth-of-type(n):after,a[href="/ryze"]:nth-of-type(n):after,a[href="/sejuani"]:nth-of-type(n):after,a[href="/shaco"]:nth-of-type(n):after,a[href="/shen"]:nth-of-type(n):after,a[href="/shyvana"]:nth-of-type(n):after,a[href="/singed"]:nth-of-type(n):after,a[href="/sion"]:nth-of-type(n):after,a[href="/sivir"]:nth-of-type(n):after,a[href="/skarner"]:nth-of-type(n):after,a[href="/sona"]:nth-of-type(n):after,a[href="/soraka"]:nth-of-type(n):after,a[href="/swain"]:nth-of-type(n):after,a[href="/syndra"]:nth-of-type(n):after,a[href="/talon"]:nth-of-type(n):after,a[href="/taric"]:nth-of-type(n):after,a[href="/teemo"]:nth-of-type(n):after,a[href="/thresh"]:nth-of-type(n):after,a[href="/tristana"]:nth-of-type(n):after,a[href="/trundle"]:nth-of-type(n):after,a[href="/tryndamere"]:nth-of-type(n):after,a[href="/twistedfate"]:nth-of-type(n):after,a[href="/twitch"]:nth-of-type(n):after,a[href="/udyr"]:nth-of-type(n):after,a[href="/urgot"]:nth-of-type(n):after,a[href="/varus"]:nth-of-type(n):after,a[href="/vayne"]:nth-of-type(n):after,a[href="/veigar"]:nth-of-type(n):after,a[href="/vi"]:nth-of-type(n):after,a[href="/viktor"]:nth-of-type(n):after,a[href="/vladimir"]:nth-of-type(n):after,a[href="/volibear"]:nth-of-type(n):after,a[href="/warwick"]:nth-of-type(n):after,a[href="/xerath"]:nth-of-type(n):after,a[href="/xinzhao"]:nth-of-type(n):after,a[href="/yasuo"]:nth-of-type(n):after,a[href="/yorick"]:nth-of-type(n):after,a[href="/zac"]:nth-of-type(n):after,a[href="/zed"]:nth-of-type(n):after,a[href="/ziggs"]:nth-of-type(n):after,a[href="/zilean"]:nth-of-type(n):after,a[href="/zyra"]:nth-of-type(n):after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url(http://e.thumbs.redditmedia.com/68-SZccC42SzkLbp.png) no-repeat scroll -96px -176px transparent;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: default!important
+}
+
+a[href="/aatrox"]:nth-of-type(n):after {
+    background-position: 0px -0px
+}
+
+a[href="/ahri"]:nth-of-type(n):after {
+    background-position: -16px -0px
+}
+
+a[href="/akali"]:nth-of-type(n):after {
+    background-position: -32px -0px
+}
+
+a[href="/alistar"]:nth-of-type(n):after {
+    background-position: -48px -0px
+}
+
+a[href="/amumu"]:nth-of-type(n):after {
+    background-position: -64px -0px
+}
+
+a[href="/anivia"]:nth-of-type(n):after {
+    background-position: -80px -0px
+}
+
+a[href="/annie"]:nth-of-type(n):after {
+    background-position: -96px -0px
+}
+
+a[href="/ashe"]:nth-of-type(n):after {
+    background-position: -112px -0px
+}
+
+a[href="/blitzcrank"]:nth-of-type(n):after {
+    background-position: -128px -0px
+}
+
+a[href="/brand"]:nth-of-type(n):after {
+    background-position: -144px -0px
+}
+
+a[href="/caitlyn"]:nth-of-type(n):after {
+    background-position: 0px -16px
+}
+
+a[href="/cassiopeia"]:nth-of-type(n):after {
+    background-position: -16px -16px
+}
+
+a[href="/chogath"]:nth-of-type(n):after {
+    background-position: -32px -16px
+}
+
+a[href="/corki"]:nth-of-type(n):after {
+    background-position: -48px -16px
+}
+
+a[href="/darius"]:nth-of-type(n):after {
+    background-position: -64px -16px
+}
+
+a[href="/diana"]:nth-of-type(n):after {
+    background-position: -80px -16px
+}
+
+a[href="/drmundo"]:nth-of-type(n):after {
+    background-position: -96px -16px
+}
+
+a[href="/draven"]:nth-of-type(n):after {
+    background-position: -112px -16px
+}
+
+a[href="/elise"]:nth-of-type(n):after {
+    background-position: -128px -16px
+}
+
+a[href="/evelynn"]:nth-of-type(n):after {
+    background-position: -144px -16px
+}
+
+a[href="/ezreal"]:nth-of-type(n):after {
+    background-position: 0px -32px
+}
+
+a[href="/fiddlesticks"]:nth-of-type(n):after {
+    background-position: -16px -32px
+}
+
+a[href="/fiora"]:nth-of-type(n):after {
+    background-position: -32px -32px
+}
+
+a[href="/fizz"]:nth-of-type(n):after {
+    background-position: -48px -32px
+}
+
+a[href="/galio"]:nth-of-type(n):after {
+    background-position: -64px -32px
+}
+
+a[href="/gangplank"]:nth-of-type(n):after {
+    background-position: -80px -32px
+}
+
+a[href="/garen"]:nth-of-type(n):after {
+    background-position: -96px -32px
+}
+
+a[href="/gragas"]:nth-of-type(n):after {
+    background-position: -112px -32px
+}
+
+a[href="/graves"]:nth-of-type(n):after {
+    background-position: -128px -32px
+}
+
+a[href="/hecarim"]:nth-of-type(n):after {
+    background-position: -144px -32px
+}
+
+a[href="/heimerdinger"]:nth-of-type(n):after {
+    background-position: 0px -48px
+}
+
+a[href="/irelia"]:nth-of-type(n):after {
+    background-position: -16px -48px
+}
+
+a[href="/janna"]:nth-of-type(n):after {
+    background-position: -32px -48px
+}
+
+a[href="/jarvaniv"]:nth-of-type(n):after {
+    background-position: -48px -48px
+}
+
+a[href="/jax"]:nth-of-type(n):after {
+    background-position: -64px -48px
+}
+
+a[href="/jayce"]:nth-of-type(n):after {
+    background-position: -80px -48px
+}
+
+a[href="/jinx"]:nth-of-type(n):after {
+    background-position: -96px -48px
+}
+
+a[href="/karma"]:nth-of-type(n):after {
+    background-position: -112px -48px
+}
+
+a[href="/karthus"]:nth-of-type(n):after {
+    background-position: -128px -48px
+}
+
+a[href="/kassadin"]:nth-of-type(n):after {
+    background-position: -144px -48px
+}
+
+a[href="/katarina"]:nth-of-type(n):after {
+    background-position: 0px -64px
+}
+
+a[href="/kayle"]:nth-of-type(n):after {
+    background-position: -16px -64px
+}
+
+a[href="/kennen"]:nth-of-type(n):after {
+    background-position: -32px -64px
+}
+
+a[href="/khazix"]:nth-of-type(n):after {
+    background-position: -48px -64px
+}
+
+a[href="/kogmaw"]:nth-of-type(n):after {
+    background-position: -64px -64px
+}
+
+a[href="/leblanc"]:nth-of-type(n):after {
+    background-position: -80px -64px
+}
+
+a[href="/leesin"]:nth-of-type(n):after {
+    background-position: -96px -64px
+}
+
+a[href="/leona"]:nth-of-type(n):after {
+    background-position: -112px -64px
+}
+
+a[href="/lissandra"]:nth-of-type(n):after {
+    background-position: -128px -64px
+}
+
+a[href="/lucian"]:nth-of-type(n):after {
+    background-position: -144px -64px
+}
+
+a[href="/lulu"]:nth-of-type(n):after {
+    background-position: 0px -80px
+}
+
+a[href="/lux"]:nth-of-type(n):after {
+    background-position: -16px -80px
+}
+
+a[href="/malphite"]:nth-of-type(n):after {
+    background-position: -32px -80px
+}
+
+a[href="/malzahar"]:nth-of-type(n):after {
+    background-position: -48px -80px
+}
+
+a[href="/maokai"]:nth-of-type(n):after {
+    background-position: -64px -80px
+}
+
+a[href="/masteryi"]:nth-of-type(n):after {
+    background-position: -80px -80px
+}
+
+a[href="/missfortune"]:nth-of-type(n):after {
+    background-position: -96px -80px
+}
+
+a[href="/wukong"]:nth-of-type(n):after {
+    background-position: -112px -80px
+}
+
+a[href="/mordekaiser"]:nth-of-type(n):after {
+    background-position: -128px -80px
+}
+
+a[href="/morgana"]:nth-of-type(n):after {
+    background-position: -144px -80px
+}
+
+a[href="/nami"]:nth-of-type(n):after {
+    background-position: 0px -96px
+}
+
+a[href="/nasus"]:nth-of-type(n):after {
+    background-position: -16px -96px
+}
+
+a[href="/nautilus"]:nth-of-type(n):after {
+    background-position: -32px -96px
+}
+
+a[href="/nidalee"]:nth-of-type(n):after {
+    background-position: -48px -96px
+}
+
+a[href="/nocturne"]:nth-of-type(n):after {
+    background-position: -64px -96px
+}
+
+a[href="/nunu"]:nth-of-type(n):after {
+    background-position: -80px -96px
+}
+
+a[href="/olaf"]:nth-of-type(n):after {
+    background-position: -96px -96px
+}
+
+a[href="/orianna"]:nth-of-type(n):after {
+    background-position: -112px -96px
+}
+
+a[href="/pantheon"]:nth-of-type(n):after {
+    background-position: -128px -96px
+}
+
+a[href="/poppy"]:nth-of-type(n):after {
+    background-position: -144px -96px
+}
+
+a[href="/quinn"]:nth-of-type(n):after {
+    background-position: 0px -112px
+}
+
+a[href="/rammus"]:nth-of-type(n):after {
+    background-position: -16px -112px
+}
+
+a[href="/renekton"]:nth-of-type(n):after {
+    background-position: -32px -112px
+}
+
+a[href="/rengar"]:nth-of-type(n):after {
+    background-position: -48px -112px
+}
+
+a[href="/riven"]:nth-of-type(n):after {
+    background-position: -64px -112px
+}
+
+a[href="/rumble"]:nth-of-type(n):after {
+    background-position: -80px -112px
+}
+
+a[href="/ryze"]:nth-of-type(n):after {
+    background-position: -96px -112px
+}
+
+a[href="/sejuani"]:nth-of-type(n):after {
+    background-position: -112px -112px
+}
+
+a[href="/shaco"]:nth-of-type(n):after {
+    background-position: -128px -112px
+}
+
+a[href="/shen"]:nth-of-type(n):after {
+    background-position: -144px -112px
+}
+
+a[href="/shyvana"]:nth-of-type(n):after {
+    background-position: 0px -128px
+}
+
+a[href="/singed"]:nth-of-type(n):after {
+    background-position: -16px -128px
+}
+
+a[href="/sion"]:nth-of-type(n):after {
+    background-position: -32px -128px
+}
+
+a[href="/sivir"]:nth-of-type(n):after {
+    background-position: -48px -128px
+}
+
+a[href="/skarner"]:nth-of-type(n):after {
+    background-position: -64px -128px
+}
+
+a[href="/sona"]:nth-of-type(n):after {
+    background-position: -80px -128px
+}
+
+a[href="/soraka"]:nth-of-type(n):after {
+    background-position: -96px -128px
+}
+
+a[href="/swain"]:nth-of-type(n):after {
+    background-position: -112px -128px
+}
+
+a[href="/syndra"]:nth-of-type(n):after {
+    background-position: -128px -128px
+}
+
+a[href="/talon"]:nth-of-type(n):after {
+    background-position: -144px -128px
+}
+
+a[href="/taric"]:nth-of-type(n):after {
+    background-position: 0px -144px
+}
+
+a[href="/teemo"]:nth-of-type(n):after {
+    background-position: -16px -144px
+}
+
+a[href="/thresh"]:nth-of-type(n):after {
+    background-position: -32px -144px
+}
+
+a[href="/tristana"]:nth-of-type(n):after {
+    background-position: -48px -144px
+}
+
+a[href="/trundle"]:nth-of-type(n):after {
+    background-position: -64px -144px
+}
+
+a[href="/tryndamere"]:nth-of-type(n):after {
+    background-position: -80px -144px
+}
+
+a[href="/twistedfate"]:nth-of-type(n):after {
+    background-position: -96px -144px
+}
+
+a[href="/twitch"]:nth-of-type(n):after {
+    background-position: -112px -144px
+}
+
+a[href="/udyr"]:nth-of-type(n):after {
+    background-position: -128px -144px
+}
+
+a[href="/urgot"]:nth-of-type(n):after {
+    background-position: -144px -144px
+}
+
+a[href="/varus"]:nth-of-type(n):after {
+    background-position: 0px -160px
+}
+
+a[href="/vayne"]:nth-of-type(n):after {
+    background-position: -16px -160px
+}
+
+a[href="/veigar"]:nth-of-type(n):after {
+    background-position: -32px -160px
+}
+
+a[href="/vi"]:nth-of-type(n):after {
+    background-position: -48px -160px
+}
+
+a[href="/viktor"]:nth-of-type(n):after {
+    background-position: -64px -160px
+}
+
+a[href="/vladimir"]:nth-of-type(n):after {
+    background-position: -80px -160px
+}
+
+a[href="/volibear"]:nth-of-type(n):after {
+    background-position: -96px -160px
+}
+
+a[href="/warwick"]:nth-of-type(n):after {
+    background-position: -112px -160px
+}
+
+a[href="/xerath"]:nth-of-type(n):after {
+    background-position: -128px -160px
+}
+
+a[href="/xinzhao"]:nth-of-type(n):after {
+    background-position: -144px -160px
+}
+
+a[href="/yasuo"]:nth-of-type(n):after {
+    background-position: 0px -176px
+}
+
+a[href="/yorick"]:nth-of-type(n):after {
+    background-position: -16px -176px
+}
+
+a[href="/zac"]:nth-of-type(n):after {
+    background-position: -32px -176px
+}
+
+a[href="/zed"]:nth-of-type(n):after {
+    background-position: -48px -176px
+}
+
+a[href="/ziggs"]:nth-of-type(n):after {
+    background-position: -64px -176px
+}
+
+a[href="/zilean"]:nth-of-type(n):after {
+    background-position: -80px -176px
+}
+
+a[href="/zyra"]:nth-of-type(n):after {
+    background-position: -96px -176px
+}
