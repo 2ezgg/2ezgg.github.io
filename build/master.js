@@ -470,29 +470,7 @@
 	var streamChannels = function(){
 		this.streamers = JSON.parse(localStorage.getItem('streamers'));
 
-		var defaultStreams = [
-								{name:'riotgames', service:'twitch'},
-								{name:'ongamenet', service: 'twitch'},
-								{name:'tsm_dyrus', service:'twitch'},
-								{name:'tsm_theoddone', service:'twitch'},
-								{name:'phantoml0rd', service:'twitch'},
-								{name:'tsm_bjergsen', service:'twitch'},
-								{name:'tsm_wildturtle', service:'twitch'}, 
-								{name:'scarra', service:'twitch'},
-								{name:'voyboy', service:'twitch'},
-								{name:'xpeke', service:'twitch'},
-								{name:'froggen', service:'twitch'},
-								{name:'nightblue3', service:'twitch'},
-								{name:'ocelote', service:'twitch'},
-								{name:'mushisgosu', service:'twitch'},
-								{name:'trick2g', service:'twitch'},
-								{name:'alexich', service:'twitch'},
-								{name:'robertxlee', service:'twitch'},
-								{name:'wingsofdeath', service:'twitch'},
-								{name:'sirhcez', service:'twitch'},
-								{name:'crs_saintvicious', service:'twitch'},
-								{name:'2125982474001', service:'azubu'}
-							];
+		var defaultStreams = [];
 
 		if(!this.streamers){
 			localStorage.setItem('streamers', JSON.stringify(defaultStreams));
