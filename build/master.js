@@ -310,6 +310,7 @@
 		{name:"varus", xpos:-0,ypos:-360},
 		{name:"vayne", xpos:-36,ypos:-360},
 		{name:"veigar", xpos:-72,ypos:-360},
+		{name:"vel'koz", xpos:-252,ypos:-396},
 		{name:"vi", xpos:-108,ypos:-360},
 		{name:"viktor", xpos:-144,ypos:-360},
 		{name:"vladimir", xpos:-180,ypos:-360},
@@ -1342,6 +1343,7 @@
 			$('#sidebar-content').css({'background-color':'#262729','position':'relative'});
 			$('#main-content, #iframe-holder').css('margin-left','0px');
 			$('.nav-expand').removeAttr('style').addClass('nav-expand-mobile');
+			$('.champtionbuttons').css('padding-bottom','30px');
 
 		} else {
 			var $sidebar = $('#sidebar');
@@ -1352,7 +1354,8 @@
 			$sidebar.css({'position':'', 'width':'', 'height':''});
 			$('#sidebar-content, .nav-expand').removeAttr('style');
 			$('#iframe-holder, #main-content').css('margin-left',' ');
-			
+			$('.championbuttons').css('padding-bottom','0px');
+
 			if($sidebar.css('display') == 'none'){
 				$('#main-content, #iframe-holder').css('margin-left','0px');
 				$('.nav-expand').css('left','0px');
@@ -1369,6 +1372,8 @@ $(function(){
 	var streams = new streamChannels();
 	var reddit = new RedditLol();
 	var web = new WebInterface();
+
+	web.registerScreen();
 ////////
 
 // TAB SYSTEM ///////////////////
@@ -2394,19 +2399,16 @@ $(function(){
 	$(".iframe-capable").on('click', function(e){
 
 		if(e.which !== 2){
-			if(detectmob()){
-				window.location.replace($(this).attr('href'));
+			if(!detectmob()){
+				$("#main-content").fadeOut();
+
+				var url = $(this).attr('href');
+				var dataName = $(this).data('name');
+
+				web.makeIframe(url);
+
+				history.pushState("", "", "#" + dataName);
 				e.preventDefault();
-			} else{
-			$("#main-content").fadeOut();
-
-			var url = $(this).attr('href');
-			var dataName = $(this).data('name');
-
-			web.makeIframe(url);
-
-			history.pushState("", "", "#" + dataName);
-			e.preventDefault();
 			}
 		}
 	});
@@ -2424,7 +2426,7 @@ $(function(){
 //////// General Global Events  ///////
 ///////////////////////////////////////
 
-	web.registerScreen();
+	
 	$( window ).resize(function() {
 		web.changeIframeHeight();
 		web.changeTwitchDimensions();
