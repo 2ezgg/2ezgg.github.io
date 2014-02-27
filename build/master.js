@@ -1,4 +1,3 @@
-
 	var appSettings = [
 		{settingType:'redditNewTab', settingChoice: 'off'},
 		{settingType:'twitchVisualNotifications', settingChoice: 'on'},
@@ -384,7 +383,7 @@
 	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://www.reignofgaming.net/news.rss'),
 	        dataType: 'json',
 	        error: function(){
-	            console.log('Unable to load feed, Incorrect path or invalid feed');
+	            console.log('Unable to load reign of gaming feed');
 	        },
 	        success: function(data){
 	            var values = data.responseData.feed.entries;
@@ -413,7 +412,7 @@
 	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://www.ongamers.com/league-of-legends/6000-2/rss/'),
 	        dataType: 'json',
 	        error: function(){
-	            console.log('Unable to load feed, Incorrect path or invalid feed');
+	            console.log('Unable to to load onGamers feed.');
 	        },
 	        success: function(data){
 	        	// do this area and create variable in initiation area
@@ -442,7 +441,7 @@
 	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://na.leagueoflegends.com/en/rss.xml'),
 	        dataType: 'json',
 	        error: function(){
-	            console.log('Unable to load feed, Incorrect path or invalid feed');
+	            console.log('Unable to load LeagueOfLegends feed.');
 	        },
 	        success: function(data){
 	            var values = data.responseData.feed.entries;
@@ -495,6 +494,8 @@
 		this.currentStreamDisplayed = null;
 		this.currentStreamViewers = null;
 		this.streamFunctionCount = 0;
+
+		this.noStreamersAdded = (this.streamers.length == 0)?true:false;
 		//
 	}
 
@@ -540,7 +541,7 @@
 				}
 
 				localStorage.setItem('streamers', JSON.stringify(this.streamers));
-
+				this.noStreamersAdded = (this.streamers.length == 0)?true:false;
 				return true;
 			}
 		}
@@ -554,18 +555,25 @@
 		var twitchDeferred = $.Deferred();
 		var self = this;
 		var twitchParams = '';
-		for (var i=0; i<this.streamers.length; i++){
-			if(this.streamers[i].service == 'twitch'){
-				twitchParams += this.streamers[i].name + ',';
+
+		if(this.noStreamersAdded){
+			localStorage.setItem('twitchStreamersOnline', JSON.stringify('[]'));
+			localStorage.setItem('twitchStreamersOffline', JSON.stringify('[]'));
+			twitchDeferred.resolve();
+			return twitchDeferred.promise();
+		} else{
+			for (var i=0; i<this.streamers.length; i++){
+				if(this.streamers[i].service == 'twitch'){
+					twitchParams += this.streamers[i].name + ',';
+				}
 			}
-		}
 
 				
 			$.ajax({
 				dataType:'jsonp',
 				url:'https://api.twitch.tv/kraken/streams?channel='+twitchParams,
 				error: function(){
-	            	console.log('Unable to load feed, Incorrect path or invalid feed');
+	            	console.log('Unable to twitch favourites api');
 	        	},
 				success: function(data){
 					self.twitchStreamersOnline = [];
@@ -592,7 +600,8 @@
 
 			});
 
-		return twitchDeferred.promise();	
+		return twitchDeferred.promise();
+		}	
 	}
 
 
@@ -604,7 +613,7 @@
 				dataType:'jsonp',
 				url:'http://liveleaguestream.com/json.php?method=getAll&jsoncallback=?',
 				error: function(){
-	            	console.log('Unable to load feed, Incorrect path or invalid feed');
+	            	console.log('Unable to load azubu api');
 	        	},
 				success: function(data){
 					var onlineCount = 0;
@@ -690,7 +699,7 @@
 				dataType:'jsonp',
 				url:'https://api.twitch.tv/kraken/search/streams?q=%22league%20of%20legends%22&limit='+onlineLimit,
 				error: function(){
-	            	console.log('Unable to load feed, Incorrect path or invalid feed');
+	            	console.log('Unable to load top twitch streamers feed.');
 	        	},
 				success: function(data){
 					self.topTwitchStreamersOnline = [];
@@ -778,7 +787,7 @@
 			}
 
 			localStorage.setItem('streamers', JSON.stringify(this.streamers));
-			
+			this.noStreamersAdded = (this.streamers.length == 0)?true:false;
 			return true;
 		}
 
@@ -1009,7 +1018,7 @@
 				dataType:'json',
 				url: ajaxUrl,
 				error: function(){
-	            	console.log('Unable to load feed, Incorrect path or invalid feed');
+	            	console.log('Unable to load reddit api');
 	        	},
 				success: function(data){
 					var nodes = data.data.children;
