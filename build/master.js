@@ -805,7 +805,7 @@
 		var self = this;
 
 			for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
-				if (self.topTwitchStreamersOnline[i].name == 'riotgames'){
+				if (self.topTwitchStreamersOnline[i].name == 'riotgames' && appSettings[3].settingChoice == 'on'){
 					var riotTemplate = Handlebars.compile($('#riot-online-message-template').html());
 					$("#riot-online").html(riotTemplate());
 					$('#top-header-message').css('padding','14px');
