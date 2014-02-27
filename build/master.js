@@ -1837,6 +1837,9 @@ $(function(){
 		var $this = $(this);
 		streams.pushTwitchStreams($this.data('id'), $this.data('type'));
 		web.changeTwitchDimensions();
+		$('body,html').animate({
+			scrollTop: 0
+		}, 400);
 	});
 
 	$twitchHolder.on('click', '.add-top-champ', function(){
