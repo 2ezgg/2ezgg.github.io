@@ -31,9 +31,9 @@
 
 						{{else}}
 						<span class="notify-title" ><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}" target="_blank">{{name}}</a> is online.</span>
-										
+
 						{{/if}}
-						
+
 					<span class="close-favourite">[x]</span>
 					</div>
 	            	{{/each}}
@@ -115,7 +115,7 @@
 						<option value="las">LAS</option>
 					</select>
 				</div>
-			
+
 
 				<div class="namebuttons holder half-buttons"  style="padding-bottom:22px">
 					<ul>
@@ -143,13 +143,13 @@
 								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing Now
 							</li>
 						</a>
-						
+
 						<a class="nav-button website-name iframe-capable" id="kassad" data-name="kassad" data-url="http://quickfind.kassad.in/" target="_blank" href="http://quickfind.kassad.in/">
 							<li>
 								<span class="lol-image" style="background-position:-32px -16px;"></span>Kassad.In
 							</li>
 						</a>
-						
+
 					</ul>
 				</div>
 
@@ -175,9 +175,9 @@
 						</a>
 						<a class="nav-button website-champ iframe-capable" id="tsm" data-name="tsm" data-url="http://www.solomid.net" target="_blank" href="http://www.solomid.net">
 							<li>
-								
+
 								<span class="lol-image iframe-capable" style="background-position:-16px -32px;"></span>SoloMid
-								
+
 							</li>
 						</a>
 						<a class="nav-button website-champ iframe-capable" id="moba" data-name="moba" data-url="http://www.mobafire.com" target="_blank" href="http://www.mobafire.com">
@@ -297,7 +297,7 @@
 					</tr>
 				</table>
 				<input type="submit" class="settings-update" value="Update Settings">
-				
+
 				<p style="margin-top:40px;margin-bottom:20px">
 					Find a website breaking bug? Or have a suggestion? Head over to <a href="#">github</a>
 				</p>
@@ -334,7 +334,7 @@
 				<div id="normal-reddit-options" >
 					<div id="reddit-subreddits">
 						<a href="#"><span class="subreddit-setting subreddit-leagueoflegends setting-chosen" data-subreddit="leagueoflegends" data-type="hot">r/LeagueOfLegends</span>
-						
+
 						<span class="subreddit-setting subreddit-loleventvods" data-subreddit="loleventvods" data-type="hot">r/LoLeventVoDs</span>
 						</a>				
 
@@ -353,18 +353,18 @@
 						</div>
 					</div>
 				</div>
-				
+
 
 				<script id="reddit-template" type="text/x-handlebars-template">
 					<div class="reddit-thread clear">
 						<span class="reddit-rank">{{redditRank}}</span>
-						
+
 						<span class="reddit-score">{{score}}</span>
-						
+
 						<a href="{{url}}"><span class="reddit-thumb clear"><img src="{{thumbnail}}" alt></span></a>
-						
+
 						<div class="reddit-written clear">
-							
+
 								<a href="{{url}}" class="reddit-title">{{{title}}}</a>
 								<span class="reddit-domain">({{domain}})</span>
 
@@ -375,7 +375,7 @@
 									{{#if videoEmbed}}
 										<span class="reddit-show-more original-state-media"></span>
 									{{/if}}
-								
+
 									<div class="reddit-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" style="font-weight:bold">{{author}}</a>
 										{{#if authorFlair}}
 											<span class="flair flair-{{authorFlair}}" title=""></span>
@@ -383,7 +383,7 @@
 									</div>
 
 									<div class="reddit-comments"><a href="http://www.reddit.com{{permalink}}">{{commentsTotal}} Comments</a></div>
-									
+
 									<div class="reddit-expand">
 										{{#if content.length}}
 											<div class="decode">{{{content}}}</div>
@@ -394,7 +394,7 @@
 										{{/if}}
 
 									</div>
-									
+
 								</div>
 						</div>	
 					</div>
@@ -428,7 +428,7 @@
 								<option value="controversial" data-type="controversial" data-duration="">Controversial</option>
 							</select>
 						</div>
-					
+
 						<div id="normal-youtube-options" >
 
 							<span class="hot-youtube youtube-setting setting-chosen" data-type="hot" data-duration="">Hot</span>
@@ -444,9 +444,9 @@
 						</div>
 
 					</div>
-				
+
 				<script id="youtube-template" type="text/x-handlebars-template">
-					
+
 						<div class="youtube-thread clear">
 							<div class="top-youtube clear">
 								<span class="youtube-rank">{{videoRank}}</span>
@@ -461,7 +461,7 @@
 							<div class="youtube-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" target="_blank" style="font-weight:bold">{{author}}</a>
 							</div>
 						</div>
-					
+
 				</script>
 				<div id="youtube-threads">
 				</div>
@@ -476,7 +476,7 @@
 			<div id="twitch-content">
 				<script id="twitch-template" type="text/x-handlebars-template">
 						<div id="twitch-user-{{name}}" style="padding-left: 30px;padding-top: 10px;">
-							
+
 							<div class="twitch-stream-info">
 								<span class="twitch-user-name"><a href="http://www.twitch.tv/{{name}}">
 								{{displayName}}</a></span>
@@ -484,7 +484,7 @@
 							</div>
 
 							<div class="twitch-video-chat" >
-								
+
 								<div class="twitch-video" style="width:600px;height:250px">
 								<object type="application/x-shockwave-flash" height="100%" width="100%" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel={{name}}" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param class="twitch-player" name="flashvars" value="hostname=www.twitch.tv&channel={{name}}&auto_play=false&start_volume=25" /></object>
 								</div>
@@ -495,9 +495,9 @@
 								</div>
 
 							 </div>
-							
+
 						</div>
-					
+
 				</script>
 
 				<div id="twitch-online-content"></div>
@@ -510,11 +510,11 @@
 							{{/each}}
 						</script>
 						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">	
-						
+
 								<div class="twitch-name"><div><img src="{{thumbnailUrl}}" class="view-this-stream" data-id="{{id}}" data-type="top" style="width:100%"/></div><div class="twitch-user-online"></div><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span><span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
-							
+
 						</script>
-						
+
 						<script id="azubu-users-online-template" type="text/x-handlebars-template">	
 							{{#each this}}
 								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
@@ -522,15 +522,15 @@
 						</script>
 
 						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">	
-							
+
 								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
-							
+
 						</script>
 
 						<script id="twitch-add-user-online-template" type="text/x-handlebars-template">	
-							
+
 								<div class="twitch-name">{{name}}<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
-							
+
 						</script>
 						<script id="twitch-users-offline-template" type="text/x-handlebars-template">	
 							{{#each this}}
@@ -570,7 +570,7 @@
 
 							{{/each}}
 						</script>
-			
+
 					<div style="position: relative;padding-left: 25px;" class="clear">
 
 						<div style="margin-top:10px;margin-bottom:10px;text-transform:none">
@@ -598,18 +598,18 @@
 				 		<div id="stream-offline-list" style="margin-right:1%">
 							<div class="streamers-header header-offline">Favourites Offline</div>
 							<div id="twitch-list-offline">	</div>
-							
+
 							<div id="azubu-list-offline">	</div>	
 				 		</div>
 
 		  			</div>
 
 				</div>
-		
+
 
 			</div>
 		</div>
-		
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 		<script src="assets/js/retina.js"></script>
 		<script src="assets/js/perfect-scrollbar.js"></script>
@@ -630,4 +630,3 @@
 		</script>
 	</body>
 </html>
-
