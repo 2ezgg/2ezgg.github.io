@@ -623,6 +623,9 @@ a.reddit-title:visited {
 .view-this-stream {
   cursor: pointer; }
 
+.favourited-streamer, .viewer-numbers, .twitch-viewers {
+  cursor: default; }
+
 .header-top-online {
   border-top: 1px solid #409998;
   border-bottom: 1px solid #3a8a87;

@@ -1775,6 +1775,8 @@ $(function(){
 			}
 			web.changeTwitchDimensions();
 			$('.tooltip-left').tipsy({gravity: 'e'});
+			$('.tooltip-viewers').tipsy({gravity: 'w'});
+			$('.tooltip-center').tipsy({gravity: 'n'});
 			
 		} else {
 			streams.totalStreamersOnline = 0;
@@ -1800,6 +1802,8 @@ $(function(){
 					streams.pushTwitchStreams();
 				}
 				$('.tooltip-left').tipsy({gravity: 'e'});
+				$('.tooltip-viewers').tipsy({gravity: 'w'});
+				$('.tooltip-center').tipsy({gravity: 'n'});
 
 				streams.getAzubuStreamers().done(function() {
 					streams.pushAzubuStreamers();
@@ -1807,6 +1811,8 @@ $(function(){
 						$(".twitch-online").css( "display", "inline" ).text(streams.totalStreamersOnline);
 					}
 					$('.tooltip-left').tipsy({gravity: 'e'});
+					$('.tooltip-viewers').tipsy({gravity: 'w'});
+					$('.tooltip-center').tipsy({gravity: 'n'});
 				});
 
 				streams.topTwitchOnline().done(function() {
@@ -1814,7 +1820,9 @@ $(function(){
 					if(appSettings[3].settingChoice=='on'){
 						streams.pushStreamsHeader();
 					}
-					$('.tooltip-left').tipsy({gravity: 'e'});	
+					$('.tooltip-left').tipsy({gravity: 'e'});
+					$('.tooltip-viewers').tipsy({gravity: 'w'});
+					$('.tooltip-center').tipsy({gravity: 'n'});	
 				});
 
 				if(streams.totalStreamersOnline>0){
@@ -1852,7 +1860,7 @@ $(function(){
 			
 			streams.pushTwitchStreams($this.data('id'), 'top');
 			web.changeTwitchDimensions();
-			
+
 			$('body,html').animate({
 				scrollTop: 0
 			}, 600);

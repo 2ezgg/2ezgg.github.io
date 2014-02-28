@@ -480,7 +480,7 @@
 							<div class="twitch-stream-info">
 								<span class="twitch-user-name"><a href="http://www.twitch.tv/{{name}}">
 								{{displayName}}</a></span>
-								<span class="twitch-viewers">{{viewTotal}}</span>
+								<span class="twitch-viewers tooltip-viewers" title="Viewers">{{viewTotal}}</span>
 							</div>
 
 							<div class="twitch-video-chat" >
@@ -506,50 +506,88 @@
 				<div class="twitch-sidebar clear">
 						<script id="twitch-users-online-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name"><div><img src="{{thumbnailUrl}}" class="view-this-stream" data-id="{{id}}" data-type="favourite" style="width:100%"/></div><div class="twitch-user-online"></div><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span><span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name">
+
+									<div>
+										<img src="{{thumbnailUrl}}" class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="favourite" style="width:100%"/>
+									</div>
+									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
+									<span class="viewer-numbers tooltip-viewers" title="Viewers">{{viewTotal}}</span>
+									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
+								</div>
+
 							{{/each}}
 						</script>
 						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">	
 
-								<div class="twitch-name"><div><img src="{{thumbnailUrl}}" class="view-this-stream" data-id="{{id}}" data-type="top" style="width:100%"/></div><div class="twitch-user-online"></div><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span><span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name">
+									<div>
+										<img src="{{thumbnailUrl}}" class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="top" style="width:100%" />
+									</div>
+									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
+									<span class="viewer-numbers tooltip-viewers" title="Viewers" >{{viewTotal}}</span>
+									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
+								</div>
 
 						</script>
 
 						<script id="azubu-users-online-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name">
+									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
+									</a>
+									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]
+									</span>
+								</div>
 							{{/each}}
 						</script>
 
 						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">	
 
-								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a><span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name">
+									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
+									</a>
+									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
+									</div>
 
 						</script>
 
 						<script id="twitch-add-user-online-template" type="text/x-handlebars-template">	
 
-								<div class="twitch-name">{{name}}<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name">{{name}}
+									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
+								</div>
 
 						</script>
 						<script id="twitch-users-offline-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name" style="border-right: 1px solid black"><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name" style="border-right: 1px solid black">
+									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
+									<span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
+								</div>
 							{{/each}}
 						</script>
 						<script id="azubu-users-offline-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name" style="border-right: 1px solid black"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">{{name}}</a><span class="remove-twitch tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span></div>
+								<div class="twitch-name" style="border-right: 1px solid black">
+									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">{{name}}</a>
+									<span class="remove-twitch tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
+								</div>
 							{{/each}}
 						</script>
 						<script id="twitch-top-online-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name"><img src="{{thumbnailUrl}}"  class="view-this-stream" data-id="{{id}}" data-type="top" style="width:100%"/><a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a><span class="viewer-numbers">{{viewTotal}}</span>
+								<div class="twitch-name">
+									<img src="{{thumbnailUrl}}"  class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="top" style="width:100%"/>
+									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
+									<span class="viewer-numbers tooltip-viewers" title="viewers">{{viewTotal}}</span>
 									{{#if isAlreadyAdded}}
 										<span class="favourited-streamer tooltip-left" title="You have this streamer favourited">&#60;3</span>	
 									{{else}}
 										<a class="add-top-champ tooltip-left" data-id="{{id}}" data-name="{{name}}" title="Add streamer to favourites">
-										[+]
+											[+]
 										</a>
 									{{/if}}
 								</div>
@@ -558,7 +596,9 @@
 						</script>
 						<script id="azubu-top-online-template" type="text/x-handlebars-template">	
 							{{#each this}}
-								<div class="twitch-name"><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}"><img src="assets/img/azubu.jpg" style="width:100%"/>{{name}}</a>
+								<div class="twitch-name">
+								<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+								<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}</a>
 									{{#if isAlreadyAdded}}
 										<span class="favourited-streamer tooltip-left"  title="You have this streamer favourited">&#60;3</span>	
 									{{else}}
