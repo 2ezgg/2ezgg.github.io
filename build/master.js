@@ -1156,7 +1156,7 @@
 					}
 
 					if(choiceOfFunction != 'youtube'){
-						for(var t = 0+self.previousRedditLength; t < self.redditThreads.length; t++){
+						for(var t = 0; t < self.redditThreads.length; t++){
 							if(self.redditThreads[t].thumbnail == 'self' || self.redditThreads[t].thumbnail == 'default'){
 								self.redditThreads[t].thumbnail = 'assets/img/default.png';
 							} 
