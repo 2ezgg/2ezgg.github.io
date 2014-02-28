@@ -701,7 +701,9 @@ a.reddit-title:visited {
 
 .favourited-streamer {
   color: #fff17a;
-  float: right; }
+  position: absolute;
+  bottom: 15px;
+  right: 8px; }
 
 .twitch-video-chat {
   margin-top: 15px;
