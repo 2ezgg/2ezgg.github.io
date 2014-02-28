@@ -557,8 +557,8 @@
 		var twitchParams = '';
 
 		if(this.noStreamersAdded){
-			localStorage.setItem('twitchStreamersOnline', JSON.stringify('[]'));
-			localStorage.setItem('twitchStreamersOffline', JSON.stringify('[]'));
+			localStorage.setItem('twitchStreamersOnline', '[]');
+			localStorage.setItem('twitchStreamersOffline', '[]');
 			twitchDeferred.resolve();
 			return twitchDeferred.promise();
 		} else{
