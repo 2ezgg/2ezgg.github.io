@@ -1441,7 +1441,7 @@ $(function(){
 					reddit.redditThreads = JSON.parse(localStorage.getItem('redditThreads'));
 					reddit.nextPageReddit = localStorage.getItem('nextPage');
 
-					var yScroll = localStorage.getItem('yScroll');
+					var yScroll = parseInt(localStorage.getItem('yScroll'));
 					reddit.currentRedditSettings = JSON.parse(localStorage.getItem('redditSettings'));
 					reddit.mainPage(true);
 					
@@ -1450,7 +1450,7 @@ $(function(){
 					// time outs are fo weird bug fix that makes page lag
 					setTimeout(function(){
 				 		$(window).scrollTop(yScroll);
-				 	},100);
+				 	},200);
 
 				 	setTimeout(function(){
 				 		history.pushState("", "", "#");
@@ -1668,14 +1668,22 @@ $(function(){
 			$(this).attr('target','_blank');
 		} else{
 			$(this).attr('target','_self');
-			
-			localStorage.setItem('yScroll', $(window).scrollTop());
 
 			if($('#sidebar').css('display') == 'none'){
 				localStorage.setItem('sidebarOpen', 'none');
 			} else {
 				localStorage.setItem('sidebarOpen', 'block');
 			};
+			
+			var $redditExpand = $(".reddit-expand");
+			var $redditIndex = $(this).closest('.reddit-thread').data('id');
+			var totalExpandHeight = 0;
+			for(var i = 0; i<$redditIndex-1; i++){
+				if($redditExpand.eq(i).css('display')!='none'){
+					totalExpandHeight += $redditExpand.eq(i).height();
+				}
+			}
+			localStorage.setItem('yScroll', $(window).scrollTop()-totalExpandHeight);
 
 			history.pushState("", "", "#back");
 		}
