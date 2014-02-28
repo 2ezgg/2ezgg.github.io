@@ -1217,7 +1217,7 @@
 
 					var $decoder = $(".reddit-expand").eq(self.redditCount).children(".decode");
 					
-					if(!$decoder.text().match(/script/i)){
+					if(!$decoder.text().match(/&lt;\/script|&lt;script|<script|<\/script/i)){
 						$decoder.html($decoder.text());
 					}
 					
