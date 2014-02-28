@@ -705,6 +705,14 @@ a.reddit-title:visited {
   bottom: 15px;
   right: 8px; }
 
+.add-top-champ, .remove-twitch-online, .remove-twitch {
+  position: absolute;
+  bottom: 15px;
+  right: 8px; }
+
+.remove-twitch {
+  bottom: 10px; }
+
 .twitch-video-chat {
   margin-top: 15px;
   margin-bottom: 29px; }
