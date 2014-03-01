@@ -190,7 +190,17 @@
 
 				item.attr('href','http://www.solomid.net/guide?champ=' + this.champ);
 
-			} else if (webData == 'elo'){
+			} else if (webData == 'probuilds'){
+				var probuildChamp;
+				if(this.champ=='wukong'){
+					probuildChamp = 'monkeyking';
+				} else {
+					probuildChamp = this.champ;
+				}
+
+				item.attr('href','http://www.probuilds.net/champions/' + probuildChamp);
+
+			}else if (webData == 'elo'){
 
 				item.attr('href','http://www.elophant.com/league-of-legends/champion/' + this.spaceAndDashChamp + '/stats' );
 				
