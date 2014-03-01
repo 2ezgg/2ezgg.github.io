@@ -427,6 +427,9 @@ header{
 	border-style: solid;
 	border-width: 0 1px 1px 0;
 }
+.reddit-thread:first-of-type{
+	padding-top:28px;
+}
 
 @media only screen and (max-width:760px){
 	.reddit-thread{
