@@ -1450,7 +1450,7 @@ $(function(){
 					// time outs are fo weird bug fix that makes page lag
 					setTimeout(function(){
 				 		$(window).scrollTop(yScroll);
-				 	},200);
+				 	},333);
 
 				 	setTimeout(function(){
 				 		history.pushState("", "", "#");
@@ -1663,7 +1663,7 @@ $(function(){
 
 	});
 
-	$("#reddit-threads").on('click', 'a', function(){
+	$("#reddit-threads").on('click', 'a', function(e){
 		if(appSettings[0].settingChoice == 'on'){
 			$(this).attr('target','_blank');
 		} else{
@@ -1678,12 +1678,15 @@ $(function(){
 			var $redditExpand = $(".reddit-expand");
 			var $redditIndex = $(this).closest('.reddit-thread').data('id');
 			var totalExpandHeight = 0;
+
 			for(var i = 0; i<$redditIndex-1; i++){
 				if($redditExpand.eq(i).css('display')!='none'){
-					totalExpandHeight += $redditExpand.eq(i).height();
+					totalExpandHeight += $redditExpand.eq(i).outerHeight(true);
 				}
 			}
-			localStorage.setItem('yScroll', $(window).scrollTop()-totalExpandHeight);
+
+			var yScroll = $(window).scrollTop()-totalExpandHeight;
+			localStorage.setItem('yScroll', yScroll);
 
 			history.pushState("", "", "#back");
 		}
