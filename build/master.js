@@ -995,20 +995,47 @@
 
 		this.redditAjaxRequest;
 	}
+	RedditLol.prototype.getAbout = function(){
+		var redditAboutDeferred = $.Deferred();
+		var self = this;
+				
+		self.redditAjaxRequest = $.ajax({
+				dataType:'json',
+				url: "http://www.reddit.com/r/leagueoflegends/about.json?jsonp=",
+				error: function(){
+	            	console.log('Unable to load reddit about api');
+	        	},
+				success: function(data){
+					var aboutHtml = data.data.description_html;
 
+					$side = $('.side');
+					$side.html(aboutHtml);
+					$side.html($side.text());
+					var aboutHtml = $side.html();
+
+					localStorage.setItem('aboutHtml', aboutHtml);
+					localStorage.setItem('lastRedditAboutRetrieval', Date.now());
+
+				 redditAboutDeferred.resolve();
+                },
+
+			});
+
+		return redditAboutDeferred.promise();
+	}
 
 	RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageTime, pageNum){
 
 		var choiceOfFunction = choice;
 		var ajaxUrl = "";
 		if(pageSubreddit && pageType && pageTime && pageNum){
-			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=100&t="+pageTime+"&after="+pageNum+"&jsonp=";
+			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=50&t="+pageTime+"&after="+pageNum+"&jsonp=";
 		}  else if(pageSubreddit && pageType && pageTime){
-		 	ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=100&t="+pageTime+"&jsonp=";
+		 	ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=50&t="+pageTime+"&jsonp=";
 		} else if(pageSubreddit && pageType && pageNum){
-			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=100&after="+pageNum+"&jsonp=";
+			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=50&after="+pageNum+"&jsonp=";
 		} else if (pageSubreddit && pageType) {
-			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=100&jsonp=";
+			ajaxUrl = "http://www.reddit.com/r/"+pageSubreddit+"/"+pageType+".json?limit=50&jsonp=";
 		}
 
 		var redditDeferred = $.Deferred();
@@ -1525,6 +1552,14 @@ $(function(){
 //////////////////////////////////
 //////// Reddit Event Area ///////
 /////////////////////////////////
+	var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
+	console.log(lastRedditAboutRetrieval);
+	if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
+		reddit.getAbout();
+	} else {
+		$('.side').html(localStorage.getItem('aboutHtml'));
+	}
+
 	var $redditContent = $("#reddit-content")
 
 	$redditContent.on('click','.reddit-show-more', function(){

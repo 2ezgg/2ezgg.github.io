@@ -355,6 +355,17 @@ header {
   display: none;
   margin-top: 1px; }
 
+#reddit-threads {
+  width: auto; }
+
+.side {
+  float: right;
+  display: block; }
+
+@media only screen and (max-width: 1580px) {
+  .side {
+    display: none; } }
+
 .reddit-thread {
   padding: 24px 18px 10px;
   border-color: #e9e9e9;

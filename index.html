@@ -6,9 +6,11 @@
 		<meta name="description" content="2ez.gg is your league of legends home page. Browsing lol related web sites has never been so easy!">
 		<title>2ez.gg - Everything League of Legends.</title>
 		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
-		<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />
+		
+
 		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">	
 	</head>
@@ -299,7 +301,7 @@
 				<input type="submit" class="settings-update" value="Update Settings">
 
 				<p style="margin-top:40px;margin-bottom:20px">
-					Find a website breaking bug? Or have a suggestion? Head over to <a href="#">github</a>
+					Find a website breaking bug? Or have a suggestion? Head over to <a href="http://github.com/2ezgg/2ezgg.github.io">github</a>
 				</p>
 
 				<p>
@@ -356,7 +358,7 @@
 
 
 				<script id="reddit-template" type="text/x-handlebars-template">
-					<div class="reddit-thread clear" data-id="{{redditRank}}">
+					<div class="reddit-thread" data-id="{{redditRank}}">
 						<span class="reddit-rank">{{redditRank}}</span>
 
 						<span class="reddit-score">{{score}}</span>
@@ -400,9 +402,11 @@
 					</div>
 				</script>
 
-
+				<div class="side">
+				</div>
 				<div id="reddit-threads">
 				</div>
+
 
 				<div id="reddit-progress">
 					<img src="assets/img/loader.gif" />

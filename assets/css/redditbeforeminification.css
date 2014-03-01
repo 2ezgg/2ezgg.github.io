@@ -1,11 +1,11 @@
+
 .flair:after {
-    background: url(http://e.thumbs.redditmedia.com/68-SZccC42SzkLbp.png) no-repeat scroll 16px 16px transparent;
+    background: url(http://e.thumbs.redditmedia.com/Z0xRtRVLMFjZbXaR.png) no-repeat scroll 16px 16px transparent;
     display: inline-block;
     height: 16px;
     margin-left: 3px;
     vertical-align: middle;
-    width: 16px;
-    margin-bottom: -5px;
+    width: 16px
 }
 
 .flair-riot:after {
@@ -530,79 +530,84 @@
     background-position: -32px -160px
 }
 
-.flair-vi:after {
+.flair-velkoz:after {
     content: "";
     background-position: -48px -160px
 }
 
-.flair-viktor:after {
+.flair-vi:after {
     content: "";
     background-position: -64px -160px
 }
 
-.flair-vladimir:after {
+.flair-viktor:after {
     content: "";
     background-position: -80px -160px
 }
 
-.flair-volibear:after {
+.flair-vladimir:after {
     content: "";
     background-position: -96px -160px
 }
 
-.flair-warwick:after {
+.flair-volibear:after {
     content: "";
     background-position: -112px -160px
 }
 
-.flair-xerath:after {
+.flair-warwick:after {
     content: "";
     background-position: -128px -160px
 }
 
-.flair-xinzhao:after {
+.flair-xerath:after {
     content: "";
     background-position: -144px -160px
 }
 
-.flair-yasuo:after {
+.flair-xinzhao:after {
     content: "";
     background-position: 0px -176px
 }
 
-.flair-yorick:after {
+.flair-yasuo:after {
     content: "";
     background-position: -16px -176px
 }
 
-.flair-zac:after {
+.flair-yorick:after {
     content: "";
     background-position: -32px -176px
 }
 
-.flair-zed:after {
+.flair-zac:after {
     content: "";
     background-position: -48px -176px
 }
 
-.flair-ziggs:after {
+.flair-zed:after {
     content: "";
     background-position: -64px -176px
 }
 
-.flair-zilean:after {
+.flair-ziggs:after {
     content: "";
     background-position: -80px -176px
 }
 
-.flair-zyra:after {
+.flair-zilean:after {
     content: "";
     background-position: -96px -176px
 }
 
+.flair-zyra:after {
+    content: "";
+    background-position: -112px -176px
+}
+
 .flair-tsm:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -0px
@@ -610,7 +615,7 @@
 
 .flair-clg:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -0px
@@ -618,7 +623,7 @@
 
 .flair-dignitas:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -0px
@@ -626,7 +631,7 @@
 
 .flair-curse:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -0px
@@ -634,7 +639,7 @@
 
 .flair-coast:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -0px
@@ -642,7 +647,7 @@
 
 .flair-xdgg:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -0px
@@ -650,7 +655,7 @@
 
 .flair-cloudnine:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -120px
@@ -658,7 +663,7 @@
 
 .flair-evil:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -24px
@@ -666,7 +671,7 @@
 
 .flair-skg:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -24px
@@ -674,7 +679,7 @@
 
 .flair-fnatic:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -24px
@@ -682,7 +687,7 @@
 
 .flair-gambit:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -24px
@@ -690,7 +695,7 @@
 
 .flair-alliance:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -24px
@@ -698,7 +703,7 @@
 
 .flair-wolves:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -24px
@@ -706,7 +711,7 @@
 
 .flair-millenium:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -120px
@@ -714,7 +719,7 @@
 
 .flair-roccat:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -24px
@@ -722,7 +727,7 @@
 
 .flair-shcxd:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px 0px
@@ -730,7 +735,7 @@
 
 .flair-ninjas:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -24px
@@ -738,7 +743,7 @@
 
 .flair-meetyourmakers:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -120px
@@ -746,7 +751,7 @@
 
 .flair-lemondogs:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 48px;
     background-position: -168px -120px
@@ -754,7 +759,7 @@
 
 .flair-ultravires:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -144px
@@ -762,7 +767,7 @@
 
 .flair-jokers:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -48px
@@ -770,7 +775,7 @@
 
 .flair-titans:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -48px
@@ -778,7 +783,7 @@
 
 .flair-hunters:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -48px
@@ -786,7 +791,7 @@
 
 .flair-eagles:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -48px
@@ -794,7 +799,7 @@
 
 .flair-tpa:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -48px
@@ -802,7 +807,7 @@
 
 .flair-sgs:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -48px
@@ -810,7 +815,7 @@
 
 .flair-ahq:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -48px
@@ -818,7 +823,7 @@
 
 .flair-fantastic:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -48px
@@ -826,7 +831,7 @@
 
 .flair-mineski:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -144px
@@ -834,7 +839,7 @@
 
 .flair-fulllouis:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -168px
@@ -842,7 +847,7 @@
 
 .flair-taipeisnipers:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 48px transparent;
     height: 24px;
     width: 48px;
     background-position: -24px -168px
@@ -850,7 +855,7 @@
 
 .flair-hka:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -168px
@@ -858,7 +863,7 @@
 
 .flair-infinite:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -168px
@@ -866,7 +871,7 @@
 
 .flair-we:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -72px
@@ -874,7 +879,7 @@
 
 .flair-royal:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -72px
@@ -882,7 +887,7 @@
 
 .flair-omg:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -72px
@@ -890,7 +895,7 @@
 
 .flair-positive:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -72px
@@ -898,7 +903,7 @@
 
 .flair-livemore:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -72px
@@ -906,7 +911,7 @@
 
 .flair-ig:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -72px
@@ -914,7 +919,7 @@
 
 .flair-woa:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -72px
@@ -922,7 +927,7 @@
 
 .flair-lgd:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 16px 48px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 16px 48px transparent;
     height: 16px;
     width: 48px;
     background-position: 0px -144px
@@ -930,7 +935,7 @@
 
 .flair-lmqtianci:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -168px
@@ -938,7 +943,7 @@
 
 .flair-energypacemaker:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -168px
@@ -946,7 +951,7 @@
 
 .flair-youngglory:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -192px -168px
@@ -954,7 +959,7 @@
 
 .flair-najinshield:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -96px
@@ -962,7 +967,7 @@
 
 .flair-najinsword:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -96px
@@ -970,7 +975,7 @@
 
 .flair-incrediblemiracle:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -96px
@@ -978,7 +983,7 @@
 
 .flair-samsunggalaxy:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -96px
@@ -986,7 +991,7 @@
 
 .flair-skt1:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -96px -96px
@@ -994,7 +999,7 @@
 
 .flair-cjentusblaze:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -96px
@@ -1002,7 +1007,7 @@
 
 .flair-cjentusfrost:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -96px
@@ -1010,7 +1015,7 @@
 
 .flair-ktrolster:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 48px transparent;
     height: 24px;
     width: 48px;
     background-position: -168px -96px
@@ -1018,7 +1023,7 @@
 
 .flair-greenwings:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -120px -168px
@@ -1026,7 +1031,7 @@
 
 .flair-xenicsstorm:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 48px transparent;
     height: 24px;
     width: 48px;
     background-position: -96px -144px
@@ -1034,7 +1039,7 @@
 
 .flair-alienware:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -144px
@@ -1042,7 +1047,7 @@
 
 .flair-teamnb:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -144px
@@ -1050,7 +1055,7 @@
 
 .flair-teamdark:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -192px -144px
@@ -1058,7 +1063,7 @@
 
 .flair-avarosan:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: 0px -120px
@@ -1066,7 +1071,7 @@
 
 .flair-frostguard:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -24px -120px
@@ -1074,7 +1079,7 @@
 
 .flair-winterclaw:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -48px -120px
@@ -1090,7 +1095,7 @@ html[lang^="dd"] .flair-clg:after {
 
 .flair-alternate:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -144px -120px
@@ -1098,7 +1103,7 @@ html[lang^="dd"] .flair-clg:after {
 
 .flair-ggeu:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -72px -144px
@@ -1106,7 +1111,7 @@ html[lang^="dd"] .flair-clg:after {
 
 .flair-kmt:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 24px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 24px transparent;
     height: 24px;
     width: 24px;
     background-position: -168px -24px
@@ -1114,7 +1119,7 @@ html[lang^="dd"] .flair-clg:after {
 
 .flair-ega:after {
     content: "";
-    background: url(http://c.thumbs.redditmedia.com/loj2IJMTUHR0GnsV.png) no-repeat scroll 24px 48px transparent;
+    background: url(http://a.thumbs.redditmedia.com/jH8tUvfPekEpJqUH.png) no-repeat scroll 24px 48px transparent;
     height: 24px;
     width: 48px;
     background-position: -72px -24px
@@ -1256,6 +1261,23 @@ html[lang^="dd"] .flair-clg:after {
     display: inline-block
 }
 
+.flair-skg:hover:after {
+    content: "SK Gaming (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
 .flair-fnatic:hover:after {
     content: "Fnatic (EU LCS)";
     background-image: none;
@@ -1358,6 +1380,40 @@ html[lang^="dd"] .flair-clg:after {
     display: inline-block
 }
 
+.flair-shcxd:hover:after {
+    content: "Supa Hot Crew XD (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
+.flair-ninjas:hover:after {
+    content: "Ninjas in Pyjamas (EU LCS)";
+    background-image: none;
+    background-color: #CCC;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    padding: 3px;
+    vertical-align: middle;
+    margin-left: 3px!important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block
+}
+
 .flair-meetyourmakers:hover:after {
     content: "Meet your Makers (EU LCS)";
     background-image: none;
@@ -1375,8 +1431,8 @@ html[lang^="dd"] .flair-clg:after {
     display: inline-block
 }
 
-.flair-shcxd:hover:after {
-    content: "Supa Hot Crew XD (EU LCS)";
+.flair-ultravires:hover:after {
+    content: "Team Ultra Vires (EU LCS)";
     background-image: none;
     background-color: #CCC;
     border: 1px solid #333;
@@ -1920,7 +1976,7 @@ html[lang^="dd"] .flair-clg:after {
 }
 
 .linkflair .thumbnail,.linkflair .thumbnail.self {
-    background: url(http://d.thumbs.redditmedia.com/SrqKFMqm9r52_I1Q.jpg) no-repeat scroll 54px 54px transparent;
+    background: url(http://f.thumbs.redditmedia.com/-2zw76LfsV5vDxKM.jpg) no-repeat scroll 54px 54px transparent;
     height: 54px;
     margin-left: 13px;
     margin-right: 23px;
@@ -2343,67 +2399,71 @@ html[lang^="dd"] .flair-clg:after {
     background-position: -108px -540px
 }
 
-.linkflair-vi .thumbnail,.linkflair-vi .thumbnail.self {
+.linkflair-velkoz .thumbnail,.linkflair-velkoz .thumbnail.self {
     background-position: -162px -540px
 }
 
-.linkflair-viktor .thumbnail,.linkflair-viktor .thumbnail.self {
+.linkflair-vi .thumbnail,.linkflair-vi .thumbnail.self {
     background-position: -216px -540px
 }
 
-.linkflair-vladimir .thumbnail,.linkflair-vladimir .thumbnail.self {
+.linkflair-viktor .thumbnail,.linkflair-viktor .thumbnail.self {
     background-position: -270px -540px
 }
 
-.linkflair-volibear .thumbnail,.linkflair-volibear .thumbnail.self {
+.linkflair-vladimir .thumbnail,.linkflair-vladimir .thumbnail.self {
     background-position: -324px -540px
 }
 
-.linkflair-warwick .thumbnail,.linkflair-warwick .thumbnail.self {
+.linkflair-volibear .thumbnail,.linkflair-volibear .thumbnail.self {
     background-position: -378px -540px
 }
 
-.linkflair-xerath .thumbnail,.linkflair-xerath .thumbnail.self {
+.linkflair-warwick .thumbnail,.linkflair-warwick .thumbnail.self {
     background-position: -432px -540px
 }
 
-.linkflair-xinzhao .thumbnail,.linkflair-xinzhao .thumbnail.self {
+.linkflair-xerath .thumbnail,.linkflair-xerath .thumbnail.self {
     background-position: -486px -540px
 }
 
-.linkflair-yasuo .thumbnail,.linkflair-yasuo .thumbnail.self {
+.linkflair-xinzhao .thumbnail,.linkflair-xinzhao .thumbnail.self {
     background-position: 0px -594px
 }
 
-.linkflair-yorick .thumbnail,.linkflair-yorick .thumbnail.self {
+.linkflair-yasuo .thumbnail,.linkflair-yasuo .thumbnail.self {
     background-position: -54px -594px
 }
 
-.linkflair-zac .thumbnail,.linkflair-zac .thumbnail.self {
+.linkflair-yorick .thumbnail,.linkflair-yorick .thumbnail.self {
     background-position: -108px -594px
 }
 
-.linkflair-zed .thumbnail,.linkflair-zed .thumbnail.self {
+.linkflair-zac .thumbnail,.linkflair-zac .thumbnail.self {
     background-position: -162px -594px
 }
 
-.linkflair-ziggs .thumbnail,.linkflair-ziggs .thumbnail.self {
+.linkflair-zed .thumbnail,.linkflair-zed .thumbnail.self {
     background-position: -216px -594px
 }
 
-.linkflair-zilean .thumbnail,.linkflair-zilean .thumbnail.self {
+.linkflair-ziggs .thumbnail,.linkflair-ziggs .thumbnail.self {
     background-position: -270px -594px
 }
 
-.linkflair-zyra .thumbnail,.linkflair-zyra .thumbnail.self {
+.linkflair-zilean .thumbnail,.linkflair-zilean .thumbnail.self {
     background-position: -324px -594px
 }
 
-a[href="/aatrox"]:nth-of-type(n):after,a[href="/ahri"]:nth-of-type(n):after,a[href="/akali"]:nth-of-type(n):after,a[href="/alistar"]:nth-of-type(n):after,a[href="/amumu"]:nth-of-type(n):after,a[href="/anivia"]:nth-of-type(n):after,a[href="/annie"]:nth-of-type(n):after,a[href="/ashe"]:nth-of-type(n):after,a[href="/blitzcrank"]:nth-of-type(n):after,a[href="/brand"]:nth-of-type(n):after,a[href="/caitlyn"]:nth-of-type(n):after,a[href="/cassiopeia"]:nth-of-type(n):after,a[href="/chogath"]:nth-of-type(n):after,a[href="/corki"]:nth-of-type(n):after,a[href="/darius"]:nth-of-type(n):after,a[href="/diana"]:nth-of-type(n):after,a[href="/drmundo"]:nth-of-type(n):after,a[href="/draven"]:nth-of-type(n):after,a[href="/elise"]:nth-of-type(n):after,a[href="/evelynn"]:nth-of-type(n):after,a[href="/ezreal"]:nth-of-type(n):after,a[href="/fiddlesticks"]:nth-of-type(n):after,a[href="/fiora"]:nth-of-type(n):after,a[href="/fizz"]:nth-of-type(n):after,a[href="/galio"]:nth-of-type(n):after,a[href="/gangplank"]:nth-of-type(n):after,a[href="/garen"]:nth-of-type(n):after,a[href="/gragas"]:nth-of-type(n):after,a[href="/graves"]:nth-of-type(n):after,a[href="/hecarim"]:nth-of-type(n):after,a[href="/heimerdinger"]:nth-of-type(n):after,a[href="/irelia"]:nth-of-type(n):after,a[href="/janna"]:nth-of-type(n):after,a[href="/jarvaniv"]:nth-of-type(n):after,a[href="/jax"]:nth-of-type(n):after,a[href="/jayce"]:nth-of-type(n):after,a[href="/jinx"]:nth-of-type(n):after,a[href="/karma"]:nth-of-type(n):after,a[href="/karthus"]:nth-of-type(n):after,a[href="/kassadin"]:nth-of-type(n):after,a[href="/katarina"]:nth-of-type(n):after,a[href="/kayle"]:nth-of-type(n):after,a[href="/kennen"]:nth-of-type(n):after,a[href="/khazix"]:nth-of-type(n):after,a[href="/kogmaw"]:nth-of-type(n):after,a[href="/leblanc"]:nth-of-type(n):after,a[href="/leesin"]:nth-of-type(n):after,a[href="/leona"]:nth-of-type(n):after,a[href="/lissandra"]:nth-of-type(n):after,a[href="/lucian"]:nth-of-type(n):after,a[href="/lulu"]:nth-of-type(n):after,a[href="/lux"]:nth-of-type(n):after,a[href="/malphite"]:nth-of-type(n):after,a[href="/malzahar"]:nth-of-type(n):after,a[href="/maokai"]:nth-of-type(n):after,a[href="/masteryi"]:nth-of-type(n):after,a[href="/missfortune"]:nth-of-type(n):after,a[href="/wukong"]:nth-of-type(n):after,a[href="/mordekaiser"]:nth-of-type(n):after,a[href="/morgana"]:nth-of-type(n):after,a[href="/nami"]:nth-of-type(n):after,a[href="/nasus"]:nth-of-type(n):after,a[href="/nautilus"]:nth-of-type(n):after,a[href="/nidalee"]:nth-of-type(n):after,a[href="/nocturne"]:nth-of-type(n):after,a[href="/nunu"]:nth-of-type(n):after,a[href="/olaf"]:nth-of-type(n):after,a[href="/orianna"]:nth-of-type(n):after,a[href="/pantheon"]:nth-of-type(n):after,a[href="/poppy"]:nth-of-type(n):after,a[href="/quinn"]:nth-of-type(n):after,a[href="/rammus"]:nth-of-type(n):after,a[href="/renekton"]:nth-of-type(n):after,a[href="/rengar"]:nth-of-type(n):after,a[href="/riven"]:nth-of-type(n):after,a[href="/rumble"]:nth-of-type(n):after,a[href="/ryze"]:nth-of-type(n):after,a[href="/sejuani"]:nth-of-type(n):after,a[href="/shaco"]:nth-of-type(n):after,a[href="/shen"]:nth-of-type(n):after,a[href="/shyvana"]:nth-of-type(n):after,a[href="/singed"]:nth-of-type(n):after,a[href="/sion"]:nth-of-type(n):after,a[href="/sivir"]:nth-of-type(n):after,a[href="/skarner"]:nth-of-type(n):after,a[href="/sona"]:nth-of-type(n):after,a[href="/soraka"]:nth-of-type(n):after,a[href="/swain"]:nth-of-type(n):after,a[href="/syndra"]:nth-of-type(n):after,a[href="/talon"]:nth-of-type(n):after,a[href="/taric"]:nth-of-type(n):after,a[href="/teemo"]:nth-of-type(n):after,a[href="/thresh"]:nth-of-type(n):after,a[href="/tristana"]:nth-of-type(n):after,a[href="/trundle"]:nth-of-type(n):after,a[href="/tryndamere"]:nth-of-type(n):after,a[href="/twistedfate"]:nth-of-type(n):after,a[href="/twitch"]:nth-of-type(n):after,a[href="/udyr"]:nth-of-type(n):after,a[href="/urgot"]:nth-of-type(n):after,a[href="/varus"]:nth-of-type(n):after,a[href="/vayne"]:nth-of-type(n):after,a[href="/veigar"]:nth-of-type(n):after,a[href="/vi"]:nth-of-type(n):after,a[href="/viktor"]:nth-of-type(n):after,a[href="/vladimir"]:nth-of-type(n):after,a[href="/volibear"]:nth-of-type(n):after,a[href="/warwick"]:nth-of-type(n):after,a[href="/xerath"]:nth-of-type(n):after,a[href="/xinzhao"]:nth-of-type(n):after,a[href="/yasuo"]:nth-of-type(n):after,a[href="/yorick"]:nth-of-type(n):after,a[href="/zac"]:nth-of-type(n):after,a[href="/zed"]:nth-of-type(n):after,a[href="/ziggs"]:nth-of-type(n):after,a[href="/zilean"]:nth-of-type(n):after,a[href="/zyra"]:nth-of-type(n):after {
+.linkflair-zyra .thumbnail,.linkflair-zyra .thumbnail.self {
+    background-position: -378px -594px
+}
+
+a[href="/aatrox"]:nth-of-type(n):after,a[href="/ahri"]:nth-of-type(n):after,a[href="/akali"]:nth-of-type(n):after,a[href="/alistar"]:nth-of-type(n):after,a[href="/amumu"]:nth-of-type(n):after,a[href="/anivia"]:nth-of-type(n):after,a[href="/annie"]:nth-of-type(n):after,a[href="/ashe"]:nth-of-type(n):after,a[href="/blitzcrank"]:nth-of-type(n):after,a[href="/brand"]:nth-of-type(n):after,a[href="/caitlyn"]:nth-of-type(n):after,a[href="/cassiopeia"]:nth-of-type(n):after,a[href="/chogath"]:nth-of-type(n):after,a[href="/corki"]:nth-of-type(n):after,a[href="/darius"]:nth-of-type(n):after,a[href="/diana"]:nth-of-type(n):after,a[href="/drmundo"]:nth-of-type(n):after,a[href="/draven"]:nth-of-type(n):after,a[href="/elise"]:nth-of-type(n):after,a[href="/evelynn"]:nth-of-type(n):after,a[href="/ezreal"]:nth-of-type(n):after,a[href="/fiddlesticks"]:nth-of-type(n):after,a[href="/fiora"]:nth-of-type(n):after,a[href="/fizz"]:nth-of-type(n):after,a[href="/galio"]:nth-of-type(n):after,a[href="/gangplank"]:nth-of-type(n):after,a[href="/garen"]:nth-of-type(n):after,a[href="/gragas"]:nth-of-type(n):after,a[href="/graves"]:nth-of-type(n):after,a[href="/hecarim"]:nth-of-type(n):after,a[href="/heimerdinger"]:nth-of-type(n):after,a[href="/irelia"]:nth-of-type(n):after,a[href="/janna"]:nth-of-type(n):after,a[href="/jarvaniv"]:nth-of-type(n):after,a[href="/jax"]:nth-of-type(n):after,a[href="/jayce"]:nth-of-type(n):after,a[href="/jinx"]:nth-of-type(n):after,a[href="/karma"]:nth-of-type(n):after,a[href="/karthus"]:nth-of-type(n):after,a[href="/kassadin"]:nth-of-type(n):after,a[href="/katarina"]:nth-of-type(n):after,a[href="/kayle"]:nth-of-type(n):after,a[href="/kennen"]:nth-of-type(n):after,a[href="/khazix"]:nth-of-type(n):after,a[href="/kogmaw"]:nth-of-type(n):after,a[href="/leblanc"]:nth-of-type(n):after,a[href="/leesin"]:nth-of-type(n):after,a[href="/leona"]:nth-of-type(n):after,a[href="/lissandra"]:nth-of-type(n):after,a[href="/lucian"]:nth-of-type(n):after,a[href="/lulu"]:nth-of-type(n):after,a[href="/lux"]:nth-of-type(n):after,a[href="/malphite"]:nth-of-type(n):after,a[href="/malzahar"]:nth-of-type(n):after,a[href="/maokai"]:nth-of-type(n):after,a[href="/masteryi"]:nth-of-type(n):after,a[href="/missfortune"]:nth-of-type(n):after,a[href="/wukong"]:nth-of-type(n):after,a[href="/mordekaiser"]:nth-of-type(n):after,a[href="/morgana"]:nth-of-type(n):after,a[href="/nami"]:nth-of-type(n):after,a[href="/nasus"]:nth-of-type(n):after,a[href="/nautilus"]:nth-of-type(n):after,a[href="/nidalee"]:nth-of-type(n):after,a[href="/nocturne"]:nth-of-type(n):after,a[href="/nunu"]:nth-of-type(n):after,a[href="/olaf"]:nth-of-type(n):after,a[href="/orianna"]:nth-of-type(n):after,a[href="/pantheon"]:nth-of-type(n):after,a[href="/poppy"]:nth-of-type(n):after,a[href="/quinn"]:nth-of-type(n):after,a[href="/rammus"]:nth-of-type(n):after,a[href="/renekton"]:nth-of-type(n):after,a[href="/rengar"]:nth-of-type(n):after,a[href="/riven"]:nth-of-type(n):after,a[href="/rumble"]:nth-of-type(n):after,a[href="/ryze"]:nth-of-type(n):after,a[href="/sejuani"]:nth-of-type(n):after,a[href="/shaco"]:nth-of-type(n):after,a[href="/shen"]:nth-of-type(n):after,a[href="/shyvana"]:nth-of-type(n):after,a[href="/singed"]:nth-of-type(n):after,a[href="/sion"]:nth-of-type(n):after,a[href="/sivir"]:nth-of-type(n):after,a[href="/skarner"]:nth-of-type(n):after,a[href="/sona"]:nth-of-type(n):after,a[href="/soraka"]:nth-of-type(n):after,a[href="/swain"]:nth-of-type(n):after,a[href="/syndra"]:nth-of-type(n):after,a[href="/talon"]:nth-of-type(n):after,a[href="/taric"]:nth-of-type(n):after,a[href="/teemo"]:nth-of-type(n):after,a[href="/thresh"]:nth-of-type(n):after,a[href="/tristana"]:nth-of-type(n):after,a[href="/trundle"]:nth-of-type(n):after,a[href="/tryndamere"]:nth-of-type(n):after,a[href="/twistedfate"]:nth-of-type(n):after,a[href="/twitch"]:nth-of-type(n):after,a[href="/udyr"]:nth-of-type(n):after,a[href="/urgot"]:nth-of-type(n):after,a[href="/varus"]:nth-of-type(n):after,a[href="/vayne"]:nth-of-type(n):after,a[href="/veigar"]:nth-of-type(n):after,a[href="/velkoz"]:nth-of-type(n):after,a[href="/vi"]:nth-of-type(n):after,a[href="/viktor"]:nth-of-type(n):after,a[href="/vladimir"]:nth-of-type(n):after,a[href="/volibear"]:nth-of-type(n):after,a[href="/warwick"]:nth-of-type(n):after,a[href="/xerath"]:nth-of-type(n):after,a[href="/xinzhao"]:nth-of-type(n):after,a[href="/yasuo"]:nth-of-type(n):after,a[href="/yorick"]:nth-of-type(n):after,a[href="/zac"]:nth-of-type(n):after,a[href="/zed"]:nth-of-type(n):after,a[href="/ziggs"]:nth-of-type(n):after,a[href="/zilean"]:nth-of-type(n):after,a[href="/zyra"]:nth-of-type(n):after {
     content: "";
     width: 16px;
     height: 16px;
-    background: url(http://e.thumbs.redditmedia.com/68-SZccC42SzkLbp.png) no-repeat scroll -96px -176px transparent;
+    background: url(http://e.thumbs.redditmedia.com/Z0xRtRVLMFjZbXaR.png) no-repeat scroll -112px -176px transparent;
     display: inline-block;
     vertical-align: middle;
     cursor: default!important
@@ -2821,58 +2881,684 @@ a[href="/veigar"]:nth-of-type(n):after {
     background-position: -32px -160px
 }
 
-a[href="/vi"]:nth-of-type(n):after {
+a[href="/velkoz"]:nth-of-type(n):after {
     background-position: -48px -160px
 }
 
-a[href="/viktor"]:nth-of-type(n):after {
+a[href="/vi"]:nth-of-type(n):after {
     background-position: -64px -160px
 }
 
-a[href="/vladimir"]:nth-of-type(n):after {
+a[href="/viktor"]:nth-of-type(n):after {
     background-position: -80px -160px
 }
 
-a[href="/volibear"]:nth-of-type(n):after {
+a[href="/vladimir"]:nth-of-type(n):after {
     background-position: -96px -160px
 }
 
-a[href="/warwick"]:nth-of-type(n):after {
+a[href="/volibear"]:nth-of-type(n):after {
     background-position: -112px -160px
 }
 
-a[href="/xerath"]:nth-of-type(n):after {
+a[href="/warwick"]:nth-of-type(n):after {
     background-position: -128px -160px
 }
 
-a[href="/xinzhao"]:nth-of-type(n):after {
+a[href="/xerath"]:nth-of-type(n):after {
     background-position: -144px -160px
 }
 
-a[href="/yasuo"]:nth-of-type(n):after {
+a[href="/xinzhao"]:nth-of-type(n):after {
     background-position: 0px -176px
 }
 
-a[href="/yorick"]:nth-of-type(n):after {
+a[href="/yasuo"]:nth-of-type(n):after {
     background-position: -16px -176px
 }
-
-a[href="/zac"]:nth-of-type(n):after {
+a[href="/yorick"]:nth-of-type(n):after {
     background-position: -32px -176px
 }
 
-a[href="/zed"]:nth-of-type(n):after {
+a[href="/zac"]:nth-of-type(n):after {
     background-position: -48px -176px
 }
 
-a[href="/ziggs"]:nth-of-type(n):after {
+a[href="/zed"]:nth-of-type(n):after {
     background-position: -64px -176px
 }
 
-a[href="/zilean"]:nth-of-type(n):after {
+a[href="/ziggs"]:nth-of-type(n):after {
     background-position: -80px -176px
 }
 
-a[href="/zyra"]:nth-of-type(n):after {
+a[href="/zilean"]:nth-of-type(n):after {
     background-position: -96px -176px
 }
+
+a[href="/zyra"]:nth-of-type(n):after {
+    background-position: -112px -176px
+}
+.side {
+    width: 350px;
+    padding-left: 10px;
+    margin-right: 0;
+    margin-bottom: 6px;
+    background-color: #F6F6F6;
+    margin-top: 10px;
+}
+
+.side #search {
+    width: 342px
+}
+
+.side #search input[type="text"] {
+    width: 338px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 14px;
+    text-indent: 6px
+}
+
+.side #search #searchexpando {
+    display: none;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #767676
+}
+
+.side #search #moresearchinfo {
+    color: #0F0F0F;
+    border: 0 solid #767676
+}
+
+.side .linkinfo {
+    width: 332px;
+    background-color: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    border-radius: 6px
+}
+
+.side .linkinfo .shortlink {
+    margin-top: 5px
+}
+
+.side .linkinfo .shortlink input {
+    height: 12px
+}
+
+.side .titlebox {
+    text-align: left
+}
+
+.side .titlebox .togglebutton,.side .titlebox .flairselectbtn {
+    color: #257372!important
+}
+
+
+.side .titlebox .word {
+    display: none
+}
+
+.side .titlebox .number:after {
+    content: " Summoners"
+}
+
+.side .titlebox .users-online .number:after {
+    content: " Summoned Champions"
+}
+
+.side .titlebox .tagline {
+    font-size: 12px
+}
+
+.side .titlebox .tagline a {
+    color: #257372!important
+}
+
+.side .titlebox .flairselectbtn:after {
+    content: " flair"
+}
+
+
+.side .usertext-body {
+    background: none
+}
+
+.side .md {
+    width: 327px;
+    margin-top: 16px;
+    padding: 0 8px 0;
+    background-color: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #0F0F0F
+}
+
+.side .md hr {
+    margin: 0 0 10px;
+    border-color: #F0F0F0;
+    border-width: 1px;
+    border-style: solid none none;
+    color: white
+}
+
+.side .md blockquote+p>em {
+    color: #257372
+}
+
+.side .usertext-body>.md>p>strong>em>a {
+    background-color: #140404;
+    border: 2px solid #A00C0C;
+    color: #FF0000!important;
+    left: 50%;
+    margin-left: -200px;
+    padding: 4px;
+    position: absolute;
+    text-align: center;
+    top: 46px;
+    width: 400px;
+    font-style: normal;
+    z-index: 9001
+}
+
+.side .md>ol {
+    left: 350px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 23px;
+    z-index: 200
+}
+
+.side .md>ol li>p {
+    margin: 3px 0
+}
+
+.side .md>ol li a {
+    background-color: #040404;
+    border: 1px solid #0C2E2D;
+    border-radius: 2px;
+    box-shadow: 0 0 4px black;
+    color: #BAFFF7;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 3px 6px 3px 0;
+    text-decoration: none
+}
+
+.side .md>ol li a:before {
+    background-color: #0C2E2D;
+    margin: 0 4px 0 0;
+    padding: 3px 6px;
+    content: "Notice";
+    color: #BAFFF7;
+    font-weight: bold
+}
+
+.side .md>ol li a:hover {
+    background-color: #0C2E2D;
+    border-color: #3C5E5D;
+    color: white
+}
+
+.side .md>ol li strong a {
+    background-color: #140404;
+    border: 2px solid #A00C0C;
+    color: red
+}
+
+.side .md>ol li strong a:before {
+    background-color: #A00C0C;
+    color: #140404;
+    content: "Important"
+}
+
+.side .md>ol li strong a:hover {
+    background-color: #A00C0C;
+    border-color: #D00C0C
+}
+
+.side .md>ol li em a:before {
+    background-color: #3D5876;
+    color: #FFFFFF;
+    content: "Live Event";
+    font-style: normal
+}
+
+.side .md>ol li em a {
+    background-color: #122740;
+    border: 2px solid #3D5876;
+    color: #D8E3FF;
+    font-style: normal
+}
+
+.side .md>ol li em a:hover {
+    background-color: #3D5876;
+    border-color: #52789E
+}
+
+.side a[href="http://www.reddit.com/r/leagueoflegends/submit?selftext=true"] {
+    display: inline-block;
+    width: 313px;
+    height: 43px;
+    margin: 6px 6px 8px;
+    background: url(http://f.thumbs.redditmedia.com/V_oluc09lRapVeaw.png);
+    text-indent: -9999px
+}
+
+.side a[href="http://www.reddit.com/r/leagueoflegends/submit?selftext=true"]:hover {
+    background-position: 0 -43px;
+    margin-bottom: 45px
+}
+
+.side a[href="http://www.reddit.com/r/leagueoflegends/submit?selftext=true"]:hover:after {
+    display: block;
+    content: "Did you read our subreddit guidelines? (listed below)";
+    color: white;
+    background-color: red;
+    top: 35px;
+    font-size: 14px;
+    position: relative;
+    text-indent: 0px;
+    padding: 5px;
+    text-align: center
+}
+
+.side a[href="http://www.reddit.com/r/leagueoflegends/submit?selftext=true"]:active {
+    background-position: 0 -86px
+}
+
+.side a[href="http://dd.reddit.com/r/leagueoflegends/submit?selftext=true"] {
+    display: none
+}
+
+.side .md a[href="http://www.reddit.com/r/#leagueoflegends/"] {
+    background: url(http://a.thumbs.redditmedia.com/JWGjnZnGw8YtX4oB.png) no-repeat;
+    display: inline-block;
+    width: 102px;
+    height: 68px;
+    text-indent: -9999px
+}
+
+.side .md a[href="http://www.reddit.com/r/leagueoflegends/"] {
+    background: url(http://e.thumbs.redditmedia.com/eEnYyDnXsgRDGRtv.png) no-repeat;
+    display: inline-block;
+    width: 107px;
+    height: 68px;
+    text-indent: -9999px;
+    margin: 0 0 2px 3px
+}
+
+.side .md a[href="http://www.reddit.com/r/leagueoflegends/"]:hover {
+    background-position: -107px 0
+}
+
+.side .md a[href="http://www.reddit.com/r/leagueoflegends/"]:active {
+    background-position: -214px 0
+}
+
+.side .md a[href="http://dd.reddit.com/r/leagueoflegends/"] {
+    background: url(http://c.thumbs.redditmedia.com/fSPeZZXQ67OsJbXh.png) no-repeat;
+    display: inline-block;
+    width: 108px;
+    height: 68px;
+    text-indent: -9999px
+}
+
+.side .md a[href="http://dd.reddit.com/r/leagueoflegends/"]:hover {
+    background-position: -108px 0
+}
+
+.side .md a[href="http://dd.reddit.com/r/leagueoflegends/"]:active {
+    background-position: -216px 0
+}
+
+.side .md a[href$="#redditprimg"] {
+    background-image: url(http://e.thumbs.redditmedia.com/katw9iyEW0pa0ZeF.png);
+    display: inline-block;
+    height: 200px;
+    width: 327px;
+    text-indent: -9999px
+}
+
+.side .md h1,.side .md h3 {
+    margin: 5px 0 0;
+    padding: 6px 0;
+    background-image: url(http://b.thumbs.redditmedia.com/olUBv4NFsyf5qU1m.png);
+    border-left: 2px solid #0D0F0E;
+    border-right: 2px solid #0D0F0E;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #BAFFF7;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 1px #BAFFF7;
+    font-weight: normal;
+    letter-spacing: 1px
+}
+
+.side .md h1+blockquote ol {
+    background-color: #181818;
+    border-color: #3F3F3F;
+    border-style: none solid solid;
+    border-width: 1px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 13px;
+    margin: -2px 0px 2px -7px;
+    padding: 0 0 3px;
+    text-align: center;
+    list-style: none;
+    width: 325px
+}
+
+.side .md h1+blockquote ol a {
+    color: #99BFB7
+}
+
+.side .md h1+blockquote ol a:hover {
+    color: white
+}
+
+.side .md h1+blockquote:hover ol {
+    box-shadow: 0px 0px 10px black;
+    font-weight: bolder
+}
+
+.side .md h2 {
+    text-align: center
+}
+
+.side .md h2 a {
+    color: #257372
+}
+
+.side .md blockquote {
+    margin: -4px 0 0;
+    padding: 2px 2px 2px 6px;
+    background-color: #F6F6F6;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-color: black #CCCCCC #CCCCCC;
+    border-style: solid;
+    border-width: 2px 1px 1px
+}
+
+.side .md h4,.side .md h5,.side .md h6 {
+    margin-top: 8px;
+    margin-left: 0px;
+    padding: 3px;
+    border-style: solid solid none;
+    border-width: 1px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    text-align: center;
+    font-size: 14px
+
+}
+
+.side .md h4,.side .md h5 {
+    text-shadow: 1px 1px 0 #EFEFEF
+}
+
+.side .md h4 {
+    color: #FF8888;
+    background-color: #F9F4F4;
+    border-color: #FF8888
+}
+
+.side .md h4+blockquote {
+    background-color: #F9F4F4;
+    border-color: #FF8888;
+    border-top: none
+}
+
+.side .md h5 {
+    color: #44EE88;
+    background-color: #EFF4F2;
+    border-color: #44EE88
+}
+
+.side .md h5+blockquote {
+    background-color: #EFF4F2;
+    border-color: #44EE88;
+    border-top: none
+}
+
+.side .md h6 {
+    color: #BAFFF7;
+    background-color: #F6F6F6;
+    border-color: #3F3F3F;
+    background: url(http://e.thumbs.redditmedia.com/7Y0stjDVM58vYMgv.png) repeat-x scroll right top transparent;
+    height: 24px;
+    margin-bottom: 0px;
+}
+
+.side .md h6+blockquote {
+    background-color: #F6F6F6;
+    border-color: black #CCCCCC #CCCCCC;
+    border-top: none
+}
+
+.side h4+blockquote>p a,.side h5+blockquote>p a,.side h6+blockquote>p a {
+    display: block;
+    margin-left: 0px;
+    font-size: 12px;
+    color: #555555
+}
+
+.side .md h1+blockquote {
+    height: 145px;
+    overflow: hidden
+}
+
+.side .md h1+blockquote:hover {
+    height: auto
+}
+
+.side .md h1+blockquote:before {
+    display: block;
+    background-color: #cccccc;
+    color: white;
+    content: "Hover to Expand";
+    position: relative;
+    top: 125px;
+    height: 0px;
+    box-shadow: 0px 30px 30px 30px #cccccc;
+    text-align: center;
+    font-size: 16px
+}
+
+.side .md h1+blockquote:hover:before {
+    display: none
+}
+
+.side .md h1+blockquote a[href="#n"] {
+    color: red;
+    cursor: default
+}
+
+.side .md h1+blockquote a[href="#y"] {
+    color: green;
+    cursor: default
+}
+
+.side .md h1+blockquote ul {
+    list-style-type: none!important;
+    margin-left: 8px!important
+}
+
+.side .md h1+blockquote ul li+li {
+    border-top: 1px solid #CCCCCC;
+    color: #008688;
+    margin-bottom: 2px
+}
+
+.side .md ul {
+    list-style-type: square;
+    margin-top: 0;
+    margin-left: 16px
+}
+
+.side .md ul li {
+    margin-bottom: 2px;
+    color: #008688
+}
+
+.side .md ul li p {
+    color: #555555
+}
+
+.side .md li>ul {
+    list-style-type: lower-roman;
+    margin-left: 20px
+}
+
+.side .md li>ul li {
+    margin-bottom: 0;
+    color: #555555
+}
+
+a[href="#hover"] {
+    border-bottom: 1px dotted #555555;
+    color: #555555;
+    cursor: help
+}
+
+.side h4+blockquote>p a[href$="#live"]:before,.side h5+blockquote>p a[href$="#live"]:before,.side h6+blockquote>p a[href$="#live"]:before,.side a[href$="#live"]:before {
+    border: 1px solid red;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #888;
+    content: "LIVE";
+    color: red;
+    display: inline-block;
+    font-size: x-small;
+    font-weight: bold;
+    margin: 0px 5px 3px 0px;
+    padding: 0 3px
+}
+
+.side h4+blockquote>p a[href$="#live"],.side h5+blockquote>p a[href$="#live"],.side h6+blockquote>p a[href$="#live"],.side a[href$="#live"],.side h4+blockquote>p a[href$="#live"]+a,.side h5+blockquote>p a[href$="#live"]+a,.side h6+blockquote>p a[href$="#live"]+a,.side a[href$="#live"]+a {
+    display: inline-block
+}
+
+.side .sidecontentbox {
+    margin: 4px;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    color: black
+}
+
+.side .sidecontentbox .title {
+    padding: 4px 0;
+    border-bottom: 1px solid #DDDDDD;
+    text-align: center
+}
+
+.side .sidecontentbox .title h1 {
+    color: gray;
+    font-size: 14px;
+    font-weight: normal
+}
+
+.side .sidecontentbox .content {
+    border: none
+}
+
+.side .sidecontentbox .helplink+.title h1 {
+    margin: 0 28%;
+    position: relative;
+    top: -15px;
+    border-bottom: 1px solid #EEEEEE
+}
+
+.side .sidecontentbox a.helplink {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    right: 23%;
+    top: 20px;
+    padding: 0 2px;
+    background: none repeat scroll 0 0 #FDFDFD
+}
+
+.side .sidecontentbox .comment .midcol {
+    margin-left: 0px;
+    margin-top: 5px
+}
+
+
+.side .md h3+blockquote>ul>li {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+.side ul {
+    list-style:none;
+    padding:0;
+    font-size: 0.8em;
+}
+
+.side .md h3+blockquote>ul {
+    margin-top: 12px;
+}
+
+.side .md h3+blockquote>ul>li>a>strong {
+    display: none;
+}
+
+.side .md h3+blockquote>ul>li>a {
+    background: url(http://f.thumbs.redditmedia.com/-2zw76LfsV5vDxKM.jpg) no-repeat scroll 55px 55px transparent;
+    display: inline-block;
+    height: 54px;
+    width: 54px;
+}
+
+
+.side .md h3+blockquote>ul>li>a {
+    background-position: -324px -0px
+}
+
+.side .md h3+blockquote>ul>li+li>a {
+    background-position: -432px -0px
+}
+
+.side .md h3+blockquote>ul>li+li+li>a {
+    background-position: -54px -54px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li>a {
+    background-position: -162px -54px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li>a {
+    background-position: -486px -216px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li+li>a {
+    background-position: -54px -324px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li+li+li>a {
+    background-position: -108px -324px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li+li+li+li>a {
+    background-position: 0px -486px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li+li+li+li+li>a {
+    background-position: -216px -486px
+}
+
+.side .md h3+blockquote>ul>li+li+li+li+li+li+li+li+li+li>a {
+    background-position: -378px -270px
+}
+
+
