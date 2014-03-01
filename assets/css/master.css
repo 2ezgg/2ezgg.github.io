@@ -832,6 +832,9 @@ a.reddit-title:visited {
   color: white;
   text-decoration: none; }
 
+#stream-offline-list .twitch-name {
+  width: 100%; }
+
 #stream-favourite-list {
   width: 20%;
   float: left;
