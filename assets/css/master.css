@@ -763,6 +763,7 @@ a.reddit-title:visited {
   border-left: 1px solid #E6E6E6; }
 
 .twitch-name {
+  display: inline-block;
   padding: 8px;
   position: relative;
   font-weight: bold;
@@ -838,7 +839,6 @@ a.reddit-title:visited {
 
 #stream-favourite-list .twitch-name {
   width: 100%;
-  float: left;
   padding-bottom: 15px; }
 
 #stream-top-list {
@@ -849,7 +849,6 @@ a.reddit-title:visited {
 #stream-top-list .twitch-name {
   width: 33.3333%;
   min-width: 200px;
-  float: left;
   padding-bottom: 15px; }
 
 @media only screen and (max-width: 1350px) {
@@ -859,7 +858,6 @@ a.reddit-title:visited {
     min-width: 400px; }
   #stream-top-list .twitch-name {
     width: 50%;
-    float: left;
     padding-bottom: 15px; } }
 
 #stream-offline-list {
@@ -882,7 +880,6 @@ a.reddit-title:visited {
   #stream-favourite-list .twitch-name {
     width: 50%;
     min-width: 200px;
-    float: left;
     padding-bottom: 15px; }
   #stream-top-list {
     width: 100%;

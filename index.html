@@ -509,18 +509,14 @@
 
 				<div class="twitch-sidebar clear">
 						<script id="twitch-users-online-template" type="text/x-handlebars-template">	
-							{{#each this}}
-								<div class="twitch-name">
-
+							{{#each this}}<div class="twitch-name">
 									<div>
 										<img src="{{thumbnailUrl}}" class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="favourite" style="width:100%"/>
 									</div>
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="viewer-numbers tooltip-viewers" title="Viewers">{{viewTotal}}</span>
 									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
-								</div>
-
-							{{/each}}
+								</div>{{/each}}
 						</script>
 						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">	
 
@@ -536,15 +532,13 @@
 						</script>
 
 						<script id="azubu-users-online-template" type="text/x-handlebars-template">	
-							{{#each this}}
-								<div class="twitch-name">
+							{{#each this}}<div class="twitch-name">
 									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
 										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
 									</a>
 									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]
 									</span>
-								</div>
-							{{/each}}
+								</div>{{/each}}
 						</script>
 
 						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">	
@@ -566,12 +560,10 @@
 
 						</script>
 						<script id="twitch-users-offline-template" type="text/x-handlebars-template">	
-							{{#each this}}
-								<div class="twitch-name" style="border-right: 1px solid black">
+							{{#each this}}<div class="twitch-name" style="border-right: 1px solid black">
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
-								</div>
-							{{/each}}
+								</div>{{/each}}
 						</script>
 						<script id="azubu-users-offline-template" type="text/x-handlebars-template">	
 							{{#each this}}
@@ -582,8 +574,7 @@
 							{{/each}}
 						</script>
 						<script id="twitch-top-online-template" type="text/x-handlebars-template">	
-							{{#each this}}
-								<div class="twitch-name">
+							{{#each this}}<div class="twitch-name">
 									<img src="{{thumbnailUrl}}"  class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="top" style="width:100%"/>
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="viewer-numbers tooltip-viewers" title="viewers">{{viewTotal}}</span>
@@ -594,13 +585,10 @@
 											[+]
 										</a>
 									{{/if}}
-								</div>
-
-							{{/each}}
+								</div>{{/each}}
 						</script>
 						<script id="azubu-top-online-template" type="text/x-handlebars-template">	
-							{{#each this}}
-								<div class="twitch-name">
+							{{#each this}}<div class="twitch-name">
 								<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
 								<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}</a>
 									{{#if isAlreadyAdded}}
@@ -610,9 +598,7 @@
 										[+]
 										</a>
 									{{/if}}
-								</div>
-
-							{{/each}}
+								</div>{{/each}}
 						</script>
 
 					<div style="position: relative;padding-left: 25px;" class="clear">
