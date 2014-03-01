@@ -150,16 +150,19 @@
 
 			}
 
-
 			else if (webData == 'king'){
 
 				item.attr("href","http://www.lolking.net/search?name="+this.name+"&region="+this.server);
 
 
-			}
-
-			 else if (webData == 'gg'){
+			} else if (webData == 'gg'){
+				
 				item.attr("href","http://" + this.server + ".op.gg/summoner/userName=" + this.name); 
+
+			} else if (webData == 'skill'){
+
+				item.attr("href","http://www.lolskill.net/game-" + this.server + "-" + this.name); 
+			
 			}
 		}		
 	}
