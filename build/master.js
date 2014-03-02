@@ -213,6 +213,9 @@
 				
 			} else if(webData == 'lolpro'){
 				item.attr('href','http://www.lolpro.com/guides/' + this.spaceAndDashChamp);
+			
+			} else if(webData == 'lolbuilder'){
+				item.attr('href','http://www.lolbuilder.net/' + this.champ);
 			}
 
 			
