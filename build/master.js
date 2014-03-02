@@ -37,6 +37,9 @@
 			this.name = localStorage.getItem('name');
 			this.server = localStorage.getItem('server');
 			this.champ = localStorage.getItem('champ');
+			this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
+			console.log(this.pageChange);
+			//this.pageAdd = localStorage.getItem('pageAdd');
 
 			this.newReignArticles = parseInt(localStorage.getItem('newReignArticles')) || 0;
 			this.newLeagueArticles = parseInt(localStorage.getItem('newLeagueArticles')) || 0;
@@ -47,6 +50,8 @@
 			localStorage.setItem('date', Date.now());
 
 		} else {
+			this.pageChange = [];
+			//this.pageAdd;
 			this.name;
 			this.server;
 			this.champ;
@@ -54,7 +59,19 @@
 			this.newLeagueArticles = 0;
 			this.newOnGamers = 0;
 		}
-
+		if(this.pageChange.length>0){
+			for(var z = 0; z < this.pageChange.length; z++){
+				$('#'+this.pageChange[z].id).css('display',this.pageChange[z].display);
+				if(this.pageChange[z].display=='none'){
+					$('.website-'+this.pageChange[z].id+' span').removeClass().addClass('add-website');
+				} else {
+					$('.website-'+this.pageChange[z].id+' span').removeClass().addClass('remove-website');
+				}
+			}
+		}
+		//if(this.pageAdd != null && this.pageAdd.length>0){
+			// rune code that adds user
+		//}
 
 		if (this.name) {
 			$(".name").val(this.name);
@@ -148,6 +165,8 @@
 
 				item.attr("href","http://www.lolking.net/now/"+this.server+"/"+this.name);
 
+			} else if(webData == 'summoning'){
+				item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name+"/")
 			}
 
 			else if (webData == 'king'){
@@ -210,8 +229,11 @@
 			} else if (webData == 'moba'){
 
 				item.attr('href','http://www.mobafire.com/league-of-legends/' + this.spaceAndDashChamp + '-guide' );
-				
-			} else if(webData == 'lolpro'){
+
+			} else if(webData == 'builder'){
+				item.attr('href','http://www.lolbuilder.net/' + this.champ);
+			}	
+				 else if(webData == 'lolpro'){
 				item.attr('href','http://www.lolpro.com/guides/' + this.spaceAndDashChamp);
 			}
 
@@ -2085,6 +2107,55 @@ $(function(){
 //////// Settings Page Event Area ///////
 ///////////////////////////////////////
 
+	$('#settings-content').on('click','.add-website', function(){
+		var $this = $(this);
+		$this.removeClass('add-website');
+		$this.addClass('remove-website');
+		$('#'+$this.data('id')).css('display','inline-block');
+
+		var notAdded = true;
+		var totalSettingsLength = league.pageChange.length;
+		for(var i =0; i<totalSettingsLength; i++){
+			if(league.pageChange[i].id == $this.data('id')){
+				league.pageChange[i].display = 'inline-block';
+				notAdded = false;
+			}
+		}
+		if (notAdded){
+			league.pageChange[totalSettingsLength] = {
+				id : $this.data('id'),
+				display : 'inline-block',
+			}
+		}
+		console.log(league.pageChange);
+		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+
+	});
+
+	$('#settings-content').on('click','.remove-website', function(){
+		var $this = $(this);
+		$this.removeClass('remove-website');
+		$this.addClass('add-website');
+		$('#'+$this.data('id')).css('display','none');
+
+		var notAdded = true;
+		var totalSettingsLength = league.pageChange.length;
+		for(var i =0; i<totalSettingsLength; i++){
+			if(league.pageChange[i].id == $this.data('id')){
+				league.pageChange[i].display = 'none';
+				notAdded = false;
+			}
+		}
+		if (notAdded){
+			league.pageChange[totalSettingsLength] = {
+				id : $this.data('id'),
+				display : 'none',
+			}
+		}
+		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+	});
+
+
 	$('.settings-update').on('click', function(){
 		web.saveSettings();
 		$(this).addClass('setting-updated');
@@ -2095,6 +2166,8 @@ $(function(){
 		$('.settings-update').removeClass('setting-updated');
 		$('.settings-update').attr('value','Update Settings');
 	});
+
+	
 
 
 //////////////////////////////////

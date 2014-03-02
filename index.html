@@ -88,7 +88,7 @@
 								<span class="update-info twitch-online tooltip" title="Followed Streamers Online"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc" id="league" data-name="league" target="_blank" href="http://na.leagueoflegends.com/en/news/game-updates/">
+						<a class="nav-button website-misc" id="league" data-name="league" target="_blank" href="http://na.leagueoflegends.com/en/news/game-updates/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News	
 								<span class="update-info league-news tooltip" title="New Updates"></span>
@@ -108,14 +108,53 @@
 						</a>
 						<a class="nav-button website-misc iframe-capable" id="surrender" data-name="surrender" target="_blank" href="http://www.surrenderat20.net/"> 
 							<li>
-								<span class="lol-image" style="background-position:-80px -16px;"></span>Surrender@20
+								<span class="lol-image" style="background-position:-80px -16px;"></span>Sat20
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://ertu.de/jungle/"> 
+						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://ertu.de/jungle/" style="display:none"> 
 							<li>
 								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
 							</li>
-						</a>	
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="wikia" data-name="wikia" target="_blank" href="http://leagueoflegends.wikia.com/wiki/"> 
+							<li>
+								<span class="lol-image" style="background-position:-96px -16px;"></span>LoL Wiki
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="gamepedia" data-name="gamepedia" target="_blank" href="http://lol.gamepedia.com/League_of_Legends_Wiki"> 
+							<li>
+								<span class="lol-image" style="background-position:-96px -32px;"></span>Gamepedia
+							</li>
+						</a>
+						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com"> 
+							<li>
+								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="cloth" data-name="cloth" target="_blank" href="http://cloth5.com"> 
+							<li>
+								<span class="lol-image" style="background-position:-112px -16px;"></span>Cloth 5
+							</li>
+						</a>
+						
+						<a class="nav-button website-misc iframe-capable" id="esex" data-name="esex" target="_blank" href="http://esportsexpress.com/category/league-of-legends/" style="display:none"> 
+							<li>
+								<span class="lol-image" style="background-position:-112px -32px;"></span>ESEx
+							</li>
+						</a>
+						
+						<a class="nav-button website-misc iframe-capable" id="calendar" data-name="calendar" target="_blank" href="http://esportcalendar.com/" style="display:none"> 
+							<li>
+								<span class="lol-image" style="background-position:-128px 0px;"></span>Esport Calendar
+							</li>
+						</a>
+
+						<a class="nav-button website-misc iframe-capable" id="research" data-name="research" target="_blank" href="http://leagueresearch.com" style="display:none"> 
+							<li>
+								<span class="lol-image" style="background-position:-128px -16px;"></span>League Research
+							</li>
+						</a>
+								
 					</ul>
 				</div>
 
@@ -161,10 +200,9 @@
 								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing Now
 							</li>
 						</a>
-
-						<a class="nav-button website-name iframe-capable" id="kassad" data-name="kassad" data-url="http://quickfind.kassad.in/" target="_blank" href="http://quickfind.kassad.in/">
+						<a class="nav-button website-name iframe-capable" id="summoning" data-name="summoning" data-url="http://summoning.net" target="_blank" href="http://summoning.net/">
 							<li>
-								<span class="lol-image" style="background-position:-32px -16px;"></span>Kassad.In
+								<span class="lol-image" style="background-position:-128px -32px;"></span>Summoning
 							</li>
 						</a>
 
@@ -174,6 +212,11 @@
 							</li>
 						</a>
 
+						<a class="nav-button website-name iframe-capable" id="kassad" data-name="kassad" data-url="http://quickfind.kassad.in/" target="_blank" href="http://quickfind.kassad.in/" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-32px -16px;"></span>Kassad.In
+							</li>
+						</a>
 					</ul>
 				</div>
 
@@ -216,6 +259,11 @@
 									<span class="lol-image" style="background-position:-32px -32px;"></span>Mobafire
 							</li>
 						</a>
+						<a class="nav-button website-champ iframe-capable" id="builder" data-name="builder" data-url="http://www.lolbuilder.net" target="_blank" href="http://www.lolbuilder.net">
+							<li>	
+									<span class="lol-image" style="background-position:-144px 0px;"></span>LoLBuilder
+							</li>
+						</a>
 						<a class="nav-button website-champ iframe-capable" id="lolpro" data-name="lolpro" data-url="http://www.lolpro.com" target="_blank" href="http://www.lolpro.com"> 
 							<li>
 								<span class="lol-image" style="background-position:-48px -32px;"></span>LoLPro
@@ -246,6 +294,112 @@
 			<div id="settings-content">
 				<h2 style="margin-bottom:30px;margin-top:30px">2ez.gg Settings</h2>
 
+				<script id="website-template" type="text/x-handlebars-template">
+				</script>
+
+				<h3>General Websites</h3>
+				<div class="general-websites">
+					<div class="website-reddit website-control">
+						Reddit <span class="remove-website" data-id="reddit" ></span>
+					</div>
+					<div class="website-youtube website-control">
+						Youtube Vids <span class="remove-website" data-id="youtube"></span>
+					</div>
+					<div class="website-twitch website-control">
+						Streams <span class="remove-website" data-id="twitch"></span>
+					</div>
+					<div class="website-league website-control">
+						LoL News <span class="add-website" data-id="league" ></span>
+					</div>
+					<div class="website-reign website-control">
+						RoG <span class="remove-website" data-id="reign"></span>
+					</div>
+					<div class="website-ongamers website-control">
+						onGamers <span class="remove-website" data-id="ongamers"></span>
+					</div>
+					<div class="website-surrender website-control">
+						Sat20 <span class="remove-website" data-id="surrender"></span>
+					</div>
+					<div class="website-jungle website-control">
+						Jungle Timer <span class="add-website" data-id="jungle"></span>
+					</div>
+					<div class="website-wikia website-control">
+						LoL Wiki <span class="remove-website" data-id="wikia"></span>
+					</div>
+					<div class="website-gamepedia website-control">
+						Gamepedia <span class="remove-website" data-id="gamepedia"></span>
+					</div>
+					<div class="website-esports website-control">
+						LoL Esports <span class="remove-website" data-id="esports" ></span>
+					</div>
+					<div class="website-cloth website-control">
+						Cloth 5 <span class="remove-website" data-id="cloth"></span>
+					</div>
+					<div class="website-esex website-control">
+						ESEx <span class="add-website" data-id="esex"></span>
+					</div>
+					<div class="website-calendar website-control">
+						Esport Calendar <span class="add-website" data-id="calendar"></span>
+					</div>
+					<div class="website-research website-control">
+						League Research <span class="add-website" data-id="research"></span>
+					</div>
+				</div>
+
+				<h3>Summoner Websites</h3>
+				<div class="summoner-websites">
+					<div class="website-king website-control">
+						LolKing <span class="remove-website" data-id="king" ></span>
+					</div>
+					<div class="website-nexus website-control">
+						LolNexus <span class="remove-website" data-id="nexus"></span>
+					</div>
+					<div class="website-gg website-control">
+						OP GG <span class="remove-website" data-id="gg"></span>
+					</div>
+					<div class="website-now website-control">
+						LolKingNow <span class="remove-website" data-id="now" ></span>
+					</div>
+					<div class="website-summoning website-control">
+						Summoning <span class="remove-website" data-id="summoning" ></span>
+					</div>
+					<div class="website-kassad website-control">
+						Kassad.In <span class="add-website" data-id="kassad"></span>
+					</div>
+					<div class="website-skill website-control">
+						LoLSkill <span class="remove-website" data-id="skill"></span>
+					</div>
+				</div>
+
+				<h3>Champion Websites</h3>
+				<div class="champ-websites" style="margin-bottom: 40px;">
+					<div class="website-champselect website-control">
+						Counters <span class="remove-website" data-id="champselect"></span>
+					</div>
+					<div class="website-tsm website-control">
+						SoloMid <span class="remove-website" data-id="tsm"></span>
+					</div>
+					<div class="website-probuilds website-control">
+						ProBuilds <span class="remove-website" data-id="probuilds"></span>
+					</div>
+					<div class="website-moba website-control">
+						Mobafire <span class="remove-website" data-id="moba" ></span>
+					</div>
+					<div class="website-builder website-control">
+						LoLBuilder <span class="remove-website" data-id="builder"></span>
+					</div>
+					<div class="website-lolpro website-control">
+						LoLPro <span class="remove-website" data-id="lolpro"></span>
+					</div>
+					<div class="website-kingchamp website-control">
+						LolKing Stats <span class="remove-website" data-id="kingchamp"></span>
+					</div>
+					<div class="website-elo website-control">
+						Elophant <span class="remove-website" data-id="elo"></span>
+					</div>
+
+				</div>
+				<h3>General Settings</h3>
 				<table width="100%">
 					<tr>
 						<td>
@@ -290,6 +444,7 @@
 								<option value="nexus">Nexus</option>
 								<option value="gg">OP GG</option>
 								<option value="now">LolKing Now</option>
+								<option value="summoning">Summoning</option>
 								<option value="kassad">Kassad.In</option>
 								<option value="skill">LoLSkill</option>
 							</select>
@@ -303,6 +458,7 @@
 								<option value="tsm">SoloMid</option>
 								<option value="probuilds">ProBuilds</option>
 								<option value="moba">Mobafire</option>
+								<option value="lolbuilder">LolBuilder</option>
 								<option value="lolpro">LolPro</option>
 								<option value="kingchamp">LolKing Stats</option>
 								<option value="elo">Elophant</option>

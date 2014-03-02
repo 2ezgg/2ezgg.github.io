@@ -909,6 +909,11 @@ a.reddit-title:visited {
   padding-left: 30px;
   display: none; }
 
+#settings-content h3 {
+  margin-bottom: 5px;
+  margin-top: 25px;
+  font-size: 0.97em; }
+
 .settings-update, .add-champ {
   color: white;
   border-top: 1px solid #61bfbe;
@@ -933,6 +938,39 @@ a.reddit-title:visited {
 
 .settings-odd {
   background-color: #EDEDED; }
+
+.website-control {
+  padding: 5px;
+  display: inline-block;
+  background-color: #D8D8D8;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #505050;
+  margin-top: 5px; }
+
+.remove-website {
+  background-color: #d65555;
+  cursor: pointer;
+  padding: 3px;
+  color: white; }
+
+.remove-website:before {
+  content: "x"; }
+
+.remove-website:hover {
+  background-color: #E76060; }
+
+.add-website {
+  background-color: #5bacca;
+  cursor: pointer;
+  padding: 3px;
+  color: white; }
+
+.add-website:hover {
+  background-color: #68BFDF; }
+
+.add-website:before {
+  content: "+"; }
 
 .champ-text {
   float: left; }

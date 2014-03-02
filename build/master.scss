@@ -1045,6 +1045,12 @@ background: linear-gradient(to bottom,#DEE535 0,#d8d437 100%);
 	display:none;
 }
 
+#settings-content h3{
+	margin-bottom: 5px;
+	margin-top: 25px;
+	font-size: 0.97em;
+}
+
 .settings-update, .add-champ{
 	color:white;
 	border-top: 1px solid #61bfbe;
@@ -1062,6 +1068,41 @@ background: linear-gradient(to bottom,#DEE535 0,#d8d437 100%);
 
 .settings-odd{
 	background-color: #EDEDED;
+}
+
+.website-control{
+  padding: 5px;
+  display: inline-block;
+  background-color: #D8D8D8;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #505050;
+  margin-top:5px;
+}
+.remove-website{
+  background-color: rgb(214, 85, 85);
+  cursor: pointer;
+  padding: 3px;
+  color: white;
+ 
+}
+.remove-website:before{
+	content: "x";
+}
+.remove-website:hover{
+	background-color:#E76060;
+}
+.add-website{
+  background-color: rgb(91, 172, 202);
+  cursor: pointer;
+  padding: 3px;
+  color: white;
+}
+.add-website:hover{
+	background-color:#68BFDF;
+}
+.add-website:before{
+	content: "+";
 }
 
 // specific sidebar styling
