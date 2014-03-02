@@ -156,7 +156,7 @@
 
 
 			} else if (webData == 'gg'){
-				
+
 				item.attr("href","http://" + this.server + ".op.gg/summoner/userName=" + this.name); 
 
 			} else if (webData == 'skill'){
@@ -266,7 +266,7 @@
 		{name:"kha'zix", xpos:-108,ypos:-144},
 		{name:"kog'maw", xpos:-144,ypos:-144},
 		{name:"leblanc", xpos:-180,ypos:-144},
-		{name:"leesin", xpos:-216,ypos:-144},
+		{name:"lee sin", xpos:-216,ypos:-144},
 		{name:"leona", xpos:-252,ypos:-144},
 		{name:"lissandra", xpos:-288,ypos:-144},
 		{name:"lucian", xpos:-324,ypos:-144},
