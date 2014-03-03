@@ -1651,10 +1651,10 @@ $(function(){
 	});
 
 
-	$('.subreddit-setting').on('click', function(event){
+	$('.subreddit-setting').on('click', function(e){
 		var $this = $(this);
 
-		if(event.which == 2){
+		if(e.which == 2){
 			window.open('http://www.reddit.com/r/'+$this.data('subreddit'));
 			event.preventDefault();
 		} else{
@@ -2385,9 +2385,9 @@ $(function(){
 
 	var timerName;
 
-	$(".name").on('keyup', function(){
+	$(".name").on('keyup', function(e){
 		league.account($(".name").val(), $(".server").val())
-		var keycode = (event.keyCode ? event.keyCode : event.which);
+		var keycode = (e.keyCode ? e.keyCode : e.which);
     	
     	clearTimeout(timerName);
 
@@ -2449,10 +2449,10 @@ $(function(){
 	});
 
 
-	$(".champ").on('keyup', function(){
+	$(".champ").on('keyup', function(e){
 		var $champInputValue = $(this).val();
 		var comparisonChamp = new RegExp($champInputValue,"i");
-		var keycode = (event.keyCode ? event.keyCode : event.which);
+		var keycode = (e.keyCode ? e.keyCode : e.which);
 
     	if(keycode == '13') {
 			var champText = $("#champ-drop .champ-list-entry .champ-text").first().text(); 
