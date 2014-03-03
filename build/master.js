@@ -2111,7 +2111,8 @@ $(function(){
 		var $this = $(this);
 		$this.removeClass('add-website');
 		$this.addClass('remove-website');
-		$('#'+$this.data('id')).css('display','inline-block');
+		$('#'+$this.data('id')).css('display','block');
+		
 
 		var notAdded = true;
 		var totalSettingsLength = league.pageChange.length;
@@ -2129,7 +2130,9 @@ $(function(){
 		}
 		console.log(league.pageChange);
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
-
+		setTimeout(function(){
+			$('#'+$this.data('id')).css('display','inline-block');          
+		}, 300);	
 	});
 
 	$('#settings-content').on('click','.remove-website', function(){
