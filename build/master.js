@@ -2382,6 +2382,9 @@ $(function(){
 		
 	});	
 
+	$('input').on('keydown', function(e){
+   		e.stopPropagation();
+	});
 
 	var timerName;
 
