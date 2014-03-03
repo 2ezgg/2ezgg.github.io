@@ -84,6 +84,7 @@
 			$(".champ").val(this.champ);
 			$(".submit-champ").css('background-color', 'red');
 			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+			this.keepSpaces = this.champ.trim();
 			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");
 			this.champLink();
 		}
@@ -117,6 +118,7 @@
 
 		if (this.champ) {
 			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+			this.keepSpaces = this.champ.trim();
 			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");	
 			this.champLink();
 			return true;
@@ -235,6 +237,9 @@
 			}	
 				 else if(webData == 'lolpro'){
 				item.attr('href','http://www.lolpro.com/guides/' + this.spaceAndDashChamp);
+			}
+			else if(webData == 'wikichamp'){
+				item.attr('href','http://leagueoflegends.wikia.com/wiki/' + this.keepSpaces);
 			}
 
 			
