@@ -498,6 +498,12 @@ a.reddit-title:visited {
 .reddit-author a:hover {
   text-decoration: underline; }
 
+.md h1 {
+  font-weight: normal;
+  font-size: 1.2em;
+  color: #257372;
+  line-height: 1.3em; }
+
 #youtube-content {
   margin-top: 15px;
   display: none; }
