@@ -38,8 +38,7 @@
 			this.server = localStorage.getItem('server');
 			this.champ = localStorage.getItem('champ');
 			this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
-			console.log(this.pageChange);
-			//this.pageAdd = localStorage.getItem('pageAdd');
+			this.pageAdd = JSON.parse(localStorage.getItem('pageAdd')) || [];
 
 			this.newReignArticles = parseInt(localStorage.getItem('newReignArticles')) || 0;
 			this.newLeagueArticles = parseInt(localStorage.getItem('newLeagueArticles')) || 0;
@@ -51,7 +50,7 @@
 
 		} else {
 			this.pageChange = [];
-			//this.pageAdd;
+			this.pageAdd = [];
 			this.name;
 			this.server;
 			this.champ;
@@ -69,20 +68,27 @@
 				}
 			}
 		}
-		//if(this.pageAdd != null && this.pageAdd.length>0){
-			// rune code that adds user
-		//}
+
+		if(this.pageAdd.length>0){
+			var self = this;
+			var addWebsite = Handlebars.compile($('#new-website-template').html());
+			var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
+		
+			for(var y = 0; y < this.pageAdd.length; y++){
+				$("#miscbuttons ul").append( addWebsite(self.pageAdd[y]));
+				$(".general-websites").append( addWebsiteSettings(self.pageAdd[y]));
+			}
+		}
+	
 
 		if (this.name) {
 			$(".name").val(this.name);
 			$(".server").val(this.server);
-			$(".submit-name").css('background-color', 'red');
 
 			this.nameLink();
 		}
 		if (this.champ) {
 			$(".champ").val(this.champ);
-			$(".submit-champ").css('background-color', 'red');
 			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
 			this.keepSpaces = this.champ.trim();
 			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");
@@ -1593,7 +1599,6 @@ $(function(){
 //////// Reddit Event Area ///////
 /////////////////////////////////
 	var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
-	console.log(lastRedditAboutRetrieval);
 	if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
 		reddit.getAbout();
 	} else {
@@ -2133,7 +2138,6 @@ $(function(){
 				display : 'inline-block',
 			}
 		}
-		console.log(league.pageChange);
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
 		setTimeout(function(){
 			$('#'+$this.data('id')).css('display','inline-block');          
@@ -2161,6 +2165,58 @@ $(function(){
 			}
 		}
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+	});
+
+	$('.add-user-website').on('click', function(){
+		var totalPages = league.pageAdd.length
+		var previousEntry = (totalPages>0)?((league.pageAdd[totalPages-1].id)+1):totalPages;
+		var iframeResult = $('.user-website-iframe').is(':checked')?true:false;
+		league.pageAdd[totalPages] = {
+			name: $('.user-website-name').val(),
+			id: previousEntry,
+			href: $('.user-website-url').val(),
+		}
+		if(iframeResult){
+			league.pageAdd[totalPages].iframe = true;
+		}
+
+		localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+		
+		$('.iframe-tester').html('');
+		$('.user-website-name').val('');
+		$('.user-website-url').val('');
+
+		var addWebsite = Handlebars.compile($('#new-website-template').html());
+		$("#miscbuttons ul").append( addWebsite(league.pageAdd[totalPages]));
+
+		var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
+		$(".general-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
+		
+	});
+
+	$('.test-user-website').on('click', function(){
+		var $userUrl = $('.user-website-url').val();
+		if($userUrl.length>0){
+			$('.iframe-tester').html('<iframe src="'+$userUrl+'" style="width:300px;height:400px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>');
+		}
+	});
+
+	$('#settings-content').on('click','.remove-user-website', function(){
+		var $this = $(this);
+		$this.parent().fadeOut();
+		$('#'+$this.data('id')).css('display','none');
+
+		var index;
+		for (var i = 0; i<league.pageAdd.length; i++){
+			if(league.pageAdd[i].id == $this.data('id')){
+				index = i;
+			}
+		}
+		if(index>-1){
+			league.pageAdd.splice(index,1);
+		}
+		
+		localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
 	});
 
 
@@ -2539,7 +2595,7 @@ $(function(){
 //////// Sidebar iframe events  ///////
 ///////////////////////////////////////
 
-	$(".iframe-capable").on('click', function(e){
+	$("#sidebar-content").on('click','.iframe-capable', function(e){
 
 		if(e.which !== 2){
 			if(!detectmob()){

@@ -70,7 +70,22 @@
 					</ul>
 				</div>
 
-				<div class="remaining holder half-buttons" style="padding-bottom:22px">
+				<div class="remaining holder half-buttons" id="miscbuttons" style="padding-bottom:22px">
+
+					<script id="new-website-template" type="text/x-handlebars-template">
+						
+							
+								<a class="nav-button website-misc
+								{{#if iframe}}
+								 iframe-capable
+								{{/if}}
+								 " id="{{id}}" data-name="{{id}}" href="{{href}}" target="_blank">
+							<li>	
+								<span class="lol-image" style="background-image:url('http://s2.googleusercontent.com/s2/favicons?domain_url={{href}}')"></span>{{name}}
+							</li>
+						</a>
+					</script>
+
 					<ul>		
 						<a class="nav-button website-misc no-iframe" id="reddit" data-name="redditthreads" href="http://www.reddit.com/r/leagueoflegends">
 							<li>	
@@ -310,7 +325,10 @@
 			<div id="settings-content">
 				<h2 style="margin-bottom:30px;margin-top:30px">2ez.gg Settings</h2>
 
-				<script id="website-template" type="text/x-handlebars-template">
+				<script id="remove-website-template" type="text/x-handlebars-template">
+					<div class="website-{{id}} website-control">
+						{{name}} <span class="remove-user-website" data-id="{{id}}" ></span>
+					</div>
 				</script>
 
 				<h3>General Websites</h3>
@@ -368,6 +386,21 @@
 					</div>
 				</div>
 
+				<h3>Add a general website:</h3>
+				<div class="add-new-website" style="font-size: 0.8em;">
+				<ol style="color:#333"> 
+				<li>Enter your website url and name and then press 'Test Website'. </li><li>If your website shows below, click the iframe compatible checkbox. If it doesn't show up, this means your website will open in a new tab when you click on it. </li><li>Next click 'Add website', and your website is available on the sidebar!</li> </ol>
+					<input type="text" class="user-website-url" placeholder="Website Url (include the http://)" style="width:250px;">
+					<input type="text" class="user-website-name" placeholder="Website Name" style="width:150px;">
+					<input type="submit" value="Test Website" class="test-user-website">
+					<input type="checkbox" class="user-website-iframe" name="vehicle" value="yes"> iFrame compatitible.
+					
+					<input type="submit" value="Add Website" class="add-user-website">
+					<div class="iframe-tester">
+						
+					</div>
+				</div>
+				
 				<h3>Summoner Websites</h3>
 				<div class="summoner-websites">
 					<div class="website-king website-control">
@@ -501,7 +534,7 @@
 						</td>
 						<td>Smart enter key (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
 					</tr>
-					<tr>
+					<tr class="settings-odd">
 						<td>
 							<select class="newWindow">
 								<option value="on">On</option>
