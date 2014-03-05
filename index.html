@@ -103,27 +103,40 @@
 								<span class="update-info twitch-online tooltip" title="Followed Streamers Online"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc" id="league" data-name="league" target="_blank" href="http://na.leagueoflegends.com/en/news/game-updates/" style="display:none">
+						<a class="nav-button website-misc rss-capable" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news/game-updates/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News	
 								<span class="update-info league-news tooltip" title="New Updates"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="reign" data-name="reign" target="_blank" href="http://www.reignofgaming.net/news"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="reign" data-name="reign" data-index="1" target="_blank" href="http://www.reignofgaming.net/news"> 
 							<li>
 								<span class="lol-image" style="background-position:-64px 0px;"></span>RoG
 								<span class="update-info reign-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="ongamers" data-name="ongamers" target="_blank" href="http://www.ongamers.com/league-of-legends/6000-2/"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="ongamers" data-name="ongamers" data-index="2" target="_blank" href="http://www.ongamers.com/league-of-legends/6000-2/"> 
 							<li>	
 								<span class="lol-image" style="background-position:-64px -16px;"></span>onGamers
 								<span class="update-info ongamers-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="surrender" data-name="surrender" target="_blank" href="http://www.surrenderat20.net/"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="surrender" data-name="surrender" data-index="3" target="_blank" href="http://www.surrenderat20.net/"> 
 							<li>
 								<span class="lol-image" style="background-position:-80px -16px;"></span>S@20
+								<span class="update-info surrender-news tooltip" title="New Articles"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable rss-capable" id="cloth" data-name="cloth" data-index="4" target="_blank" href="http://cloth5.com"> 
+							<li>
+								<span class="lol-image" style="background-position:-112px -16px;"></span>Cloth 5
+								<span class="update-info cloth-news tooltip" title="New Articles"></span>
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable rss-capable" id="esex" data-name="esex" data-index="5" target="_blank" href="http://esportsexpress.com/category/league-of-legends/" style="display:none"> 
+							<li>
+								<span class="lol-image" style="background-position:-112px -32px;"></span>ESEx
+								<span class="update-info esex-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
 						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://ertu.de/jungle/" style="display:none"> 
@@ -144,17 +157,6 @@
 						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com"> 
 							<li>
 								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
-							</li>
-						</a>
-						<a class="nav-button website-misc iframe-capable" id="cloth" data-name="cloth" target="_blank" href="http://cloth5.com"> 
-							<li>
-								<span class="lol-image" style="background-position:-112px -16px;"></span>Cloth 5
-							</li>
-						</a>
-						
-						<a class="nav-button website-misc iframe-capable" id="esex" data-name="esex" target="_blank" href="http://esportsexpress.com/category/league-of-legends/" style="display:none"> 
-							<li>
-								<span class="lol-image" style="background-position:-112px -32px;"></span>ESEx
 							</li>
 						</a>
 						
@@ -343,16 +345,29 @@
 						Streams <span class="remove-website" data-id="twitch"></span>
 					</div>
 					<div class="website-league website-control">
-						LoL News <span class="add-website" data-id="league" ></span>
+						LoL News 
+						<small>- Keep Updated</small>
+						<span class="add-website" data-id="league"></span>
 					</div>
 					<div class="website-reign website-control">
-						RoG <span class="remove-website" data-id="reign"></span>
+						RoG <small>- Keep Updated</small>
+						<span class="remove-website" data-id="reign"></span>
 					</div>
 					<div class="website-ongamers website-control">
-						onGamers <span class="remove-website" data-id="ongamers"></span>
+						onGamers <small>- Keep Updated</small>
+						<span class="remove-website" data-id="ongamers"></span>
 					</div>
 					<div class="website-surrender website-control">
-						SurrenderAt20 <span class="remove-website" data-id="surrender"></span>
+						SurrenderAt20 <small>- Keep Updated</small>
+						<span class="remove-website" data-id="surrender"></span>
+					</div>
+					<div class="website-cloth website-control">
+						Cloth 5 <small>- Keep Updated</small>
+						<span class="remove-website" data-id="cloth"></span>
+					</div>
+					<div class="website-esex website-control">
+						ESEx <small>- Keep Updated</small>
+						<span class="add-website" data-id="esex"></span>
 					</div>
 					<div class="website-jungle website-control">
 						Jungle Timer <span class="add-website" data-id="jungle"></span>
@@ -365,12 +380,6 @@
 					</div>
 					<div class="website-esports website-control">
 						LoL Esports <span class="remove-website" data-id="esports" ></span>
-					</div>
-					<div class="website-cloth website-control">
-						Cloth 5 <span class="remove-website" data-id="cloth"></span>
-					</div>
-					<div class="website-esex website-control">
-						ESEx <span class="add-website" data-id="esex"></span>
 					</div>
 					<div class="website-calendar website-control">
 						Esport Calendar <span class="add-website" data-id="calendar"></span>

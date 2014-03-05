@@ -40,9 +40,7 @@
 			this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
 			this.pageAdd = JSON.parse(localStorage.getItem('pageAdd')) || [];
 
-			this.newReignArticles = parseInt(localStorage.getItem('newReignArticles')) || 0;
-			this.newLeagueArticles = parseInt(localStorage.getItem('newLeagueArticles')) || 0;
-			this.newOnGamers = parseInt(localStorage.getItem('newOnGamers')) || 0;
+			this.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
 
 			this.oldDate = localStorage.getItem('date') || 0;
 			this.oldDate = parseInt(this.oldDate);
@@ -54,9 +52,7 @@
 			this.name;
 			this.server;
 			this.champ;
-			this.newReignArticles = 0;
-			this.newLeagueArticles = 0;
-			this.newOnGamers = 0;
+			this.rssFeeds = [];
 		}
 		if(this.pageChange.length>0){
 			for(var z = 0; z < this.pageChange.length; z++){
@@ -420,96 +416,70 @@
 		}
 	}
 
-	LeagueLinks.prototype.reignOfGaming = function(){
-		var reignDeferred = $.Deferred();
+	LeagueLinks.prototype.rssAlerts = function(pageRssId){
+		var rssDeferred = $.Deferred();
 		var self = this;
+		var websiteUrl = '';
+		var index;
+		if(pageRssId == 'league'){
+			websiteUrl = "http://www.ongamers.com/league-of-legends/6000-2/rss/";
+			index = 0;
+		} else if (pageRssId == 'reign'){
+			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
+			index = 1;
+		} else if (pageRssId == 'ongamers'){
+			websiteUrl = "http://www.reignofgaming.net/news.rss";
+			index = 2;
+		} else if (pageRssId == 'surrender'){
+			websiteUrl = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
+			index = 3;
+		} else if (pageRssId == 'cloth'){
+			websiteUrl = "http://cloth5.com/feed/";
+			index = 4;
+		} else if (pageRssId == 'esex'){
+			websiteUrl = "http://esportsexpress.com/category/league-of-legends/feed/";
+			index = 5;
+		} 
 
-        $.ajax({
+		$.ajax({
 	        type: "GET",
-	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://www.reignofgaming.net/news.rss'),
+	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(websiteUrl),
 	        dataType: 'json',
 	        error: function(){
-	            console.log('Unable to load reign of gaming feed');
+	            console.log('Unable to load'+pageRssId+'feed');
 	        },
 	        success: function(data){
-	            var values = data.responseData.feed.entries;
-	            for (var i=0;i<values.length;i++){
-	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
+	        	var values = data.responseData.feed.entries;
+	        	var totalAdditions = 0;
 
+	        	for (var i=0;i<values.length;i++){
+	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
 	            	if (dateOfArticle > self.oldDate){
-		 				self.newReignArticles++;
+		 				totalAdditions++;
 		 			} 	
 	        	}
-	        	localStorage.setItem('newReignArticles',self.newReignArticles);
-	        	reignDeferred.resolve();
+
+				if(self.rssFeeds[index]){
+					self.rssFeeds[index] += totalAdditions;
+				} else{
+					self.rssFeeds[index] = totalAdditions;
+				}
+				if(self.rssFeeds[index]){
+					if(self.rssFeeds[index] >= 5){
+						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+					} else{
+						$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
+					}
+				}
+
+				localStorage.setItem('rssFeeds',JSON.stringify(self.rssFeeds));
+				
+	        	rssDeferred.resolve();
 	        }
     	});
 
-    	return reignDeferred.promise();
+    	return rssDeferred.promise();
 	}
-
-
-	LeagueLinks.prototype.onGamers = function(){
-		var reignDeferred = $.Deferred();
-		var self = this;
-
-        $.ajax({
-	        type: "GET",
-	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://www.ongamers.com/league-of-legends/6000-2/rss/'),
-	        dataType: 'json',
-	        error: function(){
-	            console.log('Unable to to load onGamers feed.');
-	        },
-	        success: function(data){
-	        	// do this area and create variable in initiation area
-	            var values = data.responseData.feed.entries;
-	            for (var i=0;i<values.length;i++){
-	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-
-	            	if (dateOfArticle > self.oldDate){
-		 				self.newOnGamers++;
-		 			} 	
-	        	}
-	        	localStorage.setItem('newOnGamers',self.newOnGamers);
-	        	reignDeferred.resolve();
-	        }
-    	});
-
-    	return reignDeferred.promise();
-	}
-
-	LeagueLinks.prototype.LolInfo = function(){
-		var lolDeferred = $.Deferred();
-		var self = this;
-
-        $.ajax({
-	        type: "GET",
-	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent('http://na.leagueoflegends.com/en/rss.xml'),
-	        dataType: 'json',
-	        error: function(){
-	            console.log('Unable to load LeagueOfLegends feed.');
-	        },
-	        success: function(data){
-	            var values = data.responseData.feed.entries;
-	            for (var i=0;i<values.length;i++){
-	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-
-	            	if (dateOfArticle > self.oldDate){
-		 				self.newLeagueArticles++;
-		 			} 	
-	        	}
-	        	
-	        	localStorage.setItem('newLeagueArticles',self.newLeagueArticles);
-
-	        	lolDeferred.resolve();
-	        }
-    	});
-
-    	return lolDeferred.promise();
-	}
-
-
-
 
 
 	var streamChannels = function(){
@@ -2031,86 +2001,83 @@ $(function(){
 //////////////////////////////////
 //////// RSS Feeds Event Area ///////
 /////////////////////////////////
-//// This area isn't very modular, and could use some work. (I repeat my code).
 
 	function rssEvents(){
 		if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('rssLastRetrieved')) + 1000*60*20) >= Date.now()) ){
-				if(league.newReignArticles){
-					if(league.newReignArticles >= 5){
-						$(".reign-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".reign-news").css( "display", "inline" ).text(league.newReignArticles);
+			var $rssCapableLinks = $(".rss-capable");
+
+			for(var t = 0; t<$rssCapableLinks.length; t++){
+				
+				var $specificData = $rssCapableLinks.eq(t);
+				var dataName = $specificData.data('name');
+				var dataIndex = $specificData.data('index');
+
+				if($("#"+dataName).css('display')!='none'){
+					if(league.rssFeeds[dataIndex]){
+						if(league.rssFeeds[dataIndex] > 5){
+							$("."+dataName+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+						} else{
+							$("."+dataName+"-news").css( "display", "inline" ).text(league.rssFeeds[dataIndex]);
+						}
 					}
 				}
-				if(league.newOnGamers){
-					if(league.newOnGamers >= 5){
-						$(".ongamers-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".ongamers-news").css( "display", "inline" ).text(league.newOnGamers);
-					}
-				}
-				if(league.newLeagueArticles){
-					if(league.newLeagueArticles >= 5){
-						$(".league-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".league-news").css( "display", "inline" ).text(league.newLeagueArticles);
-					}
-				}
+			}
+				
 		} else{
 			localStorage.setItem('rssLastRetrieved',Date.now());
+			var $rssCapableLinks = $(".rss-capable");
 
-			league.reignOfGaming().done(function() {
-
-				if(league.newReignArticles){
-					if(league.newReignArticles >= 5){
-						$(".reign-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".reign-news").css( "display", "inline" ).text(league.newReignArticles);
-					}
+			for(var t = 0; t<$rssCapableLinks.length; t++){
+				var dataName = $rssCapableLinks.eq(t).data('name');
+				if($("#"+dataName).css('display')!='none'){
+					league.rssAlerts(dataName);
 				}
-			});
+			}
 			
-
-			league.onGamers().done(function() {
-				if(league.newOnGamers){
-					if(league.newOnGamers >= 5){
-						$(".ongamers-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".ongamers-news").css( "display", "inline" ).text(league.newOnGamers);
-					}
-				}
-			});
-		
-
-			league.LolInfo().done(function() {
-				if(league.newLeagueArticles){
-					if(league.newLeagueArticles >= 5){
-						$(".league-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$(".league-news").css( "display", "inline" ).text(league.newLeagueArticles);
-					}
-				}
-			});	
 		}
 	}
 
 	rssEvents();
 	setInterval(rssEvents, 1000*60*25);
 
-	$("#ongamers").on('click', function(){
-		$(".ongamers-news").fadeOut();
-		localStorage.setItem('newOnGamers',0);
-	});
+	var $sidebarRss = $("#sidebar");
 
-	$("#reign").on('click', function(){
-				$(".reign-news").fadeOut();
-				localStorage.setItem('newReignArticles',0);
-	});
+	// The below part isn't modular at all and should be fixed.
 
-	$("#league").on('click', function(){
+	$sidebarRss.on('click','#league', function(){
 		$(".league-news").fadeOut();
-		localStorage.setItem('newLeagueArticles',0);
+		league.rssFeeds[0] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
 	});
+	$sidebarRss.on('click','#reign', function(){
+		$(".reign-news").fadeOut();
+		league.rssFeeds[1] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+	});
+	$sidebarRss.on('click','#ongamers', function(){
+		$(".ongamers-news").fadeOut();
+		league.rssFeeds[2] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+	});
+	$sidebarRss.on('click','#surrender', function(){
+		$(".surrender-news").fadeOut();
+		league.rssFeeds[3] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+	});
+	$sidebarRss.on('click','#cloth', function(){
+		$(".cloth-news").fadeOut();
+		league.rssFeeds[4] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+	});
+	$sidebarRss.on('click','#esex', function(){
+		$(".esex-news").fadeOut();
+		league.rssFeeds[5] = 0;
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+	});
+
+	
+
+	
 
 
 /////////////////////////////////////////

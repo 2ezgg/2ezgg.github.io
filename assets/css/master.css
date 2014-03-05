@@ -911,6 +911,11 @@ a.reddit-title:visited {
 #settings-content table {
   width: 92%; }
 
+#settings-content small {
+  font-size: 90%;
+  font-style: italic;
+  font-weight: 400; }
+
 #settings-content {
   padding-left: 30px;
   display: none; }
