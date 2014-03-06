@@ -170,7 +170,7 @@
 				item.attr("href","http://www.lolking.net/now/"+this.server+"/"+this.name);
 
 			} else if(webData == 'summoning'){
-				item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name)
+				item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name+"/")
 			}
 
 			else if (webData == 'king'){
@@ -1011,6 +1011,34 @@
 
 		this.redditAjaxRequest;
 	}
+	RedditLol.prototype.getAbout = function(){
+		var redditAboutDeferred = $.Deferred();
+		var self = this;
+				
+		self.redditAjaxRequest = $.ajax({
+				dataType:'json',
+				url: "http://www.reddit.com/r/leagueoflegends/about.json?jsonp=",
+				error: function(){
+	            	console.log('Unable to load reddit about api');
+	        	},
+				success: function(data){
+					var aboutHtml = data.data.description_html;
+
+					$side = $('.side');
+					$side.html(aboutHtml);
+					$side.html($side.text());
+					var aboutHtml = $side.html();
+
+					localStorage.setItem('aboutHtml', aboutHtml);
+					localStorage.setItem('lastRedditAboutRetrieval', Date.now());
+
+				 redditAboutDeferred.resolve();
+                },
+
+			});
+
+		return redditAboutDeferred.promise();
+	}
 
 	RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageTime, pageNum){
 
@@ -1092,6 +1120,8 @@
 	                         	}
 	                         	y++;
 
+
+
 	                         	self.redditThreads[i].videoEmbed = nodes[i].data.media.oembed.url.replace(/watch\?v=/i, 'embed/');
 	                         	
 	                         	
@@ -1132,8 +1162,51 @@
 
                         }
 
+
+                        else if(choiceOfFunction == 'reddit'){
+                        localStorage.setItem('redditLastRetrieved',Date.now());
+						// Make changes to reddit data
+						
+							    self.redditThreads[i+self.previousRedditLength]={
+	                         		domain: nodes[i].data.domain,
+	                         		title: nodes[i].data.title,
+	                         		url: nodes[i].data.url,
+	                         		score: nodes[i].data.score,
+	                         		commentsTotal: nodes[i].data.num_comments,
+	                         		permalink: nodes[i].data.permalink,
+	                         		created: nodes[i].data.created_utc,
+	                         		content: nodes[i].data.selftext_html,
+	                         		author: nodes[i].data.author,
+	                         		thumbnail: nodes[i].data.thumbnail,
+	                         		redditRank: i + 1 + self.previousRedditLength,
+	                         		linkFlair: nodes[i].data.link_flair_css_class,
+									authorFlair: nodes[i].data.author_flair_css_class,
+	                         		videoEmbed: null,
+	                         		after: data.data.after,
+
+	                         		
+	                         	}
+
+	                         	if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be') 
+								&& !nodes[i].data.url.match(/user/i) && (nodes[i].data.media != null) && (typeof nodes[i].data.media.oembed.url != 'undefined')){
+
+	                         		self.redditThreads[i+self.previousRedditLength].videoEmbed = nodes[i].data.media.oembed.url.replace(/watch\?v=/i, 'embed/');
+								}
+
+	                        self.nextPageReddit = data.data.after;
+                        }
+
 					}
 
+					if(choiceOfFunction != 'youtube'){
+						for(var t = 0; t < self.redditThreads.length; t++){
+							if(self.redditThreads[t].thumbnail == 'self' || self.redditThreads[t].thumbnail == 'default'){
+								self.redditThreads[t].thumbnail = 'assets/img/default.png';
+							} 
+						}
+					}
+			
+					localStorage.setItem('redditThreads', JSON.stringify(self.redditThreads));
 					localStorage.setItem('nextPage',self.nextPageReddit);
 					localStorage.setItem('redditSettings', JSON.stringify(self.currentRedditSettings));
                
@@ -1152,7 +1225,7 @@
 		var template = Handlebars.compile($('#youtube-template').html());
 		
 		if(self.youtubeVids.length == 0){
-						$("#youtube-progress").html('<p>Sorry all out of reddit threads for now</p>');
+						$("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
 		}
 		
 		for(var i = 0; i<4; i++){
@@ -1164,6 +1237,38 @@
 		}		
 		
 	}
+
+	RedditLol.prototype.mainPage = function(useLocalStorage){
+
+		var self = this;
+		var template = Handlebars.compile($('#reddit-template').html());
+		
+		
+			if(self.redditThreads.length < 25){
+						$("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
+			}
+
+			var count = 25;
+			if (useLocalStorage){
+				count = self.redditThreads.length;
+			}
+
+			for(var i = 0; i<count; i++){
+				if (self.redditThreads.length > self.redditCount){
+
+					$("#reddit-threads").append(template(self.redditThreads[self.redditCount]));
+
+					var $decoder = $(".reddit-expand").eq(self.redditCount).children(".decode");
+				
+					$decoder.html($decoder.text());
+					
+					self.redditCount ++;
+				}
+				
+			}
+		
+	}
+
 
 	var WebInterface = function(){
 		this.youtubeInUse = '';
@@ -1318,12 +1423,12 @@ $(function(){
 			$("a#youtube li").addClass('selected-link');
 			reddit.getThreads(reddit.currentYoutubeSettings[0],reddit.currentYoutubeSettings[1],reddit.currentYoutubeSettings[2],reddit.currentYoutubeSettings[3],reddit.nextPageYoutube).done(function() {
 					reddit.youtubeArea();
+					reddit.mainPage();
 					if($(window).height() > 1080){
 						reddit.youtubeArea();
 					}	
 			});
 			web.twitchInUse = 'no';
-
 		} else if (currentUrl.match(/settings/i)){	
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
@@ -1334,6 +1439,10 @@ $(function(){
 			$("#settings-content").css("display","block");
 			$("a#settings li").addClass('selected-link');
 			web.setSettings();
+			reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
+					reddit.mainPage();
+					web.youtubeInUse = 'contentAvailable'	
+				});
 			web.twitchInUse = 'no';
 			web.youtubeInUse = 'no';
 
@@ -1352,6 +1461,7 @@ $(function(){
 			$("#twitch-content").css( "display", "block" );
 			$("a#twitch li").addClass('selected-link');
 			web.youtubeInUse = 'no';
+			web.redditInUse = 'no';	
 			
 
 		} else if(web.checkIfBelongs()){ 
@@ -1360,18 +1470,76 @@ $(function(){
 				var url = web.checkIfBelongs(null, true);
 				$("#iframe-holder").css("display","block");
 				web.makeIframe(url)
-			};	
+			};
+				
+				
 			web.youtubeInUse = 'no';
+			web.redditInUse = 'no';
 			web.twitchInUse = 'no';	
 
 		} else {
 			$("a#reddit li").addClass('selected-link');
-			if(!detectmob()){
-				$("#iframe-holder").css("display","block");
-				web.makeIframe($('#reddit').attr('href'));
-			};				
-			web.youtubeInUse = 'no';
-			web.twitchInUse = 'no';	
+			if ( currentUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
+
+					reddit.redditThreads = JSON.parse(localStorage.getItem('redditThreads'));
+					reddit.nextPageReddit = localStorage.getItem('nextPage');
+
+					var yScroll = parseInt(localStorage.getItem('yScroll'));
+					reddit.currentRedditSettings = JSON.parse(localStorage.getItem('redditSettings'));
+					reddit.mainPage(true);
+					
+					$("#sidebar").css('display',localStorage.getItem('sidebarOpen'));
+
+					// time outs are fo weird bug fix that makes page lag
+					setTimeout(function(){
+				 		$(window).scrollTop(yScroll);
+				 	},333);
+
+				 	setTimeout(function(){
+				 		history.pushState("", "", "#");
+				 	 },1755);
+					
+					
+
+					$(".subreddit-setting").removeClass('setting-chosen');
+					$(".subreddit-"+reddit.currentRedditSettings[1]+" ").addClass('setting-chosen');
+					
+					$('.dropdown-subreddit').val(reddit.currentRedditSettings[1]);
+
+					if(reddit.currentRedditSettings[3] != null){
+						$('.dropdown-reddit-options').val(reddit.currentRedditSettings[2]+reddit.currentRedditSettings[3]);
+					} else {
+						$('.dropdown-reddit-options').val(reddit.currentRedditSettings[2]);
+					}
+
+					if((reddit.currentRedditSettings[0] != null)&&(reddit.currentRedditSettings[2] != 'hot')){
+						$(".reddit-setting").removeClass('setting-chosen');
+						$("."+reddit.currentRedditSettings[3]+reddit.currentRedditSettings[2]+"-reddit").addClass('setting-chosen');
+					}
+						
+					web.youtubeInUse = 'no';
+					web.redditInUse = 'no';
+					web.twitchInUse = 'no';
+
+			} else{
+				reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
+					reddit.mainPage();
+					web.youtubeInUse = 'contentAvailable'	
+				});
+				web.twitchInUse = 'no';
+				web.youtubeInUse = 'no';
+				
+			}
+
+			///////////////////// if page back button is pressed
+			$("#iframe-holder").html(' ').css("display","none");
+			$("#main-content").css("display","block");
+			$("header").css('height','100px');
+			$("#youtube-content").css("display","none");
+			$("#reddit-content").css("display","block");
+			$("#settings-content").css("display","none");
+			$("#twitch-content").css("display","none");
+			/////////////////////
 	}
 }	
 
@@ -1395,10 +1563,186 @@ $(function(){
 		}, 20000);
 	}
 ////////////////////////////////////////
+	
+	
 //////////////////////////////////
-//////// Youtube Event Area ///////
+//////// Reddit Event Area ///////
 /////////////////////////////////
-		$('.dropdown-youtube-options').on('change', function(event){
+	var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
+	if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
+		reddit.getAbout();
+	} else {
+		$('.side').html(localStorage.getItem('aboutHtml'));
+	}
+
+	var $redditContent = $("#reddit-content")
+
+	$redditContent.on('click','.reddit-show-more', function(){
+			var $expander = $(this).siblings(".reddit-expand");
+			var $youtubeHolder = $expander.children(".reddit-youtube-prev");
+			if ($youtubeHolder){
+				//$expander.addClass('video-container');
+				$youtubeHolder.html('<div class="video-container"><iframe width="560" height="315" src="'+$youtubeHolder.data("url")+'" frameborder="0" allowfullscreen></iframe></div>');	
+			}
+			$expander.slideToggle();
+			
+		});
+
+	$redditContent.on('click','.original-state-content', function(){
+		$(this).toggleClass('open-state-content');
+	});
+
+	$redditContent.on('click','.original-state-media', function(){
+		$(this).toggleClass('open-state-media');
+	});
+
+
+	$('.dropdown-subreddit, .dropdown-reddit-options').on('change', function(event){
+
+		if(typeof reddit.redditAjaxRequest !== 'undefined'){
+			if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
+            	reddit.redditAjaxRequest.abort();
+            	if(reddit.youtubeVids.length == 0){
+            		web.youtubeInUse = 'no';
+            	}
+        	}
+    	}
+
+		reddit.redditThreads = [];
+		reddit.redditCount = 0;
+		reddit.nextPageReddit = null;
+
+		var $selectedSubreddit = $(".dropdown-subreddit").find('option:selected');
+		var $selectedRedditSettings = $('.dropdown-reddit-options').find('option:selected');
+		reddit.currentRedditSettings=['reddit',$selectedSubreddit.data('subreddit'),$selectedRedditSettings.data('type'),$selectedRedditSettings.data('duration')];
+
+		$(".reddit-setting").removeClass('setting-chosen');
+		$("."+$selectedRedditSettings.data('duration')+$selectedRedditSettings.data('type')+"-reddit").addClass('setting-chosen');
+
+		$(".subreddit-setting").removeClass('setting-chosen');
+		$(".subreddit-"+$selectedSubreddit.data('subreddit')).addClass('setting-chosen');
+		
+		$("#reddit-threads").html(' ');
+		$("#reddit-progress").html('<img src="assets/img/loader.gif" />');
+
+		reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3]).done(function() {
+			reddit.mainPage();	
+		});
+	});
+
+
+	$('.subreddit-setting').on('click', function(e){
+		var $this = $(this);
+
+		if(e.which == 2){
+			window.open('http://www.reddit.com/r/'+$this.data('subreddit'));
+			event.preventDefault();
+		} else{
+			if(typeof reddit.redditAjaxRequest !== 'undefined'){
+				if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
+	            	reddit.redditAjaxRequest.abort();
+	            	if(reddit.youtubeVids.length == 0){
+	            		web.youtubeInUse = 'no';
+	            	}
+	        	}
+        	}
+
+			$("#reddit-threads").html(' ');
+			$("#reddit-progress").html('<img src="assets/img/loader.gif" />');
+
+			reddit.redditThreads = [];
+			reddit.redditCount = 0;
+			reddit.nextPageReddit = null;
+			reddit.currentRedditSettings=['reddit',$this.data('subreddit'),$this.data('type'),null,null];
+
+			$(".reddit-setting").removeClass('setting-chosen');
+			$(".hot-reddit").addClass('setting-chosen');
+
+			$this.siblings().removeClass('setting-chosen');
+			$this.addClass('setting-chosen');
+
+			$('.dropdown-subreddit').val($this.data('subreddit'));
+			$('.dropdown-reddit-options').val('hot');
+
+			reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3]).done(function() {
+				reddit.mainPage();	
+			});
+		}
+
+	});
+
+	$(".reddit-setting").on('click', function(e){
+		var $this = $(this);
+
+		if(e.which === 2){
+			if($this.data('type')=='top'){
+				window.open('http://www.reddit.com/r/'+reddit.currentRedditSettings[1]+'/top/?sort=top&t='+$this.data('duration'));
+			} else{
+				window.open('http://www.reddit.com/r/'+reddit.currentRedditSettings[1]+'/'+$this.data('type'));
+			}
+			
+			e.preventDefault();
+		} else{
+			if(typeof reddit.redditAjaxRequest !== 'undefined'){
+				if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
+	            	reddit.redditAjaxRequest.abort();
+	            	if(reddit.youtubeVids.length == 0){
+	            		web.youtubeInUse = 'no';
+	            	}
+	        	}
+	        }
+
+			$("#reddit-threads").html(' ');
+			$("#reddit-progress").html('<img src="assets/img/loader.gif" />');
+
+			reddit.redditThreads = [];
+			reddit.redditCount = 0;
+			reddit.nextPageReddit = null;
+			reddit.currentRedditSettings=['reddit',reddit.currentRedditSettings[1],$this.data('type'),$this.data('duration')];
+
+			$this.siblings().removeClass('setting-chosen');
+			$this.addClass('setting-chosen');
+
+			$('.dropdown-reddit-options').val($this.data('type')+$this.data('duration'));
+			//make reset variable function
+
+			reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3]).done(function() {
+				reddit.mainPage();	
+			});
+		}
+
+	});
+
+	$("#reddit-threads").on('click', 'a', function(e){
+		if(appSettings[0].settingChoice == 'on'){
+			$(this).attr('target','_blank');
+		} else{
+			$(this).attr('target','_self');
+
+			if($('#sidebar').css('display') == 'none'){
+				localStorage.setItem('sidebarOpen', 'none');
+			} else {
+				localStorage.setItem('sidebarOpen', 'block');
+			};
+			
+			var $redditExpand = $(".reddit-expand");
+			var $redditIndex = $(this).closest('.reddit-thread').data('id');
+			var totalExpandHeight = 0;
+
+			for(var i = 0; i<$redditIndex-1; i++){
+				if($redditExpand.eq(i).css('display')!='none'){
+					totalExpandHeight += $redditExpand.eq(i).outerHeight(true);
+				}
+			}
+
+			var yScroll = $(window).scrollTop()-totalExpandHeight;
+			localStorage.setItem('yScroll', yScroll);
+
+			history.pushState("", "", "#back");
+		}
+	});
+
+	$('.dropdown-youtube-options').on('change', function(event){
 
 			$("#youtube-threads").html(' ');
 			$("#youtube-progress").html('<img src="assets/img/loader.gif" />');
@@ -1427,6 +1771,10 @@ $(function(){
 				reddit.youtubeArea();	
 			});
 		});
+
+//////////////////////////////////
+//////// Youtube Event Area ///////
+/////////////////////////////////
 
 	$(".youtube-setting").on('click', function(){
 		var $this = $(this);
@@ -1861,6 +2209,26 @@ $(function(){
 
 	$(window).on('scroll', function(){
 		if ($(window).scrollTop() >= ($(document).height() - $(window).height())-200){
+		
+			if($("#reddit-content").css('display')!='none'){
+				
+				if(reddit.redditCount!=reddit.redditThreads.length){
+					reddit.mainPage();
+				} else{
+					if(reddit.nextPageReddit == null){
+						$("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
+					}
+					else if(stopRepeating == 1){
+						stopRepeating = 0;
+
+						reddit.getThreads('reddit',reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
+							reddit.mainPage();	
+							stopRepeating = 1;	
+						});
+					}
+				}
+			}
+
 
 			if($("#youtube-content").css('display')!='none'){
 
@@ -1921,6 +2289,7 @@ $(function(){
 			$("#iframe-holder").html(' ');
 			$("header").css('height','100px');
 			$("#youtube-content").css("display","block");
+			$("#reddit-content").css("display","none");
 			$("#twitch-content").css("display","none");
 			$("#settings-content").css("display","none");	
 		}
@@ -1936,6 +2305,7 @@ $(function(){
 			$("#iframe-holder").html(' ');
 			$("header").css('height','28px');
 			$("#twitch-content").css("display","block");
+			$("#reddit-content").css("display","none");
 			$("#youtube-content").css("display","none");
 			$("#settings-content").css("display","none");
 			var dataName = $(this).data('name');
@@ -1951,6 +2321,7 @@ $(function(){
 			$("#iframe-holder").html(' ');
 			$("header").css('height','28px');
 			$("#twitch-content").css("display","none");
+			$("#reddit-content").css("display","none");
 			$("#youtube-content").css("display","none");
 			$("#settings-content").css("display","block");
 			web.setSettings();
@@ -1962,7 +2333,41 @@ $(function(){
 			e.preventDefault();
 		}
 	});
+	
+	
 
+	$("#reddit").on('click',function(e){
+		if(e.which !== 2){
+			
+			var dataName = $(this).data('name');
+			history.pushState("", "", "#" + dataName);
+			e.preventDefault();
+
+			if(web.redditInUse == 'no' || ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*30) <= Date.now())){
+				$("#reddit-threads").html(' ');
+				$("#reddit-progress").html('<img src="assets/img/loader.gif" />');
+
+				
+				reddit.currentRedditSettings['reddit','leagueoflegends','hot',null];
+				reddit.redditThreads = [];
+				reddit.redditCount = 0;
+				reddit.nextPageReddit = null;
+
+				reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
+			 		reddit.mainPage();	
+			 	});
+				web.redditInUse = 'yes';
+
+			}
+		
+		$("#iframe-holder").html(' ');
+		$("header").css('height','100px');
+		$("#reddit-content").css("display","block");
+		$("#youtube-content").css("display","none");
+		$("#twitch-content").css("display","none");
+		$("#settings-content").css("display","none");
+		}
+	});
 
 
 /////////////////////////////////////////////
@@ -2215,7 +2620,7 @@ $(function(){
 //////// Misc Events            ///////
 ///////////////////////////////////////
 
-	$("#youtube, #twitch, #settings").on('click', function(){
+	$("#reddit, #youtube, #twitch, #settings").on('click', function(){
 		if(detectmob()){
 			$('#sidebar').slideUp();
 		}

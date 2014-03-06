@@ -6,6 +6,7 @@
 		<meta name="description" content="2ez.gg is your league of legends home page. Browsing lol related web sites has never been so easy!">
 		<title>2ez.gg - Everything League of Legends.</title>
 		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
 		
@@ -86,7 +87,7 @@
 					</script>
 
 					<ul>		
-						<a class="nav-button website-misc iframe-capable" id="reddit" data-name="reddit" href="http://redditjs.com/r/leagueoflegends#hideOpts">
+						<a class="nav-button website-misc no-iframe" id="reddit" data-name="redditthreads" href="#redditthreads">
 							<li>	
 								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit
 							</li>
@@ -467,7 +468,7 @@
 				</div>
 				<h3>General Settings</h3>
 				<table width="100%">
-					<tr style="display:none">
+					<tr>
 						<td>
 							<select class="redditNewTab">
 								<option value="on">On</option>
@@ -562,6 +563,114 @@
 					Wanna talk? You can get a hold of me on Reddit <a href="http://reddit.com/u/joeldo">u/joeldo</a>
 				</p>
 			</div>
+
+
+			<div id="reddit-content">
+			<div style="margin-left: 15px;margin-top: -97px;"> 
+
+				<div id="mobile-reddit-options">
+					<select class="dropdown-subreddit">
+						<option value="leagueoflegends" data-subreddit="leagueoflegends">r/LeagueOfLegends</option>
+						<option value="loleventvods" data-subreddit="loleventvods">r/LoLeventVoDs</option>
+						<option value="summonerschool" data-subreddit="summonerschool">r/summonerschool</option>
+					</select>
+					<select class="dropdown-reddit-options">
+						<option value="hot" data-type="hot" data-duration="">Hot</option>
+						<option value="new" data-type="new" data-duration="">New</option>
+						<option value="tophour" data-type="top" data-duration="hour">Top - Hour</option>
+						<option value="topday" data-type="top" data-duration="day">Top - Day</option>
+						<option value="topmonth" data-type="top" data-duration="month">Top - Month</option>
+						<option value="topyear" data-type="top" data-duration="year">Top - Year</option>
+						<option value="topall" data-type="top" data-duration="all">Top - All</option>
+						<option value="rising" data-type="rising" data-duration="">Rising</option>
+						<option value="controversial" data-type="controversial" data-duration="">Controversial</option>
+
+					</select>
+
+				</div>
+
+				<div id="normal-reddit-options" >
+					<div id="reddit-subreddits">
+						<a href="#"><span class="subreddit-setting subreddit-leagueoflegends setting-chosen" data-subreddit="leagueoflegends" data-type="hot">r/LeagueOfLegends</span>
+
+						<span class="subreddit-setting subreddit-loleventvods" data-subreddit="loleventvods" data-type="hot">r/LoLeventVoDs</span>
+						<span class="subreddit-setting subreddit-summonerschool" data-subreddit="summonerschool" data-type="hot">r/summonerschool</span>
+						</a>				
+
+					</div>
+					<div id="reddit-options" style="margin-top:53px">
+						<a href="#"><span class="hot-reddit reddit-setting setting-chosen" data-type="hot" data-duration="">Hot</span>
+						<span class="new-reddit reddit-setting" data-type="new" data-duration="">New</span>
+						<span class="reddit-sub-setting">Top</span>
+							<span class="hourtop-reddit top-reddit reddit-setting" data-type="top" data-duration="hour">Hour</span>
+							<span class="daytop-reddit top-reddit reddit-setting" data-type="top" data-duration="day">Day</span>
+							<span class="monthtop-reddit top-reddit reddit-setting" data-type="top" data-duration="month">Month</span>
+							<span class="yeartop-reddit top-reddit reddit-setting" data-type="top" data-duration="year">Year</span>
+							<span class="alltop-reddit top-reddit reddit-setting" data-type="top" data-duration="all">All Time</span>
+						<span class="rising-reddit reddit-setting" data-type="rising" data-duration="">Rising</span>
+						<span class="controversial-reddit reddit-setting" data-type="controversial" data-duration="">Controversial</span></a>
+						</div>
+					</div>
+				</div>
+
+
+				<script id="reddit-template" type="text/x-handlebars-template">
+					<div class="reddit-thread" data-id="{{redditRank}}">
+						<span class="reddit-rank">{{redditRank}}</span>
+
+						<span class="reddit-score">{{score}}</span>
+
+						<a href="{{url}}"><span class="reddit-thumb clear"><img src="{{thumbnail}}" alt></span></a>
+
+						<div class="reddit-written clear">
+
+								<a href="{{url}}" class="reddit-title">{{{title}}}</a>
+								<span class="reddit-domain">({{domain}})</span>
+
+								<div style="margin-top: 6px;">
+									{{#if content.length}}
+										<span class="reddit-show-more original-state-content"></span>
+									{{/if}}
+									{{#if videoEmbed}}
+										<span class="reddit-show-more original-state-media"></span>
+									{{/if}}
+
+									<div class="reddit-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" style="font-weight:bold">{{author}}</a>
+										{{#if authorFlair}}
+											<span class="flair flair-{{authorFlair}}" title=""></span>
+										{{/if}}	
+									</div>
+
+									<div class="reddit-comments"><a href="http://www.reddit.com{{permalink}}">{{commentsTotal}} Comments</a></div>
+
+									<div class="reddit-expand">
+										{{#if content.length}}
+											<div class="decode">{{{content}}}</div>
+										{{/if}}
+										{{#if videoEmbed}}
+											<div class="reddit-youtube-prev" data-url="{{videoEmbed}}">
+											</div>
+										{{/if}}
+
+									</div>
+
+								</div>
+						</div>	
+					</div>
+				</script>
+
+				<div class="side">
+				</div>
+				<div id="reddit-threads">
+				</div>
+
+
+				<div id="reddit-progress">
+					<img src="assets/img/loader.gif" />
+				</div>
+
+			</div>
+
 
 			<div id="youtube-content">
 
