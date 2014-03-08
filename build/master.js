@@ -1,20 +1,40 @@
-	var appSettings = [
-		{settingType:'redditNewTab', settingChoice: 'off'},
-		{settingType:'twitchVisualNotifications', settingChoice: 'on'},
-		{settingType:'twitchAudioNotifications', settingChoice: 'on'},
-		{settingType:'eSportsNotifications', settingChoice: 'on'},
-		{settingType:'defaultNameLink', settingChoice: 'king'},
-		{settingType:'defaultChampLink', settingChoice: 'champselect'},
-		{settingType:'smartEnter', settingChoice: 'on'},
-		{settingType:'newWindow', settingChoice: 'on'},
-		];	
 
+	var appSettings;
 	var settingsSaved;
+
 	if(settingsSaved = localStorage.getItem('appSettings')){
-		appSettings = JSON.parse(settingsSaved);
-	} else {
-		localStorage.setItem('appSettings', JSON.stringify(appSettings));
+		var settingsSaved = JSON.parse(settingsSaved);	
+		
+		// code that has to run because I stupidly used an array with objects rather than an associative object at first - will remove in a few months
+		if(settingsSaved instanceof Array){
+			appSettings = {
+				redditNewTab: settingsSaved[0].settingChoice, 
+				twitchVisualNotifications: settingsSaved[1].settingChoice, 
+				twitchAudioNotifications: settingsSaved[2].settingChoice, 
+				eSportsNotifications: settingsSaved[3].settingChoice,
+				defaultNameLink: settingsSaved[4].settingChoice, 
+				defaultChampLink: settingsSaved[5].settingChoice, 
+				smartEnter: settingsSaved[6].settingChoice,
+				newWindow: settingsSaved[7].settingChoice,				
+			}
+		}
+
 	}
+
+	var appSettings = {
+		redditNewTab: settingsSaved['redditNewTab'] || 'off', 
+		twitchVisualNotifications: settingsSaved['twitchVisualNotifications'] || 'on', 
+		twitchAudioNotifications: settingsSaved['twitchAudioNotifications'] || 'on', 
+		eSportsNotifications: settingsSaved['eSportsNotifications'] || 'on',
+		defaultNameLink: settingsSaved['defaultNameLink'] || 'king', 
+		defaultChampLink: settingsSaved['defaultChampLink'] || 'champselect', 
+		smartEnter: settingsSaved['smartEnter'] || 'on',
+		newWindow: settingsSaved['newWindow'] || 'on',
+	}
+	localStorage.setItem('appSettings', JSON.stringify(appSettings))
+	
+
+	
 
 	function detectmob() { 
 		 if((navigator.userAgent.match(/Android/i)
@@ -23,7 +43,7 @@
 		 || navigator.userAgent.match(/iPad/i)
 		 || navigator.userAgent.match(/iPod/i)
 		 || navigator.userAgent.match(/BlackBerry/i)
-		 || navigator.userAgent.match(/Windows Phone/i)) || ($(window).width() < 860)  && (appSettings[7].settingChoice == 'on')
+		 || navigator.userAgent.match(/Windows Phone/i)) || ($(window).width() < 860)  && (appSettings['newWindow']== 'on')
 		 ){
 		    return true;
 		  }
@@ -830,7 +850,7 @@
 		var self = this;
 
 			for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
-				if (self.topTwitchStreamersOnline[i].name == 'riotgames' && appSettings[3].settingChoice == 'on'){
+				if (self.topTwitchStreamersOnline[i].name == 'riotgames' && appSettings['eSportsNotifications'] == 'on'){
 					var riotTemplate = Handlebars.compile($('#riot-online-message-template').html());
 					$("#riot-online").html(riotTemplate());
 					$('#top-header-message').css('padding','14px');
@@ -976,11 +996,11 @@
 
 			}
 			if(totalAdditions>0){
-				if(appSettings[1].settingChoice == 'on'){
+				if(appSettings['twitchVisualNotifications'] == 'on'){
 					$("#sound").html('<audio controls autoplay style="display:none"><source src="assets/sound/notify.mp3" hidden="true" autostart="true" loop="false" type="audio/mpeg"></audio>');
 				}
 				
-				if(appSettings[2].settingChoice == 'on'){
+				if(appSettings['twitchAudioNotifications'] == 'on'){
 					var favouriteTemplate = Handlebars.compile($('#streamer-online-message-template').html());
 					$("#favourite-online").html( favouriteTemplate(this.newAdditions) );
 					$('#top-header-message').css('padding','14px');
@@ -1343,25 +1363,25 @@
 	}
 
 	WebInterface.prototype.setSettings = function(){
-		$(".redditNewTab").val(appSettings[0].settingChoice);
-		$(".twitchVisualNotifications").val(appSettings[1].settingChoice);
-		$(".twitchAudioNotifications").val(appSettings[2].settingChoice);
-		$(".eSportsNotifications").val(appSettings[3].settingChoice);
-		$(".defaultNameLink").val(appSettings[4].settingChoice);
-		$(".defaultChampLink").val(appSettings[5].settingChoice);
-		$(".smartEnter").val(appSettings[6].settingChoice);
-		$(".newWindow").val(appSettings[7].settingChoice);
+		$(".redditNewTab").val(appSettings['redditNewTab']);
+		$(".twitchVisualNotifications").val(appSettings['twitchVisualNotifications']);
+		$(".twitchAudioNotifications").val(appSettings['twitchAudioNotifications']);
+		$(".eSportsNotifications").val(appSettings['eSportsNotifications']);
+		$(".defaultNameLink").val(appSettings['defaultNameLink']);
+		$(".defaultChampLink").val(appSettings['defaultChampLink']);
+		$(".smartEnter").val(appSettings['smartEnter']);
+		$(".newWindow").val(appSettings['newWindow']);
 	}
 
 	WebInterface.prototype.saveSettings = function(){
-		appSettings[0].settingChoice = $(".redditNewTab").val();
-		appSettings[1].settingChoice = $(".twitchVisualNotifications").val();
-		appSettings[2].settingChoice = $(".twitchAudioNotifications").val();
-		appSettings[3].settingChoice = $(".eSportsNotifications").val();
-		appSettings[4].settingChoice = $(".defaultNameLink").val();
-		appSettings[5].settingChoice = $(".defaultChampLink").val();
-		appSettings[6].settingChoice = $(".smartEnter").val();
-		appSettings[7].settingChoice = $(".newWindow").val();
+		appSettings['redditNewTab'] = $(".redditNewTab").val();
+		appSettings['twitchVisualNotifications'] = $(".twitchVisualNotifications").val();
+		appSettings['twitchAudioNotifications'] = $(".twitchAudioNotifications").val();
+		appSettings['eSportsNotifications'] = $(".eSportsNotifications").val();
+		appSettings['defaultNameLink'] = $(".defaultNameLink").val();
+		appSettings['defaultChampLink'] = $(".defaultChampLink").val();
+		appSettings['smartEnter'] = $(".smartEnter").val();
+		appSettings['newWindow'] = $(".newWindow").val();
 		localStorage.setItem('appSettings', JSON.stringify(appSettings));
 	}
 
@@ -1714,7 +1734,7 @@ $(function(){
 	});
 
 	$("#reddit-threads").on('click', 'a', function(e){
-		if(appSettings[0].settingChoice == 'on'){
+		if(appSettings['redditNewTab'] == 'on'){
 			$(this).attr('target','_blank');
 		} else{
 			$(this).attr('target','_self');
@@ -1831,7 +1851,7 @@ $(function(){
 			streams.pushTwitchStreamers();
 			streams.pushAzubuStreamers();
 			streams.pushTopTwitchStreamers();
-			if(appSettings[3].settingChoice=='on'){
+			if(appSettings['eSportsNotifications']=='on'){
 				streams.pushStreamsHeader();
 			}
 			web.changeTwitchDimensions();
@@ -1848,7 +1868,7 @@ $(function(){
 
 				localStorage.setItem('streamsLastRetrieved', Date.now());
 
-				if((streams.streamFunctionCount>0)&&(appSettings[1].settingChoice=='on' || appSettings[2].settingChoice=='on')){
+				if((streams.streamFunctionCount>0)&&(appSettings['twitchVisualNotifications']=='on' || appSettings['twitchAudioNotifications']=='on')){
 					streams.favouriteStreamerMessage(pastAzubFav, pastTwitchFav);
 				}
 				
@@ -1878,7 +1898,7 @@ $(function(){
 
 				streams.topTwitchOnline().done(function() {
 					streams.pushTopTwitchStreamers();
-					if(appSettings[3].settingChoice=='on'){
+					if(appSettings['eSportsNotifications']=='on'){
 						streams.pushStreamsHeader();
 					}
 					$('.tooltip-left').tipsy({gravity: 'e'});
@@ -2433,14 +2453,14 @@ $(function(){
 
     	if(keycode == '13') {
     		clearTimeout(timerName);
-    		if(web.checkIfBelongs('.website-name') && appSettings[6].settingChoice == 'on'){
+    		if(web.checkIfBelongs('.website-name') && appSettings['smartEnter'] == 'on'){
     			if(detectmob()){
     					window.location.replace(web.checkIfBelongs('.website-name'));
     				} else {
     					web.makeIframe(web.checkIfBelongs('.website-name'));
     				}
     		} else {
-    			var $id = $("#"+appSettings[4].settingChoice);
+    			var $id = $("#"+appSettings['defaultNameLink']);
     			if(detectmob()){
     					window.location.replace($id.attr('href'));
     			} else {
@@ -2491,7 +2511,7 @@ $(function(){
 			$("#champ-drop").fadeOut();
 			league.champion($(this).val());
 
-			if(web.checkIfBelongs('.website-champ') && appSettings[6].settingChoice == 'on'){
+			if(web.checkIfBelongs('.website-champ') && appSettings['smartEnter'] == 'on'){
 
 				if(detectmob()){
 					window.location.replace(web.checkIfBelongs('.website-champ'));
@@ -2500,7 +2520,7 @@ $(function(){
 				}
 
 			} else {
-				var $id = $("#"+appSettings[5].settingChoice)
+				var $id = $("#"+appSettings['defaultChampLink'])
 
 				if(detectmob()){
 					window.location.replace($id.attr('href'));
@@ -2639,5 +2659,7 @@ $(function(){
 	$(window).unload(function() {
     	localStorage.setItem('sessionActive','no');
 	});
+
+
 
 });
