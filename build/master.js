@@ -1,6 +1,6 @@
 
-	var appSettings;
-	var settingsSaved;
+	var appSettings = {};
+	var settingsSaved = {};
 
 	if(settingsSaved = localStorage.getItem('appSettings')){
 		var settingsSaved = JSON.parse(settingsSaved);	
@@ -22,14 +22,14 @@
 	}
 
 	var appSettings = {
-		redditNewTab: settingsSaved['redditNewTab'] || 'off', 
-		twitchVisualNotifications: settingsSaved['twitchVisualNotifications'] || 'on', 
-		twitchAudioNotifications: settingsSaved['twitchAudioNotifications'] || 'on', 
-		eSportsNotifications: settingsSaved['eSportsNotifications'] || 'on',
-		defaultNameLink: settingsSaved['defaultNameLink'] || 'king', 
-		defaultChampLink: settingsSaved['defaultChampLink'] || 'champselect', 
-		smartEnter: settingsSaved['smartEnter'] || 'on',
-		newWindow: settingsSaved['newWindow'] || 'on',
+		redditNewTab:((settingsSaved !== null) && settingsSaved.hasOwnProperty('redditNewTab')) ? settingsSaved['redditNewTab'] : 'off', 
+		twitchVisualNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchVisualNotifications')) ? settingsSaved['twitchVisualNotifications'] : 'on', 
+		twitchAudioNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved['twitchAudioNotifications'] : 'on', 
+		eSportsNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('eSportsNotifications')) ? settingsSaved['eSportsNotifications'] : 'on',
+		defaultNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultNameLink')) ? settingsSaved['defaultNameLink'] : 'king', 
+		defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved['defaultChampLink'] : 'champselect', 
+		smartEnter:((settingsSaved !== null) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved['smartEnter'] : 'on',
+		newWindow:((settingsSaved !== null) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved['newWindow'] : 'on',
 	}
 	localStorage.setItem('appSettings', JSON.stringify(appSettings))
 	
