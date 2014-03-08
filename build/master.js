@@ -442,13 +442,13 @@
 		var websiteUrl = '';
 		var index;
 		if(pageRssId == 'league'){
-			websiteUrl = "http://www.ongamers.com/league-of-legends/6000-2/rss/";
+			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
 			index = 0;
 		} else if (pageRssId == 'reign'){
-			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
+			websiteUrl = "http://www.reignofgaming.net/news.rss";
 			index = 1;
 		} else if (pageRssId == 'ongamers'){
-			websiteUrl = "http://www.reignofgaming.net/news.rss";
+			websiteUrl = "http://www.ongamers.com/league-of-legends/6000-2/rss/";
 			index = 2;
 		} else if (pageRssId == 'surrender'){
 			websiteUrl = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
