@@ -27,7 +27,11 @@
 		twitchAudioNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved['twitchAudioNotifications'] : 'on', 
 		eSportsNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('eSportsNotifications')) ? settingsSaved['eSportsNotifications'] : 'on',
 		defaultNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultNameLink')) ? settingsSaved['defaultNameLink'] : 'king', 
-		defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved['defaultChampLink'] : 'champselect', 
+		shiftNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftNameLink')) ? settingsSaved['shiftNameLink'] : 'nexus', 
+		ctrlNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlNameLink')) ? settingsSaved['ctrlNameLink'] : 'gg', 
+		defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved['defaultChampLink'] : 'champselect',
+		shiftChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftChampLink'))  ? settingsSaved['shiftChampLink'] : 'probuilds', 
+		ctrlChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlChampLink'))  ? settingsSaved['ctrlChampLink'] : 'kingchamp',
 		smartEnter:((settingsSaved !== null) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved['smartEnter'] : 'on',
 		newWindow:((settingsSaved !== null) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved['newWindow'] : 'on',
 	}
@@ -1368,7 +1372,11 @@
 		$(".twitchAudioNotifications").val(appSettings['twitchAudioNotifications']);
 		$(".eSportsNotifications").val(appSettings['eSportsNotifications']);
 		$(".defaultNameLink").val(appSettings['defaultNameLink']);
+		$(".shiftNameLink").val(appSettings['shiftNameLink']);
+		$(".ctrlNameLink").val(appSettings['ctrlNameLink']);
 		$(".defaultChampLink").val(appSettings['defaultChampLink']);
+		$(".shiftChampLink").val(appSettings['shiftChampLink']);
+		$(".ctrlChampLink").val(appSettings['ctrlChampLink']);
 		$(".smartEnter").val(appSettings['smartEnter']);
 		$(".newWindow").val(appSettings['newWindow']);
 	}
@@ -1379,7 +1387,11 @@
 		appSettings['twitchAudioNotifications'] = $(".twitchAudioNotifications").val();
 		appSettings['eSportsNotifications'] = $(".eSportsNotifications").val();
 		appSettings['defaultNameLink'] = $(".defaultNameLink").val();
+		appSettings['shiftNameLink'] = $(".shiftNameLink").val();
+		appSettings['ctrlNameLink'] = $(".ctrlNameLink").val();
 		appSettings['defaultChampLink'] = $(".defaultChampLink").val();
+		appSettings['shiftChampLink'] = $(".shiftChampLink").val();
+		appSettings['ctrlChampLink'] = $(".ctrlChampLink").val();
 		appSettings['smartEnter'] = $(".smartEnter").val();
 		appSettings['newWindow'] = $(".newWindow").val();
 		localStorage.setItem('appSettings', JSON.stringify(appSettings));
@@ -2434,9 +2446,28 @@ $(function(){
    		e.stopPropagation();
 	});
 
-	var timerName;
 
-	$(".name").on('keyup', function(e){
+
+	var ctrlKeyPressed = false;
+	var shiftKeyPressed = false;
+	$(".name, .champ").on('keydown', function(e){
+		if(e.shiftKey){
+    		shiftKeyPressed = true;
+    		ctrlKeyPressed = false;
+    	}
+		else if (e.ctrlKey){
+    		ctrlKeyPressed = true;
+    		shiftKeyPressed = false;
+    	} 
+	})
+	$(".name, .champ").on('keyup', function(){
+		shiftKeyPressed = false;
+		ctrlKeyPressed = false;
+	});
+
+
+	var timerName;
+	$(".name").on('keydown', function(e){
 		league.account($(".name").val(), $(".server").val())
 		var keycode = (e.keyCode ? e.keyCode : e.which);
     	
@@ -2445,22 +2476,30 @@ $(function(){
 		timerName = setTimeout(function(){
 			$(".website-name li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
 									.animate({'opacity':'1'},120)
-									.animate({'backgroundColor': '#262729','color':'#5e5e5e'},{duration:400, complete: function(){
+									.animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
 										$(this).attr('style', ' ');
 									}
 			});          
 		}, 375);
 
-    	if(keycode == '13') {
+		if(keycode == '13'){
+			var $id;
+			if(shiftKeyPressed) {
+				$id = $("#"+appSettings['shiftNameLink']);
+			} else if(ctrlKeyPressed){
+				$id = $("#"+appSettings['ctrlNameLink']);
+	  		}  else {
+				$id = $("#"+appSettings['defaultNameLink']);
+			}
+
     		clearTimeout(timerName);
-    		if(web.checkIfBelongs('.website-name') && appSettings['smartEnter'] == 'on'){
+    		if(web.checkIfBelongs('.website-name') && appSettings['smartEnter'] == 'on' && !ctrlKeyPressed && !shiftKeyPressed){
     			if(detectmob()){
     					window.location.replace(web.checkIfBelongs('.website-name'));
     				} else {
     					web.makeIframe(web.checkIfBelongs('.website-name'));
     				}
     		} else {
-    			var $id = $("#"+appSettings['defaultNameLink']);
     			if(detectmob()){
     					window.location.replace($id.attr('href'));
     			} else {
@@ -2469,8 +2508,9 @@ $(function(){
 					$id.children('li').addClass('selected-link');
 					history.pushState("", "", "#" + $id.data('name'));
 				}
-    		}
+    		}	
     	}
+
 	});
 
 
@@ -2478,7 +2518,7 @@ $(function(){
 		league.account($(".name").val(), $(".server").val());
 			$(".website-name li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
 										.animate({'opacity':'1'},120)
-										.animate({'backgroundColor': '#262729','color':'#5e5e5e'},{duration:400, complete: function(){
+										.animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
 											$(this).attr('style', ' ');
 											clickedPreviously = false;
 										}});		
@@ -2493,26 +2533,35 @@ $(function(){
     });
 
 
-	$(".champ").on('click', function(){
+	var $champ = $(".champ")	
+	$champ.on('focus', function(){
+		$(this).val('');
+	});
+
+	$champ.on('click', function(){
 		$("#champ-drop").css("display","block");
 		league.champion($(this).val());
 		league.dropDownTemplate($(this).val());
 	});
 
-
-	$(".champ").on('keyup', function(e){
-		var $champInputValue = $(this).val();
-		var comparisonChamp = new RegExp($champInputValue,"i");
+	$champ.on('keydown', function(e){
 		var keycode = (e.keyCode ? e.keyCode : e.which);
-
-    	if(keycode == '13') {
+		if(keycode == '13') {
 			var champText = $("#champ-drop .champ-list-entry .champ-text").first().text(); 
 			if(champText.length>0){ $(this).val(champText) }; 
 			$("#champ-drop").fadeOut();
 			league.champion($(this).val());
 
-			if(web.checkIfBelongs('.website-champ') && appSettings['smartEnter'] == 'on'){
+			var $id;
+			if (shiftKeyPressed) {
+				$id = $("#"+appSettings['shiftChampLink'])
+			} else if(ctrlKeyPressed) {
+				$id = $("#"+appSettings['ctrlChampLink'])	
+			} else {
+				$id = $("#"+appSettings['defaultChampLink'])
+			}
 
+			if(web.checkIfBelongs('.website-champ') && appSettings['smartEnter'] == 'on' && !ctrlKeyPressed && !shiftKeyPressed){
 				if(detectmob()){
 					window.location.replace(web.checkIfBelongs('.website-champ'));
 				} else {
@@ -2520,8 +2569,7 @@ $(function(){
 				}
 
 			} else {
-				var $id = $("#"+appSettings['defaultChampLink'])
-
+				
 				if(detectmob()){
 					window.location.replace($id.attr('href'));
 				} else {
@@ -2531,7 +2579,17 @@ $(function(){
 					history.pushState("", "", "#" + $id.data('name'));
 				}
 			}
-    	} else{
+			
+    	}
+	});
+		
+	
+	$champ.on('keyup', function(e){
+		var $champInputValue = $(this).val();
+		var comparisonChamp = new RegExp($champInputValue,"i");
+		var keycode = (e.keyCode ? e.keyCode : e.which);
+
+    	if(keycode != '13'){
 	    	league.dropDownTemplate($champInputValue);
 			$("#champ-drop").css("display","block");
 
@@ -2555,7 +2613,7 @@ $(function(){
 
 						$(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
 							.animate({'opacity':'1'},120)
-							.animate({'backgroundColor': '#262729','color':'#5e5e5e'},{duration:400, complete: function(){
+							.animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
 								$(this).attr('style', ' ');
 							}});          
 					}, 100);
@@ -2564,7 +2622,7 @@ $(function(){
 
     	}
 	});
-
+	
 
 	$("#champ-drop").on('click', '.champ-list-entry', function(){
 		var $inputName = $(this).data("name");
@@ -2576,6 +2634,13 @@ $(function(){
 										$(this).attr('style', ' ');
 									}
 			});
+	});
+
+	$champ.on('blur', function(){
+		// hacky thing to allow clicks on the champ-drop menu
+	 	setTimeout(function(){
+	 		$("#champ-drop").css('display','none');
+	 	}, 200);	 	
 	});
 
 ////////////////////////////////////////
