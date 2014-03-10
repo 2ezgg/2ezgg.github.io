@@ -489,7 +489,7 @@
 					self.rssFeeds[index] = totalAdditions;
 				}
 				if(self.rssFeeds[index]){
-					if(self.rssFeeds[index] >= 5){
+					if(self.rssFeeds[index] > 5){
 						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
 					} else{
 						$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
@@ -2467,9 +2467,8 @@ $(function(){
 
 
 	var timerName;
-	$(".name").on('keydown', function(e){
+	$(".name").on('keyup', function(e){
 		league.account($(".name").val(), $(".server").val())
-		var keycode = (e.keyCode ? e.keyCode : e.which);
     	
     	clearTimeout(timerName);
 
@@ -2482,6 +2481,10 @@ $(function(){
 			});          
 		}, 375);
 
+	});
+
+	$(".name").on('keydown', function(e){
+		var keycode = (e.keyCode ? e.keyCode : e.which);
 		if(keycode == '13'){
 			var $id;
 			if(shiftKeyPressed) {
@@ -2510,7 +2513,6 @@ $(function(){
 				}
     		}	
     	}
-
 	});
 
 
