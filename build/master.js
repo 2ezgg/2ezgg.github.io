@@ -1098,15 +1098,19 @@
 					else if (choiceOfFunction == 'reddit'){
 						self.previousRedditLength = self.redditThreads.length;
 					}
-
+					var textHrefChange = '';
 					for(var i=0;i<nodes.length;i++){
 						var redditDomainLink = nodes[i].data.domain;
+						if(nodes[i].data.selftext_html){
+							textHrefChange = nodes[i].data.selftext_html;
+							textHrefChange = textHrefChange.replace(/href=\"\/u\//gi,"href=\"http:\/\/reddit.com\/u\/");
+							textHrefChange = textHrefChange.replace(/href=\"\/r\//gi,"href=\"http:\/\/reddit.com\/r\/");
+						}
 						if(choiceOfFunction == null){
 							localStorage.setItem('redditLastRetrieved',Date.now());
 							localStorage.setItem('youtubeLastRetrieved',Date.now());
 							// Change YouTube and Reddit Data
-						
-							
+
 	                         self.redditThreads[i]={
 	                         		domain: nodes[i].data.domain,
 	                         		title: nodes[i].data.title,
@@ -1115,7 +1119,7 @@
 	                         		commentsTotal: nodes[i].data.num_comments,
 	                         		permalink: nodes[i].data.permalink,
 	                         		created: nodes[i].data.created_utc,
-	                         		content: nodes[i].data.selftext_html,
+	                         		content: textHrefChange,
 	                         		author: nodes[i].data.author,
 	                         		thumbnail: nodes[i].data.thumbnail,
 	                         		redditRank: i + 1 + self.previousRedditLength,
@@ -1199,7 +1203,7 @@
 	                         		commentsTotal: nodes[i].data.num_comments,
 	                         		permalink: nodes[i].data.permalink,
 	                         		created: nodes[i].data.created_utc,
-	                         		content: nodes[i].data.selftext_html,
+	                         		content: textHrefChange,
 	                         		author: nodes[i].data.author,
 	                         		thumbnail: nodes[i].data.thumbnail,
 	                         		redditRank: i + 1 + self.previousRedditLength,
@@ -1269,7 +1273,7 @@
 		
 		
 			if(self.redditThreads.length < 25){
-						$("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
+				$("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
 			}
 
 			var count = 25;
