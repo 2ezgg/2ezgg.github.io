@@ -1407,7 +1407,7 @@
 
 		} else {
 			var $sidebar = $('#sidebar');
-			$sidebar.perfectScrollbar();
+			$sidebar.perfectScrollbar({supressScrollX:true});
 			$('#champ-drop').perfectScrollbar({wheelSpeed:20,useKeyboard:true});
 
 			$('.nav-expand').removeClass('nav-expand-mobile');
