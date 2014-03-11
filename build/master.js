@@ -1098,8 +1098,9 @@
 					else if (choiceOfFunction == 'reddit'){
 						self.previousRedditLength = self.redditThreads.length;
 					}
-					var textHrefChange = '';
+					
 					for(var i=0;i<nodes.length;i++){
+						var textHrefChange = '';
 						var redditDomainLink = nodes[i].data.domain;
 						if(nodes[i].data.selftext_html){
 							textHrefChange = nodes[i].data.selftext_html;
