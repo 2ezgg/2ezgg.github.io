@@ -23,11 +23,8 @@ You can change the settings of 2ez.gg by clicking on the settings tab up the top
 Future Changes
 ==============
 GENERAL
-- Possibly make instructions on how to use website when user enters for the first time
-- Fix spacebar issue for smaller resolution screens on sidebar
 - Fix back button issue with popstate
 - Make navigation expand button more intuitive
-- Possibly add facebook like button/twitter follow button.
 
 Twitch
 - Make add/favourite/remove icons more intuitive
@@ -36,5 +33,4 @@ Twitch
 Reddit
 - Allow for youtube and reddit permalink settings (so that users can refresh the page)
 - Fix issue with requests of under 100 data responses repeating on scroll after back button is pressed 
-- When user presses back, calculate the height of all of the open expanded elements and subtract it from the current scroll height, so that users get a more accurate position.
 - Mobile version scrolling is causing page to say nothing found when it is actually loading
