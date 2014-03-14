@@ -110,6 +110,7 @@
 		if (this.champ) {
 			$(".champ").val(this.champ);
 			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+			this.allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
 			this.keepSpaces = this.champ.trim();
 			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");
 			this.champLink();
@@ -144,6 +145,7 @@
 
 		if (this.champ) {
 			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+			this.allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
 			this.keepSpaces = this.champ.trim();
 			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");	
 			this.champLink();
@@ -210,6 +212,10 @@
 
 				item.attr("href","http://www.lolskill.net/game-" + this.server + "-" + this.name); 
 			
+			} else if (webData == 'summonergameguyz'){
+
+				item.attr("href","http://loldb.gameguyz.com/analyze/search?search_text="+this.name+"&c_server=1_10_6_2_3_4_5_7_8_9"); 
+			
 			}
 		}		
 	}
@@ -267,7 +273,15 @@
 			else if(webData == 'wikichamp'){
 				item.attr('href','http://leagueoflegends.wikia.com/wiki/' + this.keepSpaces);
 			}
-
+			else if(webData == 'champgameguyz'){
+				var gameguyzChamp;
+				if(this.champ=='velkoz'){
+					gameguyzChamp = 'velkoz';
+				} else {
+					gameguyzChamp = this.allDashesChamp;
+				}
+				item.attr('href','http://loldb.gameguyz.com/champions/' + gameguyzChamp + '.html');
+			}
 			
 		}
 	}
