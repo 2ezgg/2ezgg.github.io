@@ -196,7 +196,7 @@
 				item.attr("href","http://www.lolking.net/now/"+this.server+"/"+this.name);
 
 			} else if(webData == 'summoning'){
-				item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name+"/")
+				item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name)
 			}
 
 			else if (webData == 'king'){
