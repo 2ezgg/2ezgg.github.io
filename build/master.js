@@ -2505,6 +2505,7 @@ $(function(){
 	$(".name").on('keydown', function(e){
 		var keycode = (e.keyCode ? e.keyCode : e.which);
 		if(keycode == '13'){
+				$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 			var $id;
 			if(shiftKeyPressed) {
 				$id = $("#"+appSettings['shiftNameLink']);
@@ -2572,6 +2573,7 @@ $(function(){
 			if(champText.length>0){ $(this).val(champText) }; 
 			$("#champ-drop").fadeOut();
 			league.champion($(this).val());
+			$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 
 			var $id;
 			if (shiftKeyPressed) {
@@ -2737,6 +2739,7 @@ $(function(){
 			$(".nav-button li").removeClass('selected-link');
 			$(this).children('li').addClass('selected-link');
 		}
+		$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 	});
 
 	$('.tooltip').tipsy({gravity: 'w'});
