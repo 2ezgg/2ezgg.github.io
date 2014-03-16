@@ -2090,18 +2090,15 @@ $(function(){
 
 	rssEvents();
 	setInterval(rssEvents, 1000*60*25);
-
-	var $sidebarRss = $("#sidebar");
-
 	// use getItem so that if someone has clicked on a rss link in another window it doesn't resset all the other ones
 	// need to get it working for middle click
-	$sidebarRss.on('click','.rss-capable', function(e){
+	$(".rss-capable").on('click', function(e){
 		var $this = $(this);
 		$this.children("li").children(".update-info").fadeOut();
 		var feedId = $this.data('index');
 		league.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds'));
 		league.rssFeeds[feedId] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
+		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));	
 	});
 
 /////////////////////////////////////////
@@ -2657,7 +2654,7 @@ $(function(){
 				history.pushState("", "", "#" + dataName);
 				e.preventDefault();
 			}
-		}
+		} 
 	});
 
 	$(".no-iframe").on('click', function(e){
@@ -2707,11 +2704,11 @@ $(function(){
 		}
 	});
 
-	$(".nav-button").on('click', function(e){
+	$("#sidebar").on('click', '.nav-button', function(e){
 		if(e.which !== 2){
 			$(".nav-button li").removeClass('selected-link');
 			$(this).children('li').addClass('selected-link');
-		}
+		} 
 		$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 	});
 
@@ -2721,7 +2718,5 @@ $(function(){
 	$(window).unload(function() {
     	localStorage.setItem('sessionActive','no');
 	});
-
-
 
 });
