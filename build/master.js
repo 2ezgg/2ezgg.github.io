@@ -2093,43 +2093,16 @@ $(function(){
 
 	var $sidebarRss = $("#sidebar");
 
-	// The below part isn't modular at all and should be fixed.
-
-	$sidebarRss.on('click','#league', function(){
-		$(".league-news").fadeOut();
-		league.rssFeeds[0] = 0;
+	// use getItem so that if someone has clicked on a rss link in another window it doesn't resset all the other ones
+	// need to get it working for middle click
+	$sidebarRss.on('click','.rss-capable', function(e){
+		var $this = $(this);
+		$this.children("li").children(".update-info").fadeOut();
+		var feedId = $this.data('index');
+		league.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds'));
+		league.rssFeeds[feedId] = 0;
 		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
 	});
-	$sidebarRss.on('click','#reign', function(){
-		$(".reign-news").fadeOut();
-		league.rssFeeds[1] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
-	});
-	$sidebarRss.on('click','#ongamers', function(){
-		$(".ongamers-news").fadeOut();
-		league.rssFeeds[2] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
-	});
-	$sidebarRss.on('click','#surrender', function(){
-		$(".surrender-news").fadeOut();
-		league.rssFeeds[3] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
-	});
-	$sidebarRss.on('click','#cloth', function(){
-		$(".cloth-news").fadeOut();
-		league.rssFeeds[4] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
-	});
-	$sidebarRss.on('click','#esex', function(){
-		$(".esex-news").fadeOut();
-		league.rssFeeds[5] = 0;
-		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));
-	});
-
-	
-
-	
-
 
 /////////////////////////////////////////
 //////// Settings Page Event Area ///////
