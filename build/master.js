@@ -1426,8 +1426,8 @@
 
 		} else {
 			var $sidebar = $('#sidebar');
-			$sidebar.perfectScrollbar({supressScrollX:true});
-			$('#champ-drop').perfectScrollbar({wheelSpeed:20,useKeyboard:true});
+			$sidebar.perfectScrollbar({supressScrollX:true, wheelSpeed:40});
+			$('#champ-drop').perfectScrollbar({wheelSpeed:25,useKeyboard:true});
 
 			$('.nav-expand').removeClass('nav-expand-mobile');
 			$sidebar.css({'position':'', 'width':'', 'height':''});
@@ -2456,7 +2456,7 @@ $(function(){
 
 
 	var timerName;
-	$(".name").on('keyup', function(e){
+	$(".name").on('keyup change paste textInput input', function(e){
 		league.account($(".name").val(), $(".server").val())
     	
     	clearTimeout(timerName);
