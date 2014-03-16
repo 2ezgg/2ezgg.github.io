@@ -205,8 +205,14 @@
 
 
 			} else if (webData == 'gg'){
+				var ggServer;
+				if (this.server == 'na' || this.server == 'euw' || this.server == 'eune' || this.server == 'oce' || this.server == 'br' || this.server == 'tr' || this.server == 'ru' || this.server == 'lan' || this.server == 'las'){
+					ggServer = this.server;
+				} else {
+					ggServer = 'www';
+				}
 
-				item.attr("href","http://" + this.server + ".op.gg/summoner/userName=" + this.name); 
+				item.attr("href","http://" + ggServer + ".op.gg/summoner/userName=" + this.name); 
 
 			} else if (webData == 'skill'){
 
@@ -441,14 +447,13 @@
 		}
 	}
 
-
-	LeagueLinks.prototype.serverList = ['na', 'euw', 'eune', 'br', 'tr', 'ru', 'lan',  'las', 'oce'];
-
 	LeagueLinks.prototype.kassadServerName = function(){
 		if (this.server == 'eune'){
 			return 'eun';
 		} else if(this.server == 'oce'){
 			return 'oc';
+		} else if(this.server == 'cn'){
+			return 'china-ionia-1';
 		} else {
 			return this.server;
 		}
