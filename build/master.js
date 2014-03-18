@@ -1553,7 +1553,7 @@ $(function(){
 
 				 	setTimeout(function(){
 				 		history.pushState("", "", "#");
-				 	 },1755);
+				 	 },3755);
 					
 					
 
