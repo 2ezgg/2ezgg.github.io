@@ -1,4 +1,5 @@
 
+	// I need to change this settings area so that they aren't all global variables
 	var appSettings = {};
 	var settingsSaved = {};
 
@@ -22,6 +23,7 @@
 	}
 
 	var appSettings = {
+		ezHomePage:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ezHomePage')) ? settingsSaved['ezHomePage'] : 'reddit', 
 		redditNewTab:((settingsSaved !== null) && settingsSaved.hasOwnProperty('redditNewTab')) ? settingsSaved['redditNewTab'] : 'off', 
 		twitchVisualNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchVisualNotifications')) ? settingsSaved['twitchVisualNotifications'] : 'on', 
 		twitchAudioNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved['twitchAudioNotifications'] : 'on', 
@@ -35,8 +37,61 @@
 		smartEnter:((settingsSaved !== null) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved['smartEnter'] : 'on',
 		newWindow:((settingsSaved !== null) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved['newWindow'] : 'on',
 	}
-	localStorage.setItem('appSettings', JSON.stringify(appSettings))
-	
+
+	// function to test whether homepage is available (for example if someone removed a custom made page, the homepage wouldn't work) - if it doesn't exist change it back to reddit homepage
+	var idList = {};
+
+	function homePageDetector(){
+		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
+		var miscWebsitesIframe = [];
+		if(miscWebsites){
+			for (var j = 0; j < miscWebsites.length; j++){
+				if(miscWebsites[j].iframe){
+					miscWebsitesIframe[miscWebsitesIframe.length] = {
+						name: miscWebsites[j].name,
+						id: miscWebsites[j].id,
+					}
+				}
+			}
+		}
+
+		idList = {
+			general : [{name:'Reddit', id:'reddit'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+			misc : miscWebsitesIframe,
+			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
+			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}],
+		}
+
+		function detectIfHomePageExists(){
+			for(var i = 0; i < idList.general.length; i++){
+				if (idList.general[i].id == appSettings['ezHomePage']){
+					return true;
+				}
+			}
+			for(var i = 0; i < idList.misc.length; i++){
+				if (idList.misc[i].id == appSettings['ezHomePage']){
+					return true;
+				}
+			}
+			for(var i = 0; i < idList.summoner.length; i++){
+				if (idList.summoner[i].id == appSettings['ezHomePage']){
+					return true;
+				}
+			}
+			for(var i = 0; i < idList.champ.length; i++){
+				if (idList.champ[i].id == appSettings['ezHomePage']){
+					return true;
+				}
+			}
+		}
+
+		if(!detectIfHomePageExists()){
+			appSettings['ezHomePage'] = 'reddit';
+		}
+	}
+
+	homePageDetector();
+	localStorage.setItem('appSettings', JSON.stringify(appSettings));
 
 	
 
@@ -96,7 +151,7 @@
 		
 			for(var y = 0; y < this.pageAdd.length; y++){
 				$("#miscbuttons ul").append( addWebsite(self.pageAdd[y]));
-				$(".general-websites").append( addWebsiteSettings(self.pageAdd[y]));
+				$(".unique-websites").append( addWebsiteSettings(self.pageAdd[y]));
 			}
 		}
 	
@@ -1323,6 +1378,7 @@
 		this.redditInUse = '';
 		this.twitchInUse = '';
 		this.tabSystemProcessed = 0;
+		this.homePageAccessed = false;
 	}
 
 	WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
@@ -1334,7 +1390,7 @@
 
 			var iFrameCapableLink = iFrameCapableLinks.eq(i);
 			var hashData = iFrameCapableLink.data('name');
-			if('#'+hashData == window.location.hash ){
+			if('#'+hashData == window.location.hash || hashData == appSettings['ezHomePage'] ){
 				if(highlightArea){
 					$("a#"+hashData+" li").addClass('selected-link');
 				}
@@ -1391,6 +1447,18 @@
 	}
 
 	WebInterface.prototype.setSettings = function(){
+		
+		homePageDetector();
+		var $ezHomePage = $(".ezHomePage");
+		$ezHomePage.html(' ');
+		
+		var template = Handlebars.compile($('#homepage-list-template').html());
+		$ezHomePage.append( template(idList['general']));
+		$ezHomePage.append( template(idList['misc']));
+		$ezHomePage.append( template(idList['summoner']));
+		$ezHomePage.append( template(idList['champ']));
+
+		$ezHomePage.val(appSettings['ezHomePage']);
 		$(".redditNewTab").val(appSettings['redditNewTab']);
 		$(".twitchVisualNotifications").val(appSettings['twitchVisualNotifications']);
 		$(".twitchAudioNotifications").val(appSettings['twitchAudioNotifications']);
@@ -1406,6 +1474,7 @@
 	}
 
 	WebInterface.prototype.saveSettings = function(){
+		appSettings['ezHomePage'] = $(".ezHomePage").val();
 		appSettings['redditNewTab'] = $(".redditNewTab").val();
 		appSettings['twitchVisualNotifications'] = $(".twitchVisualNotifications").val();
 		appSettings['twitchAudioNotifications'] = $(".twitchAudioNotifications").val();
@@ -1447,6 +1516,15 @@
 		}
 	}
 
+	WebInterface.prototype.homePage = function(){
+		if (window.location.href == window.location.origin){
+			this.homePageAccessed = true;
+			return true; 
+		} else{
+			return false;
+		}
+	}
+
 $(function(){
 ////////////////// This is where stuff starts to get a little messy
 
@@ -1458,6 +1536,7 @@ $(function(){
 	var web = new WebInterface();
 
 	web.registerScreen();
+
 ////////
 
 // TAB SYSTEM ///////////////////
@@ -1465,7 +1544,7 @@ $(function(){
 ///////////// Below //////////
 
 	function tabSystem(){
-		if(currentUrl.match(/youtubevideos/i)){
+		if(currentUrl.match(/youtubevideos/i) || ( appSettings['ezHomePage'] == 'youtube' && web.homePage())){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
@@ -1503,7 +1582,7 @@ $(function(){
 			web.youtubeInUse = 'no';
 
 
-		} else if (currentUrl.match(/twitchstreams/i)){
+		} else if (currentUrl.match(/twitchstreams/i) || ( appSettings['ezHomePage'] == 'twitch' && web.homePage() )){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
@@ -1518,12 +1597,18 @@ $(function(){
 			$("a#twitch li").addClass('selected-link');
 			web.youtubeInUse = 'no';
 			web.redditInUse = 'no';	
-			
+		
 
-		} else if(web.checkIfBelongs()){ 
+		} else if(web.checkIfBelongs() || ( appSettings['ezHomePage'] != 'reddit' && web.homePage() )){ 
 			
 			if(!detectmob()){
-				var url = web.checkIfBelongs(null, true);
+				var url;
+				if(web.homePageAccessed){
+					url = $("#"+appSettings['ezHomePage']).attr('href')
+					$("a#"+appSettings['ezHomePage']+' li').addClass('selected-link');
+				} else {
+					url = web.checkIfBelongs(null, true);
+				}
 				$("#iframe-holder").css("display","block");
 				web.makeIframe(url)
 			};
@@ -2183,8 +2268,10 @@ $(function(){
 		$("#miscbuttons ul").append( addWebsite(league.pageAdd[totalPages]));
 
 		var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
-		$(".general-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
+		$(".unique-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
 		
+		web.setSettings();
+
 	});
 
 	$('.test-user-website').on('click', function(){
@@ -2210,6 +2297,7 @@ $(function(){
 		}
 		
 		localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+		web.setSettings();
 	});
 
 
@@ -2219,7 +2307,7 @@ $(function(){
 		$(this).attr('value','Settings Updated');
 	});
 	
-	$(".redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .defaultChampLink, .smartEnter, .newWindow").on('change', function(){
+	$(".ezHomePage, .redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .shiftNameLink, .ctrlNameLink, .defaultChampLink, .shiftChampLink, .ctrlChampLink, .smartEnter, .newWindow").on('change', function(){
 		$('.settings-update').removeClass('setting-updated');
 		$('.settings-update').attr('value','Update Settings');
 	});

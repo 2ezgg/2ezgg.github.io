@@ -435,15 +435,18 @@
 						LeagueResearch <span class="add-website" data-id="research"></span>
 					</div>
 				</div>
+				<h3>Your Websites</h3>
+				<div class="unique-websites">
+				</div>
 
-				<h3>Add a general website:</h3>
+				<h3>Add a Website:</h3>
 				<div class="add-new-website" style="font-size: 0.8em;">
 				<ol style="color:#333"> 
 				<li>Enter your website url and name and then press 'Test Website'. </li><li>If your website shows below, check the iframe compatible checkbox. If it doesn't show up, this means your website will open in a new tab when you click on it. </li><li>Next click 'Add website', and your website is available on the sidebar!</li> </ol>
 					<input type="text" class="user-website-url" placeholder="Website Url (include the http://)" style="width:250px;">
 					<input type="text" class="user-website-name" placeholder="Website Name" style="width:150px;">
 					<input type="submit" value="Test Website" class="test-user-website">
-					<input type="checkbox" class="user-website-iframe" name="vehicle" value="yes"> iFrame compatitible.
+					<input type="checkbox" class="user-website-iframe" name="vehicle" checked="checked" value="yes"> iFrame compatitible.
 					
 					<input type="submit" value="Add Website" class="add-user-website">
 					<div class="iframe-tester">
@@ -515,6 +518,20 @@
 				</div>
 				<h3>General Settings</h3>
 				<table width="100%">
+					<tr class="settings-odd">
+						<td>
+							<script id="homepage-list-template" type="text/x-handlebars-template">
+								{{#each this}}
+									<option value="{{id}}">{{name}}</option>
+								{{/each}}
+							</script>
+
+							<select class="ezHomePage">	
+								
+							</select>
+						</td>
+						<td>Default homepage on entering the website.</td>
+					</tr>
 					<tr>
 						<td>
 							<select class="redditNewTab">
@@ -1030,11 +1047,11 @@
 		</script>
 
 		<script>
-		// update the advertisement every 5 minutes
+		// update the advertisement every 4 minutes
 		 setInterval(function(){
 		 	$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 		 	console.log('hi');
-		 }, 1000*60*5);
+		 }, 1000*60*4);
 		</script>
 	</body>
 </html>
