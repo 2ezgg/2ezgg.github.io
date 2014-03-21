@@ -1390,7 +1390,7 @@
 
 			var iFrameCapableLink = iFrameCapableLinks.eq(i);
 			var hashData = iFrameCapableLink.data('name');
-			if('#'+hashData == window.location.hash || hashData == appSettings['ezHomePage'] ){
+			if('#'+hashData == window.location.hash || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
 				if(highlightArea){
 					$("a#"+hashData+" li").addClass('selected-link');
 				}
@@ -1582,7 +1582,7 @@ $(function(){
 			web.youtubeInUse = 'no';
 
 
-		} else if (currentUrl.match(/twitchstreams/i) || ( appSettings['ezHomePage'] == 'twitch' && web.homePage() )){
+		} else if (currentUrl.match(/twitchstreams/i) || ((appSettings['ezHomePage'] == 'twitch') && web.homePage()) ){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
@@ -1599,10 +1599,10 @@ $(function(){
 			web.redditInUse = 'no';	
 		
 
-		} else if(web.checkIfBelongs() || ( appSettings['ezHomePage'] != 'reddit' && web.homePage() )){ 
-			
+		} else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'reddit' && web.homePage()) ){ 
 			if(!detectmob()){
 				var url;
+				
 				if(web.homePageAccessed){
 					url = $("#"+appSettings['ezHomePage']).attr('href')
 					$("a#"+appSettings['ezHomePage']+' li').addClass('selected-link');
