@@ -1517,7 +1517,7 @@
 	}
 
 	WebInterface.prototype.homePage = function(){
-		if (window.location.href == window.location.origin){
+		if (window.location.href == window.location.origin + "/"){
 			this.homePageAccessed = true;
 			return true; 
 		} else{
