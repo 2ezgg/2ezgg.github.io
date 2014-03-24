@@ -519,6 +519,10 @@
 		var self = this;
 		var websiteUrl = '';
 		var index;
+
+		var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || self.oldDate;
+		timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
+		
 		if(pageRssId == 'league'){
 			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
 			index = 0;
@@ -552,10 +556,14 @@
 
 	        	for (var i=0;i<values.length;i++){
 	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-	            	if (dateOfArticle > self.oldDate){
+
+	            	if (dateOfArticle > timeRssLastRetrieved){
 		 				totalAdditions++;
 		 			} 	
 	        	}
+
+	        	self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
+
 
 				if(self.rssFeeds[index]){
 					self.rssFeeds[index] += totalAdditions;
@@ -1686,7 +1694,7 @@ $(function(){
 
 //////////////////////////// THIS PART COULD USE SOME TLC FOR SURE
 	window.onpopstate = function(event){
-		if(localStorage.getItem('sessionActive') == 'yes' && ((window.location.hash.length != 0)||(window.location.href == window.location.origin)) ){
+		if(localStorage.getItem('sessionActive') == 'yes' && ((window.location.hash.length != 0)||(window.location.href == window.location.origin+'/')) ){
 				if (!web.checkIfBelongs()){ // also include # and blank for reddit
 					location.reload();
 				} else {
@@ -2165,13 +2173,26 @@ $(function(){
 			}
 				
 		} else{
-			localStorage.setItem('rssLastRetrieved',Date.now());
+
 			var $rssCapableLinks = $(".rss-capable");
+			var rssLinksAvailable = 0;
+			var rssLinksAccessed = 0;
+
+			for(var t = 0; t<$rssCapableLinks.length; t++){
+				var dataName = $rssCapableLinks.eq(t).data('name');
+				if($("#"+dataName).css('display')!='none'){
+					rssLinksAvailable++;
+				}
+			}
 
 			for(var t = 0; t<$rssCapableLinks.length; t++){
 				var dataName = $rssCapableLinks.eq(t).data('name');
 				if($("#"+dataName).css('display')!='none'){
 					league.rssAlerts(dataName);
+					rssLinksAccessed++;
+					if(rssLinksAccessed == rssLinksAvailable){
+						localStorage.setItem('rssLastRetrieved',Date.now());
+					}
 				}
 			}
 			
