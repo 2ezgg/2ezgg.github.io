@@ -42,34 +42,29 @@
 	var idList = {};
 
 	function homePageDetector(){
-		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
-		var miscWebsitesIframe = [];
-		if(miscWebsites){
-			for (var j = 0; j < miscWebsites.length; j++){
-				if(miscWebsites[j].iframe){
-					miscWebsitesIframe[miscWebsitesIframe.length] = {
-						name: miscWebsites[j].name,
-						id: miscWebsites[j].id,
-					}
-				}
-			}
-		}
-
+		
+		// var default idList 
 		idList = {
 			general : [{name:'Reddit', id:'reddit'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
-			misc : miscWebsitesIframe,
 			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
 			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}],
 		}
 
+		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
+		if(miscWebsites){
+			for (var j = 0; j < miscWebsites.length; j++){
+				idList.general[idList.general.length] = {
+					name: miscWebsites[j].name,
+					id: miscWebsites[j].id,
+				}
+			}
+		}
+
+		idList = JSON.parse(localStorage.getItem('idList')) || idList;
+
 		function detectIfHomePageExists(){
 			for(var i = 0; i < idList.general.length; i++){
 				if (idList.general[i].id == appSettings['ezHomePage']){
-					return true;
-				}
-			}
-			for(var i = 0; i < idList.misc.length; i++){
-				if (idList.misc[i].id == appSettings['ezHomePage']){
 					return true;
 				}
 			}
@@ -137,9 +132,9 @@
 			for(var z = 0; z < this.pageChange.length; z++){
 				$('#'+this.pageChange[z].id).css('display',this.pageChange[z].display);
 				if(this.pageChange[z].display=='none'){
-					$('.website-'+this.pageChange[z].id+' span').removeClass().addClass('add-website');
+					$('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
 				} else {
-					$('.website-'+this.pageChange[z].id+' span').removeClass().addClass('remove-website');
+					$('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
 				}
 			}
 		}
@@ -151,7 +146,7 @@
 		
 			for(var y = 0; y < this.pageAdd.length; y++){
 				$("#miscbuttons ul").append( addWebsite(self.pageAdd[y]));
-				$(".unique-websites").append( addWebsiteSettings(self.pageAdd[y]));
+				$("#general-websites").append( addWebsiteSettings(self.pageAdd[y]));
 			}
 		}
 	
@@ -522,7 +517,7 @@
 
 		var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || self.oldDate;
 		timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
-		
+
 		if(pageRssId == 'league'){
 			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
 			index = 0;
@@ -1462,7 +1457,6 @@
 		
 		var template = Handlebars.compile($('#homepage-list-template').html());
 		$ezHomePage.append( template(idList['general']));
-		$ezHomePage.append( template(idList['misc']));
 		$ezHomePage.append( template(idList['summoner']));
 		$ezHomePage.append( template(idList['champ']));
 
@@ -1531,6 +1525,36 @@
 		} else{
 			return false;
 		}
+	}
+
+	WebInterface.prototype.rearangeSidebar = function(){
+		 		for(var i=0; i<idList.general.length; i++){
+		 			if(i==0){
+		 				$("#miscbuttons ul").prepend($("#"+idList.general[i].id));
+		 				$("#general-websites").prepend($(".website-"+idList.general[i].id));
+		 			} else {
+		 				$("#miscbuttons ul a").eq(i).after($("#"+idList.general[i].id));
+		 				$("#general-websites li").eq(i).after($(".website-"+idList.general[i].id));
+		 			}
+		 		}
+		 		for(var i=0; i<idList.summoner.length; i++){
+		 			if(i==0){
+		 				$("#namebuttons ul").prepend($("#"+idList.summoner[i].id));
+		 				$("#summoner-websites").prepend($(".website-"+idList.summoner[i].id));
+		 			} else {
+		 				$("#namebuttons ul a").eq(i).after($("#"+idList.summoner[i].id));
+		 				$("#summoner-websites li").eq(i).after($(".website-"+idList.summoner[i].id));
+		 			}
+		 		}
+		 		for(var i=0; i<idList.champ.length; i++){
+		 			if(i==0){
+		 				$("#championbuttons ul").prepend($("#"+idList.champ[i].id));
+		 				$("#champ-websites").prepend($(".website-"+idList.champ[i].id));
+		 			} else {
+		 				$("#championbuttons ul a").eq(i).after($("#"+idList.champ[i].id));
+		 				$("#champ-websites li").eq(i).after($(".website-"+idList.champ[i].id));
+		 			}
+		 		}
 	}
 
 $(function(){
@@ -2220,26 +2244,26 @@ $(function(){
 		var $this = $(this);
 		$this.removeClass('add-website');
 		$this.addClass('remove-website');
-		$('#'+$this.data('id')).css('display','block');
+		$('#'+$this.parent().data('id')).css('display','block');
 		
 
 		var notAdded = true;
 		var totalSettingsLength = league.pageChange.length;
 		for(var i =0; i<totalSettingsLength; i++){
-			if(league.pageChange[i].id == $this.data('id')){
+			if(league.pageChange[i].id == $this.parent().data('id')){
 				league.pageChange[i].display = 'inline-block';
 				notAdded = false;
 			}
 		}
 		if (notAdded){
 			league.pageChange[totalSettingsLength] = {
-				id : $this.data('id'),
+				id : $this.parent().data('id'),
 				display : 'inline-block',
 			}
 		}
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
 		setTimeout(function(){
-			$('#'+$this.data('id')).css('display','inline-block');          
+			$('#'+$this.parent().data('id')).css('display','inline-block');          
 		}, 300);	
 	});
 
@@ -2247,19 +2271,19 @@ $(function(){
 		var $this = $(this);
 		$this.removeClass('remove-website');
 		$this.addClass('add-website');
-		$('#'+$this.data('id')).css('display','none');
+		$('#'+$this.parent().data('id')).css('display','none');
 
 		var notAdded = true;
 		var totalSettingsLength = league.pageChange.length;
 		for(var i =0; i<totalSettingsLength; i++){
-			if(league.pageChange[i].id == $this.data('id')){
+			if(league.pageChange[i].id == $this.parent().data('id')){
 				league.pageChange[i].display = 'none';
 				notAdded = false;
 			}
 		}
 		if (notAdded){
 			league.pageChange[totalSettingsLength] = {
-				id : $this.data('id'),
+				id : $this.parent().data('id'),
 				display : 'none',
 			}
 		}
@@ -2275,11 +2299,17 @@ $(function(){
 			id: previousEntry,
 			href: $('.user-website-url').val(),
 		}
+		idList.general[idList.general.length] = {
+			name: $('.user-website-name').val(),
+			id: previousEntry,
+		}
+
 		if(iframeResult){
 			league.pageAdd[totalPages].iframe = true;
 		}
 
 		localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+		localStorage.setItem('idList', JSON.stringify(idList));
 		
 		$('.iframe-tester').html('');
 		$('.user-website-name').val('');
@@ -2289,7 +2319,7 @@ $(function(){
 		$("#miscbuttons ul").append( addWebsite(league.pageAdd[totalPages]));
 
 		var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
-		$(".unique-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
+		$("#general-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
 		
 		web.setSettings();
 
@@ -2305,22 +2335,62 @@ $(function(){
 	$('#settings-content').on('click','.remove-user-website', function(){
 		var $this = $(this);
 		$this.parent().fadeOut();
-		$('#'+$this.data('id')).css('display','none');
+		$('#'+$this.parent().data('id')).css('display','none');
 
 		var index;
 		for (var i = 0; i<league.pageAdd.length; i++){
-			if(league.pageAdd[i].id == $this.data('id')){
+			if(league.pageAdd[i].id == $this.parent().data('id')){
 				index = i;
 			}
 		}
 		if(index>-1){
 			league.pageAdd.splice(index,1);
 		}
+
+		var index2
+		for (var i = 0; i<idList.general.length; i++){
+			if(idList.general[i].id == $this.parent().data('id')){
+				index2 = i;
+			}
+		}
+		if(index2>-1){
+			idList.general.splice(index2,1);
+		}
 		
 		localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+		localStorage.setItem('idList', JSON.stringify(idList));
 		web.setSettings();
 	});
 
+	var $sortableAreas = $("#general-websites, #summoner-websites, #champ-websites");
+
+ 	$sortableAreas.sortable();
+	$sortableAreas.disableSelection();
+
+	$sortableAreas.on("sortdeactivate", function(){
+		var $this = $(this);
+		var changedWebsites = $(this).children('li');
+		var newGeneralArray = [];
+		for(var i = 0; i<changedWebsites.length; i++){
+			newGeneralArray[i] = {
+				name:changedWebsites.eq(i).data('name'),
+				id:changedWebsites.eq(i).data('id')
+			}
+		}
+		
+		if($this.prop("id") == "general-websites"){
+			idList.general = newGeneralArray;
+		} else if($this.prop("id") == "summoner-websites"){
+			idList.summoner = newGeneralArray;
+		} else if ($this.prop("id") == "champ-websites"){
+			idList.champ = newGeneralArray;
+		}
+
+		localStorage.setItem('idList',JSON.stringify(idList));
+
+		web.rearangeSidebar();
+		// call a function which loops through
+	});
 
 	$('.settings-update').on('click', function(){
 		web.saveSettings();
@@ -2828,6 +2898,7 @@ $(function(){
 
 	$('.tooltip').tipsy({gravity: 'w'});
 	$('.settings-tooltip').tipsy({gravity: 'e'});
+	web.rearangeSidebar();
 
 	$(window).unload(function() {
     	localStorage.setItem('sessionActive','no');

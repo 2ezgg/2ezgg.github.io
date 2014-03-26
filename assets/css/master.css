@@ -950,18 +950,28 @@ a.reddit-title:visited {
   background-color: #EDEDED; }
 
 .website-control {
-  padding: 5px;
+  padding: 6px;
   display: inline-block;
   background-color: #E3E3E3;
   font-size: 0.9em;
   font-weight: bold;
   color: #505050;
-  margin-top: 5px; }
+  margin-top: 5px;
+  cursor: move;
+  position: relative;
+  padding-left: 32px;
+  border: 2px solid white;
+  margin-right: 4px; }
+
+.website-control:first-child {
+  margin-right: 0px; }
 
 .remove-website {
   background-color: #d65555;
   cursor: pointer;
-  padding: 3px;
+  padding: 2px 3px;
+  margin-right: 3px;
+  margin-left: 4px;
   color: white; }
 
 .remove-website:before, .remove-user-website:before {
@@ -973,7 +983,9 @@ a.reddit-title:visited {
 .remove-user-website {
   background-color: #d65555;
   cursor: pointer;
-  padding: 3px;
+  padding: 2px 3px;
+  margin-right: 3px;
+  margin-left: 4px;
   color: white; }
 
 .remove-user-website:hover {
@@ -982,8 +994,10 @@ a.reddit-title:visited {
 .add-website {
   background-color: #5bacca;
   cursor: pointer;
-  padding: 3px;
-  color: white; }
+  padding: 2px 3px;
+  color: white;
+  margin-right: 3px;
+  margin-left: 4px; }
 
 .add-website:hover {
   background-color: #68BFDF; }
