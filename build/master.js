@@ -517,7 +517,6 @@
 
 		var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || self.oldDate;
 		timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
-
 		if(pageRssId == 'league'){
 			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
 			index = 0;
@@ -538,6 +537,7 @@
 			index = 5;
 		} 
 
+
 		$.ajax({
 	        type: "GET",
 	        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(websiteUrl),
@@ -548,10 +548,8 @@
 	        success: function(data){
 	        	var values = data.responseData.feed.entries;
 	        	var totalAdditions = 0;
-
 	        	for (var i=0;i<values.length;i++){
 	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-
 	            	if (dateOfArticle > timeRssLastRetrieved){
 		 				totalAdditions++;
 		 			} 	
@@ -1426,7 +1424,7 @@
 
 	WebInterface.prototype.changeTwitchDimensions = function(){
 
-		var spacing = 450;
+		var spacing = 440;
 		var twitchWidth = $(window).width()-spacing-($(".twitch-chat-area").width());
 
 		if(detectmob()){
@@ -2215,7 +2213,7 @@ $(function(){
 					league.rssAlerts(dataName);
 					rssLinksAccessed++;
 					if(rssLinksAccessed == rssLinksAvailable){
-						localStorage.setItem('rssLastRetrieved',Date.now());
+						localStorage.setItem('rssLastRetrieved', Date.now());
 					}
 				}
 			}

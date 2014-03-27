@@ -94,7 +94,7 @@ table, th, td {
   height: 28px;
   position: fixed;
   top: 0;
-  left: 335px;
+  left: 310px;
   background: url('../img/nav.png') rgba(33, 33, 33, 0.9);
   border-top-right-radius: 5px;
   -webkit-border-top-right-radius: 5px;
@@ -122,7 +122,7 @@ table, th, td {
 .logo img {
   float: left;
   display: inline;
-  margin-left: 12px;
+  margin-left: 7px;
   margin-top: 5px; }
 
 .logo {
@@ -133,9 +133,9 @@ table, th, td {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: #262729;
+  background-color: #202023;
   height: 100%;
-  width: 335px;
+  width: 310px;
   position: fixed;
   color: #717171;
   font-size: 0.8em;
@@ -156,11 +156,11 @@ table, th, td {
   display: inline-block; }
 
 .half-buttons ul li {
-  width: 96px;
+  width: 86px;
   display: inline-block;
   margin-right: 4px;
   margin-bottom: 2px;
-  padding-left: 35px; }
+  padding-left: 32px; }
 
 .quater-buttons ul li {
   display: inline-block;
@@ -189,8 +189,8 @@ table, th, td {
   position: relative; }
 
 .selected-link, .holder li:hover {
-  background-color: #303033;
-  color: #939393; }
+  background-color: #2A2A2C;
+  color: #CACACA; }
 
 #sidebar a {
   color: #777777;
@@ -201,8 +201,8 @@ table, th, td {
 
 .holder {
   padding: 0 20px;
-  border-top: 1px solid #36383A;
-  border-bottom: 1px solid #141515;
+  border-top: 1px solid #323436;
+  border-bottom: 1px solid #0D0F0F;
   padding-top: 12px;
   padding-bottom: 12px; }
 
@@ -217,12 +217,12 @@ table, th, td {
   width: 16px;
   height: 16px;
   position: absolute;
-  left: 10px;
+  left: 7px;
   background: url("../img/logosprite.png"); }
 
 .update-info {
   position: absolute;
-  right: 10px;
+  right: 7px;
   background-color: #f0e863;
   padding: 2px 6px;
   color: #0c131f;
@@ -245,7 +245,7 @@ select.server::-ms-expand {
 select.server {
   position: absolute;
   top: 12px;
-  left: 256px;
+  left: 236px;
   cursor: pointer;
   padding: 6px 6px;
   margin-left: -6px;
@@ -293,7 +293,7 @@ select.server option {
 #main-content {
   width: auto;
   height: auto;
-  margin-left: 335px; }
+  margin-left: 310px; }
 
 header {
   width: 100%;
@@ -307,7 +307,7 @@ header {
   width: auto;
   height: 100%;
   background-color: #f5f5f5;
-  margin-left: 335px;
+  margin-left: 310px;
   display: none;
   background-image: url('../img/loader.gif');
   background-repeat: no-repeat;
@@ -1039,8 +1039,8 @@ a.reddit-title:visited {
   border: 1px solid #353535;
   position: absolute;
   z-index: 99;
-  margin-left: -263px;
-  width: 287px;
+  margin-left: -236px;
+  width: 261px;
   max-height: 150px;
   overflow: hidden;
   margin-top: 27px; }
@@ -1091,7 +1091,7 @@ a.reddit-title:visited {
   cursor: pointer;
   top: 17px;
   width: 26px;
-  left: 276px;
+  left: 247px;
   padding-left: 10px;
   padding-top: 6px;
   height: 24px;

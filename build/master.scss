@@ -117,7 +117,7 @@ padding: 1px 8px;
 	height: 28px;
 	position: fixed;
 	top: 0;
-	left: 335px;
+	left: 310px;
 	background: url('../img/nav.png') rgba(33,33,33,.9);
 	border-top-right-radius:5px;
 	-webkit-border-top-right-radius:5px; /* Safari */
@@ -144,7 +144,7 @@ padding: 1px 8px;
 .logo img{
 	float: left;
 	display: inline;
-	margin-left: 12px;
+	margin-left: 7px;
 	margin-top: 5px;
 }
 .logo{
@@ -156,9 +156,9 @@ padding: 1px 8px;
 	-moz-box-sizing:    border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing:        border-box;
-	background-color: #262729;
+	background-color: #202023;
 	height: 100%;
-	width: 335px;
+	width: 310px;
 	position: fixed;
 	color: #717171;
 	font-size: 0.8em;
@@ -182,11 +182,11 @@ padding: 1px 8px;
 }
 
 .half-buttons ul li{
-	width: 96px;
+	width: 86px;
 	display: inline-block;
 	margin-right: 4px;
 	margin-bottom: 2px;
-	padding-left: 35px;
+	padding-left: 32px;
 }
 
 .quater-buttons ul li{
@@ -220,8 +220,8 @@ padding: 1px 8px;
 }
 
 .selected-link, .holder li:hover{
-	background-color: #303033;
-	color: rgb(147, 147, 147);
+	background-color: #2A2A2C;
+	color: #CACACA;
 }
 
 #sidebar a{
@@ -235,8 +235,8 @@ padding: 1px 8px;
 
 .holder{
 	padding: 0 20px;
-	border-top: 1px solid #36383A;
-	border-bottom: 1px solid #141515;
+	border-top: 1px solid #323436;
+	border-bottom: 1px solid #0D0F0F;
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
@@ -253,13 +253,13 @@ padding: 1px 8px;
 	width:16px;
 	height: 16px;
 	position: absolute;
-	left: 10px;
+	left: 7px;
 	background: url("../img/logosprite.png");
 }
 
 .update-info{
 	position:absolute;
-	right:10px;
+	right: 7px;
 	background-color:#f0e863;
 	padding:2px 6px;
 	color: #0c131f;
@@ -286,7 +286,7 @@ select.server::-ms-expand {
 select.server{
 	position: absolute;
 	top: 12px;
-	left: 256px;
+	left: 236px;
 	cursor:pointer;
 	padding: 6px 6px;
 	margin-left: -6px;
@@ -333,7 +333,7 @@ select.server option{
 #main-content{
 	width:auto;
 	height:auto;
-	margin-left: 335px;
+	margin-left: 310px;
 }
 
 header{
@@ -349,7 +349,7 @@ header{
 	width:auto;
 	height:100%;
 	background-color:#f5f5f5;
-	margin-left: 335px;
+	margin-left: 310px;
 	display:none;
 	background-image:url('../img/loader.gif');
 	background-repeat:no-repeat;
@@ -1178,8 +1178,8 @@ margin-left: 4px;
     border: 1px solid rgb(53, 53, 53);
     position: absolute;
 	z-index:99;
-	margin-left: -263px;
-	width: 287px;
+	margin-left: -236px;
+	width: 261px;
 	max-height: 150px;
 	overflow: hidden;
 	margin-top: 27px;
@@ -1228,7 +1228,7 @@ margin-left: 4px;
 	cursor:pointer;
 	top: 17px;
 	width: 26px;
-	left: 276px;
+	left: 247px;
 	padding-left: 10px;
 	padding-top: 6px;
 	height: 24px;
