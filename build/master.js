@@ -2588,8 +2588,8 @@ $(function(){
 			} else {
 				
 				$sidebar.css('display','block');
-				$('#main-content, #iframe-holder').css('margin-left','335px');
-				$(this).css('left','335px');
+				$('#main-content, #iframe-holder').css('margin-left','310px');
+				$(this).css('left','310px');
 				web.changeTwitchDimensions();
 			}
 
