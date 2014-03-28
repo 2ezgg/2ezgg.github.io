@@ -2176,7 +2176,7 @@ $(function(){
 /////////////////////////////////
 
 	function rssEvents(){
-		if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('rssLastRetrieved')) + 1000*60*20) >= Date.now()) ){
+		if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('rssLastRetrieved')) + 1000*60*40) >= Date.now()) ){
 			var $rssCapableLinks = $(".rss-capable");
 
 			for(var t = 0; t<$rssCapableLinks.length; t++){
@@ -2224,7 +2224,7 @@ $(function(){
 	}
 
 	rssEvents();
-	setInterval(rssEvents, 1000*60*25);
+	setInterval(rssEvents, 1000*60*60);
 	// use getItem so that if someone has clicked on a rss link in another window it doesn't resset all the other ones
 	// need to get it working for middle click
 	$(".rss-capable").on('click', function(e){
