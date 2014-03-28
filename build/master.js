@@ -557,21 +557,21 @@
 
 	        	self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
 
-
-				if(self.rssFeeds[index]){
-					self.rssFeeds[index] += totalAdditions;
-				} else{
-					self.rssFeeds[index] = totalAdditions;
-				}
-				if(self.rssFeeds[index]){
-					if(self.rssFeeds[index] > 5){
-						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+	        	if(!((pageRssId == appSettings['ezHomePage']) && (window.location.href == window.location.origin + "/"))){
+					if(self.rssFeeds[index]){
+						self.rssFeeds[index] += totalAdditions;
 					} else{
-						$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
+						self.rssFeeds[index] = totalAdditions;
 					}
+					if(self.rssFeeds[index]){
+						if(self.rssFeeds[index] > 5){
+							$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+						} else{
+							$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
+						}
+					}
+					localStorage.setItem('rssFeeds',JSON.stringify(self.rssFeeds));
 				}
-
-				localStorage.setItem('rssFeeds',JSON.stringify(self.rssFeeds));
 				
 	        	rssDeferred.resolve();
 	        }
@@ -579,6 +579,8 @@
 
     	return rssDeferred.promise();
 	}
+
+
 
 
 	var streamChannels = function(){
