@@ -509,14 +509,15 @@
 		}
 	}
 
-	LeagueLinks.prototype.rssAlerts = function(pageRssId){
+	LeagueLinks.prototype.rssAlerts = function(pageRssId, rssLastRetrieved){
+		
+
 		var rssDeferred = $.Deferred();
 		var self = this;
 		var websiteUrl = '';
 		var index;
 
-		var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || self.oldDate;
-		timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
+		
 		if(pageRssId == 'league'){
 			websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
 			index = 0;
@@ -550,7 +551,7 @@
 	        	var totalAdditions = 0;
 	        	for (var i=0;i<values.length;i++){
 	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-	            	if (dateOfArticle > timeRssLastRetrieved){
+	            	if (dateOfArticle > rssLastRetrieved){
 		 				totalAdditions++;
 		 			} 	
 	        	}
@@ -2202,29 +2203,25 @@ $(function(){
 			var rssLinksAvailable = 0;
 			var rssLinksAccessed = 0;
 
-			for(var t = 0; t<$rssCapableLinks.length; t++){
-				var dataName = $rssCapableLinks.eq(t).data('name');
-				if($("#"+dataName).css('display')!='none'){
-					rssLinksAvailable++;
-				}
-			}
+			var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || league.oldDate;
+			timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
 
 			for(var t = 0; t<$rssCapableLinks.length; t++){
 				var dataName = $rssCapableLinks.eq(t).data('name');
+
 				if($("#"+dataName).css('display')!='none'){
-					league.rssAlerts(dataName);
+					league.rssAlerts(dataName, timeRssLastRetrieved);
 					rssLinksAccessed++;
-					if(rssLinksAccessed == rssLinksAvailable){
-						localStorage.setItem('rssLastRetrieved', Date.now());
-					}
 				}
 			}
+
+			localStorage.setItem('rssLastRetrieved', Date.now());
 			
 		}
 	}
 
 	rssEvents();
-	setInterval(rssEvents, 1000*60*60);
+	setInterval(rssEvents, 1000*60*25);
 	// use getItem so that if someone has clicked on a rss link in another window it doesn't resset all the other ones
 	// need to get it working for middle click
 	$(".rss-capable").on('click', function(e){
