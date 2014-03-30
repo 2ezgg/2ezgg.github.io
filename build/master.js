@@ -509,7 +509,7 @@
 		}
 	}
 
-	LeagueLinks.prototype.rssAlerts = function(pageRssId, rssLastRetrieved){
+	LeagueLinks.prototype.rssAlerts = function(pageRssId){
 		
 
 		var rssDeferred = $.Deferred();
@@ -547,32 +547,43 @@
 	            console.log('Unable to load'+pageRssId+'feed');
 	        },
 	        success: function(data){
+	        	self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
+
+	        	if (self.rssFeeds[index] == undefined || self.rssFeeds[index] == null || ((pageRssId == appSettings['ezHomePage']) && (window.location.href == window.location.origin + "/")) ){
+	        		if (self.oldDate == 0){
+	        			self.rssFeeds[index] = 2000; 
+	        		} else {
+	        			self.rssFeeds[index] = Date.now();
+	        		}
+	        		localStorage.setItem('rssFeeds',JSON.stringify(self.rssFeeds));	
+	        	} 
+
 	        	var values = data.responseData.feed.entries;
 	        	var totalAdditions = 0;
 	        	for (var i=0;i<values.length;i++){
 	            	var dateOfArticle = new Date(values[i].publishedDate).getTime();
-	            	if (dateOfArticle > rssLastRetrieved){
+	            	if (dateOfArticle > self.rssFeeds[index]){
 		 				totalAdditions++;
 		 			} 	
 	        	}
 
-	        	self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
-
-	        	if(!((pageRssId == appSettings['ezHomePage']) && (window.location.href == window.location.origin + "/"))){
-					if(self.rssFeeds[index]){
-						self.rssFeeds[index] += totalAdditions;
+	        	// first if statement is to support those that haven't clicked on a link before
+	        	if(self.rssFeeds[index] < 200 && self.rssFeeds[index] > 0){
+	        		if(self.rssFeeds[index] > 5){
+						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
 					} else{
-						self.rssFeeds[index] = totalAdditions;
+						$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
 					}
-					if(self.rssFeeds[index]){
-						if(self.rssFeeds[index] > 5){
-							$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-						} else{
-							$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
-						}
+	        	} else if(totalAdditions){
+					if(totalAdditions > 5){
+						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+					} else{
+						$("."+pageRssId+"-news").css( "display", "inline" ).text(totalAdditions);
 					}
-					localStorage.setItem('rssFeeds',JSON.stringify(self.rssFeeds));
+				} else {
+					$("."+pageRssId+"-news").css( "display", "none" );
 				}
+			
 				
 	        	rssDeferred.resolve();
 	        }
@@ -1078,11 +1089,11 @@
 
 			}
 			if(totalAdditions>0){
-				if(appSettings['twitchVisualNotifications'] == 'on'){
+				if(appSettings['twitchAudioNotifications'] == 'on'){
 					$("#sound").html('<audio controls autoplay style="display:none"><source src="assets/sound/notify.mp3" hidden="true" autostart="true" loop="false" type="audio/mpeg"></audio>');
 				}
 				
-				if(appSettings['twitchAudioNotifications'] == 'on'){
+				if(appSettings['twitchVisualNotifications'] == 'on'){
 					var favouriteTemplate = Handlebars.compile($('#streamer-online-message-template').html());
 					$("#favourite-online").html( favouriteTemplate(this.newAdditions) );
 					$('#top-header-message').css('padding','14px');
@@ -2177,47 +2188,15 @@ $(function(){
 /////////////////////////////////
 
 	function rssEvents(){
-		if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('rssLastRetrieved')) + 1000*60*40) >= Date.now()) ){
 			var $rssCapableLinks = $(".rss-capable");
-
-			for(var t = 0; t<$rssCapableLinks.length; t++){
-				
-				var $specificData = $rssCapableLinks.eq(t);
-				var dataName = $specificData.data('name');
-				var dataIndex = $specificData.data('index');
-
-				if($("#"+dataName).css('display')!='none'){
-					if(league.rssFeeds[dataIndex]){
-						if(league.rssFeeds[dataIndex] > 5){
-							$("."+dataName+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-						} else{
-							$("."+dataName+"-news").css( "display", "inline" ).text(league.rssFeeds[dataIndex]);
-						}
-					}
-				}
-			}
-				
-		} else{
-
-			var $rssCapableLinks = $(".rss-capable");
-			var rssLinksAvailable = 0;
-			var rssLinksAccessed = 0;
-
-			var timeRssLastRetrieved = localStorage.getItem('rssLastRetrieved') || league.oldDate;
-			timeRssLastRetrieved = parseInt(timeRssLastRetrieved);
 
 			for(var t = 0; t<$rssCapableLinks.length; t++){
 				var dataName = $rssCapableLinks.eq(t).data('name');
 
 				if($("#"+dataName).css('display')!='none'){
-					league.rssAlerts(dataName, timeRssLastRetrieved);
-					rssLinksAccessed++;
+					league.rssAlerts(dataName);
 				}
 			}
-
-			localStorage.setItem('rssLastRetrieved', Date.now());
-			
-		}
 	}
 
 	rssEvents();
@@ -2229,7 +2208,7 @@ $(function(){
 		$this.children("li").children(".update-info").fadeOut();
 		var feedId = $this.data('index');
 		league.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds'));
-		league.rssFeeds[feedId] = 0;
+		league.rssFeeds[feedId] = Date.now();
 		localStorage.setItem('rssFeeds',JSON.stringify(league.rssFeeds));	
 	});
 
