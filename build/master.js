@@ -567,14 +567,7 @@
 		 			} 	
 	        	}
 
-	        	// first if statement is to support those that haven't clicked on a link before
-	        	if(self.rssFeeds[index] < 200 && self.rssFeeds[index] > 0){
-	        		if(self.rssFeeds[index] > 5){
-						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
-					} else{
-						$("."+pageRssId+"-news").css( "display", "inline" ).text(self.rssFeeds[index]);
-					}
-	        	} else if(totalAdditions){
+	        	if(totalAdditions){
 					if(totalAdditions > 5){
 						$("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
 					} else{
