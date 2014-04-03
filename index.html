@@ -86,9 +86,19 @@
 					</script>
 
 					<ul>		
-						<a class="nav-button website-misc no-iframe" id="reddit" data-name="redditthreads" href="http://www.reddit.com/r/leagueoflegends">
+						<a class="nav-button website-misc iframe-capable" id="redditfront" data-name="redditfront" href="http://www.reddit.com/" style="display:none">
 							<li>	
-								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit
+								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit Front
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="reddit" data-name="reddit" href="http://www.reddit.com/r/leagueoflegends#hideOpts">
+							<li>	
+								<span class="lol-image" style="background-position:-16px 0px;"></span>RedditJS
+							</li>
+						</a>
+						<a class="nav-button website-misc no-iframe" id="redditthreads" data-name="redditthreads" href="http://www.reddit.com/r/leagueoflegends" style="display:none">
+							<li>	
+								<span class="lol-image" style="background-position:-16px 0px;"></span>Old Reddit
 							</li>
 						</a>
 						<a class="nav-button website-misc no-iframe" id="youtube" data-name="youtubevideos" href="#youtubevideos">
@@ -365,8 +375,14 @@
 
 				<h3>General Websites</h3>
 				<ul id="general-websites">
-					<li class="website-reddit website-control" data-name="Reddit" data-id="reddit">
-						<span class="lol-image" style="background-position:-16px 0px;"></span> Reddit <span class="remove-website"></span>
+					<li class="website-redditfront website-control" data-name="Reddit Front" data-id="redditfront">
+						<span class="lol-image" style="background-position:-16px 0px;"></span> Reddit Front <span class="add-website"></span>
+
+					</li><li class="website-reddit website-control" data-name="RedditJS" data-id="reddit">
+						<span class="lol-image" style="background-position:-16px 0px;"></span> RedditJS <span class="remove-website"></span>
+
+					</li><li class="website-redditthreads website-control" data-name="Old Reddit" data-id="redditthreads">
+						<span class="lol-image" style="background-position:-16px 0px;"></span> Old Reddit <span class="add-website"></span>
 
 					</li><li class="website-youtube website-control" data-name="LoL Videos" data-id="youtube">
 						<span class="lol-image" style="background-position:0px 0px;"></span> LoL Videos <span class="remove-website"></span>
@@ -691,6 +707,10 @@
 
 
 			<div id="reddit-content">
+
+				<div id="top-reddit-offline-message" style="display:none;">
+					RedditJS appears to be having some problems - so we've temporarily reverted back to the old reddit while we get it online.
+				</div>
 			<div style="margin-left: 15px;margin-top: -97px;"> 
 
 				<div id="mobile-reddit-options">

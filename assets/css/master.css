@@ -38,7 +38,23 @@ table, th, td {
   width: 200px;
   font-size: 0.75em;
   z-index: 6666;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-top: 19px;
+  margin-right: 15px; }
+
+#top-reddit-offline-message {
+  position: absolute;
+  background-color: rgba(33, 33, 33, 0.9);
+  color: white;
+  height: auto;
+  top: 0;
+  right: 40%;
+  width: 300px;
+  font-size: 0.75em;
+  z-index: 6666;
+  font-weight: bold;
+  margin-top: 28px;
+  margin-right: 15px; }
 
 #top-header-message a {
   text-decoration: none;
@@ -93,7 +109,7 @@ table, th, td {
   width: 44px;
   height: 28px;
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 310px;
   background: url('../img/nav.png') rgba(33, 33, 33, 0.9);
   border-top-right-radius: 5px;
@@ -190,14 +206,14 @@ table, th, td {
 
 .selected-link, .holder li:hover {
   background-color: #2A2A2C;
-  color: #CACACA; }
+  color: #ffffff; }
 
 #sidebar a {
-  color: #777777;
+  color: #808080;
   text-decoration: none; }
 
 #sidebar a:hover {
-  color: #838383; }
+  color: #ffffff; }
 
 .holder {
   padding: 0 20px;

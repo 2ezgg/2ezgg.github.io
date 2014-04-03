@@ -1,5 +1,7 @@
 
 	// I need to change this settings area so that they aren't all global variables
+	var redditJsOffline = false;
+
 	var appSettings = {};
 	var settingsSaved = {};
 
@@ -45,7 +47,7 @@
 		
 		// var default idList 
 		idList = {
-			general : [{name:'Reddit', id:'reddit'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
 			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
 			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}],
 		}
@@ -87,7 +89,13 @@
 
 	homePageDetector();
 	localStorage.setItem('appSettings', JSON.stringify(appSettings));
+	
+	if(redditJsOffline && (appSettings['ezHomePage'] == 'reddit')){
+		appSettings['ezHomePage'] = 'redditthreads';
+		$('#top-reddit-offline-message').css('display','inline');
+	}
 
+	
 	
 
 	function detectmob() { 
@@ -1146,6 +1154,17 @@
 		return redditAboutDeferred.promise();
 	}
 
+	RedditLol.prototype.displayAbout = function(homePage){
+		
+		var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
+		if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
+			this.getAbout();
+		} else {
+			$('.side').html(localStorage.getItem('aboutHtml'));
+		}
+
+	}
+
 	RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageTime, pageNum){
 
 		var choiceOfFunction = choice;
@@ -1410,6 +1429,9 @@
 	}
 
 	WebInterface.prototype.makeIframe = function(iframeUrl){
+		if(iframeUrl.match(/reddit.com/ig)){
+			iframeUrl = iframeUrl.replace(/reddit\.com/ig, 'redditjs.com');
+		}
 		$("#main-content").css( "display", "none" );
 		var $iFrameHolder = $("#iframe-holder");
 		var heightToProcess = $(window).height()-4;
@@ -1524,7 +1546,7 @@
 	}
 
 	WebInterface.prototype.homePage = function(){
-		if (window.location.href == window.location.origin + "/"){
+		if (window.location.href == window.location.origin + "/2ezgg/"){
 			this.homePageAccessed = true;
 			return true; 
 		} else{
@@ -1562,6 +1584,45 @@
 		 		}
 	}
 
+	WebInterface.prototype.saveSidebar = function(category){
+		var self = this
+		function sidebarAreaSave(category){
+			var changedWebsites = category.children('li');
+			var newGeneralArray = [];
+			for(var i = 0; i<changedWebsites.length; i++){
+				newGeneralArray[i] = {
+					name:changedWebsites.eq(i).data('name'),
+					id:changedWebsites.eq(i).data('id')
+				}
+			}
+			
+			if(category.prop("id") == "general-websites"){
+				idList.general = newGeneralArray;
+			} else if(category.prop("id") == "summoner-websites"){
+				idList.summoner = newGeneralArray;
+			} else if (category.prop("id") == "champ-websites"){
+				idList.champ = newGeneralArray;
+			}
+
+			localStorage.setItem('idList',JSON.stringify(idList));
+
+			self.rearangeSidebar();
+		}
+
+		if(category != 'all'){
+			sidebarAreaSave(category);
+		} else if(category == 'all' && localStorage.getItem('idList')) {
+			sidebarAreaSave($('ul#general-websites'));
+			sidebarAreaSave($('ul#summoner-websites'));
+			sidebarAreaSave($('ul#champ-websites'));
+			idList = JSON.parse(localStorage.getItem('idList'));
+			return true;
+		}
+		return false;
+
+	}
+
+
 $(function(){
 ////////////////// This is where stuff starts to get a little messy
 
@@ -1573,7 +1634,8 @@ $(function(){
 	var web = new WebInterface();
 
 	web.registerScreen();
-
+	web.rearangeSidebar();
+	web.saveSidebar('all');
 ////////
 
 // TAB SYSTEM ///////////////////
@@ -1636,7 +1698,7 @@ $(function(){
 			web.redditInUse = 'no';	
 		
 
-		} else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'reddit' && web.homePage()) ){ 
+		} else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'redditthreads' && web.homePage()) ){ 
 			if(!detectmob()){
 				var url;
 				
@@ -1656,7 +1718,7 @@ $(function(){
 			web.twitchInUse = 'no';	
 
 		} else {
-			$("a#reddit li").addClass('selected-link');
+			$("a#redditthreads li").addClass('selected-link');
 			if ( currentUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
 
 					reddit.redditThreads = JSON.parse(localStorage.getItem('redditThreads'));
@@ -1708,7 +1770,7 @@ $(function(){
 				web.youtubeInUse = 'no';
 				
 			}
-
+			reddit.displayAbout();
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
@@ -1746,12 +1808,6 @@ $(function(){
 //////////////////////////////////
 //////// Reddit Event Area ///////
 /////////////////////////////////
-	var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
-	if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
-		reddit.getAbout();
-	} else {
-		$('.side').html(localStorage.getItem('aboutHtml'));
-	}
 
 	var $redditContent = $("#reddit-content")
 
@@ -2337,28 +2393,8 @@ $(function(){
 	$sortableAreas.disableSelection();
 
 	$sortableAreas.on("sortdeactivate", function(){
-		var $this = $(this);
-		var changedWebsites = $(this).children('li');
-		var newGeneralArray = [];
-		for(var i = 0; i<changedWebsites.length; i++){
-			newGeneralArray[i] = {
-				name:changedWebsites.eq(i).data('name'),
-				id:changedWebsites.eq(i).data('id')
-			}
-		}
-		
-		if($this.prop("id") == "general-websites"){
-			idList.general = newGeneralArray;
-		} else if($this.prop("id") == "summoner-websites"){
-			idList.summoner = newGeneralArray;
-		} else if ($this.prop("id") == "champ-websites"){
-			idList.champ = newGeneralArray;
-		}
-
-		localStorage.setItem('idList',JSON.stringify(idList));
-
-		web.rearangeSidebar();
-		// call a function which loops through
+		console.log($(this));
+		web.saveSidebar($(this));
 	});
 
 	$('.settings-update').on('click', function(){
@@ -2510,7 +2546,7 @@ $(function(){
 	
 	
 
-	$("#reddit").on('click',function(e){
+	$("#redditthreads").on('click',function(e){
 		if(e.which !== 2){
 			
 			var dataName = $(this).data('name');
@@ -2533,7 +2569,7 @@ $(function(){
 				web.redditInUse = 'yes';
 
 			}
-		
+		reddit.displayAbout();
 		$("#iframe-holder").html(' ');
 		$("header").css('height','100px');
 		$("#reddit-content").css("display","block");
@@ -2851,7 +2887,7 @@ $(function(){
 //////// Misc Events            ///////
 ///////////////////////////////////////
 
-	$("#reddit, #youtube, #twitch, #settings").on('click', function(){
+	$("#redditthreads, #youtube, #twitch, #settings").on('click', function(){
 		if(detectmob()){
 			$('#sidebar').slideUp();
 		}
@@ -2867,7 +2903,7 @@ $(function(){
 
 	$('.tooltip').tipsy({gravity: 'w'});
 	$('.settings-tooltip').tipsy({gravity: 'e'});
-	web.rearangeSidebar();
+
 
 	$(window).unload(function() {
     	localStorage.setItem('sessionActive','no');
