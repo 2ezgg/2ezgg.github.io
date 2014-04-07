@@ -1784,8 +1784,9 @@ $(function(){
 }	
 
 //////////////////////////// THIS PART COULD USE SOME TLC FOR SURE
+	var sessionActive = 'no';
 	window.onpopstate = function(event){
-		if(localStorage.getItem('sessionActive') == 'yes' && ((window.location.hash.length != 0)||(window.location.href == window.location.origin+'/')) ){
+		if(sessionActive == 'yes' && ((window.location.hash.length != 0)||(window.location.href == window.location.origin+'/')) ){
 				if (!web.checkIfBelongs()){ // also include # and blank for reddit
 					location.reload();
 				} else {
@@ -1799,7 +1800,7 @@ $(function(){
 		tabSystem();
 		// pretty hacky thing that should be fixed properly
 		setTimeout(function(){
-			localStorage.setItem('sessionActive','yes');
+			sessionActive = 'yes';
 		}, 20000);
 	}
 ////////////////////////////////////////
@@ -2903,10 +2904,5 @@ $(function(){
 
 	$('.tooltip').tipsy({gravity: 'w'});
 	$('.settings-tooltip').tipsy({gravity: 'e'});
-
-
-	$(window).unload(function() {
-    	localStorage.setItem('sessionActive','no');
-	});
 
 });
