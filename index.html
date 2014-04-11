@@ -6,7 +6,6 @@
 		<meta name="description" content="2ez.gg is your league of legends home page. Browsing lol related web sites has never been so easy! 2ezgg gg 2ez">
 		<title>2ez.gg - Everything League of Legends.</title>
 		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
-		<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
 
@@ -30,7 +29,7 @@
 		<div id="top-header-message">
 			<script id="riot-online-message-template" type="text/x-handlebars-template">
 	            	<span class="notify-title" style="display:block;margin-bottom:6px;">The RiotGames stream is active.</span>
-					<span class="streams-list"><a href="http://www.twitch.tv/riotgames" target="_blank">Twitch</a> | <a href="https://www.youtube.com/user/LoLChampSeries?feature=watch" target="_blank">Youtube</a> | <a href="http://www.azubu.tv/channel/detail.do?cn_id=3093271319001" target="_blank">AzubuTv</a>
+					<span class="streams-list"><a href="http://www.twitch.tv/riotgames" target="_blank">Twitch</a> | <a href="https://www.youtube.com/user/LoLChampSeries?feature=watch" target="_blank">YouTube</a> | <a href="http://www.azubu.tv/channel/detail.do?cn_id=3093271319001" target="_blank">AzubuTv</a>
 					</span>
 					<span class="close-riot">[x]</span>
 	        </script>
@@ -69,6 +68,35 @@
 					</ul>
 				</div>
 
+				<div class="search holder" id="searchbuttonshold" style="display:none">
+
+					<input type="text" name="searchInput" class="searchinput" placeholder="Search" style="width: 240px;display: block;margin-left: 5px;">
+					
+					<div id="searchbuttons" style="position:relative;padding-top:10px;">
+						<a class="nav-button website-search no-iframe" id="google" data-name="google" data-url="http://google.com/" href="http://google.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:0px 0px;"></span> Google		
+						</a>
+						<a class="nav-button website-search no-iframe" id="gimages" data-name="gimages" data-url="http://images.google.com/" href="http://images.google.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:0px 0px;"></span> Google Images		
+						</a>
+						<a class="nav-button website-search no-iframe" id="yahoo" data-name="yahoo" data-url="http://www.yahoo.com/" href="http://www.yahoo.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:-32px -16px;"></span> Yahoo		
+						</a>
+						<a class="nav-button website-search no-iframe" id="bing" data-name="bing" data-url="http://bing.com/" href="http://bing.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:-32px 0px;"></span> Bing		
+						</a>
+						<a class="nav-button website-search no-iframe" id="youtubesearch" data-name="youtubesearch" data-url="http://youtube.com/" href="http://youtube.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:0px -16px;"></span> YouTube		
+						</a>
+						<a class="nav-button website-search no-iframe" id="wikipedia" data-name="wikipedia" data-url="http://wikipedia.com/" href="http://wikipedia.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:-16px 0px;"></span> Wikipedia		
+						</a>
+						<a class="nav-button website-search no-iframe" id="wolfram" data-name="wolfram" data-url="https://www.wolframalpha.com/" href="https://www.wolframalpha.com/" target="_blank" style="display:none">
+							<span class="search-image" style="background-position:-16px -16px;"></span> Wolfram Alpha	
+						</a>
+					</div>	
+				</div>
+
 				<div class="remaining holder half-buttons" id="miscbuttons" style="padding-bottom:22px">
 
 					<script id="new-website-template" type="text/x-handlebars-template">
@@ -85,7 +113,8 @@
 						</a>
 					</script>
 
-					<ul>		
+					<ul>
+							
 						<a class="nav-button website-misc iframe-capable" id="redditfront" data-name="redditfront" href="http://reddit.com/" style="display:none">
 							<li>	
 								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit Front
@@ -367,13 +396,37 @@
 			<header>2ez.gg</header>
 
 			<div id="settings-content">
-				<h2 style="margin-bottom:30px;margin-top:30px">2ez.gg Settings</h2>
+				<h2>Sidebar Modifications</h2>
 
 				<script id="remove-website-template" type="text/x-handlebars-template"><li class="website-{{id}} website-control" data-name="{{name}}" data-id="{{id}}">
 						<span class="lol-image" style="background-image:url('http://s2.googleusercontent.com/s2/favicons?domain_url={{href}}')"></span> {{name}} <span class="remove-user-website"></span>
 					</li></script>
 
-				<h3>General Websites</h3>
+				<h3>Search General Websites</h3>
+				<ul id="search-websites">
+					<li class="website-google website-control" data-name="google" data-id="google">
+						 <span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:0px 0px;"></span> Google <span class="add-website"></span>
+
+					</li><li class="website-gimages website-control" data-name="gimages" data-id="gimages">
+						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:0px 0px;"></span> Google Images <span class="add-website"></span>
+
+					 </li><li class="website-yahoo website-control" data-name="yahoo" data-id="yahoo">
+					 <span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:-32px -16px;"></span>Yahoo <span class="add-website"></span>
+
+					 </li><li class="website-bing website-control" data-name="bing" data-id="bing">
+						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:-32px 0px;"></span> Bing <span class="add-website"></span>
+
+					</li><li class="website-youtubesearch website-control" data-name="youtubesearch" data-id="youtubesearch">
+						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:0px -16px;"></span> YouTube <span class="add-website"></span>
+	
+					</li><li class="website-wikipedia website-control" data-name="wikipedia" data-id="wikipedia">
+						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:-16px 0px;"></span> Wikipedia <span class="add-website"></span>
+
+					 </li><li class="website-wolfram website-control" data-name="wolfram" data-id="wolfram">
+					 	<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:-16px -16px;"></span> Wolfram Alpha <span class="add-website"></span></li>
+				</ul>
+
+				<h3>LoL Websites</h3>
 				<ul id="general-websites">
 					<li class="website-redditfront website-control" data-name="Reddit Front" data-id="redditfront">
 						<span class="lol-image" style="background-position:-16px 0px;"></span> Reddit Front <span class="add-website"></span>
@@ -493,7 +546,7 @@
 				</ul>
 
 				<h3>Champion Websites</h3>
-				<ul id="champ-websites" style="margin-bottom: 40px;">
+				<ul id="champ-websites" style="margin-bottom: 30px;">
 					<li class="website-champselect website-control" data-name="Counters" data-id="champselect">
 						<span class="lol-image" style="background-position:0px -32px;"></span> Counters <span class="remove-website"></span>
 					
@@ -527,174 +580,252 @@
 					</li>
 				</ul>
 
-				<h3>General Settings</h3>
-				<table width="100%">
-					<tr class="settings-odd">
-						<td>
-							<script id="homepage-list-template" type="text/x-handlebars-template">
-								{{#each this}}
-									<option value="{{id}}">{{name}}</option>
-								{{/each}}
-							</script>
+				<h2 style="margin-bottom:-2px;">Website Settings</h2>
+					<script id="homepage-list-template" type="text/x-handlebars-template">
+										{{#each this}}
+											<option value="{{id}}">{{name}}</option>
+										{{/each}}
+									</script>
+					<div class="settings-holder">
+						<h3>General Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td style="width:115px">
+									<select class="ezHomePage">	
+										
+									</select>
+								</td>
+								<td>2ez.gg homepage. (no Internet Explorer support yet).</td>
+							</tr>
+							<tr>
+								<td style="width:115px">
+									<select class="redditNewTab">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Open Reddit threads in new tabs. (for Old Reddit)</td>
+							</tr>
+						</table>
+					</div>
+					<div class="settings-holder">	
+						<h3>Misc Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="smartEnter">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td><strong>Smart enter key</strong> (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
+							</tr>
+							<tr>
+								<td>
+									<select class="newWindow">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Enable <strong>mobile version</strong> when suitable (highly recommended for performance issues).</td>
+							</tr>
+						</table>
+					</div>
 
-							<select class="ezHomePage">	
-								
-							</select>
-						</td>
-						<td>Default homepage on entering the website. (no Internet Explorer support yet).</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="redditNewTab">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td>Open Reddit threads in new tabs.</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="twitchVisualNotifications">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td>Stream favourites visual notifications.</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="twitchAudioNotifications">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td>Stream favourites audio notifications.</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="eSportsNotifications">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td>Show notification with stream links to Riot Games when online.</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="defaultNameLink">
-								<option value="king">LoLKing</option>
-								<option value="nexus">Nexus</option>
-								<option value="gg">OP GG</option>
-								<option value="now">LolKing Now</option>
-								<option value="summoning">Summoning</option>
-								<option value="skill">LoLSkill</option>
-								<option value="kassad">Kassad.In</option>
-								<option value="summonergameguyz">LoL GameGuyz</option>
-							</select>
-						</td>
-						<td>Default link to open after <strong>'enter'</strong> key is pressed in <strong>'summoner name'</strong> text field.</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="shiftNameLink">
-								<option value="king">LoLKing</option>
-								<option value="nexus">Nexus</option>
-								<option value="gg">OP GG</option>
-								<option value="now">LolKing Now</option>
-								<option value="summoning">Summoning</option>
-								<option value="skill">LoLSkill</option>
-								<option value="kassad">Kassad.In</option>
-								<option value="summonergameguyz">LoL GameGuyz</option>
-							</select>
-						</td>
-						<td>Bind a website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'summoner name'</strong> text field.</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="ctrlNameLink">
-								<option value="king">LoLKing</option>
-								<option value="nexus">Nexus</option>
-								<option value="gg">OP GG</option>
-								<option value="now">LolKing Now</option>
-								<option value="summoning">Summoning</option>
-								<option value="skill">LoLSkill</option>
-								<option value="kassad">Kassad.In</option>
-								<option value="summonergameguyz">LoL GameGuyz</option>
-							</select>
-						</td>
-						<td>Bind a website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'summoner name'</strong> text field.</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="defaultChampLink">
-								<option value="champselect">Counters</option>
-								<option value="tsm">SoloMid</option>
-								<option value="probuilds">ProBuilds</option>
-								<option value="moba">Mobafire</option>
-								<option value="lolbuilder">LolBuilder</option>
-								<option value="lolpro">LolPro</option>
-								<option value="champgameguyz">LoL GameGuyz</option>
-								<option value="kingchamp">LolKing Stats</option>
-								<option value="elo">Elophant</option>
-								<option value="wikichamp">LoLWiki</option>
-							</select>
-						</td>
-						<td>Default link to open after <strong>'enter'</strong> key is pressed in <strong>'champion name'</strong> text field.</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="shiftChampLink">
-								<option value="champselect">Counters</option>
-								<option value="tsm">SoloMid</option>
-								<option value="probuilds">ProBuilds</option>
-								<option value="moba">Mobafire</option>
-								<option value="lolbuilder">LolBuilder</option>
-								<option value="lolpro">LolPro</option>
-								<option value="champgameguyz">LoL GameGuyz</option>
-								<option value="kingchamp">LolKing Stats</option>
-								<option value="elo">Elophant</option>
-								<option value="wikichamp">LoLWiki</option>
-							</select>
-						</td>
-						<td>Bind a website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="ctrlChampLink">
-								<option value="champselect">Counters</option>
-								<option value="tsm">SoloMid</option>
-								<option value="probuilds">ProBuilds</option>
-								<option value="moba">Mobafire</option>
-								<option value="lolbuilder">LolBuilder</option>
-								<option value="lolpro">LolPro</option>
-								<option value="champgameguyz">LoL GameGuyz</option>
-								<option value="kingchamp">LolKing Stats</option>
-								<option value="elo">Elophant</option>
-								<option value="wikichamp">LoLWiki</option>
-							</select>
-						</td>
-						<td>Bind a website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
-					</tr>
-					<tr>
-						<td>
-							<select class="smartEnter">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td><strong>Smart enter key</strong> (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
-					</tr>
-					<tr class="settings-odd">
-						<td>
-							<select class="newWindow">
-								<option value="on">On</option>
-								<option value="off">Off</option>
-							</select>
-						</td>
-						<td>For monitors/mobile phones with a resolution of less than 860px use <strong>mobile version</strong> (highly recommended for mobile phones for performance issues).</td>
-					</tr>
-				</table>
-				<input type="submit" class="settings-update" value="Update Settings">
+					<div class="settings-holder">
+						<h3>Stream Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="twitchVisualNotifications">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Visual notifications when a favourited streamer comes online.</td>
+							</tr>
+
+							<tr>
+								<td>
+									<select class="twitchAudioNotifications">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Audio notifications when a favourited streamer comes online.</td>
+							</tr>
+
+							<tr class="settings-odd">
+								<td>
+									<select class="eSportsNotifications">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Show online notification with stream links to Riot Games.</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="settings-holder">		
+						<h3>Search Settings (Google, YouTube etc.)</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="defaultSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open after <strong>'enter'</strong> key is pressed in the <strong>'Search'</strong> text field.</td>
+							</tr>
+							<tr>
+								<td>
+									<select class="shiftSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
+							</tr>
+							<tr class="settings-odd">
+								<td>
+									<select class="ctrlSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<div class="settings-holder">
+						<h3>Summoner Search Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="defaultNameLink">
+										<option value="king">LoLKing</option>
+										<option value="nexus">Nexus</option>
+										<option value="gg">OP GG</option>
+										<option value="now">LolKing Now</option>
+										<option value="summoning">Summoning</option>
+										<option value="skill">LoLSkill</option>
+										<option value="kassad">Kassad.In</option>
+										<option value="summonergameguyz">LoL GameGuyz</option>
+									</select>
+								</td>
+								<td>Website to open after <strong>'enter'</strong> key is pressed in the <strong>'summoner name'</strong> text field.</td>
+							</tr>
+							<tr>
+								<td>
+									<select class="shiftNameLink">
+										<option value="king">LoLKing</option>
+										<option value="nexus">Nexus</option>
+										<option value="gg">OP GG</option>
+										<option value="now">LolKing Now</option>
+										<option value="summoning">Summoning</option>
+										<option value="skill">LoLSkill</option>
+										<option value="kassad">Kassad.In</option>
+										<option value="summonergameguyz">LoL GameGuyz</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'summoner name'</strong> text field.</td>
+							</tr>
+							<tr class="settings-odd">
+								<td>
+									<select class="ctrlNameLink">
+										<option value="king">LoLKing</option>
+										<option value="nexus">Nexus</option>
+										<option value="gg">OP GG</option>
+										<option value="now">LolKing Now</option>
+										<option value="summoning">Summoning</option>
+										<option value="skill">LoLSkill</option>
+										<option value="kassad">Kassad.In</option>
+										<option value="summonergameguyz">LoL GameGuyz</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'summoner name'</strong> text field.</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="settings-holder">
+						<h3>Champion Search Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="defaultChampLink">
+										<option value="champselect">Counters</option>
+										<option value="tsm">SoloMid</option>
+										<option value="probuilds">ProBuilds</option>
+										<option value="moba">Mobafire</option>
+										<option value="lolbuilder">LolBuilder</option>
+										<option value="lolpro">LolPro</option>
+										<option value="champgameguyz">LoL GameGuyz</option>
+										<option value="kingchamp">LolKing Stats</option>
+										<option value="elo">Elophant</option>
+										<option value="wikichamp">LoLWiki</option>
+									</select>
+								</td>
+								<td>Website to open after <strong>'enter'</strong> key is pressed in the<strong>'champion name'</strong> text field.</td>
+							</tr>
+							<tr>
+								<td>
+									<select class="shiftChampLink">
+										<option value="champselect">Counters</option>
+										<option value="tsm">SoloMid</option>
+										<option value="probuilds">ProBuilds</option>
+										<option value="moba">Mobafire</option>
+										<option value="lolbuilder">LolBuilder</option>
+										<option value="lolpro">LolPro</option>
+										<option value="champgameguyz">LoL GameGuyz</option>
+										<option value="kingchamp">LolKing Stats</option>
+										<option value="elo">Elophant</option>
+										<option value="wikichamp">LoLWiki</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
+							</tr>
+							<tr class="settings-odd">
+								<td>
+									<select class="ctrlChampLink">
+										<option value="champselect">Counters</option>
+										<option value="tsm">SoloMid</option>
+										<option value="probuilds">ProBuilds</option>
+										<option value="moba">Mobafire</option>
+										<option value="lolbuilder">LolBuilder</option>
+										<option value="lolpro">LolPro</option>
+										<option value="champgameguyz">LoL GameGuyz</option>
+										<option value="kingchamp">LolKing Stats</option>
+										<option value="elo">Elophant</option>
+										<option value="wikichamp">LoLWiki</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
+							</tr>
+						</table>
+					</div>
+					
+					
+				<div style="width:100%;display:block;margin-top: 10px;"><input type="submit" class="settings-update" value="Update Settings" style="margin-left: 2.5%;"></div>
 
 				<p style="margin-top:40px;margin-bottom:20px">
 					Find a website breaking bug? Or have a suggestion? Head over to <a href="http://github.com/2ezgg/2ezgg.github.io">github</a>

@@ -36,6 +36,9 @@
 		defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved['defaultChampLink'] : 'champselect',
 		shiftChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftChampLink'))  ? settingsSaved['shiftChampLink'] : 'probuilds', 
 		ctrlChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlChampLink'))  ? settingsSaved['ctrlChampLink'] : 'kingchamp',
+		defaultSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultSearchLink'))  ? settingsSaved['defaultSearchLink'] : 'google',
+		shiftSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftSearchLink'))  ? settingsSaved['shiftSearchLink'] : 'youtubesearch', 
+		ctrlSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlSearchLink'))  ? settingsSaved['ctrlSearchLink'] : 'wikipedia',
 		smartEnter:((settingsSaved !== null) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved['smartEnter'] : 'on',
 		newWindow:((settingsSaved !== null) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved['newWindow'] : 'on',
 	}
@@ -47,6 +50,7 @@
 		
 		// var default idList 
 		idList = {
+			search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
 			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
 			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
 			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}],
@@ -226,6 +230,44 @@
 		}
 	}
 
+	LeagueLinks.prototype.searchLink = function(){
+		var items = $(".website-search");
+		var searchQuery = encodeURIComponent($(".searchinput").val());
+
+		for(var i = 0; i < items.length; i++){
+
+			var item = items.eq(i);
+			var webData = item.data('name');
+
+			if (webData == 'google'){
+
+				item.attr("href","http://google.com/search?q="+searchQuery);
+
+			}  else if (webData == 'gimages'){
+
+				item.attr("href","http://www.google.com/search?site=&tbm=isch&source=hp&q="+searchQuery+"&btnG=Search+by+image"); 
+			
+			}	else if (webData == 'youtubesearch'){
+
+				item.attr("href","http://www.youtube.com/results?search_query="+searchQuery); 
+			
+			} else if (webData == 'yahoo'){
+
+				item.attr("href","http://search.yahoo.com/search?p="+searchQuery+"&fr=sfp");
+
+			} else if (webData == 'bing'){
+
+				item.attr("href","http://www.bing.com/search?q="+searchQuery);
+
+			} 
+			else if(webData == 'wikipedia'){
+				item.attr("href", "http://wikipedia.org/wiki/"+searchQuery)
+			}
+			else if(webData == 'wolfram'){
+				item.attr("href", "http://www.wolframalpha.com/input/?i="+searchQuery)
+			}
+		}
+	}
 
 	LeagueLinks.prototype.nameLink = function(){
 		var items = $(".website-name");
@@ -1404,6 +1446,7 @@
 		this.youtubeInUse = '';
 		this.redditInUse = '';
 		this.twitchInUse = '';
+		this.redditStyleSheet = false;
 		this.tabSystemProcessed = 0;
 		this.homePageAccessed = false;
 	}
@@ -1498,6 +1541,9 @@
 		$(".defaultChampLink").val(appSettings['defaultChampLink']);
 		$(".shiftChampLink").val(appSettings['shiftChampLink']);
 		$(".ctrlChampLink").val(appSettings['ctrlChampLink']);
+		$(".defaultSearchLink").val(appSettings['defaultSearchLink']);
+		$(".shiftSearchLink").val(appSettings['shiftSearchLink']);
+		$(".ctrlSearchLink").val(appSettings['ctrlSearchLink']);
 		$(".smartEnter").val(appSettings['smartEnter']);
 		$(".newWindow").val(appSettings['newWindow']);
 	}
@@ -1514,6 +1560,9 @@
 		appSettings['defaultChampLink'] = $(".defaultChampLink").val();
 		appSettings['shiftChampLink'] = $(".shiftChampLink").val();
 		appSettings['ctrlChampLink'] = $(".ctrlChampLink").val();
+		appSettings['defaultSearchLink'] = $(".defaultSearchLink").val();
+		appSettings['shiftSearchLink'] = $(".shiftSearchLink").val();
+		appSettings['ctrlSearchLink'] = $(".ctrlSearchLink").val();
 		appSettings['smartEnter'] = $(".smartEnter").val();
 		appSettings['newWindow'] = $(".newWindow").val();
 		localStorage.setItem('appSettings', JSON.stringify(appSettings));
@@ -1555,33 +1604,44 @@
 	}
 
 	WebInterface.prototype.rearangeSidebar = function(){
-		 		for(var i=0; i<idList.general.length; i++){
-		 			if(i==0){
-		 				$("#miscbuttons ul").prepend($("#"+idList.general[i].id));
-		 				$("#general-websites").prepend($(".website-"+idList.general[i].id));
-		 			} else {
-		 				$("#miscbuttons ul a").eq(i).after($("#"+idList.general[i].id));
-		 				$("#general-websites li").eq(i).after($(".website-"+idList.general[i].id));
-		 			}
-		 		}
-		 		for(var i=0; i<idList.summoner.length; i++){
-		 			if(i==0){
-		 				$("#namebuttons ul").prepend($("#"+idList.summoner[i].id));
-		 				$("#summoner-websites").prepend($(".website-"+idList.summoner[i].id));
-		 			} else {
-		 				$("#namebuttons ul a").eq(i).after($("#"+idList.summoner[i].id));
-		 				$("#summoner-websites li").eq(i).after($(".website-"+idList.summoner[i].id));
-		 			}
-		 		}
-		 		for(var i=0; i<idList.champ.length; i++){
-		 			if(i==0){
-		 				$("#championbuttons ul").prepend($("#"+idList.champ[i].id));
-		 				$("#champ-websites").prepend($(".website-"+idList.champ[i].id));
-		 			} else {
-		 				$("#championbuttons ul a").eq(i).after($("#"+idList.champ[i].id));
-		 				$("#champ-websites li").eq(i).after($(".website-"+idList.champ[i].id));
-		 			}
-		 		}
+ 		if(idList.hasOwnProperty('search')){
+	 		for(var i=0; i<idList.search.length; i++){
+	 			if(i==0){
+	 				$("#searchbuttons").prepend($("#"+idList.search[i].id));
+	 				$("#search-websites").prepend($(".website-"+idList.search[i].id));
+	 			} else {
+	 				$("#searchbuttons a").eq(i).after($("#"+idList.search[i].id));
+	 				$("#search-websites li").eq(i).after($(".website-"+idList.search[i].id));
+	 			}
+	 		}
+ 		}
+ 		for(var i=0; i<idList.general.length; i++){
+ 			if(i==0){
+ 				$("#miscbuttons ul").prepend($("#"+idList.general[i].id));
+ 				$("#general-websites").prepend($(".website-"+idList.general[i].id));
+ 			} else {
+ 				$("#miscbuttons ul a").eq(i).after($("#"+idList.general[i].id));
+ 				$("#general-websites li").eq(i).after($(".website-"+idList.general[i].id));
+ 			}
+ 		}
+ 		for(var i=0; i<idList.summoner.length; i++){
+ 			if(i==0){
+ 				$("#namebuttons ul").prepend($("#"+idList.summoner[i].id));
+ 				$("#summoner-websites").prepend($(".website-"+idList.summoner[i].id));
+ 			} else {
+ 				$("#namebuttons ul a").eq(i).after($("#"+idList.summoner[i].id));
+ 				$("#summoner-websites li").eq(i).after($(".website-"+idList.summoner[i].id));
+ 			}
+ 		}
+ 		for(var i=0; i<idList.champ.length; i++){
+ 			if(i==0){
+ 				$("#championbuttons ul").prepend($("#"+idList.champ[i].id));
+ 				$("#champ-websites").prepend($(".website-"+idList.champ[i].id));
+ 			} else {
+ 				$("#championbuttons ul a").eq(i).after($("#"+idList.champ[i].id));
+ 				$("#champ-websites li").eq(i).after($(".website-"+idList.champ[i].id));
+ 			}
+ 		}
 	}
 
 	WebInterface.prototype.saveSidebar = function(category){
@@ -1596,7 +1656,9 @@
 				}
 			}
 			
-			if(category.prop("id") == "general-websites"){
+			if(category.prop("id") == "search-websites"){
+				idList.search = newGeneralArray;
+			} else if(category.prop("id") == "general-websites"){
 				idList.general = newGeneralArray;
 			} else if(category.prop("id") == "summoner-websites"){
 				idList.summoner = newGeneralArray;
@@ -1612,6 +1674,7 @@
 		if(category != 'all'){
 			sidebarAreaSave(category);
 		} else if(category == 'all' && localStorage.getItem('idList')) {
+			sidebarAreaSave($('ul#search-websites'));
 			sidebarAreaSave($('ul#general-websites'));
 			sidebarAreaSave($('ul#summoner-websites'));
 			sidebarAreaSave($('ul#champ-websites'));
@@ -1621,6 +1684,35 @@
 		return false;
 
 	}
+
+	WebInterface.prototype.testIfSearchShouldBeShown = function(){
+		var listOfSearch = $("ul#search-websites li")
+		var listAdded = false;
+
+		for(var i = 0; i < listOfSearch.length; i++){
+
+			var item = listOfSearch.eq(i);
+			var onlineInfo = item.children().hasClass('remove-website');
+
+			if (onlineInfo){
+				listAdded = true;
+			}	
+		}
+
+		if(listAdded){
+			$("#searchbuttonshold").css('display','block');
+		} else {
+			$("#searchbuttonshold").css('display','none');
+		}
+	}
+
+	WebInterface.prototype.enableRedditStyleSheet = function(){
+		if(!this.redditStyleSheet){
+			this.redditStyleSheet = true;
+			$('body').append('<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />');
+		}
+	}
+
 
 
 $(function(){
@@ -1636,6 +1728,7 @@ $(function(){
 	web.registerScreen();
 	web.rearangeSidebar();
 	web.saveSidebar('all');
+	web.testIfSearchShouldBeShown();
 ////////
 
 // TAB SYSTEM ///////////////////
@@ -1719,6 +1812,7 @@ $(function(){
 
 		} else {
 			$("a#redditthreads li").addClass('selected-link');
+			web.enableRedditStyleSheet();
 			if ( currentUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
 
 					reddit.redditThreads = JSON.parse(localStorage.getItem('redditThreads'));
@@ -2290,7 +2384,8 @@ $(function(){
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
 		setTimeout(function(){
 			$('#'+$this.parent().data('id')).css('display','inline-block');          
-		}, 300);	
+		}, 300);
+		web.testIfSearchShouldBeShown();	
 	});
 
 	$('#settings-content').on('click','.remove-website', function(){
@@ -2314,6 +2409,7 @@ $(function(){
 			}
 		}
 		localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+		web.testIfSearchShouldBeShown();
 	});
 
 	$('.add-user-website').on('click', function(){
@@ -2388,7 +2484,7 @@ $(function(){
 		web.setSettings();
 	});
 
-	var $sortableAreas = $("#general-websites, #summoner-websites, #champ-websites");
+	var $sortableAreas = $("#search-websites, #general-websites, #summoner-websites, #champ-websites");
 
  	$sortableAreas.sortable();
 	$sortableAreas.disableSelection();
@@ -2404,7 +2500,7 @@ $(function(){
 		$(this).attr('value','Settings Updated');
 	});
 	
-	$(".ezHomePage, .redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .shiftNameLink, .ctrlNameLink, .defaultChampLink, .shiftChampLink, .ctrlChampLink, .smartEnter, .newWindow").on('change', function(){
+	$(".ezHomePage, .redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .shiftNameLink, .ctrlNameLink, .defaultChampLink, .shiftChampLink, .ctrlChampLink, .defaultSearchLink, .shiftSearchLink, .ctrlSearchLink, .smartEnter, .newWindow").on('change', function(){
 		$('.settings-update').removeClass('setting-updated');
 		$('.settings-update').attr('value','Update Settings');
 	});
@@ -2549,7 +2645,8 @@ $(function(){
 
 	$("#redditthreads").on('click',function(e){
 		if(e.which !== 2){
-			
+			web.enableRedditStyleSheet();
+
 			var dataName = $(this).data('name');
 			history.pushState("", "", "#" + dataName);
 			e.preventDefault();
@@ -2629,7 +2726,7 @@ $(function(){
 
 	var ctrlKeyPressed = false;
 	var shiftKeyPressed = false;
-	$(".name, .champ").on('keydown', function(e){
+	$(".name, .champ, .searchinput").on('keydown', function(e){
 		if(e.shiftKey){
     		shiftKeyPressed = true;
     		ctrlKeyPressed = false;
@@ -2639,12 +2736,36 @@ $(function(){
     		shiftKeyPressed = false;
     	} 
 	})
-	$(".name, .champ").on('keyup', function(){
+	$(".name, .champ, .searchinput").on('keyup', function(){
 		shiftKeyPressed = false;
 		ctrlKeyPressed = false;
 	});
 
+	$searchInput = $(".searchinput")
+	$searchInput.on('keyup change paste textInput input', function(e){
+		if($(this).val().length == 0){
+			league.returnOriginalUrl('website-search');
+		} else {
+			league.searchLink();
+		}
+	});
 
+	$searchInput.on('keydown', function(e){
+		var keycode = (e.keyCode ? e.keyCode : e.which);
+		if(keycode == '13'){
+				$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+			var websiteAddress;
+			if(shiftKeyPressed) {
+				websiteAddress = $("#"+appSettings['shiftSearchLink']).attr('href');
+			} else if(ctrlKeyPressed){
+				websiteAddress = $("#"+appSettings['ctrlSearchLink']).attr('href');
+	  		}  else {
+				websiteAddress = $("#"+appSettings['defaultSearchLink']).attr('href');
+			}
+    		window.open(websiteAddress);	
+    	}
+	});
+		
 	var timerName;
 	$(".name").on('keyup change paste textInput input', function(e){
 		league.account($(".name").val(), $(".server").val())
@@ -2659,7 +2780,6 @@ $(function(){
 									}
 			});          
 		}, 375);
-
 	});
 
 	$(".name").on('keydown', function(e){

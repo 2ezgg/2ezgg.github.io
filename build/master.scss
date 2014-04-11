@@ -26,7 +26,10 @@ body {
 .clear {
     zoom:1;
 }
-
+h2{
+	margin-top:20px;
+	margin-bottom:14px;
+}
 p{
 	margin-top: .3em;
 	margin-bottom: .2em;
@@ -241,6 +244,12 @@ padding: 1px 8px;
 	color: #ffffff;
 }
 
+.website-search{
+	display: inline-block;
+	margin-left: 28px;
+	margin-right: 9px;
+	margin-bottom: 8px;
+}
 #sidebar a{
 	color: #808080;
 	text-decoration: none;
@@ -272,6 +281,15 @@ padding: 1px 8px;
 	position: absolute;
 	left: 7px;
 	background: url("../img/logosprite.png");
+}
+
+.search-image {
+width: 16px;
+height: 16px;
+position: absolute;
+/* left: 7px; */
+margin-left: -20px;
+background: url("../img/searchsprite.png");
 }
 
 .update-info{
@@ -1058,9 +1076,24 @@ background: linear-gradient(to bottom,#DEE535 0,#d8d437 100%);
 	font-size:0.95em;
 }
 
-#settings-content table{
-	width:92%;
+// #settings-content table{
+// 	width:92%;
+// }
+.settings-table{
+	width:100%;
 }
+.settings-holder{
+	width:42%;
+	display:inline-block;
+	margin-left:2.5%
+}
+@media only screen and (max-width:1180px){
+	.settings-holder{
+		width:90%;
+	}
+}
+
+
 #settings-content small {
 	font-size: 90%;
 	font-style: italic;
@@ -1072,9 +1105,14 @@ background: linear-gradient(to bottom,#DEE535 0,#d8d437 100%);
 	display:none;
 }
 
+#settings-content ul{
+	padding-top:0px;
+	margin-top:0px;
+}
+
 #settings-content h3{
-	margin-bottom: 5px;
-	margin-top: 25px;
+margin-bottom: 1px;
+margin-top: 20px;
 	font-size: 0.97em;
 }
 
@@ -1094,7 +1132,7 @@ background: linear-gradient(to bottom,#DEE535 0,#d8d437 100%);
 }
 
 .settings-odd{
-	background-color: #E4E4E4;
+	background-color: #F0F0F0;
 }
 
 .website-control{
