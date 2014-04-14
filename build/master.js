@@ -1571,7 +1571,7 @@
 	WebInterface.prototype.registerScreen = function(){
 		if(detectmob()){
 			$('#sidebar').addClass('clear').css({'position':'relative', 'width':'100%', 'height':'auto'});
-			$('#sidebar-content').css({'background-color':'#262729','position':'relative'});
+			$('#sidebar-content').css('position','relative');
 			$('#main-content, #iframe-holder').css('margin-left','0px');
 			$('.nav-expand').removeAttr('style').addClass('nav-expand-mobile');
 			$('.champtionbuttons').css('padding-bottom','30px');
