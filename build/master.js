@@ -51,9 +51,9 @@
 		// var default idList 
 		idList = {
 			search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
-			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
 			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
-			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}],
+			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}],
 		}
 
 		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
@@ -379,6 +379,44 @@
 			else if(webData == 'wikichamp'){
 				item.attr('href','http://leagueoflegends.wikia.com/wiki/' + this.keepSpaces);
 			}
+			else if(webData == 'leaguepediachamp'){
+				var leaguepediachamp = this.keepSpaces;
+				
+				switch(leaguepediachamp){		
+					case 'cho\'gath':
+					  leaguepediachamp = 'Cho\'Gath';
+					  break;
+					case 'dr. mundo':
+					  leaguepediachamp = 'Dr. Mundo';
+					  break;
+					case 'kha\'zix':
+					  leaguepediachamp = 'Kha\'Zix'; 
+					  break;
+					case 'kog\'maw':
+					  leaguepediachamp = 'Kog\'Maw'; 
+					  break;
+					case 'lee sin':
+					  leaguepediachamp = 'Lee Sin'; 
+					  break;
+					case 'master yi':
+					  leaguepediachamp = 'Master Yi'; 
+					  break;
+					case 'miss fortune':
+					  leaguepediachamp = 'Miss Fortune'; 
+					  break;
+					case 'twisted fate':
+					  leaguepediachamp = 'Twisted Fate'; 
+					  break;
+					case 'vel\'koz':
+					  leaguepediachamp = 'Vel\'Koz'; 
+					  break;
+					case 'xin zhao':
+					  leaguepediachamp = 'Xin Zhao'; 
+					  break;
+					}
+
+				item.attr('href','http://lol.gamepedia.com/' + encodeURIComponent(leaguepediachamp));
+			}
 			else if(webData == 'champgameguyz'){
 				var gameguyzChamp;
 				if(this.champ=='velkoz'){
@@ -388,7 +426,6 @@
 				}
 				item.attr('href','http://loldb.gameguyz.com/champions/' + gameguyzChamp + '.html');
 			}
-			
 		}
 	}
 
@@ -586,6 +623,9 @@
 		} else if (pageRssId == 'esex'){
 			websiteUrl = "http://esportsexpress.com/category/league-of-legends/feed/";
 			index = 5;
+		} else if (pageRssId == 'newslegend'){
+			websiteUrl = "http://www.newsoflegends.com/index.php/feed/";
+			index = 6;
 		} 
 
 
@@ -661,6 +701,10 @@
 
 		this.newAdditions = [];
 
+		this.recentlyAddedAzub = [];
+		this.recentlyAddedTwitch = [];
+
+
 
 		/// refers to ajax requests and total function calls
 		this.currentStreamDisplayed = null;
@@ -706,9 +750,16 @@
 				}
 
 				if(noStreamerMatch){
+					
 					this.streamers[this.streamers.length] = {
 						name: input,
 						service: streamSource
+					}
+					
+					if(streamSource=='twitch'){
+						this.recentlyAddedTwitch.push(input);
+					} else {
+						this.recentlyAddedAzub.push(input);
 					}
 				}
 
@@ -1006,8 +1057,8 @@
 			$("#twitch-list-online").html( onlineTemplate(self.twitchStreamersOnline) );
 			$("#twitch-list-offline").html( offlineTemplate(self.twitchStreamersOffline) );
 		} else{
-				var favouriteTemplateTwitch = Handlebars.compile($('#twitch-user-favourited-online-template').html());
-				$("#twitch-list-online").append( favouriteTemplateTwitch(self.topTwitchStreamersOnline[favourite]) );
+			var favouriteTemplateTwitch = Handlebars.compile($('#twitch-user-favourited-online-template').html());
+			$("#twitch-list-online").append( favouriteTemplateTwitch(self.topTwitchStreamersOnline[favourite]) );
 		}
 		
 	}
@@ -1090,6 +1141,8 @@
 			var totalAdditions = 0;			
 			this.newAdditions = [];
 			
+
+
 			for(var i = 0; i<this.azubuStreamersOnline.length; i++){
 				
 				var alreadyAddedAzub = false;
@@ -1101,16 +1154,24 @@
 				}
 				
 				if(!alreadyAddedAzub){
-
-					this.newAdditions[totalAdditions] = {
-						name:this.azubuStreamersOnline[i].name,
-						id:this.azubuStreamersOnline[i].id,
-						azubu:true,
+					var summonerRecentlyAddedAzub = false;
+					for(var z=0;z<this.recentlyAddedAzub.length;z++){
+						if(this.recentlyAddedAzub[z]==this.azubuStreamersOnline[i].name){
+							summonerRecentlyAddedAzub = true;
+						}
 					}
-					totalAdditions ++;
+					if(!summonerRecentlyAddedAzub){
+						this.newAdditions[totalAdditions] = {
+							name:this.azubuStreamersOnline[i].name,
+							id:this.azubuStreamersOnline[i].id,
+							azubu:true,
+						}
+						totalAdditions ++;
+					}
 				}
 
 			}
+
 
 			for(var t = 0; t<this.twitchStreamersOnline.length; t++){
 				var alreadyAddedTwitch = false;
@@ -1122,15 +1183,26 @@
 				}
 
 				if(!alreadyAddedTwitch){
-					this.newAdditions[totalAdditions] = {
-						name:this.twitchStreamersOnline[t].name,
-						id:null,
-						twitch:true,
+					var summonerRecentlyAddedTwitch = false;
+					for(var z=0;z<this.recentlyAddedTwitch.length;z++){
+						if(this.recentlyAddedTwitch[z]==this.twitchStreamersOnline[t].name){
+							summonerRecentlyAddedTwitch = true;
+						}
 					}
-					totalAdditions ++;
+					if(!summonerRecentlyAddedTwitch){
+				
+						this.newAdditions[totalAdditions] = {
+							name:this.twitchStreamersOnline[t].name,
+							id:null,
+							twitch:true,
+						}
+						totalAdditions ++;
+					}
 				}
 
 			}
+
+
 			if(totalAdditions>0){
 				if(appSettings['twitchAudioNotifications'] == 'on'){
 					$("#sound").html('<audio controls autoplay style="display:none"><source src="assets/sound/notify.mp3" hidden="true" autostart="true" loop="false" type="audio/mpeg"></audio>');
@@ -2179,6 +2251,8 @@ $(function(){
 
 				if((streams.streamFunctionCount>0)&&(appSettings['twitchVisualNotifications']=='on' || appSettings['twitchAudioNotifications']=='on')){
 					streams.favouriteStreamerMessage(pastAzubFav, pastTwitchFav);
+					streams.recentlyAddedTwitch = [];
+					streams.recentlyAddedAzub = [];
 				}
 				
 				streams.offlineTwitchStreamers();
@@ -2262,7 +2336,7 @@ $(function(){
 			streams.pushAzubuStreamers($this.data('count'));
 			streams.submitStreamer($this.data('name'),'azubu');		
 		}
-
+		$this.after('<span class="favourited-streamer tooltip-left" original-title="You have this streamer favourited">&lt;3</span>');
 		$this.fadeOut();
 	});
 
@@ -2284,6 +2358,7 @@ $(function(){
 		} else{
 			$(".twitch-online").text(streams.twitchStreamersOnline.length-1);
 		}
+
 	})
 
 	$twitchHolder.on('click', '.add-champ', function(){
@@ -2309,7 +2384,7 @@ $(function(){
 			$this.removeClass('close-twitch-chat');
 		} else{
 		var streamerName = $this.data('name');
-		$this.prev().html('<iframe frameborder="0" scrolling="no" id="chat_embed" src="http://twitch.tv/chat/embed?channel='+streamerName+'&popout_chat=true" height="100%" width="300"></iframe>')
+		$this.prev().html('<iframe frameborder="0" id="chat_embed" src="http://twitch.tv/chat/embed?channel='+streamerName+'&popout_chat=true" height="100%" width="300"></iframe>')
 		$this.addClass('close-twitch-chat');
 		}
 
@@ -2490,7 +2565,6 @@ $(function(){
 	$sortableAreas.disableSelection();
 
 	$sortableAreas.on("sortdeactivate", function(){
-		console.log($(this));
 		web.saveSidebar($(this));
 	});
 
