@@ -8,7 +8,8 @@
 		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
-
+		<style>
+		</style>
 		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">	
 
@@ -617,29 +618,6 @@
 								<td>2ez.gg homepage. (no Internet Explorer support yet).</td>
 							</tr>
 							<tr>
-								<td style="width:115px">
-									<select class="redditNewTab">
-										<option value="on">On</option>
-										<option value="off">Off</option>
-									</select>
-								</td>
-								<td>Open Reddit threads in new tabs. (for Old Reddit)</td>
-							</tr>
-						</table>
-					</div>
-					<div class="settings-holder">	
-						<h3>Misc Settings</h3>
-						<table class="settings-table">
-							<tr class="settings-odd">
-								<td>
-									<select class="smartEnter">
-										<option value="on">On</option>
-										<option value="off">Off</option>
-									</select>
-								</td>
-								<td><strong>Smart enter key</strong> (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
-							</tr>
-							<tr>
 								<td>
 									<select class="newWindow">
 										<option value="on">On</option>
@@ -842,6 +820,38 @@
 									</select>
 								</td>
 								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
+							</tr>
+						</table>
+					</div>
+					<div class="settings-holder">	
+						<h3>Misc Settings</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="youtubeDisplay">
+										<option value="fillscreen">Multiple Videos</option>
+										<option value="single">Single Video</option>
+									</select>
+								</td>
+								<td>Choose whether to have muliple videos per row (if space permits), or a single video per row. Affects the LoL Videos page. </td>
+							</tr>
+							<tr>
+								<td>
+									<select class="smartEnter">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td><strong>Smart enter key</strong> (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
+							</tr>	
+							<tr class="settings-odd">
+								<td style="width:115px">
+									<select class="redditNewTab">
+										<option value="on">On</option>
+										<option value="off">Off</option>
+									</select>
+								</td>
+								<td>Open Reddit threads in new tabs. (for Old Reddit)</td>
 							</tr>
 						</table>
 					</div>
@@ -1219,6 +1229,8 @@
 		 setInterval(function(){
 		 	$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 		 }, 1000*60*1.5);
+
+
 
 		</script>
 	</body>

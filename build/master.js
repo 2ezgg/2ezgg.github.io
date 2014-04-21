@@ -27,6 +27,7 @@
 	var appSettings = {
 		ezHomePage:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ezHomePage')) ? settingsSaved['ezHomePage'] : 'reddit', 
 		redditNewTab:((settingsSaved !== null) && settingsSaved.hasOwnProperty('redditNewTab')) ? settingsSaved['redditNewTab'] : 'off', 
+		youtubeDisplay:((settingsSaved !== null) && settingsSaved.hasOwnProperty('youtubeDisplay')) ? settingsSaved['youtubeDisplay'] : 'single', 
 		twitchVisualNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchVisualNotifications')) ? settingsSaved['twitchVisualNotifications'] : 'on', 
 		twitchAudioNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved['twitchAudioNotifications'] : 'on', 
 		eSportsNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('eSportsNotifications')) ? settingsSaved['eSportsNotifications'] : 'on',
@@ -1602,8 +1603,15 @@
 		$ezHomePage.append( template(idList['summoner']));
 		$ezHomePage.append( template(idList['champ']));
 
+		if(appSettings['youtubeDisplay'] == 'fillscreen'){
+			$('style').html('')
+		} else {
+			$('style').html('.youtube-thread{width: 85%;max-width:720px}' )
+		}
+
 		$ezHomePage.val(appSettings['ezHomePage']);
 		$(".redditNewTab").val(appSettings['redditNewTab']);
+		$(".youtubeDisplay").val(appSettings['youtubeDisplay']);
 		$(".twitchVisualNotifications").val(appSettings['twitchVisualNotifications']);
 		$(".twitchAudioNotifications").val(appSettings['twitchAudioNotifications']);
 		$(".eSportsNotifications").val(appSettings['eSportsNotifications']);
@@ -1623,6 +1631,7 @@
 	WebInterface.prototype.saveSettings = function(){
 		appSettings['ezHomePage'] = $(".ezHomePage").val();
 		appSettings['redditNewTab'] = $(".redditNewTab").val();
+		appSettings['youtubeDisplay'] = $(".youtubeDisplay").val();
 		appSettings['twitchVisualNotifications'] = $(".twitchVisualNotifications").val();
 		appSettings['twitchAudioNotifications'] = $(".twitchAudioNotifications").val();
 		appSettings['eSportsNotifications'] = $(".eSportsNotifications").val();
@@ -1801,6 +1810,7 @@ $(function(){
 	web.rearangeSidebar();
 	web.saveSidebar('all');
 	web.testIfSearchShouldBeShown();
+	web.setSettings();
 ////////
 
 // TAB SYSTEM ///////////////////
@@ -1837,7 +1847,7 @@ $(function(){
 			$("#twitch-content").css("display","none");
 			$("#settings-content").css("display","block");
 			$("a#settings li").addClass('selected-link');
-			web.setSettings();
+			
 			reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
 					reddit.mainPage();
 					web.youtubeInUse = 'contentAvailable'	
@@ -1948,6 +1958,7 @@ $(function(){
 			/////////////////////
 	}
 }	
+
 
 //////////////////////////// THIS PART COULD USE SOME TLC FOR SURE
 	var sessionActive = 'no';
@@ -2574,7 +2585,7 @@ $(function(){
 		$(this).attr('value','Settings Updated');
 	});
 	
-	$(".ezHomePage, .redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .shiftNameLink, .ctrlNameLink, .defaultChampLink, .shiftChampLink, .ctrlChampLink, .defaultSearchLink, .shiftSearchLink, .ctrlSearchLink, .smartEnter, .newWindow").on('change', function(){
+	$(".ezHomePage, .youtubeDisplay, .redditNewTab, .twitchVisualNotifications, .twitchAudioNotifications, .eSportsNotifications, .defaultNameLink, .shiftNameLink, .ctrlNameLink, .defaultChampLink, .shiftChampLink, .ctrlChampLink, .defaultSearchLink, .shiftSearchLink, .ctrlSearchLink, .smartEnter, .newWindow").on('change', function(){
 		$('.settings-update').removeClass('setting-updated');
 		$('.settings-update').attr('value','Update Settings');
 	});
