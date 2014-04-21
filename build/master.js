@@ -2886,6 +2886,8 @@ $(function(){
     					window.location.replace(web.checkIfBelongs('.website-name'));
     				} else {
     					web.makeIframe(web.checkIfBelongs('.website-name'));
+
+    					ga('send', 'pageview');
     				}
     		} else {
     			if(detectmob()){
@@ -2895,6 +2897,8 @@ $(function(){
 	    			$(".nav-button li").removeClass('selected-link');
 					$id.children('li').addClass('selected-link');
 					history.pushState("", "", "#" + $id.data('name'));
+
+					ga('send', 'pageview');
 				}
     		}	
     	}
@@ -2954,6 +2958,7 @@ $(function(){
 					window.location.replace(web.checkIfBelongs('.website-champ'));
 				} else {
 					web.makeIframe(web.checkIfBelongs('.website-champ'));
+					ga('send', 'pageview');
 				}
 
 			} else {
@@ -2965,7 +2970,9 @@ $(function(){
     				$(".nav-button li").removeClass('selected-link');
 					$id.children('li').addClass('selected-link');
 					history.pushState("", "", "#" + $id.data('name'));
+					ga('send', 'pageview');
 				}
+
 			}
 			
     	}
@@ -3103,6 +3110,7 @@ $(function(){
 		if(e.which !== 2){
 			$(".nav-button li").removeClass('selected-link');
 			$(this).children('li').addClass('selected-link');
+			ga('send', 'pageview');
 		} 
 		$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 	});
