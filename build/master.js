@@ -1553,7 +1553,7 @@
 		var heightToProcess = $(window).height()-4;
 		var heightToProcess2 = heightToProcess - 16;
 		$iFrameHolder.css('height', heightToProcess2 + 'px')
-		$iFrameHolder.html('<iframe id="iframe-content" src="'+iframeUrl+'" style="width:100%;height:'+heightToProcess+'px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>').fadeIn();
+		$iFrameHolder.html('<iframe allowfullscreen="true" id="iframe-content" src="'+iframeUrl+'" style="width:100%;height:'+heightToProcess+'px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>').fadeIn();
 	}
 
 	WebInterface.prototype.changeIframeHeight = function(){
