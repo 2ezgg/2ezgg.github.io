@@ -1606,7 +1606,7 @@
 		if(appSettings['youtubeDisplay'] == 'fillscreen'){
 			$('style').html('')
 		} else {
-			$('style').html('.youtube-thread{width: 85%;max-width:720px}' )
+			$('style').html('.youtube-thread{width: 85%;max-width:720px;display:block}' )
 		}
 
 		$ezHomePage.val(appSettings['ezHomePage']);
