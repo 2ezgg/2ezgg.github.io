@@ -53,8 +53,8 @@
 		idList = {
 			search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
 			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
-			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'LoL GameGuyz', id:'summonergameguyz'}],
-			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'LoL GameGuyz', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}],
+			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
+			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}],
 		}
 
 		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
@@ -121,9 +121,9 @@
 
 	var LeagueLinks = function(){
 		if(typeof(Storage)!=="undefined"){
-			this.name = localStorage.getItem('name');
-			this.server = localStorage.getItem('server');
-			this.champ = localStorage.getItem('champ');
+			this.name = this.getUrlParams('name') || localStorage.getItem('name') || '';
+			this.server = this.getUrlParams('server') || localStorage.getItem('server') || 'na';
+			this.champ = this.getUrlParams('champ') || localStorage.getItem('champ') || '';
 			this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
 			this.pageAdd = JSON.parse(localStorage.getItem('pageAdd')) || [];
 
@@ -142,15 +142,33 @@
 			this.rssFeeds = [];
 		}
 		if(this.pageChange.length>0){
+			var inlineBlockArray = [];
+
 			for(var z = 0; z < this.pageChange.length; z++){
-				$('#'+this.pageChange[z].id).css('display',this.pageChange[z].display);
+				
 				if(this.pageChange[z].display=='none'){
 					$('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
+					$('#'+this.pageChange[z].id).css('display','none');
 				} else {
 					$('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
+					$('#'+this.pageChange[z].id).css('display','block');
+					inlineBlockArray.push(z);
+				}		
+			}
+
+			var that = this;
+			function looperDooper(){
+				for (var y = 0; y < inlineBlockArray.length; y++){
+					$('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
 				}
 			}
+
+			setTimeout(function(){
+				looperDooper();
+			}, 200);
+
 		}
+
 
 		if(this.pageAdd.length>0){
 			var self = this;
@@ -172,20 +190,30 @@
 		}
 		if (this.champ) {
 			$(".champ").val(this.champ);
-			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
-			this.allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
-			this.keepSpaces = this.champ.trim();
-			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");
 			this.champLink();
 		}
+
 	};
 
-	LeagueLinks.prototype.account = function(nameUpdate,serverUpdate){
-		this.name = nameUpdate;
-		this.server = serverUpdate;	
+	LeagueLinks.prototype.getUrlParams = function( name ){
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		if(results == null){
+		    return null;
+		  } else {
+		    return decodeURIComponent(results[1]);
+		}
+	}
 
-		if(typeof(Storage)!=="undefined"){
+	LeagueLinks.prototype.account = function(nameUpdate,serverUpdate){
+		if(nameUpdate != null){
+			this.name = nameUpdate;
 			localStorage.setItem('name',this.name);
+		}
+		if(serverUpdate){
+			this.server = serverUpdate;
 			localStorage.setItem('server',this.server);
 		}
 
@@ -200,17 +228,14 @@
 	}
 
 	LeagueLinks.prototype.champion = function(champUpdate){
-		this.champ = champUpdate;
-
-		if(typeof(Storage)!=="undefined"){
+		if(champUpdate != null){
+			this.champ = champUpdate; 
 			localStorage.setItem('champ',this.champ);
 		}
 
+
 		if (this.champ) {
-			this.spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
-			this.allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
-			this.keepSpaces = this.champ.trim();
-			this.champ = this.champ.replace(/[^a-zA-Z]/g, "");	
+			$(".champ").val(this.champ);
 			this.champLink();
 			return true;
 		} else {
@@ -330,6 +355,11 @@
 	LeagueLinks.prototype.champLink = function(){
 		var items = $(".website-champ");
 		
+		var spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+		var allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
+		var onlyLettersChamp = this.champ.replace(/[^a-zA-Z]/g, "");
+		this.champ = this.champ.trim();
+
 
 		for(var i = 0; i < items.length; i++){
 
@@ -337,51 +367,47 @@
 			var webData = item.data('name');
 
 
-			if (webData == 'counter'){
-				
-				item.attr('href','http://www.lolcounter.com/champ/' + this.champ);
+			 if (webData == 'champselect'){
 
-			} else if (webData == 'champselect'){
-
-				item.attr('href','http://www.championselect.net/champ/' + this.spaceAndDashChamp);
+				item.attr('href','http://www.championselect.net/champ/' + spaceAndDashChamp);
 
 			} else if (webData == 'kingchamp'){
 
-				item.attr('href','http://www.lolking.net/champions/' + this.champ);
+				item.attr('href','http://www.lolking.net/champions/' + onlyLettersChamp);
 
 			} else if (webData == 'tsm'){
 
-				item.attr('href','http://www.solomid.net/guide?champ=' + this.champ);
+				item.attr('href','http://www.solomid.net/guide?champ=' + onlyLettersChamp);
 
 			} else if (webData == 'probuilds'){
 				var probuildChamp;
-				if(this.champ=='wukong'){
+				if(onlyLettersChamp =='wukong'){
 					probuildChamp = 'monkeyking';
 				} else {
-					probuildChamp = this.champ;
+					probuildChamp = onlyLettersChamp;
 				}
 
 				item.attr('href','http://www.probuilds.net/champions/' + probuildChamp);
 
 			}else if (webData == 'elo'){
 
-				item.attr('href','http://www.elophant.com/league-of-legends/champion/' + this.spaceAndDashChamp + '/stats' );
+				item.attr('href','http://www.elophant.com/league-of-legends/champion/' + spaceAndDashChamp + '/stats' );
 				
 			} else if (webData == 'moba'){
 
-				item.attr('href','http://www.mobafire.com/league-of-legends/' + this.spaceAndDashChamp + '-guide' );
+				item.attr('href','http://www.mobafire.com/league-of-legends/' + spaceAndDashChamp + '-guide' );
 
 			} else if(webData == 'builder'){
-				item.attr('href','http://www.lolbuilder.net/' + this.champ);
+				item.attr('href','http://www.lolbuilder.net/' + onlyLettersChamp);
 			}	
 				 else if(webData == 'lolpro'){
-				item.attr('href','http://www.lolpro.com/guides/' + this.spaceAndDashChamp);
+				item.attr('href','http://www.lolpro.com/guides/' + spaceAndDashChamp);
 			}
 			else if(webData == 'wikichamp'){
-				item.attr('href','http://leagueoflegends.wikia.com/wiki/' + this.keepSpaces);
+				item.attr('href','http://leagueoflegends.wikia.com/wiki/' + this.champ);
 			}
 			else if(webData == 'leaguepediachamp'){
-				var leaguepediachamp = this.keepSpaces;
+				var leaguepediachamp = this.champ;
 				
 				switch(leaguepediachamp){		
 					case 'cho\'gath':
@@ -420,10 +446,10 @@
 			}
 			else if(webData == 'champgameguyz'){
 				var gameguyzChamp;
-				if(this.champ=='velkoz'){
+				if(this.champ=='vel\'koz'){
 					gameguyzChamp = 'velkoz';
 				} else {
-					gameguyzChamp = this.allDashesChamp;
+					gameguyzChamp = allDashesChamp;
 				}
 				item.attr('href','http://loldb.gameguyz.com/champions/' + gameguyzChamp + '.html');
 			}
@@ -1524,19 +1550,30 @@
 		this.homePageAccessed = false;
 	}
 
+	WebInterface.prototype.hashWithoutParams = function(){
+		var params = (window.location.hash.substring(1)).split("?");
+		console.log(params[0]);
+		return params[0];
+
+	}
+
 	WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
+		this.homePageAccessed = false;
+
 		var area = optionalClass || '';
 		var iFrameCapableLinks = $(".iframe-capable" + area);
-		
+		var hashWithoutParamsVal = this.hashWithoutParams();
 
 		for(var i = 0; i < iFrameCapableLinks.length; i++){
 
 			var iFrameCapableLink = iFrameCapableLinks.eq(i);
 			var hashData = iFrameCapableLink.data('name');
-			if('#'+hashData == window.location.hash || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
+
+			if((hashData == hashWithoutParamsVal) || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
 				if(highlightArea){
 					$("a#"+hashData+" li").addClass('selected-link');
 				}
+				console.log(iFrameCapableLink.attr('href'));
 				return iFrameCapableLink.attr('href');
 
 			}
@@ -1680,6 +1717,7 @@
 			this.homePageAccessed = true;
 			return true; 
 		} else{
+			this.homePageAccessed = false;
 			return false;
 		}
 	}
@@ -1876,12 +1914,20 @@ $(function(){
 		} else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'redditthreads' && web.homePage()) ){ 
 			if(!detectmob()){
 				var url;
-				
 				if(web.homePageAccessed){
 					url = $("#"+appSettings['ezHomePage']).attr('href')
 					$("a#"+appSettings['ezHomePage']+' li').addClass('selected-link');
 				} else {
+					if(sessionActive='yes'){
+						league.name = league.getUrlParams('name') || localStorage.getItem('name');
+						league.server = league.getUrlParams('server') || localStorage.getItem('server');
+						league.champ = league.getUrlParams('champ') || localStorage.getItem('champ');
+
+						league.account(league.name, league.server);
+						league.champion(league.champ);
+					}
 					url = web.checkIfBelongs(null, true);
+					console.log(url);
 				}
 				$("#iframe-holder").css("display","block");
 				web.makeIframe(url)
@@ -1963,10 +2009,11 @@ $(function(){
 //////////////////////////// THIS PART COULD USE SOME TLC FOR SURE
 	var sessionActive = 'no';
 	window.onpopstate = function(event){
-		if(sessionActive == 'yes' && ((window.location.hash.length != 0)||(window.location.href == window.location.origin+'/')) ){
+		if(sessionActive == 'yes' && ((web.hashWithoutParams().length != 0)||(window.location.href == window.location.origin+'/')) ){
 				if (!web.checkIfBelongs()){ // also include # and blank for reddit
 					location.reload();
 				} else {
+					console.log('pls work senpai')
 					$(".nav-button li").removeClass('selected-link');
 					tabSystem();
 					web.tabSystemProcessed = 1;
@@ -1978,7 +2025,7 @@ $(function(){
 		// pretty hacky thing that should be fixed properly
 		setTimeout(function(){
 			sessionActive = 'yes';
-		}, 20000);
+		}, 5000);
 	}
 ////////////////////////////////////////
 	
@@ -2886,8 +2933,9 @@ $(function(){
     					window.location.replace(web.checkIfBelongs('.website-name'));
     				} else {
     					web.makeIframe(web.checkIfBelongs('.website-name'));
-
-    					ga('send', 'pageview');
+    					history.pushState("", "", "#" + web.hashWithoutParams() + "?name=" + encodeURIComponent(league.name) + "&server=" + encodeURIComponent(league.server));
+    					
+    					ga('send', 'pageview', "#" + web.hashWithoutParams());
     				}
     		} else {
     			if(detectmob()){
@@ -2896,9 +2944,9 @@ $(function(){
 	    			web.makeIframe($id.attr('href'));
 	    			$(".nav-button li").removeClass('selected-link');
 					$id.children('li').addClass('selected-link');
-					history.pushState("", "", "#" + $id.data('name'));
+					history.pushState("", "", "#" + $id.data('name') + "?name=" + encodeURIComponent(league.name) + "&server=" + encodeURIComponent(league.server));
 
-					ga('send', 'pageview');
+					ga('send', 'pageview', "#" + web.hashWithoutParams());
 				}
     		}	
     	}
@@ -2958,7 +3006,10 @@ $(function(){
 					window.location.replace(web.checkIfBelongs('.website-champ'));
 				} else {
 					web.makeIframe(web.checkIfBelongs('.website-champ'));
-					ga('send', 'pageview', window.location.hash);
+					console.log($id);
+					history.pushState("", "", "#" + web.hashWithoutParams() + "?champ=" + encodeURIComponent(league.champ));
+					
+					ga('send', 'pageview', "#" + web.hashWithoutParams());
 				}
 
 			} else {
@@ -2969,8 +3020,8 @@ $(function(){
     				web.makeIframe($id.attr('href'));
     				$(".nav-button li").removeClass('selected-link');
 					$id.children('li').addClass('selected-link');
-					history.pushState("", "", "#" + $id.data('name'));
-					ga('send', 'pageview', window.location.hash);
+					history.pushState("", "", "#" + $id.data('name') + "?champ=" + encodeURIComponent(league.champ));
+					ga('send', 'pageview', "#" + web.hashWithoutParams());
 				}
 
 			}
@@ -3046,15 +3097,22 @@ $(function(){
 
 		if(e.which !== 2){
 			if(!detectmob()){
+				e.preventDefault();
+				$this = $(this);
 				$("#main-content").fadeOut();
 
-				var url = $(this).attr('href');
-				var dataName = $(this).data('name');
+				var url = $this.attr('href');
+				var dataName = $this.data('name');
 
 				web.makeIframe(url);
 
-				history.pushState("", "", "#" + dataName);
-				e.preventDefault();
+				if($this.hasClass('website-name')){
+					history.pushState("", "", "#" + dataName + "?name=" + encodeURIComponent(league.name) + "&server=" + encodeURIComponent(league.server));
+				} else if($this.hasClass('website-champ')){
+					history.pushState("", "", "#" + dataName + "?champ=" + encodeURIComponent(league.champ));
+				} else{
+					history.pushState("", "", "#" + dataName);	
+				}	
 			}
 		} 
 	});
@@ -3110,7 +3168,7 @@ $(function(){
 		if(e.which !== 2){
 			$(".nav-button li").removeClass('selected-link');
 			$(this).children('li').addClass('selected-link');
-			ga('send', 'pageview', window.location.hash);
+			ga('send', 'pageview', "#" + web.hashWithoutParams());
 		} 
 		$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 	});
