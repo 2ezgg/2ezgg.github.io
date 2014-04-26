@@ -1550,9 +1550,40 @@
 		this.homePageAccessed = false;
 	}
 
-	WebInterface.prototype.hashWithoutParams = function(){
-		var params = (window.location.hash.substring(1)).split("?");
-		console.log(params[0]);
+	WebInterface.prototype.hashWithoutParams = function(totalUrl){
+		// console.log('hello')
+		// var params = (totalUrl)?((window.location.href).split("?")):((window.location.hash.substring(1)).split("?"));
+		// console.log(params[0]);
+		// return params[0];
+
+		var params = [];
+		if(totalUrl){
+			var urlArray = window.location.href;
+			var questionIndex = urlArray.indexOf("?");
+			var hashIndex = urlArray.indexOf("#");
+
+			if ((questionIndex == -1 && hashIndex == -1) || (questionIndex == -1 && hashIndex != -1)){
+				if(hashIndex == -1){
+					params[0] = urlArray;
+				} else{
+					var determineHash = urlArray.split("#");
+					params[0] = determineHash[1].length>0 ? window.location.href : determineHash[0];
+				}
+				
+			} else {
+				if(questionIndex != -1 && hashIndex == -1){
+					params = urlArray.split("?");
+				} else {
+					if (questionIndex - hashIndex == 1){
+						params = urlArray.split("#");
+					} else {
+						params[0] = urlArray;
+					}
+				}
+			} 
+		} else {
+			params = (window.location.hash.substring(1)).split("?");
+		}
 		return params[0];
 
 	}
@@ -1562,18 +1593,21 @@
 
 		var area = optionalClass || '';
 		var iFrameCapableLinks = $(".iframe-capable" + area);
-		var hashWithoutParamsVal = this.hashWithoutParams();
+		var hashWithoutParamsVal = this.hashWithoutParams().toString();
 
 		for(var i = 0; i < iFrameCapableLinks.length; i++){
 
 			var iFrameCapableLink = iFrameCapableLinks.eq(i);
 			var hashData = iFrameCapableLink.data('name');
+			if(hashData != undefined){
+				hashData = hashData.toString()
+			}
+			console.log(hashData);
 
-			if((hashData == hashWithoutParamsVal) || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
+			if((hashData === hashWithoutParamsVal) || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
 				if(highlightArea){
 					$("a#"+hashData+" li").addClass('selected-link');
 				}
-				console.log(iFrameCapableLink.attr('href'));
 				return iFrameCapableLink.attr('href');
 
 			}
@@ -1713,7 +1747,10 @@
 	}
 
 	WebInterface.prototype.homePage = function(){
-		if (window.location.href == window.location.origin + "/"){
+		console.log("comparison A : " + this.hashWithoutParams(true));
+		console.log("comparison B : " + window.location.origin + "/");
+		if (this.hashWithoutParams(true) == window.location.origin + "/"){
+			console.log('this is the url :' + this.hashWithoutParams(true));
 			this.homePageAccessed = true;
 			return true; 
 		} else{
@@ -1927,7 +1964,7 @@ $(function(){
 						league.champion(league.champ);
 					}
 					url = web.checkIfBelongs(null, true);
-					console.log(url);
+					
 				}
 				$("#iframe-holder").css("display","block");
 				web.makeIframe(url)
@@ -2013,7 +2050,6 @@ $(function(){
 				if (!web.checkIfBelongs()){ // also include # and blank for reddit
 					location.reload();
 				} else {
-					console.log('pls work senpai')
 					$(".nav-button li").removeClass('selected-link');
 					tabSystem();
 					web.tabSystemProcessed = 1;
@@ -3006,7 +3042,6 @@ $(function(){
 					window.location.replace(web.checkIfBelongs('.website-champ'));
 				} else {
 					web.makeIframe(web.checkIfBelongs('.website-champ'));
-					console.log($id);
 					history.pushState("", "", "#" + web.hashWithoutParams() + "?champ=" + encodeURIComponent(league.champ));
 					
 					ga('send', 'pageview', "#" + web.hashWithoutParams());
