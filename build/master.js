@@ -2047,13 +2047,9 @@ $(function(){
 	var sessionActive = 'no';
 	window.onpopstate = function(event){
 		if(sessionActive == 'yes' && ((web.hashWithoutParams().length != 0)||(window.location.href == window.location.origin+'/')) ){
-				if (!web.checkIfBelongs()){ // also include # and blank for reddit
-					location.reload();
-				} else {
-					$(".nav-button li").removeClass('selected-link');
-					tabSystem();
-					web.tabSystemProcessed = 1;
-				}
+			$(".nav-button li").removeClass('selected-link');
+			tabSystem();
+			web.tabSystemProcessed = 1;
 		}
 	}
 	if(web.tabSystemProcessed == 0){
