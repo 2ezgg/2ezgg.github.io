@@ -667,7 +667,7 @@
 	        	self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
 
 	        	if (self.rssFeeds[index] == undefined || self.rssFeeds[index] == null || ((pageRssId == appSettings['ezHomePage']) && (window.location.href == window.location.origin + "/")) ){
-	        		if (self.oldDate == 0){
+	        		if (self.oldDate == 0 ){
 	        			self.rssFeeds[index] = 2000; 
 	        		} else {
 	        			self.rssFeeds[index] = Date.now();
@@ -1897,7 +1897,7 @@ $(function(){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
-			$("header").css('height','100px');
+		$("header").css({'height':'100px','display':'block'});
 			$("#youtube-content").css("display","block");
 			$("#reddit-content").css("display","none");
 			$("#twitch-content").css("display","none");
@@ -1916,7 +1916,7 @@ $(function(){
 		} else if (currentUrl.match(/settings/i)){	
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
-			$("header").css('height','28px');
+			$("header").css({'height':'28px','display':'block'});
 			$("#youtube-content").css("display","none");
 			$("#reddit-content").css("display","none");
 			$("#twitch-content").css("display","none");
@@ -1935,7 +1935,7 @@ $(function(){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
-			$("header").css('height','28px');
+			$("header").css({'height':'28px','display':'block'});
 			$("#youtube-content").css("display","none");
 			$("#reddit-content").css("display","none");
 			$("#settings-content").css("display","none");
@@ -2033,7 +2033,7 @@ $(function(){
 			///////////////////// if page back button is pressed
 			$("#iframe-holder").html(' ').css("display","none");
 			$("#main-content").css("display","block");
-			$("header").css('height','100px');
+			$("header").css({'height':'100px','display':'block'});
 			$("#youtube-content").css("display","none");
 			$("#reddit-content").css("display","block");
 			$("#settings-content").css("display","none");
@@ -2758,7 +2758,7 @@ $(function(){
 				}	
 			}
 			$("#iframe-holder").html(' ');
-			$("header").css('height','100px');
+			$("header").css({'height':'100px','display':'block'});
 			$("#youtube-content").css("display","block");
 			$("#reddit-content").css("display","none");
 			$("#twitch-content").css("display","none");
@@ -2774,7 +2774,7 @@ $(function(){
 			}
 			$(window).scrollTop(0);
 			$("#iframe-holder").html(' ');
-			$("header").css('height','28px');
+			$("header").css({'height':'28px','display':'block'});
 			$("#twitch-content").css("display","block");
 			$("#reddit-content").css("display","none");
 			$("#youtube-content").css("display","none");
@@ -2790,7 +2790,7 @@ $(function(){
 		if(e.which !== 2){
 			$(window).scrollTop(0);
 			$("#iframe-holder").html(' ');
-			$("header").css('height','28px');
+			$("header").css({'height':'28px','display':'block'});
 			$("#twitch-content").css("display","none");
 			$("#reddit-content").css("display","none");
 			$("#youtube-content").css("display","none");
@@ -2833,7 +2833,7 @@ $(function(){
 			}
 		reddit.displayAbout();
 		$("#iframe-holder").html(' ');
-		$("header").css('height','100px');
+		$("header").css({'height':'100px','display':'block'});
 		$("#reddit-content").css("display","block");
 		$("#youtube-content").css("display","none");
 		$("#twitch-content").css("display","none");

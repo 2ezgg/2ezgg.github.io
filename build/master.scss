@@ -330,12 +330,13 @@ select.server option {
   margin-left: 310px; }
 
 header {
+  display: none;
   width: 100%;
   height: 100px;
   background: url('../img/header.jpg');
   background-repeat: no-repeat;
   background-color: #1a1c1e;
-  display: block; }
+ }
 
 #iframe-holder {
   width: auto;
