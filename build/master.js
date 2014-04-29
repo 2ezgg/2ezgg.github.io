@@ -210,13 +210,13 @@
 	LeagueLinks.prototype.account = function(nameUpdate,serverUpdate, stopReplacement){
 		if(nameUpdate != null){
 			this.name = nameUpdate;
-			if(!stopReplacement || (stopReplacement && localStorage.getItem('name').length < 1)){
+			if(!stopReplacement || (stopReplacement && localStorage.getItem('name') == null)){
 				localStorage.setItem('name',this.name);
 			}
 		}
 		if(serverUpdate){
 			this.server = serverUpdate;
-			if(!stopReplacement || (stopReplacement && localStorage.getItem('name').length < 1)){
+			if(!stopReplacement || (stopReplacement && localStorage.getItem('name') == null)){
 				localStorage.setItem('server',this.server);
 			}
 		}
