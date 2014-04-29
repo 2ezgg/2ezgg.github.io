@@ -54,7 +54,7 @@
 			search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
 			general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Wiki', id:'wikia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
 			summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'Kassad.In', id:'kassad'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
-			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}],
+			champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}, {name:'Inven', id:'inven'}],
 		}
 
 		var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
@@ -207,14 +207,18 @@
 		}
 	}
 
-	LeagueLinks.prototype.account = function(nameUpdate,serverUpdate){
+	LeagueLinks.prototype.account = function(nameUpdate,serverUpdate, stopReplacement){
 		if(nameUpdate != null){
 			this.name = nameUpdate;
-			localStorage.setItem('name',this.name);
+			if(!stopReplacement || (stopReplacement && localStorage.getItem('name').length < 1)){
+				localStorage.setItem('name',this.name);
+			}
 		}
 		if(serverUpdate){
 			this.server = serverUpdate;
-			localStorage.setItem('server',this.server);
+			if(!stopReplacement || (stopReplacement && localStorage.getItem('name').length < 1)){
+				localStorage.setItem('server',this.server);
+			}
 		}
 
 		if (this.name) {
@@ -358,6 +362,7 @@
 		var spaceAndDashChamp = this.champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
 		var allDashesChamp = this.champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
 		var onlyLettersChamp = this.champ.replace(/[^a-zA-Z]/g, "");
+
 		this.champ = this.champ.trim();
 
 
@@ -453,128 +458,135 @@
 				}
 				item.attr('href','http://loldb.gameguyz.com/champions/' + gameguyzChamp + '.html');
 			}
+			else if(webData == 'inven'){
+				for (var i=0;i<this.championList.length;i++){
+					if(this.champ == this.championList[i].name){
+						item.attr('href','http://lol.inven.co.kr/dataninfo/champion/detail.php?code='+this.championList[i].id);
+					}
+				}
+			}
 		}
 	}
 
 	LeagueLinks.prototype.championList = [
-		{name:"aatrox", xpos:-0,ypos:-0},
-		{name:"ahri", xpos:-36,ypos:-0},
-		{name:"akali", xpos:-72,ypos:-0},
-		{name:"alistar", xpos:-108,ypos:-0},
-		{name:"amumu", xpos:-144,ypos:-0},
-		{name:"anivia", xpos:-180,ypos:-0},
-		{name:"annie", xpos:-216,ypos:-0},
-		{name:"ashe", xpos:-252,ypos:-0},
-		{name:"blitzcrank", xpos:-288,ypos:-0},
-		{name:"brand", xpos:-324,ypos:-0},
-		{name:"caitlyn", xpos:-0,ypos:-36},
-		{name:"cassiopeia", xpos:-36,ypos:-36},
-		{name:"cho'gath", xpos:-72,ypos:-36},
-		{name:"corki", xpos:-108,ypos:-36},
-		{name:"darius", xpos:-144,ypos:-36},
-		{name:"diana", xpos:-180,ypos:-36},
-		{name:"dr. mundo", xpos:-216,ypos:-36},
-		{name:"draven", xpos:-252,ypos:-36},
-		{name:"elise", xpos:-288,ypos:-36},
-		{name:"evelynn", xpos:-324,ypos:-36},
-		{name:"ezreal", xpos:-0,ypos:-72},
-		{name:"fiddlesticks", xpos:-36,ypos:-72},
-		{name:"fiora", xpos:-72,ypos:-72},
-		{name:"fizz", xpos:-108,ypos:-72},
-		{name:"galio", xpos:-144,ypos:-72},
-		{name:"gangplank", xpos:-180,ypos:-72},
-		{name:"garen", xpos:-216,ypos:-72},
-		{name:"gragas", xpos:-252,ypos:-72},
-		{name:"graves", xpos:-288,ypos:-72},
-		{name:"hecarim", xpos:-324,ypos:-72},
-		{name:"heimerdinger", xpos:-0,ypos:-108},
-		{name:"irelia", xpos:-36,ypos:-108},
-		{name:"janna", xpos:-72,ypos:-108},
-		{name:"jarvan IV", xpos:-108,ypos:-108},
-		{name:"jax", xpos:-144,ypos:-108},
-		{name:"jayce", xpos:-180,ypos:-108},
-		{name:"jinx", xpos:-216,ypos:-108},
-		{name:"karma", xpos:-252,ypos:-108},
-		{name:"karthus", xpos:-288,ypos:-108},
-		{name:"kassadin", xpos:-324,ypos:-108},
-		{name:"katarina", xpos:-0,ypos:-144},
-		{name:"kayle", xpos:-36,ypos:-144},
-		{name:"kennen", xpos:-72,ypos:-144},
-		{name:"kha'zix", xpos:-108,ypos:-144},
-		{name:"kog'maw", xpos:-144,ypos:-144},
-		{name:"leblanc", xpos:-180,ypos:-144},
-		{name:"lee sin", xpos:-216,ypos:-144},
-		{name:"leona", xpos:-252,ypos:-144},
-		{name:"lissandra", xpos:-288,ypos:-144},
-		{name:"lucian", xpos:-324,ypos:-144},
-		{name:"lulu", xpos:-0,ypos:-180},
-		{name:"lux", xpos:-36,ypos:-180},
-		{name:"malphite", xpos:-72,ypos:-180},
-		{name:"malzahar", xpos:-108,ypos:-180},
-		{name:"maokai", xpos:-144,ypos:-180},
-		{name:"master yi", xpos:-180,ypos:-180},
-		{name:"miss fortune", xpos:-216,ypos:-180},
-		{name:"mordekaiser", xpos:-288,ypos:-180},
-		{name:"morgana", xpos:-324,ypos:-180},
-		{name:"nami", xpos:-0,ypos:-216},
-		{name:"nasus", xpos:-36,ypos:-216},
-		{name:"nautilus", xpos:-72,ypos:-216},
-		{name:"nidalee", xpos:-108,ypos:-216},
-		{name:"nocturne", xpos:-144,ypos:-216},
-		{name:"nunu", xpos:-180,ypos:-216},
-		{name:"olaf", xpos:-216,ypos:-216},
-		{name:"orianna", xpos:-252,ypos:-216},
-		{name:"pantheon", xpos:-288,ypos:-216},
-		{name:"poppy", xpos:-324,ypos:-216},
-		{name:"quinn", xpos:-0,ypos:-252},
-		{name:"rammus", xpos:-36,ypos:-252},
-		{name:"renekton", xpos:-72,ypos:-252},
-		{name:"rengar", xpos:-108,ypos:-252},
-		{name:"riven", xpos:-144,ypos:-252},
-		{name:"rumble", xpos:-180,ypos:-252},
-		{name:"ryze", xpos:-216,ypos:-252},
-		{name:"sejuani", xpos:-252,ypos:-252},
-		{name:"shaco", xpos:-288,ypos:-252},
-		{name:"shen", xpos:-324,ypos:-252},
-		{name:"shyvana", xpos:-0,ypos:-288},
-		{name:"singed", xpos:-36,ypos:-288},
-		{name:"sion", xpos:-72,ypos:-288},
-		{name:"sivir", xpos:-108,ypos:-288},
-		{name:"skarner", xpos:-144,ypos:-288},
-		{name:"sona", xpos:-180,ypos:-288},
-		{name:"soraka", xpos:-216,ypos:-288},
-		{name:"swain", xpos:-252,ypos:-288},
-		{name:"syndra", xpos:-288,ypos:-288},
-		{name:"talon", xpos:-324,ypos:-288},
-		{name:"taric", xpos:-0,ypos:-324},
-		{name:"teemo", xpos:-36,ypos:-324},
-		{name:"thresh", xpos:-72,ypos:-324},
-		{name:"tristana", xpos:-108,ypos:-324},
-		{name:"trundle", xpos:-144,ypos:-324},
-		{name:"tryndamere", xpos:-180,ypos:-324},
-		{name:"twisted fate", xpos:-216,ypos:-324},
-		{name:"twitch", xpos:-252,ypos:-324},
-		{name:"udyr", xpos:-288,ypos:-324},
-		{name:"urgot", xpos:-324,ypos:-324},
-		{name:"varus", xpos:-0,ypos:-360},
-		{name:"vayne", xpos:-36,ypos:-360},
-		{name:"veigar", xpos:-72,ypos:-360},
-		{name:"vel'koz", xpos:-252,ypos:-396},
-		{name:"vi", xpos:-108,ypos:-360},
-		{name:"viktor", xpos:-144,ypos:-360},
-		{name:"vladimir", xpos:-180,ypos:-360},
-		{name:"volibear", xpos:-216,ypos:-360},
-		{name:"warwick", xpos:-252,ypos:-360},
-		{name:"wukong", xpos:-252,ypos:-180},
-		{name:"xerath", xpos:-288,ypos:-360},
-		{name:"xin zhao", xpos:-324,ypos:-360},
-		{name:"yasuo", xpos:-0,ypos:-396},
-		{name:"yorick", xpos:-36,ypos:-396},
-		{name:"zac", xpos:-72,ypos:-396},
-		{name:"zed", xpos:-108,ypos:-396},
-		{name:"ziggs", xpos:-144,ypos:-396},
-		{name:"zilean", xpos:-180,ypos:-396},
-		{name:"zyra", xpos:-216,ypos:-396}
+		{name:"aatrox", xpos:-0,ypos:-0, id:114},
+		{name:"ahri", xpos:-36,ypos:-0, id:89},
+		{name:"akali", xpos:-72,ypos:-0, id:1},
+		{name:"alistar", xpos:-108,ypos:-0, id:2},
+		{name:"amumu", xpos:-144,ypos:-0, id:3},
+		{name:"anivia", xpos:-180,ypos:-0, id:4},
+		{name:"annie", xpos:-216,ypos:-0, id:5},
+		{name:"ashe", xpos:-252,ypos:-0, id:6},
+		{name:"blitzcrank", xpos:-288,ypos:-0, id:7},
+		{name:"brand", xpos:-324,ypos:-0, id:8},
+		{name:"caitlyn", xpos:-0,ypos:-36, id:9},
+		{name:"cassiopeia", xpos:-36,ypos:-36, id:10},
+		{name:"cho'gath", xpos:-72,ypos:-36, id:11},
+		{name:"corki", xpos:-108,ypos:-36, id:12},
+		{name:"darius", xpos:-144,ypos:-36, id:98},
+		{name:"diana", xpos:-180,ypos:-36, id:102},
+		{name:"dr. mundo", xpos:-216,ypos:-36, id:13},
+		{name:"draven", xpos:-252,ypos:-36, id:99},
+		{name:"elise", xpos:-288,ypos:-36, id:106},
+		{name:"evelynn", xpos:-324,ypos:-36, id:14},
+		{name:"ezreal", xpos:-0,ypos:-72, id:15},
+		{name:"fiddlesticks", xpos:-36,ypos:-72, id:16},
+		{name:"fiora", xpos:-72,ypos:-72, id:94},
+		{name:"fizz", xpos:-108,ypos:-72, id:87},
+		{name:"galio", xpos:-144,ypos:-72, id:17},
+		{name:"gangplank", xpos:-180,ypos:-72, id:18},
+		{name:"garen", xpos:-216,ypos:-72, id:19},
+		{name:"gragas", xpos:-252,ypos:-72, id:20},
+		{name:"graves", xpos:-288,ypos:-72, id:85},
+		{name:"hecarim", xpos:-324,ypos:-72, id:96},
+		{name:"heimerdinger", xpos:-0,ypos:-108, id:21},
+		{name:"irelia", xpos:-36,ypos:-108, id:22},
+		{name:"janna", xpos:-72,ypos:-108, id:23},
+		{name:"jarvan IV", xpos:-108,ypos:-108, id:24},
+		{name:"jax", xpos:-144,ypos:-108, id:25},
+		{name:"jayce", xpos:-180,ypos:-108, id:100},
+		{name:"jinx", xpos:-216,ypos:-108, id:116},
+		{name:"karma", xpos:-252,ypos:-108, id:26},
+		{name:"karthus", xpos:-288,ypos:-108, id:27},
+		{name:"kassadin", xpos:-324,ypos:-108, id:28},
+		{name:"katarina", xpos:-0,ypos:-144, id:29},
+		{name:"kayle", xpos:-36,ypos:-144, id:30},
+		{name:"kennen", xpos:-72,ypos:-144, id:31},
+		{name:"kha'zix", xpos:-108,ypos:-144, id:105},
+		{name:"kog'maw", xpos:-144,ypos:-144, id:32},
+		{name:"leblanc", xpos:-180,ypos:-144, id:33},
+		{name:"lee sin", xpos:-216,ypos:-144, id:34},
+		{name:"leona", xpos:-252,ypos:-144, id:77},
+		{name:"lissandra", xpos:-288,ypos:-144, id:113},
+		{name:"lucian", xpos:-324,ypos:-144, id:115},
+		{name:"lulu", xpos:-0,ypos:-180, id:95},
+		{name:"lux", xpos:-36,ypos:-180, id:35},
+		{name:"malphite", xpos:-72,ypos:-180, id:36},
+		{name:"malzahar", xpos:-108,ypos:-180, id:37},
+		{name:"maokai", xpos:-144,ypos:-180, id:38},
+		{name:"master yi", xpos:-180,ypos:-180, id:39},
+		{name:"miss fortune", xpos:-216,ypos:-180, id:40},
+		{name:"mordekaiser", xpos:-288,ypos:-180, id:41},
+		{name:"morgana", xpos:-324,ypos:-180, id:42},
+		{name:"nami", xpos:-0,ypos:-216, id:108},
+		{name:"nasus", xpos:-36,ypos:-216, id:43},
+		{name:"nautilus", xpos:-72,ypos:-216, id:93},
+		{name:"nidalee", xpos:-108,ypos:-216, id:44},
+		{name:"nocturne", xpos:-144,ypos:-216, id:45},
+		{name:"nunu", xpos:-180,ypos:-216, id:46},
+		{name:"olaf", xpos:-216,ypos:-216, id:47},
+		{name:"orianna", xpos:-252,ypos:-216, id:78},
+		{name:"pantheon", xpos:-288,ypos:-216, id:48},
+		{name:"poppy", xpos:-324,ypos:-216, id:49},
+		{name:"quinn", xpos:-0,ypos:-252, id:111},
+		{name:"rammus", xpos:-36,ypos:-252, id:50},
+		{name:"renekton", xpos:-72,ypos:-252, id:51},
+		{name:"rengar", xpos:-108,ypos:-252, id:103},
+		{name:"riven", xpos:-144,ypos:-252, id:83},
+		{name:"rumble", xpos:-180,ypos:-252, id:52},
+		{name:"ryze", xpos:-216,ypos:-252, id:53},
+		{name:"sejuani", xpos:-252,ypos:-252, id:92},
+		{name:"shaco", xpos:-288,ypos:-252, id:54},
+		{name:"shen", xpos:-324,ypos:-252, id:55},
+		{name:"shyvana", xpos:-0,ypos:-288, id:86},
+		{name:"singed", xpos:-36,ypos:-288, id:56},
+		{name:"sion", xpos:-72,ypos:-288, id:57},
+		{name:"sivir", xpos:-108,ypos:-288, id:58},
+		{name:"skarner", xpos:-144,ypos:-288, id:82},
+		{name:"sona", xpos:-180,ypos:-288, id:59},
+		{name:"soraka", xpos:-216,ypos:-288, id:60},
+		{name:"swain", xpos:-252,ypos:-288, id:61},
+		{name:"syndra", xpos:-288,ypos:-288, id:104},
+		{name:"talon", xpos:-324,ypos:-288, id:79},
+		{name:"taric", xpos:-0,ypos:-324, id:62},
+		{name:"teemo", xpos:-36,ypos:-324, id:63},
+		{name:"thresh", xpos:-72,ypos:-324, id:110},
+		{name:"tristana", xpos:-108,ypos:-324, id:64},
+		{name:"trundle", xpos:-144,ypos:-324, id:65},
+		{name:"tryndamere", xpos:-180,ypos:-324, id:66},
+		{name:"twisted fate", xpos:-216,ypos:-324, id:67},
+		{name:"twitch", xpos:-252,ypos:-324, id:68},
+		{name:"udyr", xpos:-288,ypos:-324, id:69},
+		{name:"urgot", xpos:-324,ypos:-324, id:70},
+		{name:"varus", xpos:-0,ypos:-360, id:97},
+		{name:"vayne", xpos:-36,ypos:-360, id:71},
+		{name:"veigar", xpos:-72,ypos:-360, id:72},
+		{name:"vel'koz", xpos:-252,ypos:-396, id:118},
+		{name:"vi", xpos:-108,ypos:-360, id:109},
+		{name:"viktor", xpos:-144,ypos:-360, id:90},
+		{name:"vladimir", xpos:-180,ypos:-360, id:73},
+		{name:"volibear", xpos:-216,ypos:-360, id:88},
+		{name:"warwick", xpos:-252,ypos:-360, id:74},
+		{name:"wukong", xpos:-252,ypos:-180, id:80},
+		{name:"xerath", xpos:-288,ypos:-360, id:84},
+		{name:"xin zhao", xpos:-324,ypos:-360, id:75},
+		{name:"yasuo", xpos:-0,ypos:-396, id:117},
+		{name:"yorick", xpos:-36,ypos:-396, id:81},
+		{name:"zac", xpos:-72,ypos:-396, id:112},
+		{name:"zed", xpos:-108,ypos:-396, id:107},
+		{name:"ziggs", xpos:-144,ypos:-396, id:92},
+		{name:"zilean", xpos:-180,ypos:-396, id:76},
+		{name:"zyra", xpos:-216,ypos:-396, id:101}
 	];
 
 
@@ -606,8 +618,7 @@
 					count++;
 				}
 				$("#champ-drop").html( template(matchingChampInfo) );
-			}
-			
+			}		
 		}
 	}
 
@@ -1551,11 +1562,6 @@
 	}
 
 	WebInterface.prototype.hashWithoutParams = function(totalUrl){
-		// console.log('hello')
-		// var params = (totalUrl)?((window.location.href).split("?")):((window.location.hash.substring(1)).split("?"));
-		// console.log(params[0]);
-		// return params[0];
-
 		var params = [];
 		if(totalUrl){
 			var urlArray = window.location.href;
@@ -1602,7 +1608,6 @@
 			if(hashData != undefined){
 				hashData = hashData.toString()
 			}
-			console.log(hashData);
 
 			if((hashData === hashWithoutParamsVal) || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
 				if(highlightArea){
@@ -1616,15 +1621,21 @@
 	}
 
 	WebInterface.prototype.makeIframe = function(iframeUrl){
-		if(iframeUrl.match(/reddit.com/ig)){
-			iframeUrl = iframeUrl.replace(/reddit\.com/ig, 'redditjs.com');
-		}
-		$("#main-content").css( "display", "none" );
+		var lang = 'en';
 		var $iFrameHolder = $("#iframe-holder");
 		var heightToProcess = $(window).height()-4;
 		var heightToProcess2 = heightToProcess - 16;
+
+		if(iframeUrl.match(/reddit.com/ig)){
+			iframeUrl = iframeUrl.replace(/reddit\.com/ig, 'redditjs.com');
+		} else if(iframeUrl.match(/inven/ig)){
+			lang = 'ko';
+		}
+		$("#main-content").css( "display", "none" );
+
+		
 		$iFrameHolder.css('height', heightToProcess2 + 'px')
-		$iFrameHolder.html('<iframe allowfullscreen="true" id="iframe-content" src="'+iframeUrl+'" style="width:100%;height:'+heightToProcess+'px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>').fadeIn();
+		$iFrameHolder.html('<iframe allowfullscreen="true" lang="'+lang+'" id="iframe-content" src="'+iframeUrl+'" style="width:100%;height:'+heightToProcess+'px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>').fadeIn();
 	}
 
 	WebInterface.prototype.changeIframeHeight = function(){
@@ -1747,10 +1758,7 @@
 	}
 
 	WebInterface.prototype.homePage = function(){
-		console.log("comparison A : " + this.hashWithoutParams(true));
-		console.log("comparison B : " + window.location.origin + "/");
 		if (this.hashWithoutParams(true) == window.location.origin + "/"){
-			console.log('this is the url :' + this.hashWithoutParams(true));
 			this.homePageAccessed = true;
 			return true; 
 		} else{
@@ -1960,7 +1968,7 @@ $(function(){
 						league.server = league.getUrlParams('server') || localStorage.getItem('server');
 						league.champ = league.getUrlParams('champ') || localStorage.getItem('champ');
 
-						league.account(league.name, league.server);
+						league.account(league.name, league.server, true);
 						league.champion(league.champ);
 					}
 					url = web.checkIfBelongs(null, true);
@@ -2056,7 +2064,9 @@ $(function(){
 		tabSystem();
 		// pretty hacky thing that should be fixed properly
 		setTimeout(function(){
-			sessionActive = 'yes';
+			
+				sessionActive = 'yes';
+			
 		}, 5000);
 	}
 ////////////////////////////////////////
@@ -3011,13 +3021,49 @@ $(function(){
 
 	$champ.on('click', function(){
 		$("#champ-drop").css("display","block");
-		league.champion($(this).val());
 		league.dropDownTemplate($(this).val());
-	});
+	});	
 
-	$champ.on('keydown', function(e){
+	var champAnimate = false;
+
+	$champ.on('keyup', function(e){
+		var $champInputValue = $(this).val();
+		var comparisonChamp = new RegExp($champInputValue,"i");
 		var keycode = (e.keyCode ? e.keyCode : e.which);
-		if(keycode == '13') {
+
+    	if(keycode != '13'){
+	    	league.dropDownTemplate($champInputValue);
+			$("#champ-drop").css("display","block");
+
+			$("#champ-drop .champ-list-entry .champ-text").each(function () {
+	      	var $this = $(this),
+	            text = $this.html(),
+	            first = text.slice(0, $champInputValue.length),
+	            rest = text.slice($champInputValue.length);
+	      		$this.html("<span style='color:#f0e863'>" + first + "</span>" + rest);
+
+			});
+
+			league.champion($champInputValue);
+		
+			for(var i = 0; i<league.championList.length; i++){
+				if(league.championList[i].name.match(comparisonChamp) && (league.championList[i].name.length == $champInputValue.length)){
+					$("#champ-drop .champ-list-entry").css({"background-color" : "#666",
+						"border" : "2px solid black"});
+					clearTimeout(timerName);
+					timerName = setTimeout(function(){
+						$("#champ-drop").fadeOut();
+
+						$(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
+							.animate({'opacity':'1'},120)
+							.animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
+								$(this).attr('style', ' ');
+							}});          
+					}, 100);
+				} 
+			}
+
+    	} else {
 			var champText = $("#champ-drop .champ-list-entry .champ-text").first().text(); 
 			if(champText.length>0){ $(this).val(champText) }; 
 			$("#champ-drop").fadeOut();
@@ -3057,46 +3103,6 @@ $(function(){
 
 			}
 			
-    	}
-	});
-		
-	
-	$champ.on('keyup', function(e){
-		var $champInputValue = $(this).val();
-		var comparisonChamp = new RegExp($champInputValue,"i");
-		var keycode = (e.keyCode ? e.keyCode : e.which);
-
-    	if(keycode != '13'){
-	    	league.dropDownTemplate($champInputValue);
-			$("#champ-drop").css("display","block");
-
-			$("#champ-drop .champ-list-entry .champ-text").each(function () {
-	      	var $this = $(this),
-	            text = $this.html(),
-	            first = text.slice(0, $champInputValue.length),
-	            rest = text.slice($champInputValue.length);
-	      		$this.html("<span style='color:#f0e863'>" + first + "</span>" + rest);
-
-			});
-
-			league.champion($champInputValue);
-		
-			for(var i = 0; i<league.championList.length; i++){
-				if(league.championList[i].name.match(comparisonChamp) && (league.championList[i].name.length == $champInputValue.length)){
-					$("#champ-drop .champ-list-entry").css({"background-color" : "#666",
-						"border" : "2px solid black"});
-					setTimeout(function(){
-						$("#champ-drop").fadeOut();
-
-						$(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
-							.animate({'opacity':'1'},120)
-							.animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
-								$(this).attr('style', ' ');
-							}});          
-					}, 100);
-				} 
-			}
-
     	}
 	});
 	
