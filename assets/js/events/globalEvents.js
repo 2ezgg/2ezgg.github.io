@@ -1,1 +1,0 @@
-$(window).resize(function(){web.changeIframeHeight(),web.changeTwitchDimensions(),web.registerScreen()}),$(window).scroll(function(){$(this).scrollTop()>100?$("#back-top").fadeIn():$("#back-top").fadeOut()}),$("#back-top a").click(function(){return $("body,html").animate({scrollTop:0},700),!1});
