@@ -15,5 +15,3 @@ $("#sidebar").on('click', '.nav-button', function(e){
 
 $('.tooltip').tipsy({gravity: 'w'});
 $('.settings-tooltip').tipsy({gravity: 'e'});
-
-});

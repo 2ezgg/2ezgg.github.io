@@ -9,11 +9,11 @@ module.exports = function(grunt){
 		      tasks: ['htmlhint']
 		    },
 		    js: {
-          files: ['build/master.js'],
+          files: ['build/app.js'],
           tasks: ['uglify']
     		},
     		css: {
-		      files: ['build/master.scss'],
+		      files: ['build/app.scss'],
 		      tasks: ['buildcss']
    		 }
 		},
@@ -37,22 +37,23 @@ module.exports = function(grunt){
 	    uglify: {
 			  build:  {
 			    files: {
-			      'assets/js/app.js': ['build/app.js'],
-						'assets/js/objects/leagueLinks.js': ['build/objects/leagueLinks.js'],
-						'assets/js/objects/redditLol.js': ['build/objects/redditLol.js'],
-						'assets/js/app.js': ['build/objects/streamChannels.js'],
-						'assets/js/app.js': ['build/objects/webInterface.js'],
-						'assets/js/app.js': ['build/events/globalEvents.js'],
-						'assets/js/app.js': ['build/events/iframeEvents.js'],
-						'assets/js/app.js': ['build/events/infiniteScrollingEvents.js'],
-						'assets/js/app.js': ['build/events/miscEvents.js'],
-						'assets/js/app.js': ['build/events/navigationEvents.js'],
-						'assets/js/app.js': ['build/events/redditEvents.js'],
-						'assets/js/app.js': ['build/events/rssEvents.js'],
-						'assets/js/app.js': ['build/events/settingsPageEvents.js'],
-						'assets/js/app.js': ['build/events/sidebarEvents.js'],
-						'assets/js/app.js': ['build/events/twitchEvents.js'],
-						'assets/js/app.js': ['build/events/youtubeEvents.js']
+			      'assets/js/app.js':                               ['build/app.js'],
+            'assets/js/config/config.js':                     ['build/config/config.js'],
+						'assets/js/objects/leagueLinks.js':               ['build/objects/leagueLinks.js'],
+						'assets/js/objects/redditLol.js':                 ['build/objects/redditLol.js'],
+						'assets/js/objects/streamChannels.js':            ['build/objects/streamChannels.js'],
+						'assets/js/objects/webInterface.js':              ['build/objects/webInterface.js'],
+						'assets/js/events/globalEvents.js':               ['build/events/globalEvents.js'],
+						'assets/js/events/iframeEvents.js':               ['build/events/iframeEvents.js'],
+						'assets/js/events/infiniteScrollingEvents.js':    ['build/events/infiniteScrollingEvents.js'],
+						'assets/js/events/miscEvents.js':                 ['build/events/miscEvents.js'],
+						'assets/js/events/navigationEvents.js':           ['build/events/navigationEvents.js'],
+						'assets/js/events/redditEvents.js':               ['build/events/redditEvents.js'],
+						'assets/js/events/rssEvents.js':                  ['build/events/rssEvents.js'],
+						'assets/js/events/settingsPageEvents.js':         ['build/events/settingsPageEvents.js'],
+						'assets/js/events/sidebarEvents.js':              ['build/events/sidebarEvents.js'],
+						'assets/js/events/twitchEvents.js':               ['build/events/twitchEvents.js'],
+						'assets/js/events/youtubeEvents.js':              ['build/events/youtubeEvents.js']
 			    }
 			  }
 			},

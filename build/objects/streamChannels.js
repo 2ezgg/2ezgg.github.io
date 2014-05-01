@@ -1,4 +1,4 @@
-var streamChannels = function(){
+function StreamChannels(){
   this.streamers = JSON.parse(localStorage.getItem('streamers'));
   var defaultStreams = [];
   if(!this.streamers){
@@ -26,7 +26,7 @@ var streamChannels = function(){
   this.noStreamersAdded = (this.streamers.length == 0)?true:false;
 }
 
-streamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
+StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
   var streamSource;
   var input = '';
 
@@ -85,7 +85,7 @@ streamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
 
 
 
-streamChannels.prototype.onlineTwitchStreamers = function(){
+StreamChannels.prototype.onlineTwitchStreamers = function(){
   var twitchDeferred = $.Deferred();
   var self = this;
   var twitchParams = '';
@@ -139,7 +139,7 @@ streamChannels.prototype.onlineTwitchStreamers = function(){
 }
 
 
-streamChannels.prototype.getAzubuStreamers = function(){
+StreamChannels.prototype.getAzubuStreamers = function(){
   var azubuDeferred = $.Deferred();
   var self = this;
 
@@ -224,7 +224,7 @@ streamChannels.prototype.getAzubuStreamers = function(){
 }
 
 
-streamChannels.prototype.topTwitchOnline = function(numberOfOnline){
+StreamChannels.prototype.topTwitchOnline = function(numberOfOnline){
   var onlineLimit = numberOfOnline || 12;
   var twitchDeferred = $.Deferred();
   var self = this;
@@ -274,7 +274,7 @@ streamChannels.prototype.topTwitchOnline = function(numberOfOnline){
 }
 
 
-streamChannels.prototype.offlineTwitchStreamers = function(){
+StreamChannels.prototype.offlineTwitchStreamers = function(){
   this.twitchStreamersOffline = [];
   this.twitchStreamersOffline = this.streamers.slice(0);
 
@@ -310,7 +310,7 @@ streamChannels.prototype.offlineTwitchStreamers = function(){
 }
 
 
-streamChannels.prototype.removeStreamer = function(deleteStreamer){
+StreamChannels.prototype.removeStreamer = function(deleteStreamer){
   var input = deleteStreamer.toString().toLowerCase();
   if(input){
 
@@ -329,7 +329,7 @@ streamChannels.prototype.removeStreamer = function(deleteStreamer){
 
 }
 
-streamChannels.prototype.pushTwitchStreams = function(twitchNumber, twitchType, twitchObj){
+StreamChannels.prototype.pushTwitchStreams = function(twitchNumber, twitchType, twitchObj){
   var self = this;
   var template = Handlebars.compile($('#twitch-template').html());
   var twitchNumber = twitchNumber || 0;
@@ -344,7 +344,7 @@ streamChannels.prototype.pushTwitchStreams = function(twitchNumber, twitchType, 
   }
 }
 
-streamChannels.prototype.pushStreamsHeader = function(){
+StreamChannels.prototype.pushStreamsHeader = function(){
   var self = this;
 
     for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
@@ -358,7 +358,7 @@ streamChannels.prototype.pushStreamsHeader = function(){
 
 }
 
-streamChannels.prototype.pushTwitchStreamers = function(favourite, azubu){
+StreamChannels.prototype.pushTwitchStreamers = function(favourite, azubu){
   var self = this;
 
 
@@ -374,7 +374,7 @@ streamChannels.prototype.pushTwitchStreamers = function(favourite, azubu){
 
 }
 
-streamChannels.prototype.pushAzubuStreamers = function(favourite){
+StreamChannels.prototype.pushAzubuStreamers = function(favourite){
   var self = this;
 
   if(favourite == null){
@@ -392,7 +392,7 @@ streamChannels.prototype.pushAzubuStreamers = function(favourite){
 }
 
 
-streamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAccount, addStream){
+StreamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAccount, addStream){
   var self = this;
 
   if(addStream){
@@ -418,7 +418,7 @@ streamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAc
 
 }
 
-streamChannels.prototype.pushTopTwitchStreamers = function(){
+StreamChannels.prototype.pushTopTwitchStreamers = function(){
   var self = this;
   var onlineTemplate = Handlebars.compile($('#twitch-top-online-template').html());
 
@@ -426,7 +426,7 @@ streamChannels.prototype.pushTopTwitchStreamers = function(){
 
 }
 
-streamChannels.prototype.currentStreamOnline = function(){
+StreamChannels.prototype.currentStreamOnline = function(){
   for(var i = 0; i<this.topTwitchStreamersOnline.length; i++){
     if(this.topTwitchStreamersOnline[i].name == this.currentStreamDisplayed){
       return true;
@@ -440,14 +440,14 @@ streamChannels.prototype.currentStreamOnline = function(){
   return false;
 }
 
-streamChannels.prototype.pushTopTwitchStreamers = function(){
+StreamChannels.prototype.pushTopTwitchStreamers = function(){
   var self = this;
   var onlineTemplate = Handlebars.compile($('#twitch-top-online-template').html());
 
     $("#twitch-top-streamers").html( onlineTemplate(self.topTwitchStreamersOnline) );
 }
 
-streamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch){
+StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch){
 
     var totalAdditions = 0;
     this.newAdditions = [];

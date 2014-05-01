@@ -1,4 +1,4 @@
-var LeagueLinks = function(){
+function LeagueLinks(){
 
   if(typeof(Storage)!=="undefined"){
     this.name = this.getUrlParams('name') || localStorage.getItem('name') || '';

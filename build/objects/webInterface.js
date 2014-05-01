@@ -1,4 +1,4 @@
-var WebInterface = function(){
+function WebInterface(){
   this.youtubeInUse = '';
   this.redditInUse = '';
   this.twitchInUse = '';
