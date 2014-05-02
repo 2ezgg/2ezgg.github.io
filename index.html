@@ -6,12 +6,12 @@
 		<meta name="description" content="2ez.gg is your league of legends home page. Browsing lol related web sites has never been so easy! 2ezgg gg 2ez">
 		<title>2ez.gg - Everything League of Legends.</title>
 		<link href="assets/css/normalize.css" media="screen" rel="stylesheet" />
-		<link href="assets/css/master.css" media="screen" rel="stylesheet" />
+		<link href="assets/css/app.css" media="screen" rel="stylesheet" />
 		<link href="assets/css/perfect-scrollbar.css" media="screen" rel="stylesheet" />
 		<style>
 		</style>
 		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">	
+		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 
 	</head>
 	<body>
@@ -63,7 +63,7 @@
 					<div class="fb-like" style="position:absolute;left:47%;top:32px;" data-href="https://www.facebook.com/pages/2ezgg/659746167417536" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 					<ul>
 						<a class="nav-button no-iframe" id="settings" data-name="settings-area" href="#settings-area">
-							<li>	
+							<li>
 								<span class="header-options settings-tooltip" title="Settings" style="background-image:url('assets/img/cog.png')"></span>
 							</li>
 						</a>
@@ -73,67 +73,67 @@
 				<div class="search holder" id="searchbuttonshold" style="display:none">
 
 					<input type="text" name="searchInput" class="searchinput" placeholder="Search" style="width: 240px;display: block;margin-left: 5px;">
-					
+
 					<div id="searchbuttons" style="position:relative;padding-top:10px;">
 						<a class="nav-button website-search no-iframe" id="google" data-name="google" data-url="http://google.com/" href="http://google.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:0px 0px;"></span> Google		
+							<span class="search-image" style="background-position:0px 0px;"></span> Google
 						</a>
 						<a class="nav-button website-search no-iframe" id="gimages" data-name="gimages" data-url="http://images.google.com/" href="http://images.google.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:0px 0px;"></span> Google Images		
+							<span class="search-image" style="background-position:0px 0px;"></span> Google Images
 						</a>
 						<a class="nav-button website-search no-iframe" id="yahoo" data-name="yahoo" data-url="http://www.yahoo.com/" href="http://www.yahoo.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:-32px -16px;"></span> Yahoo		
+							<span class="search-image" style="background-position:-32px -16px;"></span> Yahoo
 						</a>
 						<a class="nav-button website-search no-iframe" id="bing" data-name="bing" data-url="http://bing.com/" href="http://bing.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:-32px 0px;"></span> Bing		
+							<span class="search-image" style="background-position:-32px 0px;"></span> Bing
 						</a>
 						<a class="nav-button website-search no-iframe" id="youtubesearch" data-name="youtubesearch" data-url="http://youtube.com/" href="http://youtube.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:0px -16px;"></span> YouTube		
+							<span class="search-image" style="background-position:0px -16px;"></span> YouTube
 						</a>
 						<a class="nav-button website-search no-iframe" id="wikipedia" data-name="wikipedia" data-url="http://wikipedia.com/" href="http://wikipedia.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:-16px 0px;"></span> Wikipedia		
+							<span class="search-image" style="background-position:-16px 0px;"></span> Wikipedia
 						</a>
 						<a class="nav-button website-search no-iframe" id="wolfram" data-name="wolfram" data-url="https://www.wolframalpha.com/" href="https://www.wolframalpha.com/" target="_blank" style="display:none">
-							<span class="search-image" style="background-position:-16px -16px;"></span> Wolfram Alpha	
+							<span class="search-image" style="background-position:-16px -16px;"></span> Wolfram Alpha
 						</a>
-					</div>	
+					</div>
 				</div>
 
 				<div class="remaining holder half-buttons" id="miscbuttons" style="padding-bottom:17px">
 
 					<script id="new-website-template" type="text/x-handlebars-template">
-						
-							
+
+
 								<a class="nav-button website-misc
 								{{#if iframe}}
 								 iframe-capable
 								{{/if}}
 								 " id="{{id}}" data-name="{{id}}" href="{{href}}" target="_blank">
-							<li>	
+							<li>
 								<span class="lol-image" style="background-image:url('http://s2.googleusercontent.com/s2/favicons?domain_url={{href}}')"></span>{{name}}
 							</li>
 						</a>
 					</script>
 
 					<ul>
-							
+
 						<a class="nav-button website-misc iframe-capable" id="redditfront" data-name="redditfront" href="http://reddit.com/" style="display:none">
-							<li>	
+							<li>
 								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit Front
 							</li>
 						</a>
 						<a class="nav-button website-misc iframe-capable" id="reddit" data-name="reddit" href="http://reddit.com/r/leagueoflegends#hideOpts">
-							<li>	
+							<li>
 								<span class="lol-image" style="background-position:-16px 0px;"></span>RedditJS
 							</li>
 						</a>
 						<a class="nav-button website-misc no-iframe" id="redditthreads" data-name="redditthreads" href="http://reddit.com/r/leagueoflegends" style="display:none">
-							<li>	
+							<li>
 								<span class="lol-image" style="background-position:-16px 0px;"></span>Old Reddit
 							</li>
 						</a>
 						<a class="nav-button website-misc no-iframe" id="youtube" data-name="youtubevideos" href="#youtubevideos">
-							<li>	
+							<li>
 								<span class="lol-image" style="background-position:0px 0px;"></span>LoL Videos
 							</li>
 						</a>
@@ -145,103 +145,103 @@
 						</a>
 						<a class="nav-button website-misc rss-capable" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news" style="display:none">
 							<li>
-								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News	
+								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News
 								<span class="update-info league-news tooltip" title="New Updates"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="reign" data-name="reign" data-index="1" target="_blank" href="http://www.reignofgaming.net/news"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="reign" data-name="reign" data-index="1" target="_blank" href="http://www.reignofgaming.net/news">
 							<li>
 								<span class="lol-image" style="background-position:-64px 0px;"></span>RoG
 								<span class="update-info reign-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="ongamers" data-name="ongamers" data-index="2" target="_blank" href="http://www.ongamers.com/league-of-legends/6000-2/"> 
-							<li>	
+						<a class="nav-button website-misc iframe-capable rss-capable" id="ongamers" data-name="ongamers" data-index="2" target="_blank" href="http://www.ongamers.com/league-of-legends/6000-2/">
+							<li>
 								<span class="lol-image" style="background-position:-64px -16px;"></span>onGamers
 								<span class="update-info ongamers-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="surrender" data-name="surrender" data-index="3" target="_blank" href="http://www.surrenderat20.net/"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="surrender" data-name="surrender" data-index="3" target="_blank" href="http://www.surrenderat20.net/">
 							<li>
 								<span class="lol-image" style="background-position:-80px -16px;"></span>S@20
 								<span class="update-info surrender-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="newslegend" data-name="newslegend" data-index="6" target="_blank" href="http://www.newsoflegends.com/" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="newslegend" data-name="newslegend" data-index="6" target="_blank" href="http://www.newsoflegends.com/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-176px -16px;"></span>NewsOfLegends
 								<span class="update-info newslegend-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="cloth" data-name="cloth" data-index="4" target="_blank" href="http://cloth5.com"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="cloth" data-name="cloth" data-index="4" target="_blank" href="http://cloth5.com">
 							<li>
 								<span class="lol-image" style="background-position:-112px -16px;"></span>Cloth 5
 								<span class="update-info cloth-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable rss-capable" id="esex" data-name="esex" data-index="5" target="_blank" href="http://esportsexpress.com/category/league-of-legends/" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable rss-capable" id="esex" data-name="esex" data-index="5" target="_blank" href="http://esportsexpress.com/category/league-of-legends/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-112px -32px;"></span>ESEx
 								<span class="update-info esex-news tooltip" title="New Articles"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="in2" data-name="in2" target="_blank" href="http://in2lol.com" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="in2" data-name="in2" target="_blank" href="http://in2lol.com" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-160px -32px;"></span>In2LoL
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://2ez.gg/jungletimer/"> 
+						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://2ez.gg/jungletimer/">
 							<li>
 								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="wikia" data-name="wikia" target="_blank" href="http://leagueoflegends.wikia.com/wiki/" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="wikia" data-name="wikia" target="_blank" href="http://leagueoflegends.wikia.com/wiki/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-96px -16px;"></span>LoL Wiki
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="gamepedia" data-name="gamepedia" target="_blank" href="http://lol.gamepedia.com/League_of_Legends_Wiki"> 
+						<a class="nav-button website-misc iframe-capable" id="gamepedia" data-name="gamepedia" target="_blank" href="http://lol.gamepedia.com/League_of_Legends_Wiki">
 							<li>
 								<span class="lol-image" style="background-position:-96px -32px;"></span>Leaguepedia
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="nerfplz" data-name="nerfplz" target="_blank" href="http://www.nerfplz.com/2014/03/2014-champion-tier-list-solo-queue.html" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="nerfplz" data-name="nerfplz" target="_blank" href="http://www.nerfplz.com/2014/03/2014-champion-tier-list-solo-queue.html" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-176px 0px;"></span>NerfPlz Tier List
 							</li>
 						</a>
-						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com"> 
+						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com">
 							<li>
 								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
 							</li>
 						</a>
-						
-						<a class="nav-button website-misc iframe-capable" id="calendar" data-name="calendar" target="_blank" href="http://esportcalendar.com/" style="display:none"> 
+
+						<a class="nav-button website-misc iframe-capable" id="calendar" data-name="calendar" target="_blank" href="http://esportcalendar.com/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-128px 0px;"></span>Esport Calendar
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="hell" data-name="hell" target="_blank" href="http://elohell.net/" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="hell" data-name="hell" target="_blank" href="http://elohell.net/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-144px -32px;"></span>Elo Hell
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="code" data-name="code" target="_blank" href="http://summonerscode.com/" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="code" data-name="code" target="_blank" href="http://summonerscode.com/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-144px -16px;"></span>SummonersCode
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="irc" data-name="irc" target="_blank" href="http://webchat.quakenet.org/?channels=r/leagueoflegends" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="irc" data-name="irc" target="_blank" href="http://webchat.quakenet.org/?channels=r/leagueoflegends" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-160px 0px;"></span>LoL IRC
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="research" data-name="research" target="_blank" href="http://leagueresearch.com" style="display:none"> 
+						<a class="nav-button website-misc iframe-capable" id="research" data-name="research" target="_blank" href="http://leagueresearch.com" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-128px -16px;"></span>LResearch
 							</li>
 						</a>
-								
+
 					</ul>
 				</div>
 
@@ -261,7 +261,7 @@
 						<option value="cn">CN</option>
 						<option value="tw">TW</option>
 						<option value="sea">SEA</option>
-						<option value="vn">VIET</option>	
+						<option value="vn">VIET</option>
 					</select>
 				</div>
 
@@ -283,7 +283,7 @@
 
 						<a class="nav-button website-name iframe-capable" id="gg" data-name="gg" data-url="http://op.gg/" target="_blank" href="http://op.gg/">
 							<li>
-								<span class="lol-image" style="background-position:-48px -16px;"></span>OP GG 
+								<span class="lol-image" style="background-position:-48px -16px;"></span>OP GG
 							</li>
 						</a>
 
@@ -328,14 +328,14 @@
 		            	</script>
 						<div id="champ-drop">
 		      			</div>
-					</div>		
+					</div>
 				</div>
 
 				<div class="holder half-buttons" id="championbuttons" style="border-bottom:none">
 					<ul>
 						<a class="nav-button website-champ iframe-capable" id="champselect" data-name="champselect" data-url="http://www.championselect.net" target="_blank" href="http://www.championselect.net">
 							<li>
-								<span class="lol-image" style="background-position:0px -32px;"></span>Counters	
+								<span class="lol-image" style="background-position:0px -32px;"></span>Counters
 							</li>
 						</a>
 						<a class="nav-button website-champ iframe-capable" id="tsm" data-name="tsm" data-url="http://www.solomid.net" target="_blank" href="http://www.solomid.net">
@@ -353,50 +353,50 @@
 							</li>
 						</a>
 						<a class="nav-button website-champ iframe-capable" id="moba" data-name="moba" data-url="http://www.mobafire.com" target="_blank" href="http://www.mobafire.com">
-							<li>	
+							<li>
 									<span class="lol-image" style="background-position:-32px -32px;"></span>Mobafire
 							</li>
 						</a>
 						<a class="nav-button website-champ iframe-capable" id="builder" data-name="builder" data-url="http://www.lolbuilder.net" target="_blank" href="http://www.lolbuilder.net">
-							<li>	
+							<li>
 									<span class="lol-image" style="background-position:-144px 0px;"></span>LoLBuilder
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="lolpro" data-name="lolpro" data-url="http://www.lolpro.com" target="_blank" href="http://www.lolpro.com"> 
+						<a class="nav-button website-champ iframe-capable" id="lolpro" data-name="lolpro" data-url="http://www.lolpro.com" target="_blank" href="http://www.lolpro.com">
 							<li>
 								<span class="lol-image" style="background-position:-48px -32px;"></span>LoLPro
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="champgameguyz" data-name="champgameguyz" target="_blank" data-url="http://loldb.gameguyz.com/champions" href="http://loldb.gameguyz.com/champions" style="display:none"> 
+						<a class="nav-button website-champ iframe-capable" id="champgameguyz" data-name="champgameguyz" target="_blank" data-url="http://loldb.gameguyz.com/champions" href="http://loldb.gameguyz.com/champions" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-160px -16px;"></span>Champ GameGuyz
 							</li>
-						</a> 
-						<a class="nav-button website-champ iframe-capable" id="kingchamp" data-name="kingchamp" data-url="http://www.lolking.net/champions/" target="_blank" href="http://www.lolking.net/champions/">  
+						</a>
+						<a class="nav-button website-champ iframe-capable" id="kingchamp" data-name="kingchamp" data-url="http://www.lolking.net/champions/" target="_blank" href="http://www.lolking.net/champions/">
 							<li>
 								<span class="lol-image" style="background-position:-16px -16px;"></span>LoLKing Stats
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="elo" data-name="elo" data-url="http://www.elophant.com" target="_blank" href="http://www.elophant.com"> 
+						<a class="nav-button website-champ iframe-capable" id="elo" data-name="elo" data-url="http://www.elophant.com" target="_blank" href="http://www.elophant.com">
 							<li>
 								<span class="lol-image" style="background-position:-64px -32px;"></span>Elophant
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="wikichamp" data-name="wikichamp" target="_blank" data-url="http://leagueoflegends.wikia.com/wiki/" href="http://leagueoflegends.wikia.com/wiki/"> 
+						<a class="nav-button website-champ iframe-capable" id="wikichamp" data-name="wikichamp" target="_blank" data-url="http://leagueoflegends.wikia.com/wiki/" href="http://leagueoflegends.wikia.com/wiki/">
 							<li>
 								<span class="lol-image" style="background-position:-96px -16px;"></span>LoL Wiki
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="leaguepediachamp" data-name="leaguepediachamp" target="_blank" data-url="http://lol.gamepedia.com/Portal:Champions" href="http://lol.gamepedia.com/Portal:Champions"> 
+						<a class="nav-button website-champ iframe-capable" id="leaguepediachamp" data-name="leaguepediachamp" target="_blank" data-url="http://lol.gamepedia.com/Portal:Champions" href="http://lol.gamepedia.com/Portal:Champions">
 							<li>
 								<span class="lol-image" style="background-position:-96px -32px;"></span>Leaguepedia
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" id="inven" data-name="inven" target="_blank" data-url="http://lol.inven.co.kr/dataninfo/champion/" href="http://lol.inven.co.kr/dataninfo/champion/" style="display:none"> 
+						<a class="nav-button website-champ iframe-capable" id="inven" data-name="inven" target="_blank" data-url="http://lol.inven.co.kr/dataninfo/champion/" href="http://lol.inven.co.kr/dataninfo/champion/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-176px -32px;"></span>Inven
 							</li>
-						</a>  
+						</a>
 
 					</ul>
 				</div>
@@ -436,7 +436,7 @@
 
 					</li><li class="website-youtubesearch website-control" data-name="youtubesearch" data-id="youtubesearch">
 						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:0px -16px;"></span> YouTube <span class="add-website"></span>
-	
+
 					</li><li class="website-wikipedia website-control" data-name="wikipedia" data-id="wikipedia">
 						<span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:-16px 0px;"></span> Wikipedia <span class="add-website"></span>
 
@@ -457,26 +457,26 @@
 
 					</li><li class="website-youtube website-control" data-name="LoL Videos" data-id="youtube">
 						<span class="lol-image" style="background-position:0px 0px;"></span> LoL Videos <span class="remove-website"></span>
-					
+
 					</li><li class="website-twitch website-control" data-name="Streams" data-id="twitch">
 						<span class="lol-image" style="background-position:-32px 0px;"></span> Streams <span class="remove-website"></span>
-					
+
 					</li><li class="website-league website-control" data-name="LoL News" data-id="league">
 						<span class="lol-image" style="background-position:-48px 0px;"></span> LoL News <small>- Keep Updated</small>
 						<span class="add-website" ></span>
-					
+
 					</li><li class="website-reign website-control" data-name="RoG" data-id="reign">
 						<span class="lol-image" style="background-position:-64px 0px;"></span> RoG <small>- Keep Updated</small>
 						<span class="remove-website" ></span>
-					
+
 					</li><li class="website-ongamers website-control"  data-name="onGamers" data-id="ongamers">
 						<span class="lol-image" style="background-position:-64px -16px;"></span> onGamers <small>- Keep Updated</small>
 						<span class="remove-website"></span>
-					
+
 					</li><li class="website-surrender website-control" data-name="S@20" data-id="surrender">
 						<span class="lol-image" style="background-position:-80px -16px;"></span> SurrenderAt20 <small>- Keep Updated</small>
 						<span class="remove-website"></span>
-					
+
 					</li><li class="website-cloth website-control" data-name="Cloth5" data-id="cloth">
 						<span class="lol-image" style="background-position:-112px -16px;"></span> Cloth 5 <small>- Keep Updated</small>
 						<span class="remove-website"></span>
@@ -484,84 +484,84 @@
 					</li><li class="website-newslegend website-control" data-name="NewsOfLegends" data-id="newslegend">
 						<span class="lol-image" style="background-position:-176px -16px;"></span> NewsOfLegends <small>- Keep Updated</small>
 						<span class="add-website"></span>
-					
+
 					</li><li class="website-esex website-control" data-name="ESEx" data-id="esex">
 						<span class="lol-image" style="background-position:-112px -32px;"></span> ESEx <small>- Keep Updated</small>
 						<span class="add-website" ></span>
-					
+
 					</li><li class="website-in2 website-control" data-name="In2LoL" data-id="in2">
 						<span class="lol-image" style="background-position:-160px -32px;"></span> In2LoL <span class="add-website"></span>
-					
+
 					</li><li class="website-jungle website-control" data-name="Jungle Timer" data-id="jungle">
 						<span class="lol-image" style="background-position:-80px 0px;"></span> Jungle Timer <span class="remove-website" ></span>
-					
+
 					</li><li class="website-wikia website-control" data-name="LoL Wiki" data-id="wikia">
 						<span class="lol-image" style="background-position:-96px -16px;"></span> LoL Wiki <span class="add-website"></span>
-					
+
 					</li><li class="website-gamepedia website-control" data-name="Leaguepedia" data-id="gamepedia">
 						<span class="lol-image" style="background-position:-96px -32px;"></span> Leaguepedia <span class="remove-website"></span>
-					
+
 					</li><li class="website-nerfplz website-control" data-name="NerfPlz Tier List" data-id="nerfplz">
 						<span class="lol-image" style="background-position:-176px 0px;"></span> NerfPlz Tier List <span class="add-website"></span>
-					
+
 					</li><li class="website-esports website-control" data-name="LoL Esports" data-id="esports">
 						<span class="lol-image" style="background-position:-112px 0px;"></span> LoL Esports <span class="remove-website"></span>
-					
+
 					</li><li class="website-calendar website-control" data-name="Esports Calendar" data-id="calendar">
 						<span class="lol-image" style="background-position:-128px 0px;"></span> Esport Calendar <span class="add-website"></span>
-					
+
 					</li><li class="website-hell website-control" data-name="Elo Hell" data-id="hell">
 						<span class="lol-image" style="background-position:-144px -32px;"></span> Elo Hell <span class="add-website"></span>
-					
+
 					</li><li class="website-code website-control" data-name="Summoners Code" data-id="code">
 						<span class="lol-image" style="background-position:-144px -16px;"></span> SummonersCode <span class="add-website"></span>
-					
+
 					</li><li class="website-irc website-control" data-name="LoL IRC" data-id="irc">
 						<span class="lol-image" style="background-position:-160px 0px;"></span> LoL IRC <span class="add-website"></span>
-					
+
 					</li><li class="website-research website-control" data-name="LResearch" data-id="research">
-						<span class="lol-image" style="background-position:-128px -16px;"></span> LeagueResearch <span class="add-website"></span>	
+						<span class="lol-image" style="background-position:-128px -16px;"></span> LeagueResearch <span class="add-website"></span>
 					</li>
 				</ul>
 
 				<h3>Add a Website:</h3>
 				<div class="add-new-website" style="font-size: 0.8em;">
-				<ol style="color:#333"> 
+				<ol style="color:#333">
 				<li>Enter your website url and name and then press 'Test Website'. </li><li>If your website shows below, check the iframe compatible checkbox. If it doesn't show up, this means your website will open in a new tab when you click on it. </li><li>Next click 'Add website', and your website is available on the sidebar!</li> </ol>
 					<input type="text" class="user-website-url" placeholder="Website Url (include the http://)" style="width:250px;">
 					<input type="text" class="user-website-name" placeholder="Website Name" style="width:150px;">
 					<input type="submit" value="Test Website" class="test-user-website">
 					<input type="checkbox" class="user-website-iframe" name="vehicle" checked="checked" value="yes"> iFrame compatitible.
-					
+
 					<input type="submit" value="Add Website" class="add-user-website">
 					<div class="iframe-tester">
-						
+
 					</div>
 				</div>
-				
+
 				<h3>Summoner Websites</h3>
 				<ul id="summoner-websites">
 					<li class="website-king website-control" data-name="LoLKing" data-id="king">
 						<span class="lol-image" style="background-position:-16px -16px;"></span> LolKing <span class="remove-website"></span>
-					
+
 					</li><li class="website-nexus website-control" data-name="Nexus" data-id="nexus">
 						<span class="lol-image" style="background-position:0px -16px;"></span> LolNexus <span class="remove-website"></span>
-					
+
 					</li><li class="website-gg website-control" data-name="OP GG" data-id="gg">
 						<span class="lol-image" style="background-position:-48px -16px;"></span> OP GG <span class="remove-website"></span>
-					
+
 					</li><li class="website-now website-control"  data-name="LoLKing Now" data-id="now">
 						<span class="lol-image" style="background-position:-16px -16px;"></span> LolKingNow <span class="remove-website"></span>
-					
+
 					</li><li class="website-summoning website-control"  data-name="Summoning"  data-id="summoning">
 						<span class="lol-image" style="background-position:-128px -32px;"></span> Summoning <span class="remove-website"></span>
-					
+
 					</li><li class="website-skill website-control" data-name="LoLSkill" data-id="skill">
 						<span class="lol-image" style="background-position:-96px 0px;"></span> LoLSkill <span class="remove-website"></span>
-					
+
 					</li><li class="website-kassad website-control"  data-name="Kassad.In"  data-id="kassad">
 						<span class="lol-image" style="background-position:-32px -16px;"></span> Kassad.In <span class="add-website"></span>
-					
+
 					</li><li class="website-summonergameguyz website-control" data-name="Summoner GameGuyz"  data-id="summonergameguyz">
 						<span class="lol-image" style="background-position:-160px -16px;"></span> Summoner GameGuyz <span class="add-website"></span>
 					</li>
@@ -571,31 +571,31 @@
 				<ul id="champ-websites" style="margin-bottom: 30px;">
 					<li class="website-champselect website-control" data-name="Counters" data-id="champselect">
 						<span class="lol-image" style="background-position:0px -32px;"></span> Counters <span class="remove-website"></span>
-					
+
 					</li><li class="website-tsm website-control" data-name="SoloMid" data-id="tsm">
 						<span class="lol-image iframe-capable" style="background-position:-16px -32px;"></span> SoloMid <span class="remove-website"></span>
-					
+
 					</li><li class="website-probuilds website-control"  data-name="ProBuilds"  data-id="probuilds">
 						<span class="lol-image iframe-capable" style="background-position:-80px -32px;"></span> ProBuilds <span class="remove-website"></span>
-					
+
 					</li><li class="website-moba website-control" data-name="Mobafire" data-id="moba" >
 						<span class="lol-image" style="background-position:-32px -32px;"></span> Mobafire <span class="remove-website"></span>
-					
+
 					</li><li class="website-builder website-control" data-name="LoLBuilder" data-id="builder">
 						<span class="lol-image" style="background-position:-144px 0px;"></span> LoLBuilder <span class="remove-website"></span>
-					
+
 					</li><li class="website-lolpro website-control"  data-name="LoLPro"  data-id="lolpro">
 						<span class="lol-image" style="background-position:-48px -32px;"></span> LoLPro <span class="remove-website"></span>
-					
+
 					</li><li class="website-champgameguyz website-control" data-name="GameGuyz Champ" data-id="champgameguyz">
 						<span class="lol-image" style="background-position:-160px -16px;"></span> GameGuyz Champ <span class="add-website"></span>
-					
+
 					</li><li class="website-kingchamp website-control"  data-name="LoLKing Stats"  data-id="kingchamp">
 						<span class="lol-image" style="background-position:-16px -16px;"></span> LolKing Stats <span class="remove-website"></span>
-					
+
 					</li><li class="website-elo website-control"  data-name="Elophant"  data-id="elo">
 						<span class="lol-image" style="background-position:-64px -32px;"></span> Elophant <span class="remove-website"></span>
-					
+
 					</li><li class="website-wikichamp website-control"  data-name="LoL Wiki"  data-id="wikichamp">
 						<span class="lol-image" style="background-position:-96px -16px;"></span> LoLWiki <span class="remove-website"></span>
 
@@ -604,7 +604,7 @@
 
 					</li><li class="website-inven website-control"  data-name="Inven"  data-id="inven">
 						<span class="lol-image" style="background-position:-176px -32px;"></span> Inven <span class="add-website"></span>
-					
+
 					</li>
 				</ul>
 
@@ -619,8 +619,8 @@
 						<table class="settings-table">
 							<tr class="settings-odd">
 								<td style="width:115px">
-									<select class="ezHomePage">	
-										
+									<select class="ezHomePage">
+
 									</select>
 								</td>
 								<td>2ez.gg homepage. (no Internet Explorer support yet).</td>
@@ -671,8 +671,8 @@
 							</tr>
 						</table>
 					</div>
-					
-					<div class="settings-holder">		
+
+					<div class="settings-holder">
 						<h3>Search Settings (Google, YouTube etc.)</h3>
 						<table class="settings-table">
 							<tr class="settings-odd">
@@ -771,7 +771,7 @@
 							</tr>
 						</table>
 					</div>
-					
+
 					<div class="settings-holder">
 						<h3>Champion Search Settings</h3>
 						<table class="settings-table">
@@ -834,7 +834,7 @@
 							</tr>
 						</table>
 					</div>
-					<div class="settings-holder">	
+					<div class="settings-holder">
 						<h3>Misc Settings</h3>
 						<table class="settings-table">
 							<tr class="settings-odd">
@@ -854,7 +854,7 @@
 									</select>
 								</td>
 								<td><strong>Smart enter key</strong> (if you press the 'enter' key in the summoner name or champion name field while you have a relevent website open, it will automatically reload the currently opened website).</td>
-							</tr>	
+							</tr>
 							<tr class="settings-odd">
 								<td style="width:115px">
 									<select class="redditNewTab">
@@ -866,8 +866,8 @@
 							</tr>
 						</table>
 					</div>
-					
-					
+
+
 				<div style="width:100%;display:block;margin-top: 10px;"><input type="submit" class="settings-update" value="Update Settings" style="margin-left: 2.5%;"></div>
 
 				<p style="margin-top:40px;margin-bottom:20px">
@@ -885,7 +885,7 @@
 				<div id="top-reddit-offline-message" style="display:none;">
 					RedditJS appears to be having some problems - so we've temporarily reverted back to the old reddit while we get it online.
 				</div>
-			<div style="margin-left: 15px;margin-top: -97px;"> 
+			<div style="margin-left: 15px;margin-top: -97px;">
 
 				<div id="mobile-reddit-options">
 					<select class="dropdown-subreddit">
@@ -914,7 +914,7 @@
 
 						<span class="subreddit-setting subreddit-loleventvods" data-subreddit="loleventvods" data-type="hot">r/LoLeventVoDs</span>
 						<span class="subreddit-setting subreddit-summonerschool" data-subreddit="summonerschool" data-type="hot">r/summonerschool</span>
-						</a>				
+						</a>
 
 					</div>
 					<div id="reddit-options" style="margin-top:53px">
@@ -957,7 +957,7 @@
 									<div class="reddit-author">Submitted <span data-livestamp="{{created}}"></span> by <a href="http://reddit.com/user/{{author}}" style="font-weight:bold">{{author}}</a>
 										{{#if authorFlair}}
 											<span class="flair flair-{{authorFlair}}" title=""></span>
-										{{/if}}	
+										{{/if}}
 									</div>
 
 									<div class="reddit-comments"><a href="http://www.reddit.com{{permalink}}">{{commentsTotal}} Comments</a></div>
@@ -974,7 +974,7 @@
 									</div>
 
 								</div>
-						</div>	
+						</div>
 					</div>
 				</script>
 
@@ -1032,7 +1032,7 @@
 								<span class="youtube-rank">{{videoRank}}</span>
 								<span class="youtube-score">{{score}}</span>
 								<span class="youtube-title"><a href="{{url}}" target="_blank">{{{title}}}</a></span>
-							</div> 
+							</div>
 							<div class="video-container">
 								<iframe width="560" height="315" src="{{videoEmbed}}" frameborder="0" allowfullscreen></iframe>
 
@@ -1084,7 +1084,7 @@
 
 
 				<div class="twitch-sidebar clear">
-						<script id="twitch-users-online-template" type="text/x-handlebars-template">	
+						<script id="twitch-users-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
 									<div>
 										<img src="{{thumbnailUrl}}" class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="favourite" style="width:100%"/>
@@ -1094,7 +1094,7 @@
 									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
 								</div>{{/each}}
 						</script>
-						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">	
+						<script id="twitch-user-favourited-online-template" type="text/x-handlebars-template">
 
 								<div class="twitch-name">
 									<div>
@@ -1107,7 +1107,7 @@
 
 						</script>
 
-						<script id="azubu-users-online-template" type="text/x-handlebars-template">	
+						<script id="azubu-users-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
 									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
 										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
@@ -1117,7 +1117,7 @@
 								</div>{{/each}}
 						</script>
 
-						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">	
+						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">
 
 								<div class="twitch-name">
 									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
@@ -1128,20 +1128,20 @@
 
 						</script>
 
-						<script id="twitch-add-user-online-template" type="text/x-handlebars-template">	
+						<script id="twitch-add-user-online-template" type="text/x-handlebars-template">
 
 								<div class="twitch-name">{{name}}
 									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
 								</div>
 
 						</script>
-						<script id="twitch-users-offline-template" type="text/x-handlebars-template">	
+						<script id="twitch-users-offline-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name" style="border-right: 1px solid black">
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
 								</div>{{/each}}
 						</script>
-						<script id="azubu-users-offline-template" type="text/x-handlebars-template">	
+						<script id="azubu-users-offline-template" type="text/x-handlebars-template">
 							{{#each this}}
 								<div class="twitch-name" style="border-right: 1px solid black">
 									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">{{name}}</a>
@@ -1149,13 +1149,13 @@
 								</div>
 							{{/each}}
 						</script>
-						<script id="twitch-top-online-template" type="text/x-handlebars-template">	
+						<script id="twitch-top-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
 									<img src="{{thumbnailUrl}}"  class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="top" style="width:100%"/>
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="viewer-numbers tooltip-viewers" title="viewers">{{viewTotal}}</span>
 									{{#if isAlreadyAdded}}
-										<span class="favourited-streamer tooltip-left" title="You have this streamer favourited">&#60;3</span>	
+										<span class="favourited-streamer tooltip-left" title="You have this streamer favourited">&#60;3</span>
 									{{else}}
 										<a class="add-top-champ tooltip-left" data-id="{{id}}" data-name="{{name}}" title="Add streamer to favourites">
 											[+]
@@ -1163,12 +1163,12 @@
 									{{/if}}
 								</div>{{/each}}
 						</script>
-						<script id="azubu-top-online-template" type="text/x-handlebars-template">	
+						<script id="azubu-top-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
 								<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
 								<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}</a>
 									{{#if isAlreadyAdded}}
-										<span class="favourited-streamer tooltip-left"  title="You have this streamer favourited">&#60;3</span>	
+										<span class="favourited-streamer tooltip-left"  title="You have this streamer favourited">&#60;3</span>
 									{{else}}
 										<a class="add-top-champ tooltip-left" data-count="{{count}}" data-name="{{id}}" title="Add streamer to your favourites">
 										[+]
@@ -1191,10 +1191,10 @@
 									</p>
 								</span>
 				 		</div>
-						<div id="stream-favourite-list" style="margin-right:1%">			
+						<div id="stream-favourite-list" style="margin-right:1%">
 							<div class="streamers-header header-favourite">Favourites Online</div>
 							<div id="twitch-list-online"></div>
-							<div id="azubu-list-online"></div>			
+							<div id="azubu-list-online"></div>
 						</div>
 						<div id="stream-top-list" style="margin-right:1%">
 							<div class="streamers-header header-top-online">Top Streamers Online</div>
@@ -1204,19 +1204,15 @@
 				 		<div id="stream-offline-list" style="margin-right:1%">
 							<div class="streamers-header header-offline">Favourites Offline</div>
 							<div id="twitch-list-offline">	</div>
-
-							<div id="azubu-list-offline">	</div>	
-				 		</div>
-
-		  			</div>
-
+						  <div id="azubu-list-offline">	</div>
+				    </div>
+		  		</div>
 				</div>
-
-
 			</div>
 		</div>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+		<!-- let's try to get requirejs setup; make this all cleaner -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 		<script src="assets/js/retina.js"></script>
 		<script src="assets/js/perfect-scrollbar.js"></script>
 		<script src="assets/js/jquery-ui.js"></script>
@@ -1224,7 +1220,8 @@
 		<script src="assets/js/livestamp.js"></script>
 		<script src="assets/js/tipsy.js"></script>
 		<script src="assets/js/handlebars.js"></script>
-		<script src="assets/js/master.js"></script>
+		<script src="assets/js/2ezgg.js"></script>
+
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -1237,12 +1234,9 @@
 
 		<script>
 		// update the advertisement every 2 minutes
-		 setInterval(function(){
-		 	$('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
-		 }, 1000*60*1.5);
-
-
-
+		setInterval(function(){
+		  $('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+		}, 1000*60*1.5);
 		</script>
 	</body>
 </html>
