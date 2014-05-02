@@ -3,23 +3,21 @@ $('#settings-content').on('click','.add-website', function(){
   $this.removeClass('add-website');
   $this.addClass('remove-website');
   $('#'+$this.parent().data('id')).css('display','block');
-
-
   var notAdded = true;
-  var totalSettingsLength = league.pageChange.length;
+  var totalSettingsLength = web.pageChange.length;
   for(var i =0; i<totalSettingsLength; i++){
-    if(league.pageChange[i].id == $this.parent().data('id')){
-      league.pageChange[i].display = 'inline-block';
+    if(web.pageChange[i].id == $this.parent().data('id')){
+      web.pageChange[i].display = 'inline-block';
       notAdded = false;
     }
   }
   if (notAdded){
-    league.pageChange[totalSettingsLength] = {
+    web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
       display : 'inline-block',
     }
   }
-  localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+  localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   setTimeout(function(){
     $('#'+$this.parent().data('id')).css('display','inline-block');
   }, 300);
@@ -33,28 +31,28 @@ $('#settings-content').on('click','.remove-website', function(){
   $('#'+$this.parent().data('id')).css('display','none');
 
   var notAdded = true;
-  var totalSettingsLength = league.pageChange.length;
+  var totalSettingsLength = web.pageChange.length;
   for(var i =0; i<totalSettingsLength; i++){
-    if(league.pageChange[i].id == $this.parent().data('id')){
-      league.pageChange[i].display = 'none';
+    if(web.pageChange[i].id == $this.parent().data('id')){
+      web.pageChange[i].display = 'none';
       notAdded = false;
     }
   }
   if (notAdded){
-    league.pageChange[totalSettingsLength] = {
+    web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
       display : 'none',
     }
   }
-  localStorage.setItem('pageChange', JSON.stringify(league.pageChange));
+  localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   web.testIfSearchShouldBeShown();
 });
 
 $('.add-user-website').on('click', function(){
-  var totalPages = league.pageAdd.length
-  var previousEntry = (totalPages>0)?((league.pageAdd[totalPages-1].id)+1):totalPages;
+  var totalPages = web.pageAdd.length
+  var previousEntry = (totalPages>0)?((web.pageAdd[totalPages-1].id)+1):totalPages;
   var iframeResult = $('.user-website-iframe').is(':checked')?true:false;
-  league.pageAdd[totalPages] = {
+  web.pageAdd[totalPages] = {
     name: $('.user-website-name').val(),
     id: previousEntry,
     href: $('.user-website-url').val(),
@@ -65,10 +63,10 @@ $('.add-user-website').on('click', function(){
   }
 
   if(iframeResult){
-    league.pageAdd[totalPages].iframe = true;
+    web.pageAdd[totalPages].iframe = true;
   }
 
-  localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+  localStorage.setItem('pageAdd', JSON.stringify(web.pageAdd));
   localStorage.setItem('idList', JSON.stringify(idList));
 
   $('.iframe-tester').html('');
@@ -76,13 +74,12 @@ $('.add-user-website').on('click', function(){
   $('.user-website-url').val('');
 
   var addWebsite = Handlebars.compile($('#new-website-template').html());
-  $("#miscbuttons ul").append( addWebsite(league.pageAdd[totalPages]));
+  $("#miscbuttons ul").append( addWebsite(web.pageAdd[totalPages]));
 
   var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
-  $("#general-websites").append( addWebsiteSettings(league.pageAdd[totalPages]));
+  $("#general-websites").append( addWebsiteSettings(web.pageAdd[totalPages]));
 
   web.setSettings();
-
 });
 
 $('.test-user-website').on('click', function(){
@@ -94,17 +91,16 @@ $('.test-user-website').on('click', function(){
 
 $('#settings-content').on('click','.remove-user-website', function(){
   var $this = $(this);
-  $this.parent().fadeOut();
-  $('#'+$this.parent().data('id')).css('display','none');
+  $('#'+$this.parent().data('id')).remove();
 
   var index;
-  for (var i = 0; i<league.pageAdd.length; i++){
-    if(league.pageAdd[i].id == $this.parent().data('id')){
+  for (var i = 0; i<web.pageAdd.length; i++){
+    if(web.pageAdd[i].id == $this.parent().data('id')){
       index = i;
     }
   }
   if(index>-1){
-    league.pageAdd.splice(index,1);
+    web.pageAdd.splice(index,1);
   }
 
   var index2
@@ -117,9 +113,10 @@ $('#settings-content').on('click','.remove-user-website', function(){
     idList.general.splice(index2,1);
   }
 
-  localStorage.setItem('pageAdd', JSON.stringify(league.pageAdd));
+  localStorage.setItem('pageAdd', JSON.stringify(web.pageAdd));
   localStorage.setItem('idList', JSON.stringify(idList));
   web.setSettings();
+  $this.parent().fadeOut().remove();
 });
 
 var $sortableAreas = $("#search-websites, #general-websites, #summoner-websites, #champ-websites");

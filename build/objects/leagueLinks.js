@@ -1,76 +1,24 @@
 function LeagueLinks(){
 
-  if(typeof(Storage)!=="undefined"){
     this.name = this.getUrlParams('name') || localStorage.getItem('name') || '';
     this.server = this.getUrlParams('server') || localStorage.getItem('server') || 'na';
     this.champ = this.getUrlParams('champ') || localStorage.getItem('champ') || '';
-    this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
-    this.pageAdd = JSON.parse(localStorage.getItem('pageAdd')) || [];
     this.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
     this.oldDate = localStorage.getItem('date') || 0;
     this.oldDate = parseInt(this.oldDate);
     localStorage.setItem('date', Date.now());
-  } else {
-    this.pageChange = [];
-    this.pageAdd = [];
-    this.name;
-    this.server;
-    this.champ;
-    this.rssFeeds = [];
-  }
-
-  if(this.pageChange.length>0){
-    var inlineBlockArray = [];
-
-    for(var z = 0; z < this.pageChange.length; z++){
-
-      if(this.pageChange[z].display=='none'){
-        $('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
-        $('#'+this.pageChange[z].id).css('display','none');
-      } else {
-        $('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
-        $('#'+this.pageChange[z].id).css('display','block');
-        inlineBlockArray.push(z);
-      }
-    }
-
-    var that = this;
-    function looperDooper(){
-      for (var y = 0; y < inlineBlockArray.length; y++){
-        $('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
-      }
-    }
-
-    setTimeout(function(){
-      looperDooper();
-    }, 200);
-
-  }
-
-
-  if(this.pageAdd.length>0){
-    var self = this;
-    var addWebsite = Handlebars.compile($('#new-website-template').html());
-    var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
-
-    for(var y = 0; y < this.pageAdd.length; y++){
-      $("#miscbuttons ul").append( addWebsite(self.pageAdd[y]));
-      $("#general-websites").append( addWebsiteSettings(self.pageAdd[y]));
-    }
-  }
-
+    
 
   if (this.name) {
     $(".name").val(this.name);
     $(".server").val(this.server);
-
     this.nameLink();
   }
+
   if (this.champ) {
     $(".champ").val(this.champ);
     this.champLink();
   }
-
 };
 
 LeagueLinks.prototype.getUrlParams = function( name ){
@@ -202,6 +150,8 @@ LeagueLinks.prototype.nameLink = function(){
       item.attr("href","http://www.lolskill.net/game-" + this.server + "-" + this.name);
     } else if (webData == 'summonergameguyz'){
       item.attr("href","http://loldb.gameguyz.com/analyze/search?search_text="+this.name+"&c_server=1_10_6_2_3_4_5_7_8_9");
+    } else if (webData == 'phant'){
+      item.attr("href","http://www.elophant.com/league-of-legends/search?query="+this.name+"&region="+this.server);
     }
   }
 }

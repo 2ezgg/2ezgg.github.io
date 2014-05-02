@@ -5,6 +5,48 @@ function WebInterface(){
   this.redditStyleSheet = false;
   this.tabSystemProcessed = 0;
   this.homePageAccessed = false;
+  
+  this.pageChange = JSON.parse(localStorage.getItem('pageChange')) || [];
+  this.pageAdd = JSON.parse(localStorage.getItem('pageAdd')) || [];
+
+  if(this.pageChange.length>0){
+    var inlineBlockArray = [];
+
+    for(var z = 0; z < this.pageChange.length; z++){
+
+      if(this.pageChange[z].display=='none'){
+        $('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
+        $('#'+this.pageChange[z].id).css('display','none');
+      } else {
+        $('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
+        $('#'+this.pageChange[z].id).css('display','block');
+        inlineBlockArray.push(z);
+      }
+    }
+
+    var that = this;
+    function changeToInline(){
+      for (var y = 0; y < inlineBlockArray.length; y++){
+        $('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
+      }
+    }
+
+    setTimeout(function(){
+      changeToInline();
+    }, 200);
+  }
+
+
+  if(this.pageAdd.length>0){
+    var self = this;
+    var addWebsite = Handlebars.compile($('#new-website-template').html());
+    var addWebsiteSettings = Handlebars.compile($('#remove-website-template').html());
+
+    for(var y = 0; y < this.pageAdd.length; y++){
+      $("#miscbuttons ul").append( addWebsite(self.pageAdd[y]));
+      $("#general-websites").append( addWebsiteSettings(self.pageAdd[y]));
+    }
+  }
 }
 
 WebInterface.prototype.hashWithoutParams = function(totalUrl){
