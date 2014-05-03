@@ -19,6 +19,14 @@ Enter your summoner name and server or champion and click a link directly below 
 
 You can change the settings of 2ez.gg by clicking on the settings tab up the top. 
 
+Development
+==============
+Here's our public trello board - https://trello.com/b/lBoZlT4v/2ez-gg-todo
+
+How to run tests
+* Add 'chromedriver' to your environment path
+* Start 'selenium-server-standalone***.jar'
+* Run tests via command 'mocha testFile.js'
 
 Future Changes
 ==============
