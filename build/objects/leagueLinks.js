@@ -33,7 +33,7 @@ LeagueLinks.prototype.getUrlParams = function( name ){
   }
 }
 
-LeagueLinks.prototype.account = function(nameUpdate,serverUpdate, stopReplacement){
+LeagueLinks.prototype.account = function(nameUpdate, serverUpdate, stopReplacement){
   if(nameUpdate != null){
     this.name = nameUpdate;
     if(!stopReplacement || (stopReplacement && localStorage.getItem('name') == null)){
@@ -61,8 +61,7 @@ LeagueLinks.prototype.champion = function(champUpdate){
     this.champ = champUpdate;
     localStorage.setItem('champ',this.champ);
   }
-
-
+  
   if (this.champ) {
     $(".champ").val(this.champ);
     this.champLink();
@@ -126,14 +125,22 @@ LeagueLinks.prototype.nameLink = function(){
           this.name + "&server=" + this.server
         );
     }  else if (webData == 'kassad'){
+      var kassadName = this.server;
+      if (this.server == 'eune'){
+        kassadName = 'eun';
+      } else if(this.server == 'oce'){
+        kassadName = 'oc';
+      } else if(this.server == 'cn'){
+        kassadName = 'china-ionia-1';
+      } 
       item.attr("href","http://quickfind.kassad.in/profile/" +
-            this.kassadServerName() + "/"
+            kassadName + "/"
             + this.name + "/"
           );
     } else if (webData == 'now'){
       item.attr("href","http://www.lolking.net/now/"+this.server+"/"+this.name);
     } else if(webData == 'summoning'){
-      item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name)
+      item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name);
     }
     else if (webData == 'king'){
       item.attr("href","http://www.lolking.net/search?name="+this.name+"&region="+this.server);
@@ -404,18 +411,6 @@ LeagueLinks.prototype.dropDownTemplate = function(input){
       }
       $("#champ-drop").html( template(matchingChampInfo) );
     }
-  }
-}
-
-LeagueLinks.prototype.kassadServerName = function(){
-  if (this.server == 'eune'){
-    return 'eun';
-  } else if(this.server == 'oce'){
-    return 'oc';
-  } else if(this.server == 'cn'){
-    return 'china-ionia-1';
-  } else {
-    return this.server;
   }
 }
 
