@@ -139,6 +139,7 @@ $(".name").on('keydown', function(e){
 
 $(".server").on('change', function(){
   league.account($(".name").val(), $(".server").val());
+  league.lolWebsiteLocation(true);
     $(".website-name li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
                   .animate({'opacity':'1'},120)
                   .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){

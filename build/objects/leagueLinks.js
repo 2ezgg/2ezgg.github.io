@@ -8,6 +8,8 @@ function LeagueLinks(){
     this.oldDate = parseInt(this.oldDate);
     localStorage.setItem('date', Date.now());
     
+    this.lolNewsServer = '';
+    this.lolWebsiteLocation(true);
 
   if (this.name) {
     $(".name").val(this.name);
@@ -414,6 +416,16 @@ LeagueLinks.prototype.dropDownTemplate = function(input){
   }
 }
 
+LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
+	this.lolNewsServer = this.server;
+	if(this.lolNewsServer != 'euw' && this.lolNewsServer != 'eune' && this.lolNewsServer != 'oce' && this.lolNewsServer != 'br' && this.lolNewsServer != 'tr' && this.lolNewsServer != 'ru' && this.lolNewsServer != 'lan' && this.lolNewsServer != 'las'){
+		this.lolNewsServer = 'na';
+	}
+	if(changeWebsite){
+		$('#league').attr('href','http://'+this.lolNewsServer+".leagueoflegends.com/news");
+	}
+}
+
 LeagueLinks.prototype.rssAlerts = function(pageRssId){
 
   var rssDeferred = $.Deferred();
@@ -422,7 +434,7 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
   var index;
 
   if(pageRssId == 'league'){
-    websiteUrl = "http://na.leagueoflegends.com/en/rss.xml";
+    websiteUrl = "http://"+this.lolNewsServer+".leagueoflegends.com/rss.xml";
     index = 0;
   } else if (pageRssId == 'reign'){
     websiteUrl = "http://www.reignofgaming.net/news.rss";
