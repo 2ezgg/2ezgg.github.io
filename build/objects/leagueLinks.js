@@ -7,7 +7,7 @@ function LeagueLinks(){
     this.oldDate = localStorage.getItem('date') || 0;
     this.oldDate = parseInt(this.oldDate);
     localStorage.setItem('date', Date.now());
-    
+
     this.lolNewsServer = '';
     this.lolWebsiteLocation(true);
 
@@ -63,7 +63,7 @@ LeagueLinks.prototype.champion = function(champUpdate){
     this.champ = champUpdate;
     localStorage.setItem('champ',this.champ);
   }
-  
+
   if (this.champ) {
     $(".champ").val(this.champ);
     this.champLink();
@@ -134,7 +134,7 @@ LeagueLinks.prototype.nameLink = function(){
         kassadName = 'oc';
       } else if(this.server == 'cn'){
         kassadName = 'china-ionia-1';
-      } 
+      }
       item.attr("href","http://quickfind.kassad.in/profile/" +
             kassadName + "/"
             + this.name + "/"
@@ -182,7 +182,11 @@ LeagueLinks.prototype.champLink = function(){
     if (webData == 'champselect'){
       item.attr('href','http://www.championselect.net/champ/' + spaceAndDashChamp);
     } else if (webData == 'kingchamp'){
-      item.attr('href','http://www.lolking.net/champions/' + onlyLettersChamp);
+      if(onlyLettersChamp == 'wukong'){
+        item.attr('href','http://www.lolking.net/champions/monkeyking');
+      }else{
+        item.attr('href','http://www.lolking.net/champions/' + onlyLettersChamp);
+      }
     } else if (webData == 'tsm'){
       item.attr('href','http://www.solomid.net/guide?champ=' + onlyLettersChamp);
     } else if (webData == 'probuilds'){
