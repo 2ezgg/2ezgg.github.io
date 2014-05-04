@@ -26,9 +26,9 @@ Here's our public trello board - https://trello.com/b/lBoZlT4v/2ez-gg-todo
 How to run tests
 * Add 'chromedriver' in /test to your environment path
 * Start selenium server 'java -jar selenium-server-standalone***.jar'
-* Open the test file you plan to run, e.g. championGuideTests.js
+* Open the test file you plan to run, e.g. championGuideFuncTests.js
 * Point appUrl variable to your 2ez.gg development instance (can be offline file or web/hosted)
-* Run tests via command 'mocha championGuideTests.js'
+* Run tests via command 'mocha championGuideFuncTests.js'
 
 Future Changes
 ==============

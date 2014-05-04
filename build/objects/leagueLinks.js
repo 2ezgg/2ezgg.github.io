@@ -142,23 +142,21 @@ LeagueLinks.prototype.nameLink = function(){
     } else if (webData == 'now'){
       item.attr("href","http://www.lolking.net/now/"+this.server+"/"+this.name);
     } else if(webData == 'summoning'){
-      item.attr("href", "http://summoning.net/v1/lyralei/"+this.server+"/"+this.name);
+      item.attr("href", "http://www.summoning.net/v1/lyralei/"+this.server+"/"+this.name);
     }
     else if (webData == 'king'){
       item.attr("href","http://www.lolking.net/search?name="+this.name+"&region="+this.server);
 
     } else if (webData == 'gg'){
-      var ggServer;
+      var ggServer='.';
       if (this.server == 'na' || this.server == 'euw' || this.server == 'eune' || this.server == 'oce' || this.server == 'br' || this.server == 'tr' || this.server == 'ru' || this.server == 'lan' || this.server == 'las'){
-        ggServer = this.server;
-      } else {
-        ggServer = 'www';
+        ggServer = ggServer+this.server+'.';
       }
-      item.attr("href","http://" + ggServer + ".op.gg/summoner/userName=" + this.name);
+      item.attr("href","http://www" + ggServer + "op.gg/summoner/userName=" + this.name);
     } else if (webData == 'skill'){
       item.attr("href","http://www.lolskill.net/game-" + this.server + "-" + this.name);
     } else if (webData == 'summonergameguyz'){
-      item.attr("href","http://loldb.gameguyz.com/analyze/search?search_text="+this.name+"&c_server=1_10_6_2_3_4_5_7_8_9");
+      item.attr("href","http://www.loldb.gameguyz.com/analyze/search?search_text="+this.name+"&c_server=1_10_6_2_3_4_5_7_8_9");
     } else if (webData == 'phant'){
       item.attr("href","http://www.elophant.com/league-of-legends/search?query="+this.name+"&region="+this.server);
     }
