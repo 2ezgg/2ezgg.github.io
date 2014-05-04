@@ -6,6 +6,7 @@ var webdriverjs = require('webdriverjs'),
   1) set appURL to point to an instance of app
   2) make sure jquery can be loaded if you point to a file/offline instance
   3) make sure all summoner websites are enabled in 2ez.gg settings
+  4) set usernameToTest variable
 */
 var appUrl = 'file:///Users/Jake/Desktop/dev/2ezgg.github.io/index.html';
 
@@ -23,7 +24,7 @@ describe('Summoner Lookups - ', function(){
   it('Checks each region in dropdown, and validates each generated URL',function(done) {
     client
       .url(appUrl)
-      .setValue('.name', 'Best Behe NA', function(err, result){})
+      .setValue('.name', usernameToTest, function(err, result){})
       .click('.server', function(err, result){})
       .getAttribute('.server', 'length', function(err, result){
         for(var i=0;i<result;i++){
@@ -47,7 +48,7 @@ describe('Summoner Lookups - ', function(){
                   if(server !== 'kr' && server !== 'cn' && server !== 'tw' && server !== 'sea'){
                     fixedForOp = server+'.';
                   }
-                  var correct = 'http://www.'+fixedForOp+'op.gg/summoner/userName='+encodeURIComponent(usernameToTest);
+                  var correct = 'http://'+fixedForOp+'op.gg/summoner/userName='+encodeURIComponent(usernameToTest);
                   console.log(result + '===' + correct);
                   assert(result === correct);
                 })
@@ -87,15 +88,15 @@ describe('Summoner Lookups - ', function(){
                   assert(result === correct);
                 })
                 .getAttribute('#summonergameguyz','href', function(err, result){
-                  var correct = 'http://www.loldb.gameguyz.com/analyze/search?search_text='+encodeURIComponent(usernameToTest)+'&c_server=1_10_6_2_3_4_5_7_8_9';
+                  var correct = 'http://loldb.gameguyz.com/analyze/search?search_text='+encodeURIComponent(usernameToTest)+'&c_server=1_10_6_2_3_4_5_7_8_9';
                   console.log(result + '===' + correct);
                   assert(result === correct);
                   console.log("============End of "+server+" Region===============");
                 });
           });
         }
-      })
-      .call(done);
+      });
+      client.call(done);
     });
 
     after(function(done) {
