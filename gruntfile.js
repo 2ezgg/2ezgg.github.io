@@ -10,7 +10,9 @@ module.exports = function(grunt){
 		    },
 		    js: {
           files: [
+            'build/data/championList.js',
             'build/config/config.js',
+            'build/objects/linkFactory.js',
             'build/objects/leagueLinks.js',
             'build/objects/redditLol.js',
             'build/objects/streamChannels.js',
@@ -56,7 +58,9 @@ module.exports = function(grunt){
 			  build:  {
 			    files: {
 			      'assets/js/2ezgg.js': [
+              'build/data/championList.js',
               'build/config/config.js',
+              'build/objects/linkFactory.js',
               'build/objects/leagueLinks.js',
               'build/objects/redditLol.js',
               'build/objects/streamChannels.js',

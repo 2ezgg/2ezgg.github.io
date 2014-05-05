@@ -189,8 +189,8 @@ $champ.on('keyup', function(e){
 
     league.champion($champInputValue);
 
-    for(var i = 0; i<league.championList.length; i++){
-      if(league.championList[i].name.match(comparisonChamp) && (league.championList[i].name.length == $champInputValue.length)){
+    for(var i = 0; i<ChampionList.length; i++){
+      if(ChampionList[i].name.match(comparisonChamp) && (ChampionList[i].name.length == $champInputValue.length)){
         $("#champ-drop .champ-list-entry").css({"background-color" : "#666",
           "border" : "2px solid black"});
         clearTimeout(timerName);
