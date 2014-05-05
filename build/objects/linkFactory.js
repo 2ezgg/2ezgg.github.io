@@ -18,6 +18,8 @@ function LinkFactory(){
   this.BingWebQuery = "http://www.bing.com/search?q=";
   this.WikipediaQuery = "http://wikipedia.org/wiki/";
   this.WolframAlphaQuery = "http://www.wolframalpha.com/input/?i=";
+  this.GoogleApiRssQuery = "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=";
+  this.OfficialLolNews = ".leagueoflegends.com/news";
 
   /*
     URL Parameters
@@ -33,19 +35,19 @@ function LinkFactory(){
   this.LolKingChampSearch = this.LolKing+"/champions/";
   this.LolKingSearch = this.LolKing+"/search?";
 
-  this.LolKingNow = "http://www.lolking.net/now/";
+  this.LolKingNow = "http://www.lolking.net/now";
 
   this.LolNexus = "http://www.lolnexus.com";
-  this.LolNexusSearch = "/search?";
+  this.LolNexusSearchEnd = "/search?";
 
   this.LolSkill = "http://www.lolskill.net";
   this.LolSkillSearch = this.LolSkill + "/game-";
 
   this.Summoning = "http://www.summoning.net";
-  this.SummoningSearch = this.Summoning+"/v1/lyralei/";
+  this.SummoningSearch = this.Summoning+"/v1/lyralei";
 
   this.Kassad = "http://quickfind.kassad.in";
-  this.KassadSearch = this.KassadBase+"/profile/";
+  this.KassadSearch = this.Kassad+"/profile/";
 
   this.OPBase = "http://";
   this.OP = "op.gg";
@@ -90,7 +92,61 @@ function LinkFactory(){
   this.LolInven = "http://lol.inven.co.kr";
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/detail.php?code=";
 
-};
+  /*
+    Summoner Element Names
+  */
+  this.LolNexusSummonerElementName = "nexus";
+  this.KassadSummonerElementName = "kassad";
+  this.LolKingNowSummonerElementName = "now";
+  this.SummoningSummonerElementName = "summoning";
+  this.LolKingSummonerElementName = "king";
+  this.OPSummonerElementName = "gg";
+  this.LolSkillSummonerElementName = "skill";
+  this.LolDbSummonerElementName = "summonergameguyz";
+  this.ElophantSummonerElementName = "phant";
+
+  /*
+    Champion Element Names
+  */
+  this.ChampSelectChampElementName  = "champselect";
+  this.LolKingChampElementName = "kingchamp";
+  this.TSMChampElementName = "tsm";
+  this.ProBuildsChampElementName = "probuilds";
+  this.ElophantChampElementName = "elo";
+  this.MobaFireChampElementName = "moba";
+  this.LolBuilderChampElementName = "builder";
+  this.LolProChampElementName = "lolpro";
+  this.LolWikiChampElementName = "wikichamp";
+  this.LolDbChampElementName = "champgameguyz";
+  this.LolGamePediaChampElementName = "leaguepediachamp";
+  this.LolInvenChampElementName = "inven";
+
+  /*
+    Rss feed Urls & Ids
+  */
+  this.OfficialLolId = "league";
+  this.OfficialLolStartRSS = "http://";
+  this.OfficialLolEndRSS = ".leagueoflegends.com/rss.xml";
+
+  this.ReignOfGamingId = "reign";
+  this.ReignOfGamingRSS = "http://www.reignofgaming.net/news.rss";
+
+  this.OnGamersId = "ongamers";
+  this.OnGamersRSS = "http://www.ongamers.com/league-of-legends/6000-2/rss/";
+
+  this.FeedBurnerId = "surrender";
+  this.FeedBurnerRSS = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
+
+  this.Cloth5Id = "cloth";
+  this.Cloth5RSS = "http://cloth5.com/feed/";
+
+  this.EsportsExpressId = "esex";
+  this.EsportsExpressRSS = "http://esportsexpress.com/category/league-of-legends/feed/";
+
+  this.NewsOfLegendsId = "newslegend";
+  this.NewsOfLegendsRSS = "http://www.newsoflegends.com/index.php/feed/";
+
+}
 
 /*
   Web Queries
@@ -161,7 +217,7 @@ LinkFactory.prototype.getLolKingNowChampionLink = function(){
   LolNexus
 */
 LinkFactory.prototype.getLolNexusSummonerLink = function(region, name){
-  return this.LolNexusSearch+this.NameUrlFirstKey+name+this.ServerUrlKey+region;
+  return this.LolNexus+"/"+region+this.LolNexusSearchEnd+this.NameUrlFirstKey+name+this.ServerUrlKey+region;
 }
 LinkFactory.prototype.getLolNexusChampionLink = function(){
   return '';
@@ -191,7 +247,7 @@ LinkFactory.prototype.getSummoningChampionLink = function(){
   Kassad
 */
 LinkFactory.prototype.getKassadSummonerLink = function(region, name){
-  return this.KassadSearch+"/"+this.getKassadFixedRegion(region)+"/"+name+"/";
+  return this.KassadSearch+this.getKassadFixedRegion(region)+"/"+name+"/";
 }
 LinkFactory.prototype.getKassadFixedRegion = function(region){
   if(region == 'eune'){
@@ -347,6 +403,9 @@ LinkFactory.prototype.getLolGamepediaFixedChamp = function(champ){
     case 'xin zhao':
       champ = 'Xin Zhao';
       break;
+    default:
+      champ = "Xin Zhao";
+      break;
   }
   return encodeURIComponent(champ);
 }
@@ -364,4 +423,144 @@ LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
     }
   }
   return ''; //not found in champ list
+}
+
+/*
+  Generates Champion URL for HTML element based on name
+*/
+LinkFactory.prototype.getChampionLinkForElementName = function(elementName, champ){
+  switch(elementName){
+    case this.ChampSelectChampElementName:
+      return this.getChampSelectChampionLink(champ);
+      break;
+    case this.LolKingChampElementName:
+      return this.getLolKingChampionLink(champ);
+      break;
+    case this.TSMChampElementName:
+      return this.getTSMChampionLink(champ);
+      break;
+    case this.ProBuildsChampElementName:
+      return this.getProBuildsChampionLink(champ);
+      break;
+    case this.ElophantChampElementName:
+      return this.getElophantChampionLink(champ);
+      break;
+    case this.MobaFireChampElementName:
+      return this.getMobaFireChampionLink(champ);
+      break;
+    case this.LolBuilderChampElementName:
+      return this.getLolBuilderChampionLink(champ);
+      break;
+    case this.LolProChampElementName:
+      return this.getLolProChampionLink(champ);
+      break;
+    case this.LolWikiChampElementName:
+      return this.getLolWikiChampionLink(champ);
+      break;
+    case this.LolGamePediaChampElementName:
+      return this.getLolGamepediaChampionLink(champ);
+      break;
+    case this.LolDbChampElementName:
+      return this.getLolDbChampionLink(champ);
+      break;
+    case this.LolInvenChampElementName:
+      return this.getLolInvenChampionLink(champ);
+      break;
+    default:
+      return this.getLolInvenChampionLink(champ);
+      break;
+  }
+}
+
+LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, region, name){
+  switch(elementName){
+    case this.LolNexusSummonerElementName:
+      return this.getLolNexusSummonerLink(region, name);
+      break;
+    case this.KassadSummonerElementName:
+      return this.getKassadSummonerLink(region, name);
+      break;
+    case this.LolKingNowSummonerElementName:
+      return this.getLolKingNowSummonerLink(region, name);
+      break;
+    case this.SummoningSummonerElementName:
+      return this.getSummoningSummonerLink(region, name);
+      break;
+    case this.LolKingSummonerElementName:
+      return this.getLolKingSummonerLink(region, name);
+      break;
+    case this.OPSummonerElementName:
+      return this.getOPSummonerLink(region, name);
+      break;
+    case this.LolSkillSummonerElementName:
+      return this.getLolSkillSummonerLink(region, name);
+      break;
+    case this.LolDbSummonerElementName:
+      return this.getLolDbSummonerLink(name);
+      break;
+    case this.ElophantSummonerElementName:
+      return this.getElophantSummonerLink(region, name);
+      break;
+    default:
+      return this.getLolNexusSummonerLink(region, name);
+      break;
+  }
+}
+
+LinkFactory.prototype.getRssLink = function(rssId, newsServer){
+  switch(rssId){
+    case this.OfficialLolId:
+      return this.OfficialLolStartRSS+newsServer+this.OfficialLolEndRSS;
+      break;
+    case this.ReignOfGamingId:
+      return this.ReignOfGamingRSS;
+      break;
+    case this.OnGamersId:
+      return this.OnGamersRSS;
+      break;
+    case this.FeedBurnerId:
+      return this.FeedBurnerRSS;
+      break;
+    case this.Cloth5Id:
+      return this.Cloth5RSS;
+      break;
+    case this.EsportsExpressId:
+      return this.EsportsExpressRSS;
+      break;
+    case this.NewsOfLegendsId:
+      return this.NewsOfLegendsRSS;
+      break;
+    default:
+      return this.EsportsExpressRSS;
+      break;
+  }
+}
+
+LinkFactory.prototype.getIndexForRssLink = function(rssId){
+  switch(rssId){
+    case this.OfficialLolId:
+      return 0;
+      break;
+    case this.ReignOfGamingId:
+      return 1;
+      break;
+    case this.OnGamersId:
+      return 2;
+      break;
+    case this.FeedBurnerId:
+      return 3;
+      break;
+    case this.Cloth5Id:
+      return 4;
+      break;
+    case this.EsportsExpressId:
+      return 5;
+      break;
+    case this.NewsOfLegendsId:
+      return 6;
+      break;
+    default:
+      return 0;
+      break;
+  }
 }

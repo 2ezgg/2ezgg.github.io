@@ -124,39 +124,9 @@ LeagueLinks.prototype.nameLink = function(){
   var items = $(".website-name");
 
   for(var i = 0; i < items.length; i++){
-
     var item = items.eq(i);
     var anchor = item.data('name');
-
-    switch(anchor){
-      case 'nexus':
-        item.attr("href", this.linkFactory.getLolNexusSummonerLink(this.server, this.name));
-        break;
-      case 'kassad':
-        item.attr("href", this.linkFactory.getKassadSummonerLink(this.server, this.name));
-        break;
-      case 'now':
-        item.attr("href", this.linkFactory.getLolKingNowSummonerLink(this.server, this.name));
-        break;
-      case 'summoning':
-        item.attr("href", this.linkFactory.getSummoningSummonerLink(this.server, this.name));
-        break;
-      case 'king':
-        item.attr("href", this.linkFactory.getLolKingSummonerLink(this.server, this.name));
-        break;
-      case 'gg':
-        item.attr("href", this.linkFactory.getOPSummonerLink(this.server, this.name));
-        break;
-      case 'skill':
-        item.attr("href", this.linkFactory.getLolSkillSummonerLink(this.server, this.name));
-        break;
-      case 'summonergameguyz':
-        item.attr("href", this.linkFactory.getLolDbSummonerLink(this.name));
-        break;
-      case 'phant':
-        item.attr("href", this.linkFactory.getElophantSummonerLink(this.server, this.name));
-        break;
-    }
+    item.attr("href", this.linkFactory.getSummonerLinkForElementName(anchor, this.server, this.name));
   }
 }
 
@@ -165,48 +135,9 @@ LeagueLinks.prototype.champLink = function(){
   this.champ = this.champ.trim();
 
   for(var i = 0; i < items.length; i++){
-
     var item = items.eq(i);
     var anchor = item.data('name');
-
-    switch(anchor){
-      case 'champselect':
-        item.attr("href", this.linkFactory.getChampSelectChampionLink(this.champ));
-        break;
-      case 'kingchamp':
-        item.attr("href", this.linkFactory.getLolKingChampionLink(this.champ));
-        break;
-      case 'tsm':
-        item.attr("href", this.linkFactory.getTSMChampionLink(this.champ));
-        break;
-      case 'probuilds':
-        item.attr("href", this.linkFactory.getProBuildsChampionLink(this.champ));
-        break;
-      case 'elo':
-        item.attr("href", this.linkFactory.getElophantChampionLink(this.champ));
-        break;
-      case 'moba':
-        item.attr("href", this.linkFactory.getMobaFireChampionLink(this.champ));
-        break;
-      case 'builder':
-        item.attr("href", this.linkFactory.getLolBuilderChampionLink(this.champ));
-        break;
-      case 'lolpro':
-        item.attr("href", this.linkFactory.getLolProChampionLink(this.champ));
-        break;
-      case 'wikichamp':
-        item.attr("href", this.linkFactory.getLolWikiChampionLink(this.champ));
-        break;
-      case 'leaguepediachamp':
-        item.attr("href", this.linkFactory.getLolGamepediaChampionLink(this.champ));
-        break;
-      case 'champgameguyz':
-        item.attr("href", this.linkFactory.getLolDbChampionLink(this.champ));
-        break;
-      case 'inven':
-        item.attr("href", this.linkFactory.getLolInvenChampionLink(this.champ));
-        break;
-    }
+    item.attr("href", this.linkFactory.getChampionLinkForElementName(anchor, this.champ));
   }
 }
 
@@ -248,7 +179,7 @@ LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 		this.lolNewsServer = 'na';
 	}
 	if(changeWebsite){
-		$('#league').attr('href','http://'+this.lolNewsServer+".leagueoflegends.com/news");
+		$('#league').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
 	}
 }
 
@@ -256,35 +187,12 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
 
   var rssDeferred = $.Deferred();
   var self = this;
-  var websiteUrl = '';
-  var index;
-
-  if(pageRssId == 'league'){
-    websiteUrl = "http://"+this.lolNewsServer+".leagueoflegends.com/rss.xml";
-    index = 0;
-  } else if (pageRssId == 'reign'){
-    websiteUrl = "http://www.reignofgaming.net/news.rss";
-    index = 1;
-  } else if (pageRssId == 'ongamers'){
-    websiteUrl = "http://www.ongamers.com/league-of-legends/6000-2/rss/";
-    index = 2;
-  } else if (pageRssId == 'surrender'){
-    websiteUrl = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
-    index = 3;
-  } else if (pageRssId == 'cloth'){
-    websiteUrl = "http://cloth5.com/feed/";
-    index = 4;
-  } else if (pageRssId == 'esex'){
-    websiteUrl = "http://esportsexpress.com/category/league-of-legends/feed/";
-    index = 5;
-  } else if (pageRssId == 'newslegend'){
-    websiteUrl = "http://www.newsoflegends.com/index.php/feed/";
-    index = 6;
-  }
+  var websiteUrl = this.linkFactory.getRssLink(pageRssId, this.lolNewsServer);
+  var index = this.linkFactory.getIndexForRssLink(pageRssId);
 
   $.ajax({
     type: "GET",
-    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(websiteUrl),
+    url: document.location.protocol + this.linkFactory.GoogleApiRssQuery + encodeURIComponent(websiteUrl),
     dataType: 'json',
     error: function(){
       console.log('Unable to load'+pageRssId+'feed');
