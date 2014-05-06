@@ -167,7 +167,7 @@ LinkFactory.prototype.getBingWebQuery = function(query){
   return this.BingWebQuery+query;
 }
 LinkFactory.prototype.getWikipediaQuery = function(query){
-  return this.getWikipediaQuery+query;
+  return this.WikipediaQuery+query;
 }
 LinkFactory.prototype.getWolframAlphaQuery = function(query){
   return this.WolframAlphaQuery+query;
@@ -403,9 +403,6 @@ LinkFactory.prototype.getLolGamepediaFixedChamp = function(champ){
     case 'xin zhao':
       champ = 'Xin Zhao';
       break;
-    default:
-      champ = "Xin Zhao";
-      break;
   }
   return encodeURIComponent(champ);
 }
@@ -466,9 +463,6 @@ LinkFactory.prototype.getChampionLinkForElementName = function(elementName, cham
     case this.LolInvenChampElementName:
       return this.getLolInvenChampionLink(champ);
       break;
-    default:
-      return this.getLolInvenChampionLink(champ);
-      break;
   }
 }
 
@@ -501,9 +495,6 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
       break;
-    default:
-      return this.getLolNexusSummonerLink(region, name);
-      break;
   }
 }
 
@@ -530,9 +521,6 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
     case this.NewsOfLegendsId:
       return this.NewsOfLegendsRSS;
       break;
-    default:
-      return this.EsportsExpressRSS;
-      break;
   }
 }
 
@@ -558,9 +546,6 @@ LinkFactory.prototype.getIndexForRssLink = function(rssId){
       break;
     case this.NewsOfLegendsId:
       return 6;
-      break;
-    default:
-      return 0;
       break;
   }
 }
