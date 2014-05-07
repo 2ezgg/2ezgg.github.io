@@ -498,6 +498,32 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
   }
 }
 
+LinkFactory.prototype.getQueryLinkForElementName = function(elementName, searchQuery){
+  switch(elementName){
+    case 'google':
+      return this.getGoogleWebQuery(searchQuery);
+      break;
+    case 'gimages':
+      return this.getGoogleImageQuery(searchQuery);
+      break;
+    case 'youtubesearch':
+      return this.getYouTubeQuery(searchQuery);
+      break;
+    case 'yahoo':
+      return this.getYahooWebQuery(searchQuery);
+      break;
+    case 'bing':
+      return this.getBingWebQuery(searchQuery);
+      break;
+    case 'wikipedia':
+      return this.getWikipediaQuery(searchQuery);
+      break;
+    case 'wolfram':
+      return this.getWolframAlphaQuery(searchQuery);
+      break;
+  }
+}
+
 LinkFactory.prototype.getRssLink = function(rssId, newsServer){
   switch(rssId){
     case this.OfficialLolId:
