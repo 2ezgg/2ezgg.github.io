@@ -93,6 +93,17 @@ function LinkFactory(){
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/detail.php?code=";
 
   /*
+    Query Element Names
+  */
+  this.GoogleQueryElementName = 'google';
+  this.GoogleImagesQueryElementName = 'gimages';
+  this.YouTubeQueryElementName = 'youtubesearch';
+  this.YahooQueryElementName = 'yahoo';
+  this.BingQueryElementName = 'bing';
+  this.WikipediaQueryElementName = 'wikipedia';
+  this.WolframQueryElementName = 'wolfram';
+
+  /*
     Summoner Element Names
   */
   this.LolNexusSummonerElementName = "nexus";
@@ -500,25 +511,25 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
 
 LinkFactory.prototype.getQueryLinkForElementName = function(elementName, searchQuery){
   switch(elementName){
-    case 'google':
+  case this.GoogleQueryElementName:
       return this.getGoogleWebQuery(searchQuery);
       break;
-    case 'gimages':
+    case this.GoogleImagesQueryElementName:
       return this.getGoogleImageQuery(searchQuery);
       break;
-    case 'youtubesearch':
+    case this.YouTubeQueryElementName:
       return this.getYouTubeQuery(searchQuery);
       break;
-    case 'yahoo':
+    case this.YahooQueryElementName:
       return this.getYahooWebQuery(searchQuery);
       break;
-    case 'bing':
+    case this.BingQueryElementName:
       return this.getBingWebQuery(searchQuery);
       break;
-    case 'wikipedia':
+    case this.WikipediaQueryElementName:
       return this.getWikipediaQuery(searchQuery);
       break;
-    case 'wolfram':
+    case this.WolframQueryElementName:
       return this.getWolframAlphaQuery(searchQuery);
       break;
   }
