@@ -9,6 +9,7 @@ $('#settings-content').on('click','.add-website', function(){
     if(web.pageChange[i].id == $this.parent().data('id')){
       web.pageChange[i].display = 'inline-block';
       notAdded = false;
+      break;
     }
   }
   if (notAdded){
@@ -36,6 +37,7 @@ $('#settings-content').on('click','.remove-website', function(){
     if(web.pageChange[i].id == $this.parent().data('id')){
       web.pageChange[i].display = 'none';
       notAdded = false;
+      break;
     }
   }
   if (notAdded){
@@ -97,16 +99,18 @@ $('#settings-content').on('click','.remove-user-website', function(){
   for (var i = 0; i<web.pageAdd.length; i++){
     if(web.pageAdd[i].id == $this.parent().data('id')){
       index = i;
+      break;
     }
   }
   if(index>-1){
     web.pageAdd.splice(index,1);
   }
 
-  var index2
+  var index2;
   for (var i = 0; i<idList.general.length; i++){
     if(idList.general[i].id == $this.parent().data('id')){
       index2 = i;
+      break;
     }
   }
   if(index2>-1){

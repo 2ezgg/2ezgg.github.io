@@ -348,6 +348,7 @@ WebInterface.prototype.testIfSearchShouldBeShown = function(){
 
     if (onlineInfo){
       listAdded = true;
+      break;
     }
   }
 

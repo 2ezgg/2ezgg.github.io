@@ -57,6 +57,7 @@ StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
       for(var i=0;i<this.streamers.length;i++){
         if(this.streamers[i].name == input){
           noStreamerMatch = false;
+          break;
         }
       }
 
@@ -168,55 +169,53 @@ StreamChannels.prototype.getAzubuStreamers = function(){
               for(var t=0;t<self.streamers.length;t++){
                 if (data[i].Azubu_ID == self.streamers[t].name){
                   accountFollowed = true;
+                  break;
                 }
               }
 
-                          self.topAzubuStreamersOnline[totalOnlineCount] = {
-                            name: data[i].Name,
-                            id: data[i].Azubu_ID,
-                            count: totalOnlineCount,
-                            online: true,
-                            isAlreadyAdded: accountFollowed
-                          }
-                          totalOnlineCount ++;
+              self.topAzubuStreamersOnline[totalOnlineCount] = {
+                name: data[i].Name,
+                id: data[i].Azubu_ID,
+                count: totalOnlineCount,
+                online: true,
+                isAlreadyAdded: accountFollowed
+              }
+              totalOnlineCount ++;
 
-                          for(var y = 0;y<self.streamers.length;y++){
-                            if (self.streamers[y].name == data[i].Azubu_ID){
-                              self.azubuStreamersOnline[onlineCount] = {
-                                name: data[i].Name,
-                                id: data[i].Azubu_ID,
-                                online: true,
+              for(var y = 0;y<self.streamers.length;y++){
+                if (self.streamers[y].name == data[i].Azubu_ID){
+                  self.azubuStreamersOnline[onlineCount] = {
+                    name: data[i].Name,
+                    id: data[i].Azubu_ID,
+                    online: true,
 
-                              }
-                              onlineCount ++;
-                              self.totalStreamersOnline ++;
-                            }
-                          }
+                  }
+                  onlineCount ++;
+                  self.totalStreamersOnline ++;
+                }
+              }
 
 
-                        } else {
-                          for(var z = 0;z<self.streamers.length;z++){
-                            if (self.streamers[z].name == data[i].Azubu_ID){
-                              self.azubuStreamersOffline[offlineCount] = {
-                                name: data[i].Name,
-                                id: data[i].Azubu_ID,
-                                online: false,
-                                // check if json records thumbnail of player or viewer count
-                              }
-                              offlineCount ++;
-                            }
-                          }
-
-                        }
-
-                    }
-                  localStorage.setItem('totalStreamersOnline', JSON.stringify(self.totalStreamersOnline));
-        localStorage.setItem('topAzubuStreamersOnline', JSON.stringify(self.topAzubuStreamersOnline));
-        localStorage.setItem('azubuStreamersOnline', JSON.stringify(self.azubuStreamersOnline));
-        localStorage.setItem('azubuStreamersOffline', JSON.stringify(self.azubuStreamersOffline));
-                  azubuDeferred.resolve();
-              },
-
+            } else {
+              for(var z = 0;z<self.streamers.length;z++){
+                if (self.streamers[z].name == data[i].Azubu_ID){
+                  self.azubuStreamersOffline[offlineCount] = {
+                    name: data[i].Name,
+                    id: data[i].Azubu_ID,
+                    online: false,
+                    // check if json records thumbnail of player or viewer count
+                  }
+                  offlineCount ++;
+                }
+              }
+            }
+          }
+          localStorage.setItem('totalStreamersOnline', JSON.stringify(self.totalStreamersOnline));
+          localStorage.setItem('topAzubuStreamersOnline', JSON.stringify(self.topAzubuStreamersOnline));
+          localStorage.setItem('azubuStreamersOnline', JSON.stringify(self.azubuStreamersOnline));
+          localStorage.setItem('azubuStreamersOffline', JSON.stringify(self.azubuStreamersOffline));
+          azubuDeferred.resolve();
+        },
     });
 
   return azubuDeferred.promise();
@@ -245,31 +244,25 @@ StreamChannels.prototype.topTwitchOnline = function(numberOfOnline){
             for(var t=0;t<self.twitchStreamersOnline.length;t++){
               if (data.streams[i].channel.name == self.twitchStreamersOnline[t].name){
                 accountFollowed = true;
+                break;
               }
             }
 
-                        self.topTwitchStreamersOnline[i] = {
-                          name: data.streams[i].channel.name,
-                          displayName: data.streams[i].channel.display_name,
-                          viewTotal: data.streams[i].viewers,
-                          thumbnailUrl: data.streams[i].preview.medium,
-                          url: data.streams[i].channel.url,
-                          isAlreadyAdded: accountFollowed,
-                          id: i,
-
-                        }
-
-                    }
-
-                  }
-
-                  localStorage.setItem('topTwitchStreamersOnline', JSON.stringify(self.topTwitchStreamersOnline));
-
-                  twitchDeferred.resolve();
-              },
-
+            self.topTwitchStreamersOnline[i] = {
+              name: data.streams[i].channel.name,
+              displayName: data.streams[i].channel.display_name,
+              viewTotal: data.streams[i].viewers,
+              thumbnailUrl: data.streams[i].preview.medium,
+              url: data.streams[i].channel.url,
+              isAlreadyAdded: accountFollowed,
+              id: i,
+            }
+          }
+        }
+        localStorage.setItem('topTwitchStreamersOnline', JSON.stringify(self.topTwitchStreamersOnline));
+        twitchDeferred.resolve();
+      },
     });
-
   return twitchDeferred.promise();
 }
 
@@ -452,8 +445,6 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
     var totalAdditions = 0;
     this.newAdditions = [];
 
-
-
     for(var i = 0; i<this.azubuStreamersOnline.length; i++){
 
       var alreadyAddedAzub = false;
@@ -461,6 +452,7 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
       for(var y=0;y<favAzubu.length;y++){
         if(favAzubu[y].name == this.azubuStreamersOnline[i].name){
           alreadyAddedAzub = true;
+          break;
         }
       }
 
@@ -469,6 +461,7 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
         for(var z=0;z<this.recentlyAddedAzub.length;z++){
           if(this.recentlyAddedAzub[z]==this.azubuStreamersOnline[i].name){
             summonerRecentlyAddedAzub = true;
+            break;
           }
         }
         if(!summonerRecentlyAddedAzub){
@@ -490,6 +483,7 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
       for(var v=0;v<favTwitch.length;v++){
         if(favTwitch[v].name == this.twitchStreamersOnline[t].name){
           alreadyAddedTwitch = true;
+          break;
         }
       }
 
@@ -498,10 +492,10 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
         for(var z=0;z<this.recentlyAddedTwitch.length;z++){
           if(this.recentlyAddedTwitch[z]==this.twitchStreamersOnline[t].name){
             summonerRecentlyAddedTwitch = true;
+            break;
           }
         }
         if(!summonerRecentlyAddedTwitch){
-
           this.newAdditions[totalAdditions] = {
             name:this.twitchStreamersOnline[t].name,
             id:null,
@@ -510,9 +504,7 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
           totalAdditions ++;
         }
       }
-
     }
-
 
     if(totalAdditions>0){
       if(appSettings['twitchAudioNotifications'] == 'on'){
