@@ -1,6 +1,5 @@
 function LeagueLinks(){
 
-  this.linkFactory = new LinkFactory();
   this.name = this.getUrlParams('name') || localStorage.getItem('name') || '';
   this.server = this.getUrlParams('server') || localStorage.getItem('server') || 'na';
   this.champ = this.getUrlParams('champ') || localStorage.getItem('champ') || '';
@@ -9,9 +8,11 @@ function LeagueLinks(){
   this.oldDate = parseInt(this.oldDate);
   localStorage.setItem('date', Date.now());
 
+  this.linkFactory = new LinkFactory();
+
   this.lolNewsServer = '';
   this.lolWebsiteLocation(true);
-  this.linkFactory = new LinkFactory();
+
 
   if (this.name) {
     $(".name").val(this.name);

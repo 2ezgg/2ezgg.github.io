@@ -90,7 +90,7 @@ function LinkFactory(){
   this.LolGamepediaChampSearch = this.LolGamepedia+"/";
 
   this.LolInven = "http://lol.inven.co.kr";
-  this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/detail.php?code=";
+  this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
 
   /*
     Query Element Names
@@ -427,7 +427,7 @@ LinkFactory.prototype.getLolInvenChampionLink = function(champ){
 LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
   for (var i=0;i<ChampionList.length;i++){
     if(champ == ChampionList[i].name){
-      return ChampionList[i].id;
+      return "detail.php?code="+ChampionList[i].id;
     }
   }
   return ''; //not found in champ list

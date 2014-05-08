@@ -9,6 +9,7 @@ var ChampionList = [
   {name:"ashe", xpos:-252,ypos:-0, id:6},
   {name:"blitzcrank", xpos:-288,ypos:-0, id:7},
   {name:"brand", xpos:-324,ypos:-0, id:8},
+  {name:"braum", xpos:-288,ypos:-396, id:119},
   {name:"caitlyn", xpos:-0,ypos:-36, id:9},
   {name:"cassiopeia", xpos:-36,ypos:-36, id:10},
   {name:"cho'gath", xpos:-72,ypos:-36, id:11},

@@ -191,18 +191,18 @@ $champ.on('keyup', function(e){
 
     for(var i = 0; i<ChampionList.length; i++){
       if(ChampionList[i].name.match(comparisonChamp) && (ChampionList[i].name.length == $champInputValue.length)){
-        $("#champ-drop .champ-list-entry").css({"background-color" : "#666",
-          "border" : "2px solid black"});
+        $("#champ-drop .champ-list-entry").css({"background-color" : "#666", "border" : "2px solid black"});
         clearTimeout(timerName);
         timerName = setTimeout(function(){
           $("#champ-drop").fadeOut();
 
           $(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
             .animate({'opacity':'1'},120)
-            .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
-              $(this).attr('style', ' ');
+              .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
+                $(this).attr('style', ' ');
             }});
-        }, 100);
+          }, 100);
+        break;
       }
     }
 
