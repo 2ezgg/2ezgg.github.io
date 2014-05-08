@@ -91,6 +91,7 @@ function LinkFactory(){
 
   this.LolInven = "http://lol.inven.co.kr";
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
+  this.LolInvenChampDetail = "detail.php?code=";
 
   /*
     Query Element Names
@@ -427,7 +428,7 @@ LinkFactory.prototype.getLolInvenChampionLink = function(champ){
 LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
   for (var i=0;i<ChampionList.length;i++){
     if(champ == ChampionList[i].name){
-      return "detail.php?code="+ChampionList[i].id;
+      return this.LolInvenChampDetail+ChampionList[i].id;
     }
   }
   return ''; //not found in champ list
