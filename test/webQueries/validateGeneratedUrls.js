@@ -10,7 +10,7 @@ var webdriverjs = require('webdriverjs'),
 */
 var appUrl = 'file:///Users/Jake/Desktop/dev/2ezgg.github.io/index.html';
 
-describe('Summoner Lookups - ', function(){
+describe('Web Queries - ', function(){
 
   this.timeout(99999999);
   var client = {};
@@ -31,7 +31,7 @@ describe('Summoner Lookups - ', function(){
     client.init(done);
   });
 
-  it('Checks each region in dropdown, and validates each generated URL',function(done) {
+  it('Checks each services generated URL',function(done) {
     client
       .url(appUrl)
       .setValue('.searchinput', stringToQuery, function(err, result){})
