@@ -91,6 +91,18 @@ function LinkFactory(){
 
   this.LolInven = "http://lol.inven.co.kr";
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
+  this.LolInvenChampDetail = "detail.php?code=";
+
+  /*
+    Query Element Names
+  */
+  this.GoogleQueryElementName = 'google';
+  this.GoogleImagesQueryElementName = 'gimages';
+  this.YouTubeQueryElementName = 'youtubesearch';
+  this.YahooQueryElementName = 'yahoo';
+  this.BingQueryElementName = 'bing';
+  this.WikipediaQueryElementName = 'wikipedia';
+  this.WolframQueryElementName = 'wolfram';
 
   /*
     Summoner Element Names
@@ -416,7 +428,7 @@ LinkFactory.prototype.getLolInvenChampionLink = function(champ){
 LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
   for (var i=0;i<ChampionList.length;i++){
     if(champ == ChampionList[i].name){
-      return "detail.php?code="+ChampionList[i].id;
+      return this.LolInvenChampDetail+ChampionList[i].id;
     }
   }
   return ''; //not found in champ list
@@ -494,6 +506,32 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       break;
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
+      break;
+  }
+}
+
+LinkFactory.prototype.getQueryLinkForElementName = function(elementName, searchQuery){
+  switch(elementName){
+  case this.GoogleQueryElementName:
+      return this.getGoogleWebQuery(searchQuery);
+      break;
+    case this.GoogleImagesQueryElementName:
+      return this.getGoogleImageQuery(searchQuery);
+      break;
+    case this.YouTubeQueryElementName:
+      return this.getYouTubeQuery(searchQuery);
+      break;
+    case this.YahooQueryElementName:
+      return this.getYahooWebQuery(searchQuery);
+      break;
+    case this.BingQueryElementName:
+      return this.getBingWebQuery(searchQuery);
+      break;
+    case this.WikipediaQueryElementName:
+      return this.getWikipediaQuery(searchQuery);
+      break;
+    case this.WolframQueryElementName:
+      return this.getWolframAlphaQuery(searchQuery);
       break;
   }
 }

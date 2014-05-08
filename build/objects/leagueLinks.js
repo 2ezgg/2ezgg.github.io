@@ -91,33 +91,9 @@ LeagueLinks.prototype.searchLink = function(){
   var searchQuery = encodeURIComponent($(".searchinput").val());
 
   for(var i = 0; i < items.length; i++){
-
     var item = items.eq(i);
     var anchor = item.data('name');
-
-    switch(anchor){
-      case 'google':
-        item.attr("href", this.linkFactory.getGoogleWebQuery(searchQuery));
-        break;
-      case 'gimages':
-        item.attr("href", this.linkFactory.getGoogleImageQuery(searchQuery));
-        break;
-      case 'youtubesearch':
-        item.attr("href", this.linkFactory.getYouTubeQuery(searchQuery));
-        break;
-      case 'yahoo':
-        item.attr("href", this.linkFactory.getYahooWebQuery(searchQuery));
-        break;
-      case 'bing':
-        item.attr("href", this.linkFactory.getBingWebQuery(searchQuery));
-        break;
-      case 'wikipedia':
-        item.attr("href", this.linkFactory.getWikipediaQuery(searchQuery));
-        break;
-      case 'wolfram':
-        item.attr("href", this.linkFactory.getWolframAlphaQuery(searchQuery));
-        break;
-    }
+    item.attr("href", this.linkFactory.getQueryLinkForElementName(anchor, searchQuery));
   }
 }
 
