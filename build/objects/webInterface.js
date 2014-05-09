@@ -31,9 +31,7 @@ function WebInterface(){
       }
     }
 
-    setTimeout(function(){
-      changeToInline();
-    }, 200);
+    setTimeout(changeToInline, 120);
   }
 
 
