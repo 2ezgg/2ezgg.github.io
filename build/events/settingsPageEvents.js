@@ -86,7 +86,10 @@ $('.add-user-website').on('click', function(){
 
 $('.test-user-website').on('click', function(){
   var $userUrl = $('.user-website-url').val();
-  if($userUrl.length>0){
+  if($userUrl.length>0){ 
+    if($userUrl.match(/reddit.com/ig)){
+    $userUrl = $userUrl.replace(/reddit\.com/ig, 'redditjs.com');
+    }
     $('.iframe-tester').html('<iframe src="'+$userUrl+'" style="width:300px;height:400px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>');
   }
 });
