@@ -69,7 +69,7 @@ $searchInput.on('keyup change paste textInput input', function(e){
 $searchInput.on('keydown', function(e){
   var keycode = (e.keyCode ? e.keyCode : e.which);
   if(keycode == '13'){
-      $('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+      //$('#ezggadvertisement').html(' ').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" sandbox="allow-scripts" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     var websiteAddress;
     if(shiftKeyPressed) {
       websiteAddress = $("#"+appSettings['shiftSearchLink']).attr('href');
@@ -101,7 +101,7 @@ $(".name").on('keyup change paste textInput input', function(e){
 $(".name").on('keydown', function(e){
   var keycode = (e.keyCode ? e.keyCode : e.which);
   if(keycode == '13'){
-      $('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+      //$('#ezggadvertisement').html(' ').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" sandbox="allow-scripts" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     var $id;
     if(shiftKeyPressed) {
       $id = $("#"+appSettings['shiftNameLink']);
@@ -211,7 +211,7 @@ $champ.on('keyup', function(e){
     if(champText.length>0){ $(this).val(champText) };
     $("#champ-drop").fadeOut();
     league.champion($(this).val());
-    $('#advertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+    //$('#ezggadvertisement').html(' ').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" sandbox="allow-scripts" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
 
     var $id;
     if (shiftKeyPressed) {
