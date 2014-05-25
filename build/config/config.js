@@ -2,6 +2,11 @@ var redditJsOffline = false;
 var appSettings = {};
 var settingsSaved = {};
 
+var isBuggedChrome = false;
+if(navigator.userAgent.match(/35.0.1916.114/i)){
+  isBuggedChrome = true;
+}
+
 if(settingsSaved = localStorage.getItem('appSettings')){
   var settingsSaved = JSON.parse(settingsSaved);
 

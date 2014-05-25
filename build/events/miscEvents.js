@@ -10,7 +10,9 @@ $("#sidebar").on('click', '.nav-button', function(e){
     $(this).children('li').addClass('selected-link');
     ga('send', 'pageview', "#" + web.hashWithoutParams());
   }
-  //$('#ezggadvertisement').html(' ').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" sandbox="allow-scripts" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+  if(!isBuggedChrome){
+  	$('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+  }
 });
 
 $('.tooltip').tipsy({gravity: 'w'});
