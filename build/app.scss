@@ -1059,6 +1059,29 @@ a.reddit-title:visited {
 .champ-text {
   float: left; }
 
+#summoner-accounts-list li{
+  display:block;
+  cursor:pointer;
+}
+
+.remove-summoner{
+  cursor:pointer;
+  float: right;
+}
+.remove-summoner:hover{
+  color: red;
+}
+.summoner-server{
+  text-transform:uppercase;
+  font-size: .75em;
+  font-weight:800 !important;
+}
+.summoner-name{
+  text-transform:capitalize;
+  font-weight:400;
+  color: #f0e863;
+}
+
 .nav-button, .champ, .name {
   z-index: 9999999999; }
 
