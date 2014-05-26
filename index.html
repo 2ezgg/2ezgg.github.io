@@ -246,7 +246,7 @@
 				</div>
 
 				<div class="name-input holder">
-					<input type="text" name="userName" class="name" placeholder="Summoner Name" style="width:195px;">
+					<input type="text" class="name" placeholder="Summoner Name" style="width:195px;">
 					<select class="server">
 						<option value="na">NA</option>
 						<option value="euw">EUW</option>
@@ -263,6 +263,18 @@
 						<option value="sea">SEA</option>
 						<option value="vn">VIET</option>
 					</select>
+				
+					<div id="summoner-accounts">
+						<script id="summoner-accounts-template" type="text/x-handlebars-template">
+							{{#each this}}
+								<li data-name="{{name}}" data-server="{{server}}"><span class="summoner-name">{{name}}</span> - <span class="summoner-server">{{server}}</span> <span class="remove-summoner">x</span></li>
+							{{/each}}
+						</script>
+						<ul id="summoner-accounts-list" style="display:none">
+							
+						</ul>
+					</div>
+
 				</div>
 
 

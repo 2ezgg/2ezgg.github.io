@@ -1,6 +1,7 @@
 function LeagueLinks(){
 
   this.name = this.getUrlParams('name') || localStorage.getItem('name') || '';
+  this.summonerNames = [];
   this.server = this.getUrlParams('server') || localStorage.getItem('server') || 'na';
   this.champ = this.getUrlParams('champ') || localStorage.getItem('champ') || '';
   this.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
@@ -13,11 +14,11 @@ function LeagueLinks(){
   this.lolNewsServer = '';
   this.lolWebsiteLocation(true);
 
-
   if (this.name) {
     $(".name").val(this.name);
     $(".server").val(this.server);
     this.nameLink();
+    this.addNewSummoner(this.name, this.server);
   }
 
   if (this.champ) {
@@ -148,6 +149,55 @@ LeagueLinks.prototype.dropDownTemplate = function(input){
       $("#champ-drop").html( template(matchingChampInfo) );
     }
   }
+}
+
+LeagueLinks.prototype.addNewSummoner = function(summonerName, summonerServer){
+  this.summonerNames = JSON.parse(localStorage.getItem('summonerNames')) || [];
+  summonerName = summonerName.trim();
+  if(summonerName){
+    var exists = false; 
+    for (var i = 0; i<this.summonerNames.length; i++){
+      if(this.summonerNames[i].name == summonerName && this.summonerNames[i].server == summonerServer){
+        exists = true; 
+      }
+    }
+
+    if (!exists){
+      this.summonerNames[i] = {
+        name: summonerName,
+        server: summonerServer,
+        favouriteStatus: 'no',
+      }
+    }
+
+  localStorage.setItem('summonerNames',JSON.stringify(this.summonerNames));
+  }
+}
+
+
+LeagueLinks.prototype.removeSummoner = function(summonerName, summonerServer){
+  this.summonerNames = JSON.parse(localStorage.getItem('summonerNames')) || [];
+
+  for (var i = 0; i<this.summonerNames.length; i++){
+    if(this.summonerNames[i].name == summonerName && this.summonerNames[i].server == summonerServer){
+      this.summonerNames.splice(i, 1);
+      break;
+    }
+  }
+
+  localStorage.setItem('summonerNames',JSON.stringify(this.summonerNames));
+
+  this.summonerList();
+}
+
+
+LeagueLinks.prototype.summonerList = function(){
+  this.summonerNames = JSON.parse(localStorage.getItem('summonerNames')) || [];
+  
+  var self = this;
+  var template = Handlebars.compile($('#summoner-accounts-template').html());
+  $("#summoner-accounts-list").html(template(self.summonerNames));
+  console.log('they summonerList function has been executed')
 }
 
 LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){

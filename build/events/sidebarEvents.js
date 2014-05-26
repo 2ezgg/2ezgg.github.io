@@ -85,7 +85,10 @@ $searchInput.on('keydown', function(e){
 });
 
 var timerName;
-$(".name").on('keyup change paste textInput input', function(e){
+
+var $name = $(".name")
+$name.on('keyup change paste textInput input', function(e){
+
   league.account($(".name").val(), $(".server").val())
 
     clearTimeout(timerName);
@@ -100,9 +103,15 @@ $(".name").on('keyup change paste textInput input', function(e){
   }, 375);
 });
 
-$(".name").on('keydown', function(e){
+$name.on('keydown', function(e){
   var keycode = (e.keyCode ? e.keyCode : e.which);
+
+  if(keycode != 8 && keycode != 46){
+    $("#summoner-accounts ul").slideUp('fast');
+  }
+
   if(keycode == '13'){
+    league.addNewSummoner($(".name").val(), $(".server").val());
     if(!isBuggedChrome){
       $('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     }
@@ -215,7 +224,8 @@ $champ.on('keyup', function(e){
   $champ.on('keydown', function(e){
     var keycode = (e.keyCode ? e.keyCode : e.which);
     if(keycode == '13'){
-      console.log('shift key= ' + shiftKeyPressed);
+
+    league.addNewSummoner($(".name").val(), $(".server").val());
 
     var champText = $("#champ-drop .champ-list-entry .champ-text").first().text();
     if(champText.length>0){ $(this).val(champText) };
@@ -279,3 +289,56 @@ $champ.on('blur', function(){
      $("#champ-drop").css('display','none');
    }, 200);
 });
+
+
+// Summoner Names List
+
+var removePressed = false;
+
+$name.on('click', function(){
+  league.summonerList();
+  $("#summoner-accounts ul").slideDown('fast');
+});
+
+$name.on('blur', function(){
+  setTimeout(function(){
+    if(!removePressed){
+      $("#summoner-accounts ul").slideUp('fast');
+      console.log('bahahahahahah')
+    }
+  }, 200);
+});
+
+$(".website-name").on('click', function(){
+  league.addNewSummoner($(".name").val(), $(".server").val());
+  $("#summoner-accounts ul").slideUp('fast');
+});
+
+$("#summoner-accounts-list").on('click', 'li', function(){
+  $this = $(this);
+
+  setTimeout(function(){
+    if(!removePressed){
+
+      $(".name").val($this.data('name'));
+      $(".server").val($this.data('server'));
+
+      league.account($(".name").val(), $(".server").val());
+    }
+  }, 60);
+});
+
+$("#summoner-accounts-list").on('click', 'li .remove-summoner', function(){
+  removePressed = true;
+  var name = $(this).parent().data('name');
+  var server = $(this).parent().data('server');
+
+  league.removeSummoner(name, server);
+
+  setTimeout(function(){
+    removePressed = false;
+  }, 400);
+});
+
+
+
