@@ -22,6 +22,7 @@ function StreamChannels(){
   this.currentStreamDisplayed = null;
   this.currentStreamViewers = null;
   this.streamFunctionCount = 0;
+  this.topTwitchUrl = "https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0"
 
   this.noStreamersAdded = (this.streamers.length == 0)?true:false;
 }
@@ -211,19 +212,27 @@ StreamChannels.prototype.getAzubuStreamers = function(){
 }
 
 
-StreamChannels.prototype.topTwitchOnline = function(numberOfOnline){
-  var onlineLimit = numberOfOnline || 12;
+StreamChannels.prototype.topTwitchOnline = function(clearStreams){
   var twitchDeferred = $.Deferred();
   var self = this;
+  $(".stream-loading").css('display','inline');
+
+  if(this.topTwitchUrl){
 
     $.ajax({
       dataType:'jsonp',
-      url:'https://api.twitch.tv/kraken/search/streams?q=%22league%20of%20legends%22&limit='+onlineLimit,
+      url: self.topTwitchUrl,
       error: function(){
               console.log('Unable to load top twitch streamers feed.');
           },
       success: function(data){
-        self.topTwitchStreamersOnline = [];
+        if(clearStreams){
+          self.topTwitchStreamersOnline = [];
+        }
+        self.topTwitchUrl = data._links.next; 
+        var totalLength = self.topTwitchStreamersOnline.length;
+        localStorage.setItem('streamsLastRetrieved', Date.now());
+        
         if(data.streams){
           for(var i=0;i<data.streams.length;i++){
 
@@ -236,21 +245,23 @@ StreamChannels.prototype.topTwitchOnline = function(numberOfOnline){
               }
             }
 
-            self.topTwitchStreamersOnline[i] = {
+            self.topTwitchStreamersOnline[totalLength+i] = {
               name: data.streams[i].channel.name,
               displayName: data.streams[i].channel.display_name,
               viewTotal: data.streams[i].viewers,
               thumbnailUrl: data.streams[i].preview.medium,
               url: data.streams[i].channel.url,
               isAlreadyAdded: accountFollowed,
-              id: i,
+              id: totalLength+i,
             }
           }
         }
         localStorage.setItem('topTwitchStreamersOnline', JSON.stringify(self.topTwitchStreamersOnline));
+        $(".stream-loading").css('display','none');
         twitchDeferred.resolve();
       },
     });
+  }
   return twitchDeferred.promise();
 }
 
@@ -401,14 +412,6 @@ StreamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAc
 
 }
 
-StreamChannels.prototype.pushTopTwitchStreamers = function(){
-  var self = this;
-  var onlineTemplate = Handlebars.compile($('#twitch-top-online-template').html());
-
-    $("#twitch-top-streamers").html( onlineTemplate(self.topTwitchStreamersOnline) );
-
-}
-
 StreamChannels.prototype.currentStreamOnline = function(){
   for(var i = 0; i<this.topTwitchStreamersOnline.length; i++){
     if(this.topTwitchStreamersOnline[i].name == this.currentStreamDisplayed){
@@ -423,13 +426,21 @@ StreamChannels.prototype.currentStreamOnline = function(){
   return false;
 }
 
-StreamChannels.prototype.pushTopTwitchStreamers = function(){
+StreamChannels.prototype.pushTopTwitchStreamers = function(appendToBottom){
   var self = this;
   var onlineTemplate = Handlebars.compile($('#twitch-top-online-template').html());
+  if(!appendToBottom){
+    for(var i=0; i<self.topTwitchStreamersOnline.length; i++){
+      $("#twitch-top-streamers").append( onlineTemplate(self.topTwitchStreamersOnline[i]) );
+    }
+  } else {
+    var t = self.topTwitchStreamersOnline.length - 12;
+    for(t; t<self.topTwitchStreamersOnline.length; t++){
+      $("#twitch-top-streamers").append( onlineTemplate(self.topTwitchStreamersOnline[t]) );
+    }
+  }
 
-    $("#twitch-top-streamers").html( onlineTemplate(self.topTwitchStreamersOnline) );
 }
-
 StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch){
 
     var totalAdditions = 0;

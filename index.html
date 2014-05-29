@@ -31,7 +31,7 @@
 		<div id="top-header-message">
 			<script id="riot-online-message-template" type="text/x-handlebars-template">
 	            	<span class="notify-title" style="display:block;margin-bottom:6px;">The RiotGames stream is active.</span>
-					<span class="streams-list"><a href="http://www.twitch.tv/riotgames" target="_blank">Twitch</a> | <a href="https://www.youtube.com/user/LoLChampSeries?feature=watch" target="_blank">YouTube</a> | <a href="http://www.azubu.tv/channel/detail.do?cn_id=3093271319001" target="_blank">AzubuTv</a>
+					<span class="streams-list"><a href="http://www.twitch.tv/riotgames" target="_blank">Twitch</a> | <a href="https://www.youtube.com/user/LoLChampSeries?feature=watch" target="_blank">YouTube</a> | <a href="http://azubu.tv/Riot_Games" target="_blank">AzubuTv</a>
 					</span>
 					<span class="close-riot">[x]</span>
 	        </script>
@@ -42,7 +42,7 @@
 	           				<span class="notify-title" ><a href="http://www.twitch.tv/{{name}}" target="_blank">{{name}}</a> is online.</span>
 
 						{{else}}
-						<span class="notify-title" ><a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}" target="_blank">{{name}}</a> is online.</span>
+						<span class="notify-title" ><a href="http://azubu.tv/{{name}}" target="_blank">{{name}}</a> is online.</span>
 
 						{{/if}}
 
@@ -246,7 +246,7 @@
 				</div>
 
 				<div class="name-input holder">
-					<input type="text" class="name" placeholder="Summoner Name" style="width:195px;">
+					<input type="text" class="name" placeholder="Summoner Name" style="width:190px;">
 					<select class="server">
 						<option value="na">NA</option>
 						<option value="euw">EUW</option>
@@ -441,7 +441,7 @@
 						<span class="lol-image" style="background-image:url('http://s2.googleusercontent.com/s2/favicons?domain_url={{href}}')"></span> {{name}} <span class="remove-user-website"></span>
 					</li></script>
 
-				<h3>Search General Websites</h3>
+				<h3 style="margin-top:20px;">Search General Websites</h3>
 				<ul id="search-websites">
 					<li class="website-google website-control" data-name="google" data-id="google">
 						 <span class="lol-image" style="background-image:url('assets/img/searchsprite.png');background-position:0px 0px;"></span> Google <span class="add-website"></span>
@@ -547,7 +547,7 @@
 
 				<h3>Add a Website:</h3>
 				<div class="add-new-website" style="font-size: 0.8em;">
-				<ol style="color:#333">
+				<ol>
 				<li>Enter your website url and name and then press 'Test Website'. </li><li>If your website shows below, check the iframe compatible checkbox. If it doesn't show up, this means your website will open in a new tab when you click on it. </li><li>Next click 'Add website', and your website is available on the sidebar!</li> </ol>
 					<input type="text" class="user-website-url" placeholder="Website Url (include the http://)" style="width:250px;">
 					<input type="text" class="user-website-name" placeholder="Website Name" style="width:150px;">
@@ -632,7 +632,7 @@
 					</li>
 				</ul>
 
-				<h2 style="margin-bottom:-2px;">Website Settings</h2>
+				<h2 style="margin-bottom:-2px;padding-top: 20px;">Website Settings</h2>
 					<script id="homepage-list-template" type="text/x-handlebars-template">
 										{{#each this}}
 											<option value="{{id}}">{{name}}</option>
@@ -647,7 +647,7 @@
 
 									</select>
 								</td>
-								<td>2ez.gg homepage. (no Internet Explorer support yet).</td>
+								<td>2ez.gg <strong>homepage</strong>. (no Internet Explorer support yet).</td>
 							</tr>
 							<tr>
 								<td>
@@ -671,7 +671,7 @@
 										<option value="off">Off</option>
 									</select>
 								</td>
-								<td>Visual notifications when a favourited streamer comes online.</td>
+								<td><strong>Visual notifications</strong> when a favourited streamer comes online.</td>
 							</tr>
 
 							<tr>
@@ -681,7 +681,7 @@
 										<option value="off">Off</option>
 									</select>
 								</td>
-								<td>Audio notifications when a favourited streamer comes online.</td>
+								<td><strong>Audio notifications</strong> when a favourited streamer comes online.</td>
 							</tr>
 
 							<tr class="settings-odd">
@@ -691,59 +691,10 @@
 										<option value="off">Off</option>
 									</select>
 								</td>
-								<td>Show online notification with stream links to Riot Games.</td>
+								<td>Show online <strong>notification</strong> with stream links to <strong>Riot Games</strong>.</td>
 							</tr>
 						</table>
 					</div>
-
-					<div class="settings-holder">
-						<h3>Search Settings (Google, YouTube etc.)</h3>
-						<table class="settings-table">
-							<tr class="settings-odd">
-								<td>
-									<select class="defaultSearchLink">
-										<option value="google">Google</option>
-										<option value="gimages">Google Images</option>
-										<option value="yahoo">Yahoo</option>
-										<option value="bing">Bing</option>
-										<option value="youtubesearch">YouTube</option>
-										<option value="wikipedia">Wikipedia</option>
-										<option value="wolfram">Wolfram</option>
-									</select>
-								</td>
-								<td>Website to open after <strong>'enter'</strong> key is pressed in the <strong>'Search'</strong> text field.</td>
-							</tr>
-							<tr>
-								<td>
-									<select class="shiftSearchLink">
-										<option value="google">Google</option>
-										<option value="gimages">Google Images</option>
-										<option value="yahoo">Yahoo</option>
-										<option value="bing">Bing</option>
-										<option value="youtubesearch">YouTube</option>
-										<option value="wikipedia">Wikipedia</option>
-										<option value="wolfram">Wolfram</option>
-									</select>
-								</td>
-								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
-							</tr>
-							<tr class="settings-odd">
-								<td>
-									<select class="ctrlSearchLink">
-										<option value="google">Google</option>
-										<option value="gimages">Google Images</option>
-										<option value="yahoo">Yahoo</option>
-										<option value="bing">Bing</option>
-										<option value="youtubesearch">YouTube</option>
-										<option value="wikipedia">Wikipedia</option>
-										<option value="wolfram">Wolfram</option>
-									</select>
-								</td>
-								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
-							</tr>
-						</table>
-					</div>
-
 
 					<div class="settings-holder">
 						<h3>Summoner Search Settings</h3>
@@ -798,7 +749,6 @@
 							</tr>
 						</table>
 					</div>
-
 					<div class="settings-holder">
 						<h3>Champion Search Settings</h3>
 						<table class="settings-table">
@@ -862,6 +812,54 @@
 						</table>
 					</div>
 					<div class="settings-holder">
+						<h3>Search Settings (Google, YouTube etc.)</h3>
+						<table class="settings-table">
+							<tr class="settings-odd">
+								<td>
+									<select class="defaultSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open after <strong>'enter'</strong> key is pressed in the <strong>'Search'</strong> text field.</td>
+							</tr>
+							<tr>
+								<td>
+									<select class="shiftSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
+							</tr>
+							<tr class="settings-odd">
+								<td>
+									<select class="ctrlSearchLink">
+										<option value="google">Google</option>
+										<option value="gimages">Google Images</option>
+										<option value="yahoo">Yahoo</option>
+										<option value="bing">Bing</option>
+										<option value="youtubesearch">YouTube</option>
+										<option value="wikipedia">Wikipedia</option>
+										<option value="wolfram">Wolfram</option>
+									</select>
+								</td>
+								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'Search'</strong> text field.</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="settings-holder">
 						<h3>Misc Settings</h3>
 						<table class="settings-table">
 							<tr class="settings-odd">
@@ -871,7 +869,7 @@
 										<option value="single">Single Video</option>
 									</select>
 								</td>
-								<td>Choose whether to have muliple videos per row (if space permits), or a single video per row. Affects the LoL Videos page. </td>
+								<td>Choose whether to have <strong>muliple videos</strong> per row (if space permits), or a <strong>single video</strong> per row. Affects the LoL Videos page. </td>
 							</tr>
 							<tr>
 								<td>
@@ -889,7 +887,7 @@
 										<option value="off">Off</option>
 									</select>
 								</td>
-								<td>Open Reddit threads in new tabs. (for Old Reddit)</td>
+								<td>Open Reddit threads in <strong>new tabs</strong>. (for Old Reddit)</td>
 							</tr>
 						</table>
 					</div>
@@ -1180,8 +1178,7 @@
 								</div>
 							{{/each}}
 						</script>
-						<script id="twitch-top-online-template" type="text/x-handlebars-template">
-							{{#each this}}<div class="twitch-name">
+						<script id="twitch-top-online-template" type="text/x-handlebars-template"><div class="twitch-name">
 									<img src="{{thumbnailUrl}}"  class="view-this-stream tooltip-center" title="View Stream" data-id="{{id}}" data-type="top" style="width:100%"/>
 									<a href="http://twitch.tv/{{name}}" target="_blank">{{name}}</a>
 									<span class="viewer-numbers tooltip-viewers" title="viewers">{{viewTotal}}</span>
@@ -1192,8 +1189,8 @@
 											[+]
 										</a>
 									{{/if}}
-								</div>{{/each}}
-						</script>
+								</div></script>
+
 						<script id="azubu-top-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
 								<a href="http://azubu.tv/{{name}}" target="_blank">
@@ -1235,6 +1232,7 @@
 						<div id="stream-top-list" style="margin-right:1%">
 							<div class="streamers-header header-top-online">Top Twitch Streamers</div>
 							<div id="twitch-top-streamers">	</div>
+							<div id="view-more-streams">View More Streams <span class="stream-loading"> </span></div>
 							<div class="streamers-header header-top-online">Top Azubu Streamers</div>
 							<div id="azubu-top-streamers"></div>
 				 		</div>
@@ -1271,9 +1269,11 @@
 
 		<script>
 		// update the advertisement every 2 minutes
-		// setInterval(function(){
-		//   $('#ezggadvertisement').html(' ').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" sandbox="allow-scripts" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
-		// }, 1000*60*1.5);
+		 setInterval(function(){
+		   if(!isBuggedChrome){
+		   		$('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
+		   }
+		 }, 1000*60*1.5);
 		</script>
 	</body>
 </html>
