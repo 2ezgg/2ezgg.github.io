@@ -1138,10 +1138,11 @@
 
 						<script id="azubu-users-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
-									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+									<a href="http://azubu.tv/{{name}}" target="_blank">
 										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
 									</a>
-									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]
+									<span class="viewer-numbers tooltip-viewers" title="Viewers" >{{viewTotal}}</span>
+									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]
 									</span>
 								</div>{{/each}}
 						</script>
@@ -1149,10 +1150,11 @@
 						<script id="azubu-users-favourited-online-template" type="text/x-handlebars-template">
 
 								<div class="twitch-name">
-									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+									<a href="http://azubu.tv/{{name}}" target="_blank">
 										<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}
 									</a>
-									<span class="remove-twitch-online tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
+									<span class="viewer-numbers tooltip-viewers" title="Viewers" >{{viewTotal}}</span>
+									<span class="remove-twitch-online tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
 									</div>
 
 						</script>
@@ -1173,8 +1175,8 @@
 						<script id="azubu-users-offline-template" type="text/x-handlebars-template">
 							{{#each this}}
 								<div class="twitch-name" style="border-right: 1px solid black">
-									<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">{{name}}</a>
-									<span class="remove-twitch tooltip-left" data-name="{{id}}" title="Remove streamer from favourites">[-]</span>
+									<a href="http://azubu.tv/{{name}}" target="_blank">{{name}}</a>
+									<span class="remove-twitch tooltip-left" data-name="{{name}}" title="Remove streamer from favourites">[-]</span>
 								</div>
 							{{/each}}
 						</script>
@@ -1194,12 +1196,13 @@
 						</script>
 						<script id="azubu-top-online-template" type="text/x-handlebars-template">
 							{{#each this}}<div class="twitch-name">
-								<a href="http://www.azubu.tv/channel/detail.do?cn_id={{id}}">
+								<a href="http://azubu.tv/{{name}}" target="_blank">
 								<img src="assets/img/azubu.jpg" class="tooltip-center" title="View Stream" style="width:100%"/>{{name}}</a>
+								<span class="viewer-numbers tooltip-viewers" title="viewers">{{viewTotal}}</span>
 									{{#if isAlreadyAdded}}
 										<span class="favourited-streamer tooltip-left"  title="You have this streamer favourited">&#60;3</span>
 									{{else}}
-										<a class="add-top-champ tooltip-left" data-count="{{count}}" data-name="{{id}}" title="Add streamer to your favourites">
+										<a class="add-top-champ tooltip-left" data-count="{{count}}" data-name="{{name}}" title="Add streamer to your favourites">
 										[+]
 										</a>
 									{{/if}}
@@ -1209,7 +1212,11 @@
 					<div style="position: relative;padding-left: 25px;" class="clear">
 
 						<div style="margin-top:10px;margin-bottom:10px;text-transform:none">
-							<input type="text" class="champ-addition" placeholder="Streamer's Twitch/Azubu URL" style="width:200px;">
+							<input type="text" class="champ-addition" placeholder="Streamer's URL or ID" style="width:200px;">
+							<select class="stream-website">
+								<option value="twitch">Twitch</option>
+								<option value="azubu">Azubu</option>
+							</select>
 							<input type="submit" value="Add Streamer" class="add-champ">
 								<span style="display:block;margin-top:18px;margin-bottom:18px;">
 									<p>
@@ -1226,8 +1233,9 @@
 							<div id="azubu-list-online"></div>
 						</div>
 						<div id="stream-top-list" style="margin-right:1%">
-							<div class="streamers-header header-top-online">Top Streamers Online</div>
+							<div class="streamers-header header-top-online">Top Twitch Streamers</div>
 							<div id="twitch-top-streamers">	</div>
+							<div class="streamers-header header-top-online">Top Azubu Streamers</div>
 							<div id="azubu-top-streamers"></div>
 				 		</div>
 				 		<div id="stream-offline-list" style="margin-right:1%">

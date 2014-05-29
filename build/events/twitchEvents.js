@@ -151,7 +151,7 @@ $twitchHolder.on('click', '.add-champ', function(){
   if($(".champ-addition").val().length>0){
     $(this).val('Streamer Added');
     $(this).addClass('streamer-added');
-    streams.submitStreamer($(".champ-addition").val());
+    streams.submitStreamer($(".champ-addition").val(), $(".stream-website").val());
     streamEvents();
     $(".champ-addition").val('');
   }
