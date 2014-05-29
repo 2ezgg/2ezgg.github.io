@@ -1,6 +1,6 @@
 function streamEvents(){
 
-  if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*15) >= Date.now()) ){
+  if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*20) >= Date.now()) ){
     streams.azubuStreamersOffline = JSON.parse(localStorage.getItem('azubuStreamersOffline'));
     streams.azubuStreamersOnline = JSON.parse(localStorage.getItem('azubuStreamersOnline'));
     streams.topAzubuStreamersOnline = JSON.parse(localStorage.getItem('topAzubuStreamersOnline'));
@@ -48,7 +48,7 @@ function streamEvents(){
         // do nothing - prevents refreshing of streams that are currently online
       } else if((streams.streamFunctionCount > 0) && streams.currentStreamViewers<40){
         // do nothing - prevents smaller streams from being refreshed if they don't make the top 12 after refresh
-      } else {
+      } else if(!window.location.href.match('/twitchstreams/i')) {
         streams.pushTwitchStreams();
       }
       $('.tooltip-left').tipsy({gravity: 'e'});
@@ -64,8 +64,8 @@ function streamEvents(){
         $('.tooltip-viewers').tipsy({gravity: 'w'});
         $('.tooltip-center').tipsy({gravity: 'n'});
       });
-
-      streams.topTwitchOnline().done(function() {
+      streams.topTwitchUrl = 'https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0';
+      streams.topTwitchOnline(true).done(function() {
         streams.pushTopTwitchStreamers();
         if(appSettings['eSportsNotifications']=='on'){
           streams.pushStreamsHeader();
@@ -86,7 +86,7 @@ function streamEvents(){
 }
 
 streamEvents();
-setInterval(streamEvents, 1000*60*12);
+setInterval(streamEvents, 1000*60*20);
 
 var $twitchHolder = $("#twitch-content");
 $twitchHolder.on('click', '.view-this-stream', function(){
@@ -175,6 +175,18 @@ $twitchHolder.on('click', '.view-twitch-chat', function(){
   }
 
   web.changeTwitchDimensions();
+});
+
+$("#view-more-streams").on('click', function(){
+   streams.topTwitchOnline().done(function() {
+      streams.pushTopTwitchStreamers(true);
+      if(appSettings['eSportsNotifications']=='on'){
+        streams.pushStreamsHeader();
+      }
+      $('.tooltip-left').tipsy({gravity: 'e'});
+      $('.tooltip-viewers').tipsy({gravity: 'w'});
+      $('.tooltip-center').tipsy({gravity: 'n'});
+    });
 });
 
 $('#top-header-message').on('click','.close-riot, .close-favourite', function(){

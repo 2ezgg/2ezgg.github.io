@@ -279,9 +279,9 @@ select.server::-ms-expand {
 select.server {
   position: absolute;
   top: 12px;
-  left: 236px;
+  left: 232px;
   cursor: pointer;
-  padding: 6px 6px;
+  padding: 7px 5px 7px 6px;
   margin-left: -6px;
   border: none;
   color: white;
@@ -322,7 +322,7 @@ select.server option {
     -moz-appearance: none;
     text-indent: 0.01px;
     text-overflow: '';
-    padding: 4px 4px; } }
+    padding: 6px 0px 4px 4px; } }
 
 #main-content {
   width: auto;
@@ -645,9 +645,9 @@ a.reddit-title:visited {
   text-decoration: underline; }
 
 #twitch-content {
-  margin-top: 15px;
+  padding-top: 15px;
   display: none;
-  width: 99%; }
+  background-color: #161616; }
 
 #twitch-online-content {
   width: auto; }
@@ -675,6 +675,15 @@ a.reddit-title:visited {
   font-weight: bold;
   font-size: 0.95em; }
 
+.stream-loading{
+  height:20px;
+  width:20px;
+  display:none;
+  margin-left: 5px;
+position: absolute;
+  background: url('../img/loader-stream.gif');
+  background-repeat: no-repeat;
+}
 .view-this-stream {
   cursor: pointer; }
 
@@ -736,9 +745,8 @@ a.reddit-title:visited {
   margin-bottom: 20px; }
 
 .twitch-user-name a {
-  color: #257372;
-  font-size: 15px;
-  font-weight: bold;
+  color: #32D4D2;
+  font-size: 18px;
   text-decoration: none;
   font-family: verdana;
   width: auto; }
@@ -937,7 +945,7 @@ a.reddit-title:visited {
   padding: 8px;
   padding-top: 14px;
   padding-bottom: 14px;
-  color: #333;
+  color: #C7C7C7;
   border-left: none;
   border-right: none;
   font-size: 0.95em; }
@@ -957,11 +965,22 @@ a.reddit-title:visited {
 #settings-content small {
   font-size: 90%;
   font-style: italic;
-  font-weight: 400; }
+  font-weight: 400;
+  color: #969696;
+   }
+
 
 #settings-content {
   padding-left: 30px;
-  display: none; }
+  display: none; 
+  background-color: #1A1A1B;
+  padding-top: 20px;
+}
+
+#settings-content h2{
+  color: white;
+  margin-top:0px;
+}
 
 #settings-content ul {
   padding-top: 0px;
@@ -969,8 +988,10 @@ a.reddit-title:visited {
 
 #settings-content h3 {
   margin-bottom: 1px;
-  margin-top: 20px;
-  font-size: 0.97em; }
+  margin-top: 30px;
+  font-size: 0.97em; 
+  color: #F6EC78;
+}
 
 .settings-update, .add-champ, .test-user-website, .add-user-website {
   color: white;
@@ -995,57 +1016,80 @@ a.reddit-title:visited {
   /* IE6-9 */ }
 
 .settings-odd {
-  background-color: #F0F0F0; }
+  background-color: #1d1d1d; }
 
 .website-control {
-  padding: 6px;
-  display: inline-block;
-  background-color: #E3E3E3;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #505050;
+  padding: 7px 8px 8px;
+display: inline-block;
+background-color: #313233;
+font-size: 0.84em;
+font-weight: 700;
+color: #C7C7C7;
+margin-top: 7px;
+cursor: move;
+position: relative;
+padding-left: 30px;
+margin-right: 8px;
+}
+#settings-content table, th, td {
+  border: 1px solid #333333;
+  line-height: 1.6;
+}
+#settings-content p{
+  color: rgb(231, 231, 231);
+}
+#settings-content ol li{
+  color:#C5C5C5;
   margin-top: 5px;
-  cursor: move;
-  position: relative;
-  padding-left: 32px;
-  border: 2px solid white;
-  margin-right: 4px; }
+}
+#settings-content strong{
+  color: #60BFC7;
+}
+#settings-content a{
+  color: orange;
+}
+#settings-content button, #settings-content select, #twitch-content button, #twitch-content select{
+  background-color: #333;
+  color: rgb(228, 228, 84);
+}
+#settings-content button, select option {
+  background-color: #383838;
+  padding: 2px;
+  color: white; 
+}
+#twitch-content select{
+padding: 7px;
+}
+.add-new-website{
+  color:white;
+}
 
 .website-control:first-child {
-  margin-right: 0px; }
+  margin-right: 2px; }
 
-.remove-website {
+.remove-website, .remove-user-website {
   background-color: #d65555;
   cursor: pointer;
-  padding: 2px 3px;
-  margin-right: 3px;
+  padding: 1px 5px 3px;
   margin-left: 4px;
   color: white; }
 
 .remove-website:before, .remove-user-website:before {
   content: "x"; }
 
-.remove-website:hover {
+.remove-website:hover, .remove-user-website:hover {
   background-color: #E76060; }
 
-.remove-user-website {
-  background-color: #d65555;
-  cursor: pointer;
-  padding: 2px 3px;
-  margin-right: 3px;
-  margin-left: 4px;
-  color: white; }
-
-.remove-user-website:hover {
-  background-color: #E76060; }
 
 .add-website {
   background-color: #5bacca;
   cursor: pointer;
-  padding: 2px 3px;
-  color: white;
-  margin-right: 3px;
-  margin-left: 4px; }
+  padding: 1px 5px 3px;
+  margin-left: 4px;
+  color: white; 
+  font-size: 1.01em;
+font-weight: 400;
+}
 
 .add-website:hover {
   background-color: #68BFDF; }
@@ -1054,7 +1098,10 @@ a.reddit-title:visited {
   content: "+"; }
 
 .user-website-name, .user-website-url {
-  border: 1px solid darkgrey; }
+  border: 1px solid #333; 
+  background-color:#272727;
+  color:white;
+}
 
 .champ-text {
   float: left; }
@@ -1062,6 +1109,7 @@ a.reddit-title:visited {
 #summoner-accounts-list li{
   display:block;
   cursor:pointer;
+  width:90.2%;
 }
 
 .remove-summoner{
@@ -1074,12 +1122,26 @@ a.reddit-title:visited {
 .summoner-server{
   text-transform:uppercase;
   font-size: .75em;
-  font-weight:800 !important;
+  font-weight:400 !important;
 }
 .summoner-name{
   text-transform:capitalize;
   font-weight:400;
   color: #f0e863;
+}
+.name {
+  background-color: #272727;
+  border: 1px solid #585858;
+  color: white;
+  padding-bottom: 8px;
+padding-top: 8px;
+}
+.champ{
+background-color: #272727;
+border: 1px solid #585858;
+color: white;
+padding-bottom: 8px;
+padding-top: 8px;
 }
 
 .nav-button, .champ, .name {
@@ -1095,7 +1157,13 @@ a.reddit-title:visited {
   margin-left: 45px; }
 
 .champ-addition {
-  border: 1px solid #B7B7B7; }
+  border: 1px solid #B7B7B7;
+  background-color:#333;
+  color:white; }
+
+#twitch-content p{
+  color: #B6B6B6;
+}
 
 #champ-drop > .champ-list-entry a {
   color: #fff;
@@ -1110,8 +1178,8 @@ a.reddit-title:visited {
   border: 1px solid #353535;
   position: absolute;
   z-index: 99;
-  margin-left: -236px;
-  width: 261px;
+  margin-left: -235px;
+  width: 260px;
   max-height: 150px;
   overflow: hidden;
   margin-top: 27px; }
@@ -1164,8 +1232,8 @@ a.reddit-title:visited {
   width: 26px;
   left: 247px;
   padding-left: 10px;
-  padding-top: 6px;
-  height: 24px;
+  padding-top: 7px;
+  height: 25px;
   margin-left: -4px;
   display: inline-block;
   margin-top: -5px;
@@ -1203,7 +1271,18 @@ a.reddit-title:visited {
   margin-right: 9px;
   margin-left: 9px;
   background: url('../img/champsprite.jpg'); }
-
+#view-more-streams{
+  background-color: rgb(78, 78, 78);
+height: 30px;
+width: 100%;
+color: rgb(255, 238, 111);
+text-align: center;
+padding-top: 10px;
+cursor: pointer;
+text-transform: uppercase;
+font-size: .9em;
+font-weight: bold;
+}
 .youtube-setting, .reddit-setting, .subreddit-setting, .reddit-anchors {
   padding: 5px 10px;
   margin-left: 15px;
