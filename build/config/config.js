@@ -1,4 +1,4 @@
-var redditJsOffline = true;
+var redditJsOffline = false;
 var appSettings = {};
 var settingsSaved = {};
 

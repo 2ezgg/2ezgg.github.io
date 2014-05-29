@@ -29,24 +29,14 @@ function StreamChannels(){
 StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
   var streamSource;
   var input = '';
+  var newStreamers = newStreamers.trim();
 
   if (newStreamers){
-
     if(streamerType =='azubu'){
-      input = newStreamers;
+      input = newStreamers.replace(/((.*?:\/\/)|beta.azubu.tv\/)|(\s)/gi, "").toLowerCase();
       streamSource = 'azubu';
-
-    } else if(newStreamers.match(/azubu.tv/i)){
-
-      streamSource = 'azubu';
-      var thisRegex = /\d{13}/gi;
-      input = thisRegex.exec(newStreamers).toString();
-
     } else {
-
-      var newStreamers = newStreamers.trim();
       streamSource = 'twitch';
-
       input = newStreamers.replace(/((.*?:\/\/)|www.twitch.tv\/)|(\s)/gi, "").toLowerCase();
     }
 
@@ -167,7 +157,7 @@ StreamChannels.prototype.getAzubuStreamers = function(){
               var accountFollowed = false;
 
               for(var t=0;t<self.streamers.length;t++){
-                if (data[i].Azubu_ID == self.streamers[t].name){
+                if (data[i].Name.toLowerCase() == self.streamers[t].name.toLowerCase()){
                   accountFollowed = true;
                   break;
                 }
@@ -175,20 +165,19 @@ StreamChannels.prototype.getAzubuStreamers = function(){
 
               self.topAzubuStreamersOnline[totalOnlineCount] = {
                 name: data[i].Name,
-                id: data[i].Azubu_ID,
                 count: totalOnlineCount,
+                viewTotal: data[i].Viewer,
                 online: true,
                 isAlreadyAdded: accountFollowed
               }
               totalOnlineCount ++;
 
               for(var y = 0;y<self.streamers.length;y++){
-                if (self.streamers[y].name == data[i].Azubu_ID){
+                if (self.streamers[y].name.toLowerCase() == data[i].Name.toLowerCase()){
                   self.azubuStreamersOnline[onlineCount] = {
                     name: data[i].Name,
-                    id: data[i].Azubu_ID,
+                    viewTotal: data[i].Viewer,
                     online: true,
-
                   }
                   onlineCount ++;
                   self.totalStreamersOnline ++;
@@ -198,10 +187,9 @@ StreamChannels.prototype.getAzubuStreamers = function(){
 
             } else {
               for(var z = 0;z<self.streamers.length;z++){
-                if (self.streamers[z].name == data[i].Azubu_ID){
+                if (self.streamers[z].name.toLowerCase() == data[i].Name.toLowerCase()){
                   self.azubuStreamersOffline[offlineCount] = {
                     name: data[i].Name,
-                    id: data[i].Azubu_ID,
                     online: false,
                     // check if json records thumbnail of player or viewer count
                   }
@@ -305,10 +293,12 @@ StreamChannels.prototype.offlineTwitchStreamers = function(){
 
 StreamChannels.prototype.removeStreamer = function(deleteStreamer){
   var input = deleteStreamer.toString().toLowerCase();
+  //check if I can get rid of toLowerCase!!
+
   if(input){
 
     for (var i=0; i<this.streamers.length; i++) {
-      if(this.streamers[i].name == input){
+      if(this.streamers[i].name.toLowerCase() == input.toLowerCase()){
         this.streamers.splice(i, 1);
       }
     }
