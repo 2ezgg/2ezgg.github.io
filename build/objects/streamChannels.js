@@ -430,6 +430,7 @@ StreamChannels.prototype.pushTopTwitchStreamers = function(appendToBottom){
   var self = this;
   var onlineTemplate = Handlebars.compile($('#twitch-top-online-template').html());
   if(!appendToBottom){
+      $("#twitch-top-streamers").html(' ');
     for(var i=0; i<self.topTwitchStreamersOnline.length; i++){
       $("#twitch-top-streamers").append( onlineTemplate(self.topTwitchStreamersOnline[i]) );
     }
