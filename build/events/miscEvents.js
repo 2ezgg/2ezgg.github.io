@@ -8,6 +8,16 @@ $("#sidebar").on('click', '.nav-button', function(e){
   if(e.which !== 2){
     $(".nav-button li").removeClass('selected-link');
     $(this).children('li').addClass('selected-link');
+    
+    if(!$(this).is('#youtube')){
+      $("#youtube-threads").html(' ');  
+      reddit.youtubeVids = [];
+      reddit.youtubeCount = 0;
+      reddit.currentYoutubeSettings = [null,'leagueoflegends','hot',null];
+      reddit.nextPageYoutube = '';
+      web.youtubeInUse = 'no';
+    }
+    
     ga('send', 'pageview', "#" + web.hashWithoutParams());
   }
   if(!isBuggedChrome){

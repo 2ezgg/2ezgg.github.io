@@ -67,7 +67,7 @@ function tabSystem(){
     web.redditInUse = 'no';
 
   } else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'redditthreads' && web.homePage()) ){
-    if(!detectmob()){
+    if(!detectmob() || appSettings['newWindow'] == 'off'){
       var url;
       if(web.homePageAccessed){
         url = $("#"+appSettings['ezHomePage']).attr('href')
@@ -86,7 +86,8 @@ function tabSystem(){
       }
       $("#iframe-holder").css("display","block");
       web.makeIframe(url)
-    };
+    } 
+
 
     web.youtubeInUse = 'no';
     web.redditInUse = 'no';
