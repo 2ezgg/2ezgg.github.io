@@ -244,7 +244,10 @@ WebInterface.prototype.registerScreen = function(){
 }
 
 WebInterface.prototype.homePage = function(){
-  if (this.hashWithoutParams(true) == window.location.origin + "/"){
+  if (!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+  }
+  if (this.hashWithoutParams(true) == window.location.origin+"/"){
     this.homePageAccessed = true;
     return true;
   } else{
