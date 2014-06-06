@@ -93,6 +93,11 @@ function LinkFactory(){
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
   this.LolInvenChampDetail = "detail.php?code=";
 
+  this.ProPick = "http://propick.net/";
+  this.ProPickChampSearch = this.ProPick + "index.php/all/champion/";
+
+  this.FantasyStart = "http://fantasy."
+  this.FantasyEnd = ".lolesports.com"
   /*
     Query Element Names
   */
@@ -132,6 +137,7 @@ function LinkFactory(){
   this.LolDbChampElementName = "champgameguyz";
   this.LolGamePediaChampElementName = "leaguepediachamp";
   this.LolInvenChampElementName = "inven";
+  this.ProPickChampElementName = "pick";
 
   /*
     Rss feed Urls & Ids
@@ -435,6 +441,13 @@ LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
 }
 
 /*
+  ProPick
+*/
+LinkFactory.prototype.getProPickChampionLink = function(champ){
+  return this.ProPickChampSearch + encodeURIComponent(champ);
+}
+
+/*
   Generates Champion URL for HTML element based on name
 */
 LinkFactory.prototype.getChampionLinkForElementName = function(elementName, champ){
@@ -474,6 +487,9 @@ LinkFactory.prototype.getChampionLinkForElementName = function(elementName, cham
       break;
     case this.LolInvenChampElementName:
       return this.getLolInvenChampionLink(champ);
+      break;
+    case this.ProPickChampElementName:
+      return this.getProPickChampionLink(champ);
       break;
   }
 }

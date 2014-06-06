@@ -1,6 +1,6 @@
 function streamEvents(){
 
-  if ( (currentUrl.match(/back/i)) && ((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*20) >= Date.now()) ){
+  if ( (currentUrl().match(/back/i)) && ((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*20) >= Date.now()) ){
     streams.azubuStreamersOffline = JSON.parse(localStorage.getItem('azubuStreamersOffline'));
     streams.azubuStreamersOnline = JSON.parse(localStorage.getItem('azubuStreamersOnline'));
     streams.topAzubuStreamersOnline = JSON.parse(localStorage.getItem('topAzubuStreamersOnline'));

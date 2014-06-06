@@ -143,7 +143,7 @@
 								<span class="update-info twitch-online tooltip" title="Followed Streamers Online"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc rss-capable" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news" style="display:none">
+						<a class="nav-button website-misc rss-capable" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news">
 							<li>
 								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News
 								<span class="update-info league-news tooltip" title="New Updates"></span>
@@ -190,12 +190,7 @@
 								<span class="lol-image" style="background-position:-160px -32px;"></span>In2LoL
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://2ez.gg/jungletimer/">
-							<li>
-								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
-							</li>
-						</a>
-						<a class="nav-button website-misc iframe-capable" id="wikia" data-name="wikia" target="_blank" href="http://leagueoflegends.wikia.com/wiki/" style="display:none">
+						<a class="nav-button website-misc iframe-capable" id="wikia" data-name="wikia" target="_blank" href="http://leagueoflegends.wikia.com/wiki/">
 							<li>
 								<span class="lol-image" style="background-position:-96px -16px;"></span>LoL Wiki
 							</li>
@@ -210,12 +205,21 @@
 								<span class="lol-image" style="background-position:-176px 0px;"></span>NerfPlz Tier List
 							</li>
 						</a>
+						<a class="nav-button website-misc iframe-capable" id="jungle" data-name="jungle" target="_blank" href="http://2ez.gg/jungletimer/">
+							<li>
+								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
+							</li>
+						</a>
 						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com">
 							<li>
 								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
 							</li>
 						</a>
-
+						<a class="nav-button website-misc iframe-capable" id="fantasy" data-name="fantasy" target="_blank" href="http://fantasy.lolesports.com" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-192px 0px;"></span>Fantasy LCS
+							</li>
+						</a>
 						<a class="nav-button website-misc iframe-capable" id="calendar" data-name="calendar" target="_blank" href="http://esportcalendar.com/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-128px 0px;"></span>Esport Calendar
@@ -415,6 +419,11 @@
 								<span class="lol-image" style="background-position:-176px -32px;"></span>Inven
 							</li>
 						</a>
+						<a class="nav-button website-champ iframe-capable" id="pick" data-name="pick" target="_blank" data-url="http://propick.net/" href="http://propick.net/" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-192px -16px;"></span>ProPick
+							</li>
+						</a>
 
 					</ul>
 				</div>
@@ -484,7 +493,7 @@
 
 					</li><li class="website-league website-control" data-name="LoL News" data-id="league">
 						<span class="lol-image" style="background-position:-48px 0px;"></span> LoL News <small>- Keep Updated</small>
-						<span class="add-website" ></span>
+						<span class="remove-website" ></span>
 
 					</li><li class="website-reign website-control" data-name="RoG" data-id="reign">
 						<span class="lol-image" style="background-position:-64px 0px;"></span> RoG <small>- Keep Updated</small>
@@ -513,11 +522,8 @@
 					</li><li class="website-in2 website-control" data-name="In2LoL" data-id="in2">
 						<span class="lol-image" style="background-position:-160px -32px;"></span> In2LoL <span class="add-website"></span>
 
-					</li><li class="website-jungle website-control" data-name="Jungle Timer" data-id="jungle">
-						<span class="lol-image" style="background-position:-80px 0px;"></span> Jungle Timer <span class="remove-website" ></span>
-
 					</li><li class="website-wikia website-control" data-name="LoL Wiki" data-id="wikia">
-						<span class="lol-image" style="background-position:-96px -16px;"></span> LoL Wiki <span class="add-website"></span>
+						<span class="lol-image" style="background-position:-96px -16px;"></span> LoL Wiki <span class="remove-website"></span>
 
 					</li><li class="website-gamepedia website-control" data-name="Leaguepedia" data-id="gamepedia">
 						<span class="lol-image" style="background-position:-96px -32px;"></span> Leaguepedia <span class="remove-website"></span>
@@ -525,8 +531,14 @@
 					</li><li class="website-nerfplz website-control" data-name="NerfPlz Tier List" data-id="nerfplz">
 						<span class="lol-image" style="background-position:-176px 0px;"></span> NerfPlz Tier List <span class="add-website"></span>
 
+					</li><li class="website-jungle website-control" data-name="Jungle Timer" data-id="jungle">
+						<span class="lol-image" style="background-position:-80px 0px;"></span> Jungle Timer <span class="remove-website" ></span>
+
 					</li><li class="website-esports website-control" data-name="LoL Esports" data-id="esports">
 						<span class="lol-image" style="background-position:-112px 0px;"></span> LoL Esports <span class="remove-website"></span>
+
+					</li><li class="website-fantasy website-control" data-name="Fantasy LCS" data-id="fantasy">
+						<span class="lol-image" style="background-position:-192px 0px;"></span> Fantasy LCS <span class="add-website"></span>
 
 					</li><li class="website-calendar website-control" data-name="Esports Calendar" data-id="calendar">
 						<span class="lol-image" style="background-position:-128px 0px;"></span> Esport Calendar <span class="add-website"></span>
@@ -621,13 +633,16 @@
 						<span class="lol-image" style="background-position:-64px -32px;"></span> Elophant <span class="remove-website"></span>
 
 					</li><li class="website-wikichamp website-control"  data-name="LoL Wiki"  data-id="wikichamp">
-						<span class="lol-image" style="background-position:-96px -16px;"></span> LoLWiki <span class="remove-website"></span>
+						<span class="lol-image" style="background-position:-96px -16px;"></span> LoL Wiki <span class="remove-website"></span>
 
 					</li><li class="website-leaguepediachamp website-control"  data-name="Leaguepedia"  data-id="leaguepediachamp">
 						<span class="lol-image" style="background-position:-96px -32px;"></span> Leaguepedia <span class="remove-website"></span>
 
 					</li><li class="website-inven website-control"  data-name="Inven"  data-id="inven">
 						<span class="lol-image" style="background-position:-176px -32px;"></span> Inven <span class="add-website"></span>
+					
+					</li><li class="website-pick website-control"  data-name="ProPick"  data-id="pick">
+						<span class="lol-image" style="background-position:-192px -16px;"></span> ProPick <span class="add-website"></span>
 
 					</li>
 				</ul>
@@ -767,6 +782,7 @@
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
+										<option value="pick">ProPick</option>
 									</select>
 								</td>
 								<td>Website to open after <strong>'enter'</strong> key is pressed in the<strong>'champion name'</strong> text field.</td>
@@ -786,6 +802,7 @@
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
+										<option value="pick">ProPick</option>
 									</select>
 								</td>
 								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
@@ -805,6 +822,7 @@
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
+										<option value="pick">ProPick</option>
 									</select>
 								</td>
 								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>

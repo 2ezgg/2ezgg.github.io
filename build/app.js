@@ -1,4 +1,6 @@
-var currentUrl = window.location.href;
+var currentUrl = function(){
+  return window.location.href;
+} 
 var league = new LeagueLinks();
 var streams = new StreamChannels();
 var reddit = new RedditLol();
@@ -11,7 +13,8 @@ web.testIfSearchShouldBeShown();
 web.setSettings();
 
 function tabSystem(){
-  if(currentUrl.match(/youtubevideos/i) || ( appSettings['ezHomePage'] == 'youtube' && web.homePage())){
+  var theUrl = currentUrl();
+  if(theUrl.match(/youtubevideos/i) || ( appSettings['ezHomePage'] == 'youtube' && web.homePage())){
 
     ///////////////////// if page back button is pressed
     $("#iframe-holder").html(' ').css("display","none");
@@ -32,7 +35,7 @@ function tabSystem(){
       }
     });
     web.twitchInUse = 'no';
-  } else if (currentUrl.match(/settings/i)){
+  } else if (theUrl.match(/settings/i)){
     $("#iframe-holder").html(' ').css("display","none");
     $("#main-content").css("display","block");
     $("header").css({'height':'28px','display':'block'});
@@ -50,7 +53,7 @@ function tabSystem(){
     web.youtubeInUse = 'no';
 
 
-  } else if (currentUrl.match(/twitchstreams/i) || ((appSettings['ezHomePage'] == 'twitch') && web.homePage()) ){
+  } else if (theUrl.match(/twitchstreams/i) || ((appSettings['ezHomePage'] == 'twitch') && web.homePage()) ){
     ///////////////////// if page back button is pressed
     $("#iframe-holder").html(' ').css("display","none");
     $("#main-content").css("display","block");
@@ -96,7 +99,7 @@ function tabSystem(){
   } else {
     $("a#redditthreads li").addClass('selected-link');
     web.enableRedditStyleSheet();
-    if ( currentUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
+    if ( theUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
 
       reddit.redditThreads = JSON.parse(localStorage.getItem('redditThreads'));
       reddit.nextPageReddit = localStorage.getItem('nextPage');
@@ -161,8 +164,18 @@ function tabSystem(){
 // Session Management - needs work
 var sessionActive = 'no';
 window.onpopstate = function(event){
-  if(sessionActive == 'yes' && ((web.hashWithoutParams().length != 0)||(window.location.href == window.location.origin+'/')) ){
+  if(sessionActive == 'yes'){
     $(".nav-button li").removeClass('selected-link');
+   
+    if(web.youtubeInUse = 'yes'){
+      $("#youtube-threads").html(' ');  
+      reddit.youtubeVids = [];
+      reddit.youtubeCount = 0;
+      reddit.currentYoutubeSettings = [null,'leagueoflegends','hot',null];
+      reddit.nextPageYoutube = '';
+      web.youtubeInUse = 'no';
+    }
+
     tabSystem();
     web.tabSystemProcessed = 1;
   }
@@ -172,5 +185,5 @@ if(web.tabSystemProcessed == 0){
   // pretty hacky thing that should be fixed properly
   setTimeout(function(){
     sessionActive = 'yes';
-  }, 5000);
+  }, 500);
 }
