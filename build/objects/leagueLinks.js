@@ -141,8 +141,8 @@ LeagueLinks.prototype.dropDownTemplate = function(input){
       if(ChampionList[i].name.match(inputExpression)){
         matchingChampInfo[count] = {
           name: ChampionList[i].name,
-                      xpos: ChampionList[i].xpos,
-                      ypos: ChampionList[i].ypos,
+          xpos: ChampionList[i].xpos,
+          ypos: ChampionList[i].ypos
         }
         count++;
       }
@@ -166,7 +166,7 @@ LeagueLinks.prototype.addNewSummoner = function(summonerName, summonerServer){
       this.summonerNames[i] = {
         name: summonerName,
         server: summonerServer,
-        favouriteStatus: 'no',
+        favouriteStatus: 'no'
       }
     }
 
@@ -207,7 +207,8 @@ LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 	}
 	if(changeWebsite){
 		$('#league').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
-	}
+	  $('#fantasy').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
+  }
 }
 
 LeagueLinks.prototype.rssAlerts = function(pageRssId){

@@ -15,7 +15,7 @@ $('#settings-content').on('click','.add-website', function(){
   if (notAdded){
     web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
-      display : 'inline-block',
+      display : 'inline-block'
     }
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
@@ -43,7 +43,7 @@ $('#settings-content').on('click','.remove-website', function(){
   if (notAdded){
     web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
-      display : 'none',
+      display : 'none'
     }
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
@@ -57,11 +57,11 @@ $('.add-user-website').on('click', function(){
   web.pageAdd[totalPages] = {
     name: $('.user-website-name').val(),
     id: previousEntry,
-    href: $('.user-website-url').val(),
+    href: $('.user-website-url').val()
   }
   idList.general[idList.general.length] = {
     name: $('.user-website-name').val(),
-    id: previousEntry,
+    id: previousEntry
   }
 
   if(iframeResult){
