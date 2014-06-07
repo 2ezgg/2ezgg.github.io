@@ -65,6 +65,11 @@
     background-position: -144px -0px
 }
 
+.flair-braum:after {
+    content: "";
+    background-position: 0px -16px
+}
+
 .flair-caitlyn:after {
     content: "";
     background-position: 0px -16px
@@ -2027,6 +2032,10 @@ html[lang^="dd"] .flair-clg:after {
     background-position: -486px -0px
 }
 
+.linkflair-braum .thumbnail,.linkflair-braum .thumbnail.self {
+    background-position: 0px -54px
+}
+
 .linkflair-caitlyn .thumbnail,.linkflair-caitlyn .thumbnail.self {
     background-position: 0px -54px
 }
@@ -2459,7 +2468,7 @@ html[lang^="dd"] .flair-clg:after {
     background-position: -378px -594px
 }
 
-a[href="/aatrox"]:nth-of-type(n):after,a[href="/ahri"]:nth-of-type(n):after,a[href="/akali"]:nth-of-type(n):after,a[href="/alistar"]:nth-of-type(n):after,a[href="/amumu"]:nth-of-type(n):after,a[href="/anivia"]:nth-of-type(n):after,a[href="/annie"]:nth-of-type(n):after,a[href="/ashe"]:nth-of-type(n):after,a[href="/blitzcrank"]:nth-of-type(n):after,a[href="/brand"]:nth-of-type(n):after,a[href="/caitlyn"]:nth-of-type(n):after,a[href="/cassiopeia"]:nth-of-type(n):after,a[href="/chogath"]:nth-of-type(n):after,a[href="/corki"]:nth-of-type(n):after,a[href="/darius"]:nth-of-type(n):after,a[href="/diana"]:nth-of-type(n):after,a[href="/drmundo"]:nth-of-type(n):after,a[href="/draven"]:nth-of-type(n):after,a[href="/elise"]:nth-of-type(n):after,a[href="/evelynn"]:nth-of-type(n):after,a[href="/ezreal"]:nth-of-type(n):after,a[href="/fiddlesticks"]:nth-of-type(n):after,a[href="/fiora"]:nth-of-type(n):after,a[href="/fizz"]:nth-of-type(n):after,a[href="/galio"]:nth-of-type(n):after,a[href="/gangplank"]:nth-of-type(n):after,a[href="/garen"]:nth-of-type(n):after,a[href="/gragas"]:nth-of-type(n):after,a[href="/graves"]:nth-of-type(n):after,a[href="/hecarim"]:nth-of-type(n):after,a[href="/heimerdinger"]:nth-of-type(n):after,a[href="/irelia"]:nth-of-type(n):after,a[href="/janna"]:nth-of-type(n):after,a[href="/jarvaniv"]:nth-of-type(n):after,a[href="/jax"]:nth-of-type(n):after,a[href="/jayce"]:nth-of-type(n):after,a[href="/jinx"]:nth-of-type(n):after,a[href="/karma"]:nth-of-type(n):after,a[href="/karthus"]:nth-of-type(n):after,a[href="/kassadin"]:nth-of-type(n):after,a[href="/katarina"]:nth-of-type(n):after,a[href="/kayle"]:nth-of-type(n):after,a[href="/kennen"]:nth-of-type(n):after,a[href="/khazix"]:nth-of-type(n):after,a[href="/kogmaw"]:nth-of-type(n):after,a[href="/leblanc"]:nth-of-type(n):after,a[href="/leesin"]:nth-of-type(n):after,a[href="/leona"]:nth-of-type(n):after,a[href="/lissandra"]:nth-of-type(n):after,a[href="/lucian"]:nth-of-type(n):after,a[href="/lulu"]:nth-of-type(n):after,a[href="/lux"]:nth-of-type(n):after,a[href="/malphite"]:nth-of-type(n):after,a[href="/malzahar"]:nth-of-type(n):after,a[href="/maokai"]:nth-of-type(n):after,a[href="/masteryi"]:nth-of-type(n):after,a[href="/missfortune"]:nth-of-type(n):after,a[href="/wukong"]:nth-of-type(n):after,a[href="/mordekaiser"]:nth-of-type(n):after,a[href="/morgana"]:nth-of-type(n):after,a[href="/nami"]:nth-of-type(n):after,a[href="/nasus"]:nth-of-type(n):after,a[href="/nautilus"]:nth-of-type(n):after,a[href="/nidalee"]:nth-of-type(n):after,a[href="/nocturne"]:nth-of-type(n):after,a[href="/nunu"]:nth-of-type(n):after,a[href="/olaf"]:nth-of-type(n):after,a[href="/orianna"]:nth-of-type(n):after,a[href="/pantheon"]:nth-of-type(n):after,a[href="/poppy"]:nth-of-type(n):after,a[href="/quinn"]:nth-of-type(n):after,a[href="/rammus"]:nth-of-type(n):after,a[href="/renekton"]:nth-of-type(n):after,a[href="/rengar"]:nth-of-type(n):after,a[href="/riven"]:nth-of-type(n):after,a[href="/rumble"]:nth-of-type(n):after,a[href="/ryze"]:nth-of-type(n):after,a[href="/sejuani"]:nth-of-type(n):after,a[href="/shaco"]:nth-of-type(n):after,a[href="/shen"]:nth-of-type(n):after,a[href="/shyvana"]:nth-of-type(n):after,a[href="/singed"]:nth-of-type(n):after,a[href="/sion"]:nth-of-type(n):after,a[href="/sivir"]:nth-of-type(n):after,a[href="/skarner"]:nth-of-type(n):after,a[href="/sona"]:nth-of-type(n):after,a[href="/soraka"]:nth-of-type(n):after,a[href="/swain"]:nth-of-type(n):after,a[href="/syndra"]:nth-of-type(n):after,a[href="/talon"]:nth-of-type(n):after,a[href="/taric"]:nth-of-type(n):after,a[href="/teemo"]:nth-of-type(n):after,a[href="/thresh"]:nth-of-type(n):after,a[href="/tristana"]:nth-of-type(n):after,a[href="/trundle"]:nth-of-type(n):after,a[href="/tryndamere"]:nth-of-type(n):after,a[href="/twistedfate"]:nth-of-type(n):after,a[href="/twitch"]:nth-of-type(n):after,a[href="/udyr"]:nth-of-type(n):after,a[href="/urgot"]:nth-of-type(n):after,a[href="/varus"]:nth-of-type(n):after,a[href="/vayne"]:nth-of-type(n):after,a[href="/veigar"]:nth-of-type(n):after,a[href="/velkoz"]:nth-of-type(n):after,a[href="/vi"]:nth-of-type(n):after,a[href="/viktor"]:nth-of-type(n):after,a[href="/vladimir"]:nth-of-type(n):after,a[href="/volibear"]:nth-of-type(n):after,a[href="/warwick"]:nth-of-type(n):after,a[href="/xerath"]:nth-of-type(n):after,a[href="/xinzhao"]:nth-of-type(n):after,a[href="/yasuo"]:nth-of-type(n):after,a[href="/yorick"]:nth-of-type(n):after,a[href="/zac"]:nth-of-type(n):after,a[href="/zed"]:nth-of-type(n):after,a[href="/ziggs"]:nth-of-type(n):after,a[href="/zilean"]:nth-of-type(n):after,a[href="/zyra"]:nth-of-type(n):after {
+a[href="/aatrox"]:nth-of-type(n):after,a[href="/ahri"]:nth-of-type(n):after,a[href="/akali"]:nth-of-type(n):after,a[href="/alistar"]:nth-of-type(n):after,a[href="/amumu"]:nth-of-type(n):after,a[href="/anivia"]:nth-of-type(n):after,a[href="/annie"]:nth-of-type(n):after,a[href="/ashe"]:nth-of-type(n):after,a[href="/blitzcrank"]:nth-of-type(n):after,a[href="/brand"]:nth-of-type(n):after,a[href="/braum"]:nth-of-type(n):after,a[href="/caitlyn"]:nth-of-type(n):after,a[href="/cassiopeia"]:nth-of-type(n):after,a[href="/chogath"]:nth-of-type(n):after,a[href="/corki"]:nth-of-type(n):after,a[href="/darius"]:nth-of-type(n):after,a[href="/diana"]:nth-of-type(n):after,a[href="/drmundo"]:nth-of-type(n):after,a[href="/draven"]:nth-of-type(n):after,a[href="/elise"]:nth-of-type(n):after,a[href="/evelynn"]:nth-of-type(n):after,a[href="/ezreal"]:nth-of-type(n):after,a[href="/fiddlesticks"]:nth-of-type(n):after,a[href="/fiora"]:nth-of-type(n):after,a[href="/fizz"]:nth-of-type(n):after,a[href="/galio"]:nth-of-type(n):after,a[href="/gangplank"]:nth-of-type(n):after,a[href="/garen"]:nth-of-type(n):after,a[href="/gragas"]:nth-of-type(n):after,a[href="/graves"]:nth-of-type(n):after,a[href="/hecarim"]:nth-of-type(n):after,a[href="/heimerdinger"]:nth-of-type(n):after,a[href="/irelia"]:nth-of-type(n):after,a[href="/janna"]:nth-of-type(n):after,a[href="/jarvaniv"]:nth-of-type(n):after,a[href="/jax"]:nth-of-type(n):after,a[href="/jayce"]:nth-of-type(n):after,a[href="/jinx"]:nth-of-type(n):after,a[href="/karma"]:nth-of-type(n):after,a[href="/karthus"]:nth-of-type(n):after,a[href="/kassadin"]:nth-of-type(n):after,a[href="/katarina"]:nth-of-type(n):after,a[href="/kayle"]:nth-of-type(n):after,a[href="/kennen"]:nth-of-type(n):after,a[href="/khazix"]:nth-of-type(n):after,a[href="/kogmaw"]:nth-of-type(n):after,a[href="/leblanc"]:nth-of-type(n):after,a[href="/leesin"]:nth-of-type(n):after,a[href="/leona"]:nth-of-type(n):after,a[href="/lissandra"]:nth-of-type(n):after,a[href="/lucian"]:nth-of-type(n):after,a[href="/lulu"]:nth-of-type(n):after,a[href="/lux"]:nth-of-type(n):after,a[href="/malphite"]:nth-of-type(n):after,a[href="/malzahar"]:nth-of-type(n):after,a[href="/maokai"]:nth-of-type(n):after,a[href="/masteryi"]:nth-of-type(n):after,a[href="/missfortune"]:nth-of-type(n):after,a[href="/wukong"]:nth-of-type(n):after,a[href="/mordekaiser"]:nth-of-type(n):after,a[href="/morgana"]:nth-of-type(n):after,a[href="/nami"]:nth-of-type(n):after,a[href="/nasus"]:nth-of-type(n):after,a[href="/nautilus"]:nth-of-type(n):after,a[href="/nidalee"]:nth-of-type(n):after,a[href="/nocturne"]:nth-of-type(n):after,a[href="/nunu"]:nth-of-type(n):after,a[href="/olaf"]:nth-of-type(n):after,a[href="/orianna"]:nth-of-type(n):after,a[href="/pantheon"]:nth-of-type(n):after,a[href="/poppy"]:nth-of-type(n):after,a[href="/quinn"]:nth-of-type(n):after,a[href="/rammus"]:nth-of-type(n):after,a[href="/renekton"]:nth-of-type(n):after,a[href="/rengar"]:nth-of-type(n):after,a[href="/riven"]:nth-of-type(n):after,a[href="/rumble"]:nth-of-type(n):after,a[href="/ryze"]:nth-of-type(n):after,a[href="/sejuani"]:nth-of-type(n):after,a[href="/shaco"]:nth-of-type(n):after,a[href="/shen"]:nth-of-type(n):after,a[href="/shyvana"]:nth-of-type(n):after,a[href="/singed"]:nth-of-type(n):after,a[href="/sion"]:nth-of-type(n):after,a[href="/sivir"]:nth-of-type(n):after,a[href="/skarner"]:nth-of-type(n):after,a[href="/sona"]:nth-of-type(n):after,a[href="/soraka"]:nth-of-type(n):after,a[href="/swain"]:nth-of-type(n):after,a[href="/syndra"]:nth-of-type(n):after,a[href="/talon"]:nth-of-type(n):after,a[href="/taric"]:nth-of-type(n):after,a[href="/teemo"]:nth-of-type(n):after,a[href="/thresh"]:nth-of-type(n):after,a[href="/tristana"]:nth-of-type(n):after,a[href="/trundle"]:nth-of-type(n):after,a[href="/tryndamere"]:nth-of-type(n):after,a[href="/twistedfate"]:nth-of-type(n):after,a[href="/twitch"]:nth-of-type(n):after,a[href="/udyr"]:nth-of-type(n):after,a[href="/urgot"]:nth-of-type(n):after,a[href="/varus"]:nth-of-type(n):after,a[href="/vayne"]:nth-of-type(n):after,a[href="/veigar"]:nth-of-type(n):after,a[href="/velkoz"]:nth-of-type(n):after,a[href="/vi"]:nth-of-type(n):after,a[href="/viktor"]:nth-of-type(n):after,a[href="/vladimir"]:nth-of-type(n):after,a[href="/volibear"]:nth-of-type(n):after,a[href="/warwick"]:nth-of-type(n):after,a[href="/xerath"]:nth-of-type(n):after,a[href="/xinzhao"]:nth-of-type(n):after,a[href="/yasuo"]:nth-of-type(n):after,a[href="/yorick"]:nth-of-type(n):after,a[href="/zac"]:nth-of-type(n):after,a[href="/zed"]:nth-of-type(n):after,a[href="/ziggs"]:nth-of-type(n):after,a[href="/zilean"]:nth-of-type(n):after,a[href="/zyra"]:nth-of-type(n):after {
     content: "";
     width: 16px;
     height: 16px;
@@ -2508,6 +2517,11 @@ a[href="/blitzcrank"]:nth-of-type(n):after {
 a[href="/brand"]:nth-of-type(n):after {
     background-position: -144px -0px
 }
+
+a[href="/braum"]:nth-of-type(n):after {
+    background-position: 0px -16px
+}
+
 
 a[href="/caitlyn"]:nth-of-type(n):after {
     background-position: 0px -16px
@@ -3523,44 +3537,43 @@ a[href="#hover"] {
 
 
 .side .md h3+blockquote>ul>li>a {
-    background-position: -216px -0px
+    background-position: -108px -0px
 }
 
 .side .md h3+blockquote>ul>li+li>a {
-    background-position: -270px -0px
+    background-position: -324px -0px
 }
 
 .side .md h3+blockquote>ul>li+li+li>a {
-    background-position: -432px -108px
+    background-position: -324px -54px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li>a {
-    background-position: -108px -162px
+    background-position: -216px -108px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li>a {
-    background-position: -432px -216px
+    background-position: -324px -108px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li+li>a {
-    background-position: -486px -216px
+    background-position: -432px -108px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li+li+li>a {
-    background-position: -324px -324px
+    background-position: -270px -216px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li+li+li+li>a {
-    background-position: -216px -378px
+    background-position: 0px -270px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li+li+li+li+li>a {
-    background-position: -486px -378px
+    background-position: -162px -486px
 }
 
 .side .md h3+blockquote>ul>li+li+li+li+li+li+li+li+li+li>a {
-    background-position: 0px -486px
+    background-position: -432px -270px
 }
-
 
 
