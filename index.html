@@ -75,25 +75,25 @@
 					<input type="text" name="searchInput" class="searchinput" placeholder="Search" style="width: 240px;display: block;margin-left: 5px;">
 
 					<div id="searchbuttons" style="position:relative;padding-top:10px;">
-						<a class="nav-button website-search no-iframe" id="google" data-name="google" data-url="http://google.com/" href="http://google.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="google" data-name="google" data-url="http://google.com/" href="http://google.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:0px 0px;"></span> Google
 						</a>
-						<a class="nav-button website-search no-iframe" id="gimages" data-name="gimages" data-url="http://images.google.com/" href="http://images.google.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="gimages" data-name="gimages" data-url="http://images.google.com/" href="http://images.google.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:0px 0px;"></span> Google Images
 						</a>
-						<a class="nav-button website-search no-iframe" id="yahoo" data-name="yahoo" data-url="http://www.yahoo.com/" href="http://www.yahoo.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="yahoo" data-name="yahoo" data-url="http://www.yahoo.com/" href="http://www.yahoo.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:-32px -16px;"></span> Yahoo
 						</a>
-						<a class="nav-button website-search no-iframe" id="bing" data-name="bing" data-url="http://bing.com/" href="http://bing.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="bing" data-name="bing" data-url="http://bing.com/" href="http://bing.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:-32px 0px;"></span> Bing
 						</a>
-						<a class="nav-button website-search no-iframe" id="youtubesearch" data-name="youtubesearch" data-url="http://youtube.com/" href="http://youtube.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="youtubesearch" data-name="youtubesearch" data-url="http://youtube.com/" href="http://youtube.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:0px -16px;"></span> YouTube
 						</a>
-						<a class="nav-button website-search no-iframe" id="wikipedia" data-name="wikipedia" data-url="http://wikipedia.com/" href="http://wikipedia.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="wikipedia" data-name="wikipedia" data-url="http://wikipedia.com/" href="http://wikipedia.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:-16px 0px;"></span> Wikipedia
 						</a>
-						<a class="nav-button website-search no-iframe" id="wolfram" data-name="wolfram" data-url="https://www.wolframalpha.com/" href="https://www.wolframalpha.com/" target="_blank" style="display:none">
+						<a class="nav-button website-search" id="wolfram" data-name="wolfram" data-url="https://www.wolframalpha.com/" href="https://www.wolframalpha.com/" target="_blank" style="display:none">
 							<span class="search-image" style="background-position:-16px -16px;"></span> Wolfram Alpha
 						</a>
 					</div>
@@ -116,15 +116,14 @@
 					</script>
 
 					<ul>
-
-						<a class="nav-button website-misc iframe-capable" id="redditfront" data-name="redditfront" href="http://reddit.com/" style="display:none">
-							<li>
-								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit Front
-							</li>
-						</a>
 						<a class="nav-button website-misc iframe-capable" id="reddit" data-name="reddit" href="http://reddit.com/r/leagueoflegends#hideOpts">
 							<li>
 								<span class="lol-image" style="background-position:-16px 0px;"></span>RedditJS
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" id="redditfront" data-name="redditfront" href="http://reddit.com/" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-16px 0px;"></span>Reddit Front
 							</li>
 						</a>
 						<a class="nav-button website-misc no-iframe" id="redditthreads" data-name="redditthreads" href="http://reddit.com/r/leagueoflegends" style="display:none">
@@ -143,7 +142,7 @@
 								<span class="update-info twitch-online tooltip" title="Followed Streamers Online"></span>
 							</li>
 						</a>
-						<a class="nav-button website-misc rss-capable" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news">
+						<a class="nav-button website-misc rss-capable external-link" id="league" data-name="league" data-index="0" target="_blank" href="http://na.leagueoflegends.com/en/news">
 							<li>
 								<span class="lol-image" style="background-position:-48px 0px;"></span>LoL News
 								<span class="update-info league-news tooltip" title="New Updates"></span>
@@ -200,6 +199,11 @@
 								<span class="lol-image" style="background-position:-96px -32px;"></span>Leaguepedia
 							</li>
 						</a>
+						<a class="nav-button website-misc iframe-capable" id="craft" data-name="craft" target="_blank" href="http://www.leaguecraft.com" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-192px -32px;"></span>LeagueCraft
+							</li>
+						</a>
 						<a class="nav-button website-misc iframe-capable" id="nerfplz" data-name="nerfplz" target="_blank" href="http://www.nerfplz.com/2014/03/2014-champion-tier-list-solo-queue.html" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-176px 0px;"></span>NerfPlz Tier List
@@ -210,7 +214,7 @@
 								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
 							</li>
 						</a>
-						<a class="nav-button website-misc" id="esports" data-name="esports" target="_blank" href="http://lolesports.com">
+						<a class="nav-button website-misc external-link" id="esports" data-name="esports" target="_blank" href="http://lolesports.com">
 							<li>
 								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
 							</li>
@@ -527,6 +531,9 @@
 
 					</li><li class="website-gamepedia website-control" data-name="Leaguepedia" data-id="gamepedia">
 						<span class="lol-image" style="background-position:-96px -32px;"></span> Leaguepedia <span class="remove-website"></span>
+
+					</li><li class="website-craft website-control" data-name="LeagueCraft" data-id="craft">
+						<span class="lol-image" style="background-position:-192px -32px;"></span> LeagueCraft <span class="add-website"></span>
 
 					</li><li class="website-nerfplz website-control" data-name="NerfPlz Tier List" data-id="nerfplz">
 						<span class="lol-image" style="background-position:-176px 0px;"></span> NerfPlz Tier List <span class="add-website"></span>
