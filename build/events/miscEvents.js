@@ -4,7 +4,7 @@ $("#redditthreads, #youtube, #twitch, #settings").on('click', function(){
   }
 });
 
-$("#sidebar").on('click', '.nav-button', function(e){
+$("#sidebar").on('click', 'a:not(.external-link).nav-button', function(e){
   if(e.which !== 2){
     $(".nav-button li").removeClass('selected-link');
     $(this).children('li').addClass('selected-link');
