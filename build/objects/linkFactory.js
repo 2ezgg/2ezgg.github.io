@@ -96,8 +96,8 @@ function LinkFactory(){
   this.ProPick = "http://propick.net/";
   this.ProPickChampSearch = this.ProPick + "index.php/all/champion/";
 
-  this.FantasyStart = "http://fantasy."
-  this.FantasyEnd = ".lolesports.com"
+  this.FantasyStart = "http://fantasy.";
+  this.FantasyEnd = ".lolesports.com";
   /*
     Query Element Names
   */
@@ -171,102 +171,102 @@ function LinkFactory(){
 */
 LinkFactory.prototype.getGoogleWebQuery = function(query){
   return this.GoogleWebQuery+query;
-}
+};
 LinkFactory.prototype.getGoogleImageQuery = function(query){
   return this.GoogleImageQueryStart+query+this.GoogleImageQueryEnd;
-}
+};
 LinkFactory.prototype.getYouTubeQuery = function(query){
   return this.YouTubeQuery+query;
-}
+};
 LinkFactory.prototype.getYahooWebQuery = function(query){
   return this.YahooWebQueryStart+query+this.YahooWebQueryEnd;
-}
+};
 LinkFactory.prototype.getBingWebQuery = function(query){
   return this.BingWebQuery+query;
-}
+};
 LinkFactory.prototype.getWikipediaQuery = function(query){
   return this.WikipediaQuery+query;
-}
+};
 LinkFactory.prototype.getWolframAlphaQuery = function(query){
   return this.WolframAlphaQuery+query;
-}
+};
 
 /*
   Champion Renaming Functions
 */
 LinkFactory.prototype.getSpaceAndDashName = function(champ){
   return champ.replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
-}
+};
 LinkFactory.prototype.getAllDashesName = function(champ){
   return champ.replace(/[^a-zA-Z \']/g, "").replace(/ |\'/g,"-");
-}
+};
 LinkFactory.prototype.getOnlyLettersName = function(champ){
   return champ.replace(/[^a-zA-Z]/g, "");
-}
+};
 
 /*
   LolKing
 */
 LinkFactory.prototype.getLolKingSummonerLink = function(region, name){
   return this.LolKingSearch+this.NameUrlFirstKey+name+this.RegionUrlKey+region;
-}
+};
 LinkFactory.prototype.getLolKingChampionLink = function(champ){
   return this.LolKingChampSearch+this.getLolKingFixedChamp(this.getOnlyLettersName(champ));
-}
+};
 LinkFactory.prototype.getLolKingFixedChamp = function(champ){
   if(champ == 'wukong'){
     return 'monkeyking';
   }else{
     return champ;
   }
-}
+};
 
 /*
   LolKingNow
 */
 LinkFactory.prototype.getLolKingNowSummonerLink = function(region, name){
   return this.LolKingNow+"/"+region+"/"+name;
-}
+};
 LinkFactory.prototype.getLolKingNowChampionLink = function(){
   return '';
-}
+};
 
 /*
   LolNexus
 */
 LinkFactory.prototype.getLolNexusSummonerLink = function(region, name){
   return this.LolNexus+"/"+region+this.LolNexusSearchEnd+this.NameUrlFirstKey+name+this.ServerUrlKey+region;
-}
+};
 LinkFactory.prototype.getLolNexusChampionLink = function(){
   return '';
-}
+};
 
 /*
   LolSkill
 */
 LinkFactory.prototype.getLolSkillSummonerLink = function(region, name){
   return this.LolSkillSearch+region+'-'+name;
-}
+};
 LinkFactory.prototype.getLolSkillChampionLink = function(){
   return '';
-}
+};
 
 /*
   Summoning
 */
 LinkFactory.prototype.getSummoningSummonerLink = function(region, name){
   return this.SummoningSearch+"/"+region+"/"+name;
-}
+};
 LinkFactory.prototype.getSummoningChampionLink = function(){
   return '';
-}
+};
 
 /*
   Kassad
 */
 LinkFactory.prototype.getKassadSummonerLink = function(region, name){
   return this.KassadSearch+this.getKassadFixedRegion(region)+"/"+name+"/";
-}
+};
 LinkFactory.prototype.getKassadFixedRegion = function(region){
   if(region == 'eune'){
     return 'eun';
@@ -277,37 +277,37 @@ LinkFactory.prototype.getKassadFixedRegion = function(region){
   }else{
     return region;
   }
-}
+};
 LinkFactory.prototype.getKassadChampionLink = function(){
   return '';
-}
+};
 
 /*
   OP
 */
 LinkFactory.prototype.getOPSummonerLink = function(region, name){
   return this.OPBase+this.getOPFixedRegion(region)+this.OPSearch+name;
-}
+};
 LinkFactory.prototype.getOPFixedRegion = function(region){
   if(region !== 'kr' && region !== 'cn' && region !== 'tw' && region !== 'sea'){
     return region+'.';
   }else{
     return '';
   }
-}
+};
 LinkFactory.prototype.getOPChampionLink = function(){
   return '';
-}
+};
 
 /*
   LolDb
 */
 LinkFactory.prototype.getLolDbSummonerLink = function(name){
   return this.LolDbSearch+name+this.LolDbServer;
-}
+};
 LinkFactory.prototype.getLolDbChampionLink = function(champ){
   return this.LolDbChampSearchStart+this.getLolDbFixedChamp(champ)+this.LolDbChampSearchEnd;
-}
+};
 LinkFactory.prototype.getLolDbFixedChamp = function(champ){
   if(champ=='vel\'koz'){
     champ = 'velkoz';
@@ -315,80 +315,80 @@ LinkFactory.prototype.getLolDbFixedChamp = function(champ){
     champ = this.getAllDashesName(champ);
   }
   return champ;
-}
+};
 
 /*
   Elophant
 */
 LinkFactory.prototype.getElophantSummonerLink = function(region, name){
   return this.ElophantSearch+name+this.RegionUrlKey+region;
-}
+};
 LinkFactory.prototype.getElophantChampionLink = function(champ){
   return this.ElophantChampSearchStart+this.getSpaceAndDashName(champ)+this.ElophantChampSearchEnd;
-}
+};
 
 /*
   ChampSelect
 */
 LinkFactory.prototype.getChampSelectChampionLink = function(champ){
   return this.ChampSelectChampSearch+this.getSpaceAndDashName(champ);
-}
+};
 
 /*
   TSM
 */
 LinkFactory.prototype.getTSMChampionLink = function(champ){
   return this.TSMChampSearch+this.getOnlyLettersName(champ);
-}
+};
 
 /*
   ProBuilds
 */
 LinkFactory.prototype.getProBuildsChampionLink = function(champ){
   return this.ProBuildsChampSearch+this.getProBuildsFixedChamp(this.getOnlyLettersName(champ));
-}
+};
 LinkFactory.prototype.getProBuildsFixedChamp = function(champ){
   if(champ == 'wukong'){ //same as lolkings, made separate func incase of future changes
     return 'monkeyking';
   }else{
     return champ;
   }
-}
+};
 
 /*
   MobaFire
 */
 LinkFactory.prototype.getMobaFireChampionLink = function(champ){
   return this.MobaFireChampSearchStart+this.getSpaceAndDashName(champ)+this.MobaFireChampSearchEnd;
-}
+};
 
 /*
   LolBuilder
 */
 LinkFactory.prototype.getLolBuilderChampionLink = function(champ){
   return this.LolBuilderChampSearch+this.getOnlyLettersName(champ);
-}
+};
 
 /*
   LolPro
 */
 LinkFactory.prototype.getLolProChampionLink = function(champ){
   return this.LolProChampSearch+this.getSpaceAndDashName(champ);
-}
+};
 
 /*
   LolWiki
 */
 LinkFactory.prototype.getLolWikiChampionLink = function(champ){
   return this.LolWikiChampSearch+champ;
-}
+};
 
 /*
   LolGamepedia
 */
 LinkFactory.prototype.getLolGamepediaChampionLink = function(champ){
   return this.LolGamepediaChampSearch+this.getLolGamepediaFixedChamp(champ);
-}
+};
 LinkFactory.prototype.getLolGamepediaFixedChamp = function(champ){
   switch(champ){
     case 'cho\'gath':
@@ -423,14 +423,14 @@ LinkFactory.prototype.getLolGamepediaFixedChamp = function(champ){
       break;
   }
   return encodeURIComponent(champ);
-}
+};
 
 /*
   LolInven
 */
 LinkFactory.prototype.getLolInvenChampionLink = function(champ){
   return this.LolInvenChampSearch+this.getLolInvenFixedChamp(champ);
-}
+};
 LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
   for (var i=0;i<ChampionList.length;i++){
     if(champ == ChampionList[i].name){
@@ -438,14 +438,14 @@ LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
     }
   }
   return ''; //not found in champ list
-}
+};
 
 /*
   ProPick
 */
 LinkFactory.prototype.getProPickChampionLink = function(champ){
   return this.ProPickChampSearch + encodeURIComponent(champ);
-}
+};
 
 /*
   Generates Champion URL for HTML element based on name
@@ -454,152 +454,109 @@ LinkFactory.prototype.getChampionLinkForElementName = function(elementName, cham
   switch(elementName){
     case this.ChampSelectChampElementName:
       return this.getChampSelectChampionLink(champ);
-      break;
     case this.LolKingChampElementName:
       return this.getLolKingChampionLink(champ);
-      break;
     case this.TSMChampElementName:
       return this.getTSMChampionLink(champ);
-      break;
     case this.ProBuildsChampElementName:
       return this.getProBuildsChampionLink(champ);
-      break;
     case this.ElophantChampElementName:
       return this.getElophantChampionLink(champ);
-      break;
     case this.MobaFireChampElementName:
       return this.getMobaFireChampionLink(champ);
-      break;
     case this.LolBuilderChampElementName:
       return this.getLolBuilderChampionLink(champ);
-      break;
     case this.LolProChampElementName:
       return this.getLolProChampionLink(champ);
-      break;
     case this.LolWikiChampElementName:
       return this.getLolWikiChampionLink(champ);
-      break;
     case this.LolGamePediaChampElementName:
       return this.getLolGamepediaChampionLink(champ);
-      break;
     case this.LolDbChampElementName:
       return this.getLolDbChampionLink(champ);
-      break;
     case this.LolInvenChampElementName:
       return this.getLolInvenChampionLink(champ);
-      break;
     case this.ProPickChampElementName:
       return this.getProPickChampionLink(champ);
-      break;
   }
-}
+};
 
 LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, region, name){
   switch(elementName){
     case this.LolNexusSummonerElementName:
       return this.getLolNexusSummonerLink(region, name);
-      break;
     case this.KassadSummonerElementName:
       return this.getKassadSummonerLink(region, name);
-      break;
     case this.LolKingNowSummonerElementName:
       return this.getLolKingNowSummonerLink(region, name);
-      break;
     case this.SummoningSummonerElementName:
       return this.getSummoningSummonerLink(region, name);
-      break;
     case this.LolKingSummonerElementName:
       return this.getLolKingSummonerLink(region, name);
-      break;
     case this.OPSummonerElementName:
       return this.getOPSummonerLink(region, name);
-      break;
     case this.LolSkillSummonerElementName:
       return this.getLolSkillSummonerLink(region, name);
-      break;
     case this.LolDbSummonerElementName:
       return this.getLolDbSummonerLink(name);
-      break;
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
-      break;
   }
-}
+};
 
 LinkFactory.prototype.getQueryLinkForElementName = function(elementName, searchQuery){
   switch(elementName){
   case this.GoogleQueryElementName:
       return this.getGoogleWebQuery(searchQuery);
-      break;
     case this.GoogleImagesQueryElementName:
       return this.getGoogleImageQuery(searchQuery);
-      break;
     case this.YouTubeQueryElementName:
       return this.getYouTubeQuery(searchQuery);
-      break;
     case this.YahooQueryElementName:
       return this.getYahooWebQuery(searchQuery);
-      break;
     case this.BingQueryElementName:
       return this.getBingWebQuery(searchQuery);
-      break;
     case this.WikipediaQueryElementName:
       return this.getWikipediaQuery(searchQuery);
-      break;
     case this.WolframQueryElementName:
       return this.getWolframAlphaQuery(searchQuery);
-      break;
   }
-}
+};
 
 LinkFactory.prototype.getRssLink = function(rssId, newsServer){
   switch(rssId){
     case this.OfficialLolId:
       return this.OfficialLolStartRSS+newsServer+this.OfficialLolEndRSS;
-      break;
     case this.ReignOfGamingId:
       return this.ReignOfGamingRSS;
-      break;
     case this.OnGamersId:
       return this.OnGamersRSS;
-      break;
     case this.FeedBurnerId:
       return this.FeedBurnerRSS;
-      break;
     case this.Cloth5Id:
       return this.Cloth5RSS;
-      break;
     case this.EsportsExpressId:
       return this.EsportsExpressRSS;
-      break;
     case this.NewsOfLegendsId:
       return this.NewsOfLegendsRSS;
-      break;
   }
-}
+};
 
 LinkFactory.prototype.getIndexForRssLink = function(rssId){
   switch(rssId){
     case this.OfficialLolId:
       return 0;
-      break;
     case this.ReignOfGamingId:
       return 1;
-      break;
     case this.OnGamersId:
       return 2;
-      break;
     case this.FeedBurnerId:
       return 3;
-      break;
     case this.Cloth5Id:
       return 4;
-      break;
     case this.EsportsExpressId:
       return 5;
-      break;
     case this.NewsOfLegendsId:
       return 6;
-      break;
   }
-}
+};

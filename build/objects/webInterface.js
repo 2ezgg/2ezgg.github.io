@@ -25,15 +25,14 @@ function WebInterface(){
     }
 
     var that = this;
-    function changeToInline(){
+    var changeToInline = function(){
       for (var y = 0; y < inlineBlockArray.length; y++){
         $('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
       }
-    }
+    };
 
     setTimeout(changeToInline, 120);
   }
-
 
   if(this.pageAdd.length>0){
     var self = this;
@@ -77,8 +76,7 @@ WebInterface.prototype.hashWithoutParams = function(totalUrl){
     params = (window.location.hash.substring(1)).split("?");
   }
   return params[0];
-
-}
+};
 
 WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
   this.homePageAccessed = false;
@@ -91,11 +89,11 @@ WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
 
     var iFrameCapableLink = iFrameCapableLinks.eq(i);
     var hashData = iFrameCapableLink.data('name');
-    if(hashData != undefined){
-      hashData = hashData.toString()
+    if(hashData !== undefined){
+      hashData = hashData.toString();
     }
 
-    if((hashData === hashWithoutParamsVal) || (hashData == appSettings['ezHomePage'] && this.homePage()) ){
+    if((hashData === hashWithoutParamsVal) || (hashData == appSettings.ezHomePage && this.homePage()) ){
       if(highlightArea){
         $("a#"+hashData+" li").addClass('selected-link');
       }
@@ -104,7 +102,7 @@ WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
     }
   }
   return false;
-}
+};
 
 WebInterface.prototype.makeIframe = function(iframeUrl){
   var lang = 'en';
@@ -120,9 +118,9 @@ WebInterface.prototype.makeIframe = function(iframeUrl){
   $("#main-content").css( "display", "none" );
 
 
-  $iFrameHolder.css('height', heightToProcess2 + 'px')
+  $iFrameHolder.css('height', heightToProcess2 + 'px');
   $iFrameHolder.html('<iframe allowfullscreen="true" lang="'+lang+'" id="iframe-content" src="'+iframeUrl+'" style="width:100%;height:'+heightToProcess+'px;border:none;padding:none;margin:none"><p>Your browser does not support iframes.</p></iframe>').fadeIn();
-}
+};
 
 WebInterface.prototype.changeIframeHeight = function(){
   if($("#main-content").css("display")=='none'){
@@ -133,7 +131,7 @@ WebInterface.prototype.changeIframeHeight = function(){
     $("#iframe-content").css('height', heightToProcess + 'px');
 
   }
-}
+};
 
 WebInterface.prototype.changeTwitchDimensions = function(){
 
@@ -142,10 +140,10 @@ WebInterface.prototype.changeTwitchDimensions = function(){
 
   if(detectmob()){
     spacing = 50;
-    var twitchWidth = $(window).width()-spacing
+    twitchWidth = $(window).width()-spacing;
   } else if ($('#sidebar').css('display') == 'none'){
     spacing = 90;
-    var twitchWidth = $(window).width()-spacing-($(".twitch-chat-area").width());
+    twitchWidth = $(window).width()-spacing-($(".twitch-chat-area").width());
   }
 
   var twitchHeight = (twitchWidth/16)*9;
@@ -158,7 +156,7 @@ WebInterface.prototype.changeTwitchDimensions = function(){
 
   $(".twitch-chat").css('height', twitchHeight + 'px');
   $(".twitch-chat-area").css('height', twitchHeight + 'px');
-}
+};
 
 WebInterface.prototype.setSettings = function(){
 
@@ -167,55 +165,55 @@ WebInterface.prototype.setSettings = function(){
   $ezHomePage.html(' ');
 
   var template = Handlebars.compile($('#homepage-list-template').html());
-  $ezHomePage.append( template(idList['general']));
-  $ezHomePage.append( template(idList['summoner']));
-  $ezHomePage.append( template(idList['champ']));
+  $ezHomePage.append( template(idList.general));
+  $ezHomePage.append( template(idList.summoner));
+  $ezHomePage.append( template(idList.champ));
 
-  if(appSettings['youtubeDisplay'] == 'fillscreen'){
-    $('style').html('')
+  if(appSettings.youtubeDisplay == 'fillscreen'){
+    $('style').html('');
   } else {
-    $('style').html('.youtube-thread{width: 85%;max-width:720px;display:block}' )
+    $('style').html('.youtube-thread{width: 85%;max-width:720px;display:block}' );
   }
 
-  $ezHomePage.val(appSettings['ezHomePage']);
-  $(".redditNewTab").val(appSettings['redditNewTab']);
-  $(".youtubeDisplay").val(appSettings['youtubeDisplay']);
-  $(".twitchVisualNotifications").val(appSettings['twitchVisualNotifications']);
-  $(".twitchAudioNotifications").val(appSettings['twitchAudioNotifications']);
-  $(".eSportsNotifications").val(appSettings['eSportsNotifications']);
-  $(".defaultNameLink").val(appSettings['defaultNameLink']);
-  $(".shiftNameLink").val(appSettings['shiftNameLink']);
-  $(".ctrlNameLink").val(appSettings['ctrlNameLink']);
-  $(".defaultChampLink").val(appSettings['defaultChampLink']);
-  $(".shiftChampLink").val(appSettings['shiftChampLink']);
-  $(".ctrlChampLink").val(appSettings['ctrlChampLink']);
-  $(".defaultSearchLink").val(appSettings['defaultSearchLink']);
-  $(".shiftSearchLink").val(appSettings['shiftSearchLink']);
-  $(".ctrlSearchLink").val(appSettings['ctrlSearchLink']);
-  $(".smartEnter").val(appSettings['smartEnter']);
-  $(".newWindow").val(appSettings['newWindow']);
-}
+  $ezHomePage.val(appSettings.ezHomePage);
+  $(".redditNewTab").val(appSettings.redditNewTab);
+  $(".youtubeDisplay").val(appSettings.youtubeDisplay);
+  $(".twitchVisualNotifications").val(appSettings.twitchVisualNotifications);
+  $(".twitchAudioNotifications").val(appSettings.twitchAudioNotifications);
+  $(".eSportsNotifications").val(appSettings.eSportsNotifications);
+  $(".defaultNameLink").val(appSettings.defaultNameLink);
+  $(".shiftNameLink").val(appSettings.shiftNameLink);
+  $(".ctrlNameLink").val(appSettings.ctrlNameLink);
+  $(".defaultChampLink").val(appSettings.defaultChampLink);
+  $(".shiftChampLink").val(appSettings.shiftChampLink);
+  $(".ctrlChampLink").val(appSettings.ctrlChampLink);
+  $(".defaultSearchLink").val(appSettings.defaultSearchLink);
+  $(".shiftSearchLink").val(appSettings.shiftSearchLink);
+  $(".ctrlSearchLink").val(appSettings.ctrlSearchLink);
+  $(".smartEnter").val(appSettings.smartEnter);
+  $(".newWindow").val(appSettings.newWindow);
+};
 
 WebInterface.prototype.saveSettings = function(){
-  appSettings['ezHomePage'] = $(".ezHomePage").val();
-  appSettings['redditNewTab'] = $(".redditNewTab").val();
-  appSettings['youtubeDisplay'] = $(".youtubeDisplay").val();
-  appSettings['twitchVisualNotifications'] = $(".twitchVisualNotifications").val();
-  appSettings['twitchAudioNotifications'] = $(".twitchAudioNotifications").val();
-  appSettings['eSportsNotifications'] = $(".eSportsNotifications").val();
-  appSettings['defaultNameLink'] = $(".defaultNameLink").val();
-  appSettings['shiftNameLink'] = $(".shiftNameLink").val();
-  appSettings['ctrlNameLink'] = $(".ctrlNameLink").val();
-  appSettings['defaultChampLink'] = $(".defaultChampLink").val();
-  appSettings['shiftChampLink'] = $(".shiftChampLink").val();
-  appSettings['ctrlChampLink'] = $(".ctrlChampLink").val();
-  appSettings['defaultSearchLink'] = $(".defaultSearchLink").val();
-  appSettings['shiftSearchLink'] = $(".shiftSearchLink").val();
-  appSettings['ctrlSearchLink'] = $(".ctrlSearchLink").val();
-  appSettings['smartEnter'] = $(".smartEnter").val();
-  appSettings['newWindow'] = $(".newWindow").val();
+  appSettings.ezHomePage = $(".ezHomePage").val();
+  appSettings.redditNewTab = $(".redditNewTab").val();
+  appSettings.youtubeDisplay = $(".youtubeDisplay").val();
+  appSettings.twitchVisualNotifications = $(".twitchVisualNotifications").val();
+  appSettings.twitchAudioNotifications = $(".twitchAudioNotifications").val();
+  appSettings.eSportsNotifications = $(".eSportsNotifications").val();
+  appSettings.defaultNameLink = $(".defaultNameLink").val();
+  appSettings.shiftNameLink = $(".shiftNameLink").val();
+  appSettings.ctrlNameLink = $(".ctrlNameLink").val();
+  appSettings.defaultChampLink = $(".defaultChampLink").val();
+  appSettings.shiftChampLink = $(".shiftChampLink").val();
+  appSettings.ctrlChampLink = $(".ctrlChampLink").val();
+  appSettings.defaultSearchLink = $(".defaultSearchLink").val();
+  appSettings.shiftSearchLink = $(".shiftSearchLink").val();
+  appSettings.ctrlSearchLink = $(".ctrlSearchLink").val();
+  appSettings.smartEnter = $(".smartEnter").val();
+  appSettings.newWindow = $(".newWindow").val();
   localStorage.setItem('appSettings', JSON.stringify(appSettings));
-}
+};
 
 WebInterface.prototype.registerScreen = function(){
   if(detectmob()){
@@ -241,7 +239,7 @@ WebInterface.prototype.registerScreen = function(){
       $('.nav-expand').css('left','0px');
     }
   }
-}
+};
 
 WebInterface.prototype.homePage = function(){
   if (!window.location.origin) {
@@ -254,12 +252,12 @@ WebInterface.prototype.homePage = function(){
     this.homePageAccessed = false;
     return false;
   }
-}
+};
 
 WebInterface.prototype.rearangeSidebar = function(){
    if(idList.hasOwnProperty('search')){
      for(var i=0; i<idList.search.length; i++){
-       if(i==0){
+       if(i===0){
          $("#searchbuttons").prepend($("#"+idList.search[i].id));
          $("#search-websites").prepend($(".website-"+idList.search[i].id));
        } else {
@@ -268,37 +266,37 @@ WebInterface.prototype.rearangeSidebar = function(){
        }
      }
    }
-   for(var i=0; i<idList.general.length; i++){
-     if(i==0){
-       $("#miscbuttons ul").prepend($("#"+idList.general[i].id));
-       $("#general-websites").prepend($(".website-"+idList.general[i].id));
+   for(var j=0; j<idList.general.length; j++){
+     if(j===0){
+       $("#miscbuttons ul").prepend($("#"+idList.general[j].id));
+       $("#general-websites").prepend($(".website-"+idList.general[j].id));
      } else {
-       $("#miscbuttons ul a").eq(i).after($("#"+idList.general[i].id));
-       $("#general-websites li").eq(i).after($(".website-"+idList.general[i].id));
+       $("#miscbuttons ul a").eq(j).after($("#"+idList.general[j].id));
+       $("#general-websites li").eq(j).after($(".website-"+idList.general[j].id));
      }
    }
-   for(var i=0; i<idList.summoner.length; i++){
-     if(i==0){
-       $("#namebuttons ul").prepend($("#"+idList.summoner[i].id));
-       $("#summoner-websites").prepend($(".website-"+idList.summoner[i].id));
+   for(var k=0; k<idList.summoner.length; k++){
+     if(k===0){
+       $("#namebuttons ul").prepend($("#"+idList.summoner[k].id));
+       $("#summoner-websites").prepend($(".website-"+idList.summoner[k].id));
      } else {
-       $("#namebuttons ul a").eq(i).after($("#"+idList.summoner[i].id));
-       $("#summoner-websites li").eq(i).after($(".website-"+idList.summoner[i].id));
+       $("#namebuttons ul a").eq(k).after($("#"+idList.summoner[k].id));
+       $("#summoner-websites li").eq(k).after($(".website-"+idList.summoner[k].id));
      }
    }
-   for(var i=0; i<idList.champ.length; i++){
-     if(i==0){
-       $("#championbuttons ul").prepend($("#"+idList.champ[i].id));
-       $("#champ-websites").prepend($(".website-"+idList.champ[i].id));
+   for(var l=0; l<idList.champ.length; l++){
+     if(l===0){
+       $("#championbuttons ul").prepend($("#"+idList.champ[l].id));
+       $("#champ-websites").prepend($(".website-"+idList.champ[l].id));
      } else {
-       $("#championbuttons ul a").eq(i).after($("#"+idList.champ[i].id));
-       $("#champ-websites li").eq(i).after($(".website-"+idList.champ[i].id));
+       $("#championbuttons ul a").eq(l).after($("#"+idList.champ[l].id));
+       $("#champ-websites li").eq(l).after($(".website-"+idList.champ[l].id));
      }
    }
-}
+};
 
 WebInterface.prototype.saveSidebar = function(category){
-  var self = this
+  var self = this;
   function sidebarAreaSave(category){
     var changedWebsites = category.children('li');
     var newGeneralArray = [];
@@ -306,7 +304,7 @@ WebInterface.prototype.saveSidebar = function(category){
       newGeneralArray[i] = {
         name:changedWebsites.eq(i).data('name'),
         id:changedWebsites.eq(i).data('id')
-      }
+      };
     }
 
     if(category.prop("id") == "search-websites"){
@@ -335,11 +333,10 @@ WebInterface.prototype.saveSidebar = function(category){
     return true;
   }
   return false;
-
-}
+};
 
 WebInterface.prototype.testIfSearchShouldBeShown = function(){
-  var listOfSearch = $("ul#search-websites li")
+  var listOfSearch = $("ul#search-websites li");
   var listAdded = false;
 
   for(var i = 0; i < listOfSearch.length; i++){
@@ -358,11 +355,11 @@ WebInterface.prototype.testIfSearchShouldBeShown = function(){
   } else {
     $("#searchbuttonshold").css('display','none');
   }
-}
+};
 
 WebInterface.prototype.enableRedditStyleSheet = function(){
   if(!this.redditStyleSheet){
     this.redditStyleSheet = true;
     $('body').append('<link href="assets/css/reddit.css" media="screen" rel="stylesheet" />');
   }
-}
+};

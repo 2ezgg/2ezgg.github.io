@@ -8,10 +8,10 @@ $(window).on('scroll', function(){
       if(reddit.redditCount!=reddit.redditThreads.length){
         reddit.mainPage();
       } else{
-        if(reddit.nextPageReddit == null){
+        if(reddit.nextPageReddit === null){
           $("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
         }
-        else if(stopRepeating == 1){
+        else if(stopRepeating === 1){
           stopRepeating = 0;
 
           reddit.getThreads('reddit',reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
@@ -30,10 +30,10 @@ $(window).on('scroll', function(){
       } else{
 
 
-        if(reddit.nextPageYoutube == null){
+        if(reddit.nextPageYoutube === null){
           $("#youtube-progress").html('<p>Sorry all out of reddit threads for now</p>');
         }
-        else if(stopRepeating == 1){
+        else if(stopRepeating === 1){
           stopRepeating = 0;
 
           reddit.getThreads('youtube',reddit.currentYoutubeSettings[1],reddit.currentYoutubeSettings[2],reddit.currentYoutubeSettings[3],reddit.nextPageYoutube).done(function() {

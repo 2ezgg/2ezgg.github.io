@@ -9,7 +9,7 @@ $(".youtube-setting").on('click', function(){
   if(typeof reddit.redditAjaxRequest !== 'undefined'){
     if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
             reddit.redditAjaxRequest.abort();
-            if(reddit.redditThreads.length == 0){
+            if(reddit.redditThreads.length === 0){
                 web.redditInUse = 'no';
             }
         }

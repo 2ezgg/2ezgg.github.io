@@ -16,7 +16,7 @@ $('#settings-content').on('click','.add-website', function(){
     web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
       display : 'inline-block'
-    }
+    };
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   setTimeout(function(){
@@ -44,25 +44,25 @@ $('#settings-content').on('click','.remove-website', function(){
     web.pageChange[totalSettingsLength] = {
       id : $this.parent().data('id'),
       display : 'none'
-    }
+    };
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   web.testIfSearchShouldBeShown();
 });
 
 $('.add-user-website').on('click', function(){
-  var totalPages = web.pageAdd.length
+  var totalPages = web.pageAdd.length;
   var previousEntry = (totalPages>0)?((web.pageAdd[totalPages-1].id)+1):totalPages;
   var iframeResult = $('.user-website-iframe').is(':checked')?true:false;
   web.pageAdd[totalPages] = {
     name: $('.user-website-name').val(),
     id: previousEntry,
     href: $('.user-website-url').val()
-  }
+  };
   idList.general[idList.general.length] = {
     name: $('.user-website-name').val(),
     id: previousEntry
-  }
+  };
 
   if(iframeResult){
     web.pageAdd[totalPages].iframe = true;
@@ -110,9 +110,9 @@ $('#settings-content').on('click','.remove-user-website', function(){
   }
 
   var index2;
-  for (var i = 0; i<idList.general.length; i++){
-    if(idList.general[i].id == $this.parent().data('id')){
-      index2 = i;
+  for (var j = 0; j<idList.general.length; j++){
+    if(idList.general[j].id == $this.parent().data('id')){
+      index2 = j;
       break;
     }
   }
