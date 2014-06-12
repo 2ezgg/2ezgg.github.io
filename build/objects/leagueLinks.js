@@ -47,7 +47,7 @@ LeagueLinks.prototype.account = function(nameUpdate, serverUpdate, stopReplaceme
   }
   if(serverUpdate){
     this.server = serverUpdate;
-    if(!stopReplacement || (stopReplacement && localStorage.getItem('name') === null)){
+    if(!stopReplacement || (stopReplacement && localStorage.getItem('server') === null)){
       localStorage.setItem('server',this.server);
     }
   }

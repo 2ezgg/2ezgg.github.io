@@ -28,23 +28,23 @@ if(settingsSaved){
 }
 
 var appSettings = {
-  ezHomePage:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('ezHomePage')) ? settingsSaved.ezHomePage : 'reddit',
-  redditNewTab:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('redditNewTab')) ? settingsSaved.redditNewTab : 'off',
-  youtubeDisplay:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('youtubeDisplay')) ? settingsSaved.youtubeDisplay : 'single',
-  twitchVisualNotifications:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('twitchVisualNotifications')) ? settingsSaved.twitchVisualNotifications : 'on',
-  twitchAudioNotifications:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved.twitchAudioNotifications : 'on',
-  eSportsNotifications:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('eSportsNotifications')) ? settingsSaved.eSportsNotifications : 'on',
-  defaultNameLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('defaultNameLink')) ? settingsSaved.defaultNameLink : 'king',
-  shiftNameLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('shiftNameLink')) ? settingsSaved.shiftNameLink : 'nexus',
-  ctrlNameLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('ctrlNameLink')) ? settingsSaved.ctrlNameLink : 'gg',
-  defaultChampLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved.defaultChampLink : 'champselect',
-  shiftChampLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('shiftChampLink'))  ? settingsSaved.shiftChampLink : 'probuilds',
-  ctrlChampLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('ctrlChampLink'))  ? settingsSaved.ctrlChampLink : 'kingchamp',
-  defaultSearchLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('defaultSearchLink'))  ? settingsSaved.defaultSearchLink : 'google',
-  shiftSearchLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('shiftSearchLink'))  ? settingsSaved.shiftSearchLink : 'youtubesearch',
-  ctrlSearchLink:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('ctrlSearchLink'))  ? settingsSaved.ctrlSearchLink : 'wikipedia',
-  smartEnter:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved.smartEnter : 'on',
-  newWindow:((settingsSaved !== undefined) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved.newWindow : 'on'
+  ezHomePage:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ezHomePage')) ? settingsSaved.ezHomePage : 'reddit',
+  redditNewTab:((settingsSaved !== null) && settingsSaved.hasOwnProperty('redditNewTab')) ? settingsSaved.redditNewTab : 'off',
+  youtubeDisplay:((settingsSaved !== null) && settingsSaved.hasOwnProperty('youtubeDisplay')) ? settingsSaved.youtubeDisplay : 'single',
+  twitchVisualNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchVisualNotifications')) ? settingsSaved.twitchVisualNotifications : 'on',
+  twitchAudioNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('twitchAudioNotifications')) ? settingsSaved.twitchAudioNotifications : 'on',
+  eSportsNotifications:((settingsSaved !== null) && settingsSaved.hasOwnProperty('eSportsNotifications')) ? settingsSaved.eSportsNotifications : 'on',
+  defaultNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultNameLink')) ? settingsSaved.defaultNameLink : 'king',
+  shiftNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftNameLink')) ? settingsSaved.shiftNameLink : 'nexus',
+  ctrlNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlNameLink')) ? settingsSaved.ctrlNameLink : 'gg',
+  defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved.defaultChampLink : 'champselect',
+  shiftChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftChampLink'))  ? settingsSaved.shiftChampLink : 'probuilds',
+  ctrlChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlChampLink'))  ? settingsSaved.ctrlChampLink : 'kingchamp',
+  defaultSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultSearchLink'))  ? settingsSaved.defaultSearchLink : 'google',
+  shiftSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftSearchLink'))  ? settingsSaved.shiftSearchLink : 'youtubesearch',
+  ctrlSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlSearchLink'))  ? settingsSaved.ctrlSearchLink : 'wikipedia',
+  smartEnter:((settingsSaved !== null) && settingsSaved.hasOwnProperty('smartEnter')) ? settingsSaved.smartEnter : 'on',
+  newWindow:((settingsSaved !== null) && settingsSaved.hasOwnProperty('newWindow')) ? settingsSaved.newWindow : 'on'
 };
 
 // function to test whether homepage is available (for example if someone removed a custom made page, the homepage wouldn't work) - if it doesn't exist change it back to reddit homepage

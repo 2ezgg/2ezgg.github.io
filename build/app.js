@@ -76,14 +76,14 @@ function tabSystem(){
         url = $("#"+appSettings.ezHomePage).attr('href');
         $("a#"+appSettings.ezHomePage+' li').addClass('selected-link');
       } else {
-        if(sessionActive=='yes'){
-          league.name = league.getUrlParams('name') || localStorage.getItem('name');
-          league.server = league.getUrlParams('server') || localStorage.getItem('server');
-          league.champ = league.getUrlParams('champ') || localStorage.getItem('champ');
+        
+        league.name = league.getUrlParams('name') || localStorage.getItem('name');
+        league.server = league.getUrlParams('server') || localStorage.getItem('server');
+        league.champ = league.getUrlParams('champ') || localStorage.getItem('champ');
 
-          league.account(league.name, league.server, true);
-          league.champion(league.champ);
-        }
+        league.account(league.name, league.server, true);
+        league.champion(league.champ);
+
         url = web.checkIfBelongs(null, true);
 
       }
