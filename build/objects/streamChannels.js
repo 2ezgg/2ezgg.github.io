@@ -22,15 +22,15 @@ function StreamChannels(){
   this.currentStreamDisplayed = null;
   this.currentStreamViewers = null;
   this.streamFunctionCount = 0;
-  this.topTwitchUrl = "https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0"
+  this.topTwitchUrl = "https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0";
 
-  this.noStreamersAdded = (this.streamers.length == 0)?true:false;
+  this.noStreamersAdded = (!this.streamers.length) ? true:false;
 }
 
 StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
   var streamSource;
   var input = '';
-  var newStreamers = newStreamers.trim();
+  newStreamers = newStreamers.trim();
 
   if (newStreamers){
     if(streamerType =='azubu'){
@@ -57,7 +57,7 @@ StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
         this.streamers[this.streamers.length] = {
           name: input,
           service: streamSource
-        }
+        };
 
         if(streamSource=='twitch'){
           this.recentlyAddedTwitch.push(input);
@@ -67,13 +67,13 @@ StreamChannels.prototype.submitStreamer = function(newStreamers, streamerType){
       }
 
       localStorage.setItem('streamers', JSON.stringify(this.streamers));
-      this.noStreamersAdded = (this.streamers.length == 0)?true:false;
+      this.noStreamersAdded = (!this.streamers.length) ? true:false;
       return true;
     }
   }
 
   return false;
-}
+};
 
 
 
@@ -112,7 +112,7 @@ StreamChannels.prototype.onlineTwitchStreamers = function(){
                           url: data.streams[i].channel.url,
                           thumbnailUrl: data.streams[i].preview.medium,
                           id: i
-                        }
+                        };
 
                         self.totalStreamersOnline ++;
 
@@ -128,7 +128,7 @@ StreamChannels.prototype.onlineTwitchStreamers = function(){
 
   return twitchDeferred.promise();
   }
-}
+};
 
 
 StreamChannels.prototype.getAzubuStreamers = function(){
@@ -170,7 +170,7 @@ StreamChannels.prototype.getAzubuStreamers = function(){
                 viewTotal: data[i].Viewer,
                 online: true,
                 isAlreadyAdded: accountFollowed
-              }
+              };
               totalOnlineCount ++;
 
               for(var y = 0;y<self.streamers.length;y++){
@@ -179,7 +179,7 @@ StreamChannels.prototype.getAzubuStreamers = function(){
                     name: data[i].Name,
                     viewTotal: data[i].Viewer,
                     online: true,
-                  }
+                  };
                   onlineCount ++;
                   self.totalStreamersOnline ++;
                 }
@@ -193,7 +193,7 @@ StreamChannels.prototype.getAzubuStreamers = function(){
                     name: data[i].Name,
                     online: false,
                     // check if json records thumbnail of player or viewer count
-                  }
+                  };
                   offlineCount ++;
                 }
               }
@@ -208,8 +208,7 @@ StreamChannels.prototype.getAzubuStreamers = function(){
     });
 
   return azubuDeferred.promise();
-
-}
+};
 
 
 StreamChannels.prototype.topTwitchOnline = function(clearStreams){
@@ -253,7 +252,7 @@ StreamChannels.prototype.topTwitchOnline = function(clearStreams){
               url: data.streams[i].channel.url,
               isAlreadyAdded: accountFollowed,
               id: totalLength+i,
-            }
+            };
           }
         }
         localStorage.setItem('topTwitchStreamersOnline', JSON.stringify(self.topTwitchStreamersOnline));
@@ -263,7 +262,7 @@ StreamChannels.prototype.topTwitchOnline = function(clearStreams){
     });
   }
   return twitchDeferred.promise();
-}
+};
 
 
 StreamChannels.prototype.offlineTwitchStreamers = function(){
@@ -278,9 +277,8 @@ StreamChannels.prototype.offlineTwitchStreamers = function(){
   }
   azubuPos.reverse();
   for (var y = 0; y<azubuPos.length; y++ ){
-    this.twitchStreamersOffline.splice(azubuPos[y], 1)
+    this.twitchStreamersOffline.splice(azubuPos[y], 1);
   }
-
 
   for (var i=0; i<this.twitchStreamersOnline.length; i++) {
 
@@ -299,7 +297,7 @@ StreamChannels.prototype.offlineTwitchStreamers = function(){
 
   localStorage.setItem('twitchStreamersOffline', JSON.stringify(this.twitchStreamersOffline));
 
-}
+};
 
 
 StreamChannels.prototype.removeStreamer = function(deleteStreamer){
@@ -315,18 +313,18 @@ StreamChannels.prototype.removeStreamer = function(deleteStreamer){
     }
 
     localStorage.setItem('streamers', JSON.stringify(this.streamers));
-    this.noStreamersAdded = (this.streamers.length == 0)?true:false;
+    this.noStreamersAdded = (!this.streamers.length)?true:false;
     return true;
   }
 
   return false;
-
-}
+};
 
 StreamChannels.prototype.pushTwitchStreams = function(twitchNumber, twitchType, twitchObj){
   var self = this;
   var template = Handlebars.compile($('#twitch-template').html());
-  var twitchNumber = twitchNumber || 0;
+  twitchNumber = twitchNumber || 0;
+
   if(twitchType == 'top'){
     $("#twitch-online-content").html( template(self.topTwitchStreamersOnline[twitchNumber]) );
     self.currentStreamDisplayed = self.topTwitchStreamersOnline[twitchNumber].name;
@@ -336,27 +334,24 @@ StreamChannels.prototype.pushTwitchStreams = function(twitchNumber, twitchType, 
     self.currentStreamDisplayed = self.twitchStreamersOnline[twitchNumber].name;
     self.currentStreamViewers = self.twitchStreamersOnline[twitchNumber].viewTotal;
   }
-}
+};
 
 StreamChannels.prototype.pushStreamsHeader = function(){
   var self = this;
 
     for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
-      if (self.topTwitchStreamersOnline[i].name == 'riotgames' && appSettings['eSportsNotifications'] == 'on'){
+      if (self.topTwitchStreamersOnline[i].name === 'riotgames' && appSettings.eSportsNotifications === 'on'){
         var riotTemplate = Handlebars.compile($('#riot-online-message-template').html());
         $("#riot-online").html(riotTemplate());
         $('#top-header-message').css('padding','14px');
       }
-
     }
-
-}
+};
 
 StreamChannels.prototype.pushTwitchStreamers = function(favourite, azubu){
   var self = this;
 
-
-  if(favourite == null){
+  if(favourite === undefined){
     var onlineTemplate = Handlebars.compile($('#twitch-users-online-template').html());
     var offlineTemplate = Handlebars.compile($('#twitch-users-offline-template').html());
     $("#twitch-list-online").html( onlineTemplate(self.twitchStreamersOnline) );
@@ -365,13 +360,12 @@ StreamChannels.prototype.pushTwitchStreamers = function(favourite, azubu){
     var favouriteTemplateTwitch = Handlebars.compile($('#twitch-user-favourited-online-template').html());
     $("#twitch-list-online").append( favouriteTemplateTwitch(self.topTwitchStreamersOnline[favourite]) );
   }
-
-}
+};
 
 StreamChannels.prototype.pushAzubuStreamers = function(favourite){
   var self = this;
 
-  if(favourite == null){
+  if(favourite === undefined){
     var onlineTemplate = Handlebars.compile($('#azubu-users-online-template').html());
     var offlineTemplate = Handlebars.compile($('#azubu-users-offline-template').html());
     var topTemplate = Handlebars.compile($('#azubu-top-online-template').html());
@@ -382,15 +376,13 @@ StreamChannels.prototype.pushAzubuStreamers = function(favourite){
     var favouriteTemplateAzubu = Handlebars.compile($('#azubu-users-favourited-online-template').html());
     $("#azubu-list-online").append( favouriteTemplateAzubu(self.topAzubuStreamersOnline[favourite]) );
   }
-
-}
-
+};
 
 StreamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAccount, addStream){
   var self = this;
 
   if(addStream){
-    var addStream = Handlebars.compile($('#twitch-template').html());
+    addStream = Handlebars.compile($('#twitch-template').html());
 
     for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
       if (self.topTwitchStreamersOnline[i].name == topStreamerName){
@@ -399,18 +391,16 @@ StreamChannels.prototype.pushTopStreamerOnline = function(topStreamerName, addAc
     }
   }
 
-
   if(addAccount){
     var onlineTemplate = Handlebars.compile($('#twitch-add-user-online-template').html());
 
-    for(var i = 0; i<self.topTwitchStreamersOnline.length; i++){
-      if (self.topTwitchStreamersOnline[i].name == topStreamerName){
-        $("#twitch-list-online").append(onlineTemplate(self.topTwitchStreamersOnline[i]));
+    for(var j = 0; j<self.topTwitchStreamersOnline.length; j++){
+      if (self.topTwitchStreamersOnline[j].name == topStreamerName){
+        $("#twitch-list-online").append(onlineTemplate(self.topTwitchStreamersOnline[j]));
       }
     }
   }
-
-}
+};
 
 StreamChannels.prototype.currentStreamOnline = function(){
   for(var i = 0; i<this.topTwitchStreamersOnline.length; i++){
@@ -424,7 +414,7 @@ StreamChannels.prototype.currentStreamOnline = function(){
     }
   }
   return false;
-}
+};
 
 StreamChannels.prototype.pushTopTwitchStreamers = function(appendToBottom){
   var self = this;
@@ -440,10 +430,9 @@ StreamChannels.prototype.pushTopTwitchStreamers = function(appendToBottom){
       $("#twitch-top-streamers").append( onlineTemplate(self.topTwitchStreamersOnline[t]) );
     }
   }
+};
 
-}
 StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch){
-
     var totalAdditions = 0;
     this.newAdditions = [];
 
@@ -471,13 +460,11 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
             name:this.azubuStreamersOnline[i].name,
             id:this.azubuStreamersOnline[i].id,
             azubu:true,
-          }
+          };
           totalAdditions ++;
         }
       }
-
     }
-
 
     for(var t = 0; t<this.twitchStreamersOnline.length; t++){
       var alreadyAddedTwitch = false;
@@ -491,8 +478,8 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
 
       if(!alreadyAddedTwitch){
         var summonerRecentlyAddedTwitch = false;
-        for(var z=0;z<this.recentlyAddedTwitch.length;z++){
-          if(this.recentlyAddedTwitch[z]==this.twitchStreamersOnline[t].name){
+        for(var w=0;w<this.recentlyAddedTwitch.length;w++){
+          if(this.recentlyAddedTwitch[w]==this.twitchStreamersOnline[t].name){
             summonerRecentlyAddedTwitch = true;
             break;
           }
@@ -502,23 +489,22 @@ StreamChannels.prototype.favouriteStreamerMessage = function(favAzubu, favTwitch
             name:this.twitchStreamersOnline[t].name,
             id:null,
             twitch:true,
-          }
+          };
           totalAdditions ++;
         }
       }
     }
 
     if(totalAdditions>0){
-      if(appSettings['twitchAudioNotifications'] == 'on'){
+      if(appSettings.twitchAudioNotifications === 'on'){
         $("#sound").html('<audio controls autoplay style="display:none"><source src="assets/sound/notify.mp3" hidden="true" autostart="true" loop="false" type="audio/mpeg"></audio>');
       }
 
-      if(appSettings['twitchVisualNotifications'] == 'on'){
+      if(appSettings.twitchVisualNotifications === 'on'){
         var favouriteTemplate = Handlebars.compile($('#streamer-online-message-template').html());
         $("#favourite-online").html( favouriteTemplate(this.newAdditions) );
         $('#top-header-message').css('padding','14px');
 
       }
     }
-
-}
+};

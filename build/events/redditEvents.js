@@ -25,7 +25,7 @@ $('.dropdown-subreddit, .dropdown-reddit-options').on('change', function(event){
   if(typeof reddit.redditAjaxRequest !== 'undefined'){
     if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
             reddit.redditAjaxRequest.abort();
-            if(reddit.youtubeVids.length == 0){
+            if(!reddit.youtubeVids.length){
               web.youtubeInUse = 'no';
             }
         }
@@ -64,7 +64,7 @@ $('.subreddit-setting').on('click', function(e){
     if(typeof reddit.redditAjaxRequest !== 'undefined'){
       if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
               reddit.redditAjaxRequest.abort();
-              if(reddit.youtubeVids.length == 0){
+              if(!reddit.youtubeVids.length){
                 web.youtubeInUse = 'no';
               }
           }
@@ -109,7 +109,7 @@ $(".reddit-setting").on('click', function(e){
     if(typeof reddit.redditAjaxRequest !== 'undefined'){
       if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
               reddit.redditAjaxRequest.abort();
-              if(reddit.youtubeVids.length == 0){
+              if(!reddit.youtubeVids.length){
                 web.youtubeInUse = 'no';
               }
           }
@@ -137,7 +137,7 @@ $(".reddit-setting").on('click', function(e){
 });
 
 $("#reddit-threads").on('click', 'a', function(e){
-  if(appSettings['redditNewTab'] == 'on'){
+  if(appSettings.redditNewTab === 'on'){
     $(this).attr('target','_blank');
   } else{
     $(this).attr('target','_self');
@@ -146,7 +146,7 @@ $("#reddit-threads").on('click', 'a', function(e){
       localStorage.setItem('sidebarOpen', 'none');
     } else {
       localStorage.setItem('sidebarOpen', 'block');
-    };
+    }
 
     var $redditExpand = $(".reddit-expand");
     var $redditIndex = $(this).closest('.reddit-thread').data('id');
@@ -173,7 +173,7 @@ $('.dropdown-youtube-options').on('change', function(event){
     if(typeof reddit.redditAjaxRequest !== 'undefined'){
       if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
               reddit.redditAjaxRequest.abort();
-              if(reddit.youtubeVids.length == 0){
+              if(!reddit.youtubeVids.length){
                 web.youtubeInUse = 'no';
               }
           }

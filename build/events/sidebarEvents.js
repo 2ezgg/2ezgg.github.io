@@ -39,7 +39,6 @@ $('input').on('keydown', function(e){
 });
 
 
-
 var ctrlKeyPressed = false;
 var shiftKeyPressed = false;
 $(".name, .champ, .searchinput").on('keydown', function(e){
@@ -51,15 +50,16 @@ $(".name, .champ, .searchinput").on('keydown', function(e){
       ctrlKeyPressed = true;
       shiftKeyPressed = false;
     }
-})
+});
+
 $(".name, .champ, .searchinput").on('keyup', function(){
   shiftKeyPressed = false;
   ctrlKeyPressed = false;
 });
 
-$searchInput = $(".searchinput")
+$searchInput = $(".searchinput");
 $searchInput.on('keyup change paste textInput input', function(e){
-  if($(this).val().length == 0){
+  if($(this).val().length === 0){
     league.returnOriginalUrl('website-search');
   } else {
     league.searchLink();
@@ -74,11 +74,11 @@ $searchInput.on('keydown', function(e){
     }
     var websiteAddress;
     if(shiftKeyPressed) {
-      websiteAddress = $("#"+appSettings['shiftSearchLink']).attr('href');
+      websiteAddress = $("#"+appSettings.shiftSearchLink).attr('href');
     } else if(ctrlKeyPressed){
-      websiteAddress = $("#"+appSettings['ctrlSearchLink']).attr('href');
+      websiteAddress = $("#"+appSettings.ctrlSearchLink).attr('href');
       }  else {
-      websiteAddress = $("#"+appSettings['defaultSearchLink']).attr('href');
+      websiteAddress = $("#"+appSettings.defaultSearchLink).attr('href');
     }
       window.open(websiteAddress);
     }
@@ -86,10 +86,10 @@ $searchInput.on('keydown', function(e){
 
 var timerName;
 
-var $name = $(".name")
+var $name = $(".name");
 $name.on('keyup change paste textInput input', function(e){
 
-  league.account($(".name").val(), $(".server").val())
+  league.account($(".name").val(), $(".server").val());
 
     clearTimeout(timerName);
 
@@ -117,15 +117,15 @@ $name.on('keydown', function(e){
     }
     var $id;
     if(shiftKeyPressed) {
-      $id = $("#"+appSettings['shiftNameLink']);
+      $id = $("#"+appSettings.shiftNameLink);
     } else if(ctrlKeyPressed){
-      $id = $("#"+appSettings['ctrlNameLink']);
+      $id = $("#"+appSettings.ctrlNameLink);
       }  else {
-      $id = $("#"+appSettings['defaultNameLink']);
+      $id = $("#"+appSettings.defaultNameLink);
     }
 
       clearTimeout(timerName);
-      if(web.checkIfBelongs('.website-name') && appSettings['smartEnter'] == 'on' && !ctrlKeyPressed && !shiftKeyPressed){
+      if(web.checkIfBelongs('.website-name') && appSettings.smartEnter === 'on' && !ctrlKeyPressed && !shiftKeyPressed){
         if(detectmob()){
             window.location.replace(web.checkIfBelongs('.website-name'));
           } else {
@@ -163,14 +163,14 @@ $(".server").on('change', function(){
 
 
 $(".champ-list").on('click', function () {
-  league.champion($(".champ").val())
+  league.champion($(".champ").val());
   league.dropDownTemplate($(".champ").val());
      $('.champ-list-entry > #champ-drop').not($(this).children("#champ-drop")).hide();
       $(this).children("#champ-drop").toggle();
   });
 
 
-var $champ = $(".champ")
+var $champ = $(".champ");
 $champ.on('focus', function(){
   $(this).val('');
 });
@@ -187,38 +187,38 @@ $champ.on('keyup', function(e){
   var comparisonChamp = new RegExp($champInputValue,"i");
   var keycode = (e.keyCode ? e.keyCode : e.which);
 
-    if(keycode != '13'){
-      league.dropDownTemplate($champInputValue);
+  if(keycode != '13'){
+    league.dropDownTemplate($champInputValue);
     $("#champ-drop").css("display","block");
 
     $("#champ-drop .champ-list-entry .champ-text").each(function () {
-        var $this = $(this),
-            text = $this.html(),
-            first = text.slice(0, $champInputValue.length),
-            rest = text.slice($champInputValue.length);
-          $this.html("<span style='color:#f0e863'>" + first + "</span>" + rest);
-
+      var $this = $(this),
+      text = $this.html(),
+      first = text.slice(0, $champInputValue.length),
+      rest = text.slice($champInputValue.length);
+      $this.html("<span style='color:#f0e863'>" + first + "</span>" + rest);
     });
 
     league.champion($champInputValue);
+    var champSelectAnimation = function(){
+      $("#champ-drop").fadeOut();
+      $(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
+        .animate({'opacity':'1'},120)
+          .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
+            $(this).attr('style', ' ');
+        }
+      });
+    };
 
     for(var i = 0; i<ChampionList.length; i++){
       if(ChampionList[i].name.match(comparisonChamp) && (ChampionList[i].name.length == $champInputValue.length)){
         $("#champ-drop .champ-list-entry").css({"background-color" : "#666", "border" : "2px solid black"});
         clearTimeout(timerName);
-        timerName = setTimeout(function(){
-          $("#champ-drop").fadeOut();
-
-          $(".website-champ li:not(.selected-link)").animate({'backgroundColor': '#303033','color':'#939393'},150)
-            .animate({'opacity':'1'},120)
-              .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
-                $(this).attr('style', ' ');
-            }});
-          }, 100);
+        timerName = setTimeout(champSelectAnimation, 100);
         break;
       }
     }
-    } 
+  }
 });
 
   $champ.on('keydown', function(e){
@@ -228,7 +228,7 @@ $champ.on('keyup', function(e){
     league.addNewSummoner($(".name").val(), $(".server").val());
 
     var champText = $("#champ-drop .champ-list-entry .champ-text").first().text();
-    if(champText.length>0){ $(this).val(champText) };
+    if(champText.length>0){ $(this).val(champText);}
     $("#champ-drop").fadeOut();
     league.champion($(this).val());
     if(!isBuggedChrome){
@@ -236,14 +236,14 @@ $champ.on('keyup', function(e){
     }
     var $id;
     if (shiftKeyPressed) {
-      $id = $("#"+appSettings['shiftChampLink']);
+      $id = $("#"+appSettings.shiftChampLink);
     } else if(ctrlKeyPressed) {
-      $id = $("#"+appSettings['ctrlChampLink']);
+      $id = $("#"+appSettings.ctrlChampLink);
     } else {
-      $id = $("#"+appSettings['defaultChampLink']);
+      $id = $("#"+appSettings.defaultChampLink);
     }
 
-    if(web.checkIfBelongs('.website-champ') && appSettings['smartEnter'] == 'on' && !ctrlKeyPressed && !shiftKeyPressed){
+    if(web.checkIfBelongs('.website-champ') && appSettings.smartEnter === 'on' && !ctrlKeyPressed && !shiftKeyPressed){
       if(detectmob()){
         window.location.replace(web.checkIfBelongs('.website-champ'));
       } else {
@@ -304,7 +304,6 @@ $name.on('blur', function(){
   setTimeout(function(){
     if(!removePressed){
       $("#summoner-accounts ul").slideUp('fast');
-      console.log('bahahahahahah')
     }
   }, 200);
 });

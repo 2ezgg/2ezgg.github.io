@@ -18,7 +18,7 @@ function streamEvents(){
     streams.pushTwitchStreamers();
     streams.pushAzubuStreamers();
     streams.pushTopTwitchStreamers();
-    if(appSettings['eSportsNotifications']=='on'){
+    if(appSettings.eSportsNotifications === 'on'){
       streams.pushStreamsHeader();
     }
     web.changeTwitchDimensions();
@@ -35,7 +35,7 @@ function streamEvents(){
 
       localStorage.setItem('streamsLastRetrieved', Date.now());
 
-      if((streams.streamFunctionCount>0)&&(appSettings['twitchVisualNotifications']=='on' || appSettings['twitchAudioNotifications']=='on')){
+      if((streams.streamFunctionCount>0)&&(appSettings.twitchVisualNotifications==='on' || appSettings.twitchAudioNotifications==='on')){
         streams.favouriteStreamerMessage(pastAzubFav, pastTwitchFav);
         streams.recentlyAddedTwitch = [];
         streams.recentlyAddedAzub = [];
@@ -67,7 +67,7 @@ function streamEvents(){
       streams.topTwitchUrl = 'https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0';
       streams.topTwitchOnline(true).done(function() {
         streams.pushTopTwitchStreamers();
-        if(appSettings['eSportsNotifications']=='on'){
+        if(appSettings.eSportsNotifications==='on'){
           streams.pushStreamsHeader();
         }
         $('.tooltip-left').tipsy({gravity: 'e'});
@@ -106,7 +106,7 @@ $twitchHolder.on('click', '.add-top-champ', function(){
 
   $(".twitch-online").css( "display", "inline" ).text(streams.totalStreamersOnline);
 
-  if($this.data('id') != null){
+  if($this.data('id') !== undefined){
 
     streams.pushTwitchStreams($this.data('id'), 'top');
     web.changeTwitchDimensions();
@@ -130,22 +130,26 @@ $twitchHolder.on('click', '.remove-twitch', function(){
   var $this = $(this);
   $this.parent().fadeOut();
   streams.removeStreamer($this.data('name'));
-})
+});
 
 $twitchHolder.on('click','.remove-twitch-online', function(){
   var $this = $(this);
-  var streamName = $this.data('name')
+  var streamName = $this.data('name');
   $this.parent().fadeOut();
+
+  streams.totalStreamersOnline--;
+  localStorage.setItem('totalStreamersOnline', JSON.stringify(streams.totalStreamersOnline));
+  
   $(".twitch-user-"+streamName).fadeOut();
   streams.removeStreamer(streamName);
 
-  if(streams.twitchStreamersOnline.length == 1){
-    $(".twitch-online").css( "display", "none" )
+  if(!streams.totalStreamersOnline){
+    $(".twitch-online").css( "display", "none" );
   } else{
-    $(".twitch-online").text(streams.twitchStreamersOnline.length-1);
+    $(".twitch-online").text(streams.totalStreamersOnline);
   }
 
-})
+});
 
 $twitchHolder.on('click', '.add-champ', function(){
   if($(".champ-addition").val().length>0){
@@ -159,7 +163,7 @@ $twitchHolder.on('click', '.add-champ', function(){
 
 $(".champ-addition").on('keydown', function(){
   $('.add-champ').val('Add Streamer');
-  $('.add-champ').removeClass('streamer-added')
+  $('.add-champ').removeClass('streamer-added');
 });
 
 $twitchHolder.on('click', '.view-twitch-chat', function(){
@@ -170,7 +174,7 @@ $twitchHolder.on('click', '.view-twitch-chat', function(){
     $this.removeClass('close-twitch-chat');
   } else{
   var streamerName = $this.data('name');
-  $this.prev().html('<iframe frameborder="0" id="chat_embed" src="http://twitch.tv/chat/embed?channel='+streamerName+'&popout_chat=true" height="100%" width="300"></iframe>')
+  $this.prev().html('<iframe frameborder="0" id="chat_embed" src="http://twitch.tv/chat/embed?channel='+streamerName+'&popout_chat=true" height="100%" width="300"></iframe>');
   $this.addClass('close-twitch-chat');
   }
 
@@ -180,7 +184,7 @@ $twitchHolder.on('click', '.view-twitch-chat', function(){
 $("#view-more-streams").on('click', function(){
    streams.topTwitchOnline().done(function() {
       streams.pushTopTwitchStreamers(true);
-      if(appSettings['eSportsNotifications']=='on'){
+      if(appSettings.eSportsNotifications==='on'){
         streams.pushStreamsHeader();
       }
       $('.tooltip-left').tipsy({gravity: 'e'});
@@ -193,7 +197,7 @@ $('#top-header-message').on('click','.close-riot, .close-favourite', function(){
   $(this).parent().fadeOut(function() {
     var $topHeader = $('#top-header-message');
 
-      if( $topHeader.height() == 0){
+      if( $topHeader.height() === 0){
         $topHeader.css('padding','0px');
       }
   });

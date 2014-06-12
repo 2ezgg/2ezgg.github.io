@@ -8,13 +8,13 @@ function RedditLol(){
   this.youtubeCount = 0;
   this.redditCount = 0;
 
-  this.nextPageReddit;
-  this.nextPageYoutube;
+  this.nextPageReddit = '';
+  this.nextPageYoutube = '';
 
   this.previousYoutubeLength = 0;
   this.previousRedditLength = 0;
 
-  this.redditAjaxRequest;
+  this.redditAjaxRequest = '';
 }
 
 RedditLol.prototype.getAbout = function(){
@@ -33,7 +33,7 @@ RedditLol.prototype.getAbout = function(){
         $side = $('.side');
         $side.html(aboutHtml);
         $side.html($side.text());
-        var aboutHtml = $side.html();
+        aboutHtml = $side.html();
 
         localStorage.setItem('aboutHtml', aboutHtml);
         localStorage.setItem('lastRedditAboutRetrieval', Date.now());
@@ -44,18 +44,17 @@ RedditLol.prototype.getAbout = function(){
     });
 
   return redditAboutDeferred.promise();
-}
+};
 
 RedditLol.prototype.displayAbout = function(homePage){
 
   var lastRedditAboutRetrieval = localStorage.getItem('lastRedditAboutRetrieval');
-  if( lastRedditAboutRetrieval == null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
+  if( lastRedditAboutRetrieval === null || (parseInt(lastRedditAboutRetrieval) + 1000*60*60) <= Date.now() ){
     this.getAbout();
   } else {
     $('.side').html(localStorage.getItem('aboutHtml'));
   }
-
-}
+};
 
 RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageTime, pageNum){
 
@@ -100,7 +99,7 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
             textHrefChange = textHrefChange.replace(/href=\"\/u\//gi,"href=\"http:\/\/reddit.com\/u\/");
             textHrefChange = textHrefChange.replace(/href=\"\/r\//gi,"href=\"http:\/\/reddit.com\/r\/");
           }
-          if(choiceOfFunction == null){
+          if(choiceOfFunction === null){
             localStorage.setItem('redditLastRetrieved',Date.now());
             localStorage.setItem('youtubeLastRetrieved',Date.now());
             // Change YouTube and Reddit Data
@@ -121,10 +120,9 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
               authorFlair: nodes[i].data.author_flair_css_class,
               videoEmbed: null,
               after: data.data.after,
-            }
+            };
 
-            if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be')
-              && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media != null)  && (typeof nodes[i].data.media.oembed.url != 'undefined')){
+            if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be') && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media !== null)  && (typeof nodes[i].data.media.oembed.url != 'undefined')){
               self.youtubeVids[y] = {
                 title: nodes[i].data.title,
                 url: nodes[i].data.media.oembed.url,
@@ -137,7 +135,7 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
                 redditRank: i + 1,
                 videoRank: y + 1,
                 after: data.data.after,
-             }
+             };
             y++;
             self.redditThreads[i].videoEmbed = nodes[i].data.media.oembed.url.replace(/watch\?v=/i, 'embed/');
             }
@@ -147,8 +145,7 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
           else if (choiceOfFunction == 'youtube'){
           localStorage.setItem('youtubeLastRetrieved',Date.now());
           // Make changes to youtube data
-            if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be')
-              && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media != null) && (typeof nodes[i].data.media.oembed.url != 'undefined')){
+            if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be') && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media !== null) && (typeof nodes[i].data.media.oembed.url != 'undefined')){
               self.youtubeVids[y+self.previousYoutubeLength] = {
                 title: nodes[i].data.title,
                 url: nodes[i].data.media.oembed.url,
@@ -161,7 +158,7 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
                 redditRank: i + 1,
                 videoRank: y+self.previousYoutubeLength+1,
                 after: data.data.after,
-              }
+              };
               y++;
              }
              self.nextPageYoutube = data.data.after;
@@ -185,9 +182,8 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
                   authorFlair: nodes[i].data.author_flair_css_class,
                   videoEmbed: null,
                   after: data.data.after,
-                }
-                if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be')
-                   && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media != null) && (typeof nodes[i].data.media.oembed.url != 'undefined')){
+                };
+                if((redditDomainLink == 'youtube.com' || redditDomainLink == 'youtu.be') && !nodes[i].data.url.match(/user/i) && (nodes[i].data.media !== null) && (typeof nodes[i].data.media.oembed.url != 'undefined')){
                   self.redditThreads[i+self.previousRedditLength].videoEmbed = nodes[i].data.media.oembed.url.replace(/watch\?v=/i, 'embed/');
                 }
             self.nextPageReddit = data.data.after;
@@ -209,7 +205,7 @@ RedditLol.prototype.getThreads = function(choice, pageSubreddit, pageType, pageT
     });
 
   return redditDeferred.promise();
-}
+};
 
 
 RedditLol.prototype.youtubeArea = function(){
@@ -217,7 +213,7 @@ RedditLol.prototype.youtubeArea = function(){
   var self = this;
   var template = Handlebars.compile($('#youtube-template').html());
 
-  if(self.youtubeVids.length == 0){
+  if(!self.youtubeVids.length){
           $("#reddit-progress").html('<p>Sorry all out of reddit threads for now</p>');
   }
 
@@ -228,11 +224,9 @@ RedditLol.prototype.youtubeArea = function(){
       self.youtubeCount ++;
     }
   }
-
-}
+};
 
 RedditLol.prototype.mainPage = function(useLocalStorage){
-
   var self = this;
   var template = Handlebars.compile($('#reddit-template').html());
 
@@ -253,4 +247,4 @@ RedditLol.prototype.mainPage = function(useLocalStorage){
       self.redditCount ++;
     }
   }
-}
+};

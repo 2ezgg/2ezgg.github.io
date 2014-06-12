@@ -6,9 +6,9 @@ $("#youtube").on('click',function(e){
     
     if(web.youtubeInUse == 'no' || ((parseInt(localStorage.getItem('youtubeLastRetrieved')) + 1000*60*30) <= Date.now())){
       if(typeof reddit.redditAjaxRequest !== 'undefined'){
-        if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState != 4){
+        if(reddit.redditAjaxRequest && reddit.redditAjaxRequest.readyState !== 4){
                 reddit.redditAjaxRequest.abort();
-                if(reddit.redditThreads.length == 0){
+                if(!reddit.redditThreads.length){
                     web.redditInUse = 'no';
                 }
             }
@@ -93,7 +93,7 @@ $("#redditthreads").on('click',function(e){
       $("#reddit-progress").html('<img src="assets/img/loader.gif" />');
 
 
-      reddit.currentRedditSettings['reddit','leagueoflegends','hot',null];
+      reddit.currentRedditSettings = ['reddit','leagueoflegends','hot',null];
       reddit.redditThreads = [];
       reddit.redditCount = 0;
       reddit.nextPageReddit = null;

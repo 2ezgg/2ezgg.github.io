@@ -25,30 +25,29 @@ function LeagueLinks(){
     $(".champ").val(this.champ);
     this.champLink();
   }
-};
+}
 
-LeagueLinks.prototype.getUrlParams = function( name ){
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
+LeagueLinks.prototype.getUrlParams = function( type ){
+  var regexS = "[?&]"+type+"=([^&#]*)";
   var regex = new RegExp(regexS);
   var results = regex.exec(window.location.href);
-  if(results == null){
+  if(results === null){
       return null;
     } else {
       return decodeURIComponent(results[1]);
   }
-}
+};
 
 LeagueLinks.prototype.account = function(nameUpdate, serverUpdate, stopReplacement){
-  if(nameUpdate != null){
+  if(nameUpdate !== null){
     this.name = nameUpdate;
-    if(!stopReplacement || (stopReplacement && localStorage.getItem('name') == null)){
+    if(!stopReplacement || (stopReplacement && localStorage.getItem('name') === null)){
       localStorage.setItem('name',this.name);
     }
   }
   if(serverUpdate){
     this.server = serverUpdate;
-    if(!stopReplacement || (stopReplacement && localStorage.getItem('name') == null)){
+    if(!stopReplacement || (stopReplacement && localStorage.getItem('name') === null)){
       localStorage.setItem('server',this.server);
     }
   }
@@ -60,10 +59,10 @@ LeagueLinks.prototype.account = function(nameUpdate, serverUpdate, stopReplaceme
     this.returnOriginalUrl('website-name');
     return false;
   }
-}
+};
 
 LeagueLinks.prototype.champion = function(champUpdate){
-  if(champUpdate != null){
+  if(champUpdate !== null){
     this.champ = champUpdate;
     localStorage.setItem('champ',this.champ);
   }
@@ -75,7 +74,7 @@ LeagueLinks.prototype.champion = function(champUpdate){
     this.returnOriginalUrl('website-champ');
     return false;
   }
-}
+};
 
 LeagueLinks.prototype.returnOriginalUrl = function(cssSelector){
   var items = $("."+cssSelector);
@@ -85,7 +84,7 @@ LeagueLinks.prototype.returnOriginalUrl = function(cssSelector){
     var urlData = item.data('url');
     item.attr("href", urlData);
   }
-}
+};
 
 LeagueLinks.prototype.searchLink = function(){
   var items = $(".website-search");
@@ -96,7 +95,7 @@ LeagueLinks.prototype.searchLink = function(){
     var anchor = item.data('name');
     item.attr("href", this.linkFactory.getQueryLinkForElementName(anchor, searchQuery));
   }
-}
+};
 
 LeagueLinks.prototype.nameLink = function(){
   var items = $(".website-name");
@@ -106,7 +105,7 @@ LeagueLinks.prototype.nameLink = function(){
     var anchor = item.data('name');
     item.attr("href", this.linkFactory.getSummonerLinkForElementName(anchor, this.server, this.name));
   }
-}
+};
 
 LeagueLinks.prototype.champLink = function(){
   var items = $(".website-champ");
@@ -117,7 +116,7 @@ LeagueLinks.prototype.champLink = function(){
     var anchor = item.data('name');
     item.attr("href", this.linkFactory.getChampionLinkForElementName(anchor, this.champ));
   }
-}
+};
 
 LeagueLinks.prototype.championCompare = function(input){
   for (var i=0; i<ChampionList.length; i++) {
@@ -126,12 +125,12 @@ LeagueLinks.prototype.championCompare = function(input){
       }
     }
     return false;
-}
+};
 
 LeagueLinks.prototype.dropDownTemplate = function(input){
   var self = this;
   var template = Handlebars.compile($('#champion-template').html());
-  if(input.length == 0){
+  if(input.length === 0){
     $("#champ-drop").html( template(ChampionList) );
   } else{
     var matchingChampInfo = [];
@@ -143,13 +142,13 @@ LeagueLinks.prototype.dropDownTemplate = function(input){
           name: ChampionList[i].name,
           xpos: ChampionList[i].xpos,
           ypos: ChampionList[i].ypos
-        }
+        };
         count++;
       }
       $("#champ-drop").html( template(matchingChampInfo) );
     }
   }
-}
+};
 
 LeagueLinks.prototype.addNewSummoner = function(summonerName, summonerServer){
   this.summonerNames = JSON.parse(localStorage.getItem('summonerNames')) || [];
@@ -167,12 +166,12 @@ LeagueLinks.prototype.addNewSummoner = function(summonerName, summonerServer){
         name: summonerName,
         server: summonerServer,
         favouriteStatus: 'no'
-      }
+      };
     }
 
   localStorage.setItem('summonerNames',JSON.stringify(this.summonerNames));
   }
-}
+};
 
 
 LeagueLinks.prototype.removeSummoner = function(summonerName, summonerServer){
@@ -188,7 +187,7 @@ LeagueLinks.prototype.removeSummoner = function(summonerName, summonerServer){
   localStorage.setItem('summonerNames',JSON.stringify(this.summonerNames));
 
   this.summonerList();
-}
+};
 
 
 LeagueLinks.prototype.summonerList = function(){
@@ -197,8 +196,7 @@ LeagueLinks.prototype.summonerList = function(){
   var self = this;
   var template = Handlebars.compile($('#summoner-accounts-template').html());
   $("#summoner-accounts-list").html(template(self.summonerNames));
-  console.log('they summonerList function has been executed')
-}
+};
 
 LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 	this.lolNewsServer = this.server;
@@ -209,7 +207,7 @@ LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 		$('#league').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
 	  $('#fantasy').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
   }
-}
+};
 
 LeagueLinks.prototype.rssAlerts = function(pageRssId){
 
@@ -227,8 +225,8 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
     },
     success: function(data){
       self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
-      if (self.rssFeeds[index] == undefined || self.rssFeeds[index] == null || ((pageRssId == appSettings['ezHomePage']) && (window.location.href == window.location.origin + "/")) ){
-        if (self.oldDate == 0 ){
+      if (self.rssFeeds[index] === undefined || self.rssFeeds[index] === null || ((pageRssId == appSettings.ezHomePage) && (window.location.href == window.location.origin + "/")) ){
+        if (self.oldDate === 0 ){
           self.rssFeeds[index] = 2000;
         } else {
           self.rssFeeds[index] = Date.now();
@@ -256,4 +254,4 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
     }
   });
   return rssDeferred.promise();
-}
+};

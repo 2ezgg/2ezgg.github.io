@@ -1,6 +1,6 @@
 var currentUrl = function(){
   return window.location.href;
-} 
+}; 
 var league = new LeagueLinks();
 var streams = new StreamChannels();
 var reddit = new RedditLol();
@@ -14,7 +14,7 @@ web.setSettings();
 
 function tabSystem(){
   var theUrl = currentUrl();
-  if(theUrl.match(/youtubevideos/i) || ( appSettings['ezHomePage'] == 'youtube' && web.homePage())){
+  if(theUrl.match(/youtubevideos/i) || ( appSettings.ezHomePage === 'youtube' && web.homePage())){
 
     ///////////////////// if page back button is pressed
     $("#iframe-holder").html(' ').css("display","none");
@@ -47,13 +47,13 @@ function tabSystem(){
 
     reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
       reddit.mainPage();
-      web.youtubeInUse = 'contentAvailable'
+      web.youtubeInUse = 'contentAvailable';
     });
     web.twitchInUse = 'no';
     web.youtubeInUse = 'no';
 
 
-  } else if (theUrl.match(/twitchstreams/i) || ((appSettings['ezHomePage'] == 'twitch') && web.homePage()) ){
+  } else if (theUrl.match(/twitchstreams/i) || ((appSettings.ezHomePage === 'twitch') && web.homePage()) ){
     ///////////////////// if page back button is pressed
     $("#iframe-holder").html(' ').css("display","none");
     $("#main-content").css("display","block");
@@ -69,14 +69,14 @@ function tabSystem(){
     web.youtubeInUse = 'no';
     web.redditInUse = 'no';
 
-  } else if(web.checkIfBelongs() || (appSettings['ezHomePage'] != 'redditthreads' && web.homePage()) ){
-    if(!detectmob() || appSettings['newWindow'] == 'off'){
+  } else if(web.checkIfBelongs() || (appSettings.ezHomePage !== 'redditthreads' && web.homePage()) ){
+    if(!detectmob() || appSettings.newWindow === 'off'){
       var url;
       if(web.homePageAccessed){
-        url = $("#"+appSettings['ezHomePage']).attr('href')
-        $("a#"+appSettings['ezHomePage']+' li').addClass('selected-link');
+        url = $("#"+appSettings.ezHomePage).attr('href');
+        $("a#"+appSettings.ezHomePage+' li').addClass('selected-link');
       } else {
-        if(sessionActive='yes'){
+        if(sessionActive=='yes'){
           league.name = league.getUrlParams('name') || localStorage.getItem('name');
           league.server = league.getUrlParams('server') || localStorage.getItem('server');
           league.champ = league.getUrlParams('champ') || localStorage.getItem('champ');
@@ -88,9 +88,8 @@ function tabSystem(){
 
       }
       $("#iframe-holder").css("display","block");
-      web.makeIframe(url)
+      web.makeIframe(url);
     } 
-
 
     web.youtubeInUse = 'no';
     web.redditInUse = 'no';
@@ -124,13 +123,13 @@ function tabSystem(){
 
       $('.dropdown-subreddit').val(reddit.currentRedditSettings[1]);
 
-      if(reddit.currentRedditSettings[3] != null){
+      if(reddit.currentRedditSettings[3] !== null){
         $('.dropdown-reddit-options').val(reddit.currentRedditSettings[2]+reddit.currentRedditSettings[3]);
       } else {
         $('.dropdown-reddit-options').val(reddit.currentRedditSettings[2]);
       }
 
-      if((reddit.currentRedditSettings[0] != null)&&(reddit.currentRedditSettings[2] != 'hot')){
+      if((reddit.currentRedditSettings[0] !== null)&&(reddit.currentRedditSettings[2] != 'hot')){
         $(".reddit-setting").removeClass('setting-chosen');
         $("."+reddit.currentRedditSettings[3]+reddit.currentRedditSettings[2]+"-reddit").addClass('setting-chosen');
       }
@@ -142,7 +141,7 @@ function tabSystem(){
     } else{
       reddit.getThreads(reddit.currentRedditSettings[0],reddit.currentRedditSettings[1],reddit.currentRedditSettings[2],reddit.currentRedditSettings[3],reddit.nextPageReddit).done(function() {
         reddit.mainPage();
-        web.youtubeInUse = 'contentAvailable'
+        web.youtubeInUse = 'contentAvailable';
       });
       web.twitchInUse = 'no';
       web.youtubeInUse = 'no';
@@ -167,7 +166,7 @@ window.onpopstate = function(event){
   if(sessionActive == 'yes'){
     $(".nav-button li").removeClass('selected-link');
    
-    if(web.youtubeInUse = 'yes'){
+    if(web.youtubeInUse == 'yes'){
       $("#youtube-threads").html(' ');  
       reddit.youtubeVids = [];
       reddit.youtubeCount = 0;
@@ -179,11 +178,11 @@ window.onpopstate = function(event){
     tabSystem();
     web.tabSystemProcessed = 1;
   }
-}
-if(web.tabSystemProcessed == 0){
+};
+if(web.tabSystemProcessed === 0){
   tabSystem();
   // pretty hacky thing that should be fixed properly
   setTimeout(function(){
     sessionActive = 'yes';
-  }, 500);
+  }, 200);
 }

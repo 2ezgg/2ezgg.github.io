@@ -3,102 +3,114 @@ module.exports = function(grunt){
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
-      watch: {
+      	watch: {
 		    html: {
 		      files: ['index.html'],
 		      tasks: ['htmlhint']
 		    },
 		    js: {
-          files: [
-            'build/data/championList.js',
-            'build/config/config.js',
-            'build/objects/linkFactory.js',
-            'build/objects/leagueLinks.js',
-            'build/objects/redditLol.js',
-            'build/objects/streamChannels.js',
-            'build/objects/webInterface.js',
-            'build/app.js',
-            'build/events/globalEvents.js',
-            'build/events/iframeEvents.js',
-            'build/events/infiniteScrollingEvents.js',
-            'build/events/miscEvents.js',
-            'build/events/navigationEvents.js',
-            'build/events/redditEvents.js',
-            'build/events/rssEvents.js',
-            'build/events/settingsPageEvents.js',
-            'build/events/sidebarEvents.js',
-            'build/events/twitchEvents.js',
-            'build/events/youtubeEvents.js'
-            ],
-          tasks: ['uglify']
+	          	files: [
+		            'build/data/championList.js',
+		            'build/config/config.js',
+		            'build/objects/linkFactory.js',
+		            'build/objects/leagueLinks.js',
+		            'build/objects/redditLol.js',
+		            'build/objects/streamChannels.js',
+		            'build/objects/webInterface.js',
+		            'build/app.js',
+		            'build/events/globalEvents.js',
+		            'build/events/iframeEvents.js',
+		            'build/events/infiniteScrollingEvents.js',
+		            'build/events/miscEvents.js',
+		            'build/events/navigationEvents.js',
+		            'build/events/redditEvents.js',
+		            'build/events/rssEvents.js',
+		            'build/events/settingsPageEvents.js',
+		            'build/events/sidebarEvents.js',
+		            'build/events/twitchEvents.js',
+		            'build/events/youtubeEvents.js'
+	            ],
+	          	tasks: ['uglify','jshint']
     		},
     		css: {
 		      files: ['build/app.scss'],
 		      tasks: ['buildcss']
-   		 }
+   		 	}
 		},
-    pkg: grunt.file.readJSON('package.json'),
+	    pkg: grunt.file.readJSON('package.json'),
 	    htmlhint: {
-	      build: {
-	        options: {
-			      'tag-pair': true,
-			      'tagname-lowercase': true,
-			      'attr-lowercase': true,
-			      'attr-value-double-quotes': false,
-			      'doctype-first': true,
-			      'spec-char-escape': true,
-			      'id-unique': true,
-			      'head-script-disabled': false,
-			      'style-disabled': true
-	        },
-	        src: ['index.html']
+		    build: {
+		        options: {
+			    	'tag-pair': true,
+			    	'tagname-lowercase': true,
+			    	'attr-lowercase': true,
+			    	'attr-value-double-quotes': false,
+			    	'doctype-first': true,
+			    	'spec-char-escape': true,
+			    	'id-unique': true,
+			    	'head-script-disabled': false,
+			    	'style-disabled': true
+		        },
+		        src: ['index.html']
 	    	}
-	    },
+    	},
+    	jshint: {
+      		files: ['build/*.js', 'build/**/*.js'],
+	    	options: {
+	        // options here to override JSHint defaults
+		        globals: {
+		        	jQuery: true,
+		        	console: true,
+		        	module: true,
+		        	document: true
+		        }
+		    }
+      	},
 	    uglify: {
-			  build:  {
+			build:  {
 			    files: {
-			      'assets/js/2ezgg.js': [
-              'build/data/championList.js',
-              'build/config/config.js',
-              'build/objects/linkFactory.js',
-              'build/objects/leagueLinks.js',
-              'build/objects/redditLol.js',
-              'build/objects/streamChannels.js',
-              'build/objects/webInterface.js',
-              'build/app.js',
-              'build/events/globalEvents.js',
-              'build/events/iframeEvents.js',
-              'build/events/infiniteScrollingEvents.js',
-              'build/events/miscEvents.js',
-              'build/events/navigationEvents.js',
-              'build/events/redditEvents.js',
-              'build/events/rssEvents.js',
-              'build/events/settingsPageEvents.js',
-              'build/events/sidebarEvents.js',
-              'build/events/twitchEvents.js',
-              'build/events/youtubeEvents.js'
-            ]
+			      	'assets/js/2ezgg.js': [
+		            	'build/data/championList.js',
+		                'build/config/config.js',
+		                'build/objects/linkFactory.js',
+		                'build/objects/leagueLinks.js',
+		                'build/objects/redditLol.js',
+		                'build/objects/streamChannels.js',
+		                'build/objects/webInterface.js',
+		                'build/app.js',
+		                'build/events/globalEvents.js',
+		                'build/events/iframeEvents.js',
+		                'build/events/infiniteScrollingEvents.js',
+		                'build/events/miscEvents.js',
+		                'build/events/navigationEvents.js',
+		                'build/events/redditEvents.js',
+		                'build/events/rssEvents.js',
+		                'build/events/settingsPageEvents.js',
+		                'build/events/sidebarEvents.js',
+		                'build/events/twitchEvents.js',
+		                'build/events/youtubeEvents.js'	
+		            ]
 			    }
-			  }
-			},
-      cssc: {
-			  build: {
+			}
+		},
+  		cssc: {
+			build: {
 			    options: {
-			      consolidateViaDeclarations: true,
-			      consolidateViaSelectors:    true,
-			      consolidateMediaQueries:    true
+				    consolidateViaDeclarations: true,
+				    consolidateViaSelectors:    true,
+				    consolidateMediaQueries:    true
 			    },
-			      files: {
-			        'assets/css/app.css': 'assets/css/app.css'
-			      }
+			        files: {
+			        	'assets/css/app.css': 'assets/css/app.css'
+			        }
 			    }
-			  },
-				cssmin: {
+			},
+			cssmin: {
 			    build: {
-			      src: 'assets/css/app.css',
-			      dest: 'assets/css/app.css'
-			  }
-      },
+			        src: 'assets/css/app.css',
+			        dest: 'assets/css/app.css'
+			    }
+  			},
 			sass: {
 				dist: {
 					files:{
