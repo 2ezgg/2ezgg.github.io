@@ -107,17 +107,8 @@ $twitchHolder.on('click', '.add-top-champ', function(){
   $(".twitch-online").css( "display", "inline" ).text(streams.totalStreamersOnline);
 
   if($this.data('id') !== undefined){
-
-    streams.pushTwitchStreams($this.data('id'), 'top');
-    web.changeTwitchDimensions();
-
-    $('body,html').animate({
-      scrollTop: 0
-    }, 600);
-
     streams.submitStreamer($this.data('name'));
     streams.pushTwitchStreamers($this.data('id'));
-
   } else {
     streams.pushAzubuStreamers($this.data('count'));
     streams.submitStreamer($this.data('name'),'azubu');
