@@ -33,12 +33,7 @@ How to run tests
 Future Changes
 ==============
 GENERAL
-- Fix back button issue with popstate
 - Make navigation expand button more intuitive
-
-Twitch
-- Make add/favourite/remove icons more intuitive
-- Remove recently added champions from notification on next ajax request.
 
 Reddit
 - Allow for youtube and reddit permalink settings (so that users can refresh the page)
