@@ -10,6 +10,7 @@
       "grunt-contrib-cssmin":         "*",
       "grunt-contrib-uglify":         "*",
       "grunt-contrib-watch":          "*",
+      "grunt-contrib-concat":          "*",
       "grunt-cssc":                   "*",
       "grunt-contrib-jshint":         "*",
       "grunt-htmlhint":               "*",

@@ -10,6 +10,7 @@ module.exports = function(grunt){
 		    },
 		    js: {
 	          	files: [
+	          		'build/anonFuncStart.js',
 		            'build/data/championList.js',
 		            'build/config/config.js',
 		            'build/objects/linkFactory.js',
@@ -17,7 +18,8 @@ module.exports = function(grunt){
 		            'build/objects/redditLol.js',
 		            'build/objects/streamChannels.js',
 		            'build/objects/webInterface.js',
-		            'build/app.js',
+		            'build/core/objectInit.js',
+		            'build/core/router.js',
 		            'build/events/globalEvents.js',
 		            'build/events/iframeEvents.js',
 		            'build/events/infiniteScrollingEvents.js',
@@ -28,9 +30,10 @@ module.exports = function(grunt){
 		            'build/events/settingsPageEvents.js',
 		            'build/events/sidebarEvents.js',
 		            'build/events/twitchEvents.js',
-		            'build/events/youtubeEvents.js'
+		            'build/events/youtubeEvents.js',
+		           	'build/anonFuncEnd.js'
 	            ],
-	          	tasks: ['uglify','jshint']
+	          	tasks: ['concat','jshint','uglify']
     		},
     		css: {
 		      files: ['build/app.scss'],
@@ -54,8 +57,37 @@ module.exports = function(grunt){
 		        src: ['index.html']
 	    	}
     	},
-    	jshint: {
-      		files: ['build/*.js', 'build/**/*.js'],
+      	concat: {
+		    dist: {
+		      	src: [
+	          		'build/anonFuncStart.js',
+		            'build/data/championList.js',
+		            'build/config/config.js',
+		            'build/objects/linkFactory.js',
+		            'build/objects/leagueLinks.js',
+		            'build/objects/redditLol.js',
+		            'build/objects/streamChannels.js',
+		            'build/objects/webInterface.js',
+		            'build/core/objectInit.js',
+		            'build/core/router.js',
+		            'build/events/globalEvents.js',
+		            'build/events/iframeEvents.js',
+		            'build/events/infiniteScrollingEvents.js',
+		            'build/events/miscEvents.js',
+		            'build/events/navigationEvents.js',
+		            'build/events/redditEvents.js',
+		            'build/events/rssEvents.js',
+		            'build/events/settingsPageEvents.js',
+		            'build/events/sidebarEvents.js',
+		            'build/events/twitchEvents.js',
+		            'build/events/youtubeEvents.js',
+		           	'build/anonFuncEnd.js'
+		        ],
+		      	dest: 'assets/js/2ezggdev.js'
+		    }
+		},
+		jshint: {
+      		files: ['build/**/*.js', '!build/anonFuncStart.js', '!build/anonFuncEnd.js'],
 	    	options: {
 	        // options here to override JSHint defaults
 		        globals: {
@@ -69,27 +101,7 @@ module.exports = function(grunt){
 	    uglify: {
 			build:  {
 			    files: {
-			      	'assets/js/2ezgg.js': [
-		            	'build/data/championList.js',
-		                'build/config/config.js',
-		                'build/objects/linkFactory.js',
-		                'build/objects/leagueLinks.js',
-		                'build/objects/redditLol.js',
-		                'build/objects/streamChannels.js',
-		                'build/objects/webInterface.js',
-		                'build/app.js',
-		                'build/events/globalEvents.js',
-		                'build/events/iframeEvents.js',
-		                'build/events/infiniteScrollingEvents.js',
-		                'build/events/miscEvents.js',
-		                'build/events/navigationEvents.js',
-		                'build/events/redditEvents.js',
-		                'build/events/rssEvents.js',
-		                'build/events/settingsPageEvents.js',
-		                'build/events/sidebarEvents.js',
-		                'build/events/twitchEvents.js',
-		                'build/events/youtubeEvents.js'	
-		            ]
+			      	'assets/js/2ezgg.js': 'assets/js/2ezggdev.js'
 			    }
 			}
 		},
