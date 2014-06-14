@@ -41,7 +41,8 @@ function LinkFactory(){
   this.LolNexusSearchEnd = "/search?";
 
   this.LolSkill = "http://www.lolskill.net";
-  this.LolSkillSearch = this.LolSkill + "/game-";
+  this.LolSkillSearch = this.LolSkill + "/game/";
+  this.LoLSkillProfileSearch = this.LolSkill + "/summoner/";
 
   this.Summoning = "http://www.summoning.net";
   this.SummoningSearch = this.Summoning+"/v1/lyralei";
@@ -63,6 +64,10 @@ function LinkFactory(){
   this.ElophantSearch = this.Elophant+"/league-of-legends/search?query=";
   this.ElophantChampSearchStart = this.Elophant+"/league-of-legends/champion/";
   this.ElophantChampSearchEnd = "/stats";
+
+  this.LegendsAsia = "http://www.legendsasia.com/";
+  this.LegendsAsiaWatch = this.LegendsAsia+"watch/";
+  this.LegendsAsiaProfile = this.LegendsAsia+"summoner/";
 
   this.ChampSelect = "http://www.championselect.net";
   this.ChampSelectChampSearch = this.ChampSelect+"/champ/";
@@ -119,8 +124,12 @@ function LinkFactory(){
   this.LolKingSummonerElementName = "king";
   this.OPSummonerElementName = "gg";
   this.LolSkillSummonerElementName = "skill";
+  this.LolSkillProfileSummonerElementName = "summonerski";
   this.LolDbSummonerElementName = "summonergameguyz";
   this.ElophantSummonerElementName = "phant";
+  this.LegendsAsiaWatchSummonerElementName = "asiawatch";
+  this.LegendsAsiaProfileSummonerElementName = "asiaprofile";
+
 
   /*
     Champion Element Names
@@ -245,7 +254,10 @@ LinkFactory.prototype.getLolNexusChampionLink = function(){
   LolSkill
 */
 LinkFactory.prototype.getLolSkillSummonerLink = function(region, name){
-  return this.LolSkillSearch+region+'-'+name;
+  return this.LolSkillSearch+region+'/'+name;
+};
+LinkFactory.prototype.getLolSkillProfileSummonerLink = function(region, name){
+  return this.LoLSkillProfileSearch+region+'/'+name;
 };
 LinkFactory.prototype.getLolSkillChampionLink = function(){
   return '';
@@ -325,6 +337,27 @@ LinkFactory.prototype.getElophantSummonerLink = function(region, name){
 };
 LinkFactory.prototype.getElophantChampionLink = function(champ){
   return this.ElophantChampSearchStart+this.getSpaceAndDashName(champ)+this.ElophantChampSearchEnd;
+};
+
+/*
+  legendsasia
+*/
+LinkFactory.prototype.getAsiaWatchSummonerLink = function(region, name){
+  return this.LegendsAsiaWatch+this.getAsiaFixedRegion(region)+'/'+name;
+};
+
+LinkFactory.prototype.getAsiaProfileSummonerLink = function(region, name){
+  return this.LegendsAsiaProfile+this.getAsiaFixedRegion(region)+'/'+name;
+};
+
+LinkFactory.prototype.getAsiaFixedRegion = function(region){
+  if(region == 'sea'){
+    return 'sg';
+  }else if(region == 'cn'){
+    return 'cn1';
+  }else{
+    return region;
+  }
 };
 
 /*
@@ -497,10 +530,16 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getOPSummonerLink(region, name);
     case this.LolSkillSummonerElementName:
       return this.getLolSkillSummonerLink(region, name);
+    case this.LolSkillProfileSummonerElementName:
+      return this.getLolSkillProfileSummonerLink(region, name);
     case this.LolDbSummonerElementName:
       return this.getLolDbSummonerLink(name);
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
+    case this.LegendsAsiaWatchSummonerElementName:
+      return this.getAsiaWatchSummonerLink(region, name);
+    case this.LegendsAsiaProfileSummonerElementName:
+      return this.getAsiaProfileSummonerLink(region, name);
   }
 };
 
