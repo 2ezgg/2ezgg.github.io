@@ -60,6 +60,9 @@ function LinkFactory(){
   this.LolDbChampSearchStart = this.LolDb+"/champions/";
   this.LolDbChampSearchEnd = ".html";
 
+  this.WardScore = "http://wardscore.loltools.net";
+  this.WardScoreSearch = this.WardScore+"/?";
+
   this.Elophant = "http://www.elophant.com";
   this.ElophantSearch = this.Elophant+"/league-of-legends/search?query=";
   this.ElophantChampSearchStart = this.Elophant+"/league-of-legends/champion/";
@@ -94,6 +97,9 @@ function LinkFactory(){
   this.LolGamepedia = "http://lol.gamepedia.com";
   this.LolGamepediaChampSearch = this.LolGamepedia+"/";
 
+  this.LolEsportspedia = "http://lol.esportspedia.com";
+  this.LolEsportspediaChampSearch = this.LolEsportspedia+"/wiki/";
+
   this.LolInven = "http://lol.inven.co.kr";
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
   this.LolInvenChampDetail = "detail.php?code=";
@@ -127,6 +133,7 @@ function LinkFactory(){
   this.LolSkillProfileSummonerElementName = "summonerski";
   this.LolDbSummonerElementName = "summonergameguyz";
   this.ElophantSummonerElementName = "phant";
+  this.WardScoreSummonerElementName = "wardscore";
   this.LegendsAsiaWatchSummonerElementName = "asiawatch";
   this.LegendsAsiaProfileSummonerElementName = "asiaprofile";
 
@@ -145,6 +152,7 @@ function LinkFactory(){
   this.LolWikiChampElementName = "wikichamp";
   this.LolDbChampElementName = "champgameguyz";
   this.LolGamePediaChampElementName = "leaguepediachamp";
+  this.LolEsportsPediaChampElementName = "esportschamp";
   this.LolInvenChampElementName = "inven";
   this.ProPickChampElementName = "pick";
 
@@ -340,6 +348,13 @@ LinkFactory.prototype.getElophantChampionLink = function(champ){
 };
 
 /*
+  WardScore
+*/
+LinkFactory.prototype.getWardScoreSummonerLink = function(region, name){
+  return this.WardScoreSearch+this.NameUrlFirstKey+name+this.RegionUrlKey+region;
+};
+
+/*
   legendsasia
 */
 LinkFactory.prototype.getAsiaWatchSummonerLink = function(region, name){
@@ -417,12 +432,16 @@ LinkFactory.prototype.getLolWikiChampionLink = function(champ){
 };
 
 /*
-  LolGamepedia
+  LolGamepedia + Lol EsportsPedia
 */
-LinkFactory.prototype.getLolGamepediaChampionLink = function(champ){
-  return this.LolGamepediaChampSearch+this.getLolGamepediaFixedChamp(champ);
+
+LinkFactory.prototype.getLolEsportspediaChampionLink = function(champ){
+  return this.LolEsportspediaChampSearch+this.getLolGamepediaEsportspediaFixedChamp(champ);
 };
-LinkFactory.prototype.getLolGamepediaFixedChamp = function(champ){
+LinkFactory.prototype.getLolGamepediaChampionLink = function(champ){
+  return this.LolGamepediaChampSearch+this.getLolGamepediaEsportspediaFixedChamp(champ);
+};
+LinkFactory.prototype.getLolGamepediaEsportspediaFixedChamp = function(champ){
   switch(champ){
     case 'cho\'gath':
       champ = 'Cho\'Gath';
@@ -503,6 +522,8 @@ LinkFactory.prototype.getChampionLinkForElementName = function(elementName, cham
       return this.getLolProChampionLink(champ);
     case this.LolWikiChampElementName:
       return this.getLolWikiChampionLink(champ);
+    case this.LolEsportsPediaChampElementName:
+      return this.getLolEsportspediaChampionLink(champ);
     case this.LolGamePediaChampElementName:
       return this.getLolGamepediaChampionLink(champ);
     case this.LolDbChampElementName:
@@ -534,6 +555,8 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getLolSkillProfileSummonerLink(region, name);
     case this.LolDbSummonerElementName:
       return this.getLolDbSummonerLink(name);
+    case this.WardScoreSummonerElementName:
+      return this.getWardScoreSummonerLink(region, name);
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
     case this.LegendsAsiaWatchSummonerElementName:
