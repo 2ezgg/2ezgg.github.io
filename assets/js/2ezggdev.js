@@ -2325,8 +2325,8 @@ function tabSystem(){
     if(!detectmob() || appSettings.newWindow === 'off'){
       var url;
       if(web.homePageAccessed){
-        url = $("#"+appSettings.ezHomePage).attr('href');
-        $("a#"+appSettings.ezHomePage+' li').addClass('selected-link');
+        url = $("a[data-name='"+appSettings.ezHomePage+"']").attr('href');
+        $("a[data-name='"+appSettings.ezHomePage+"'] li").addClass('selected-link');
       } else {
         
         league.name = league.getUrlParams('name') || localStorage.getItem('name');
@@ -2337,9 +2337,10 @@ function tabSystem(){
         league.champion(league.champ);
 
         url = web.checkIfBelongs(null, true);
-
+        console.log(url);
       }
       $("#iframe-holder").css("display","block");
+
       web.makeIframe(url);
     } 
 
