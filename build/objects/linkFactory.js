@@ -181,6 +181,8 @@ function LinkFactory(){
   this.NewsOfLegendsId = "newslegend";
   this.NewsOfLegendsRSS = "http://www.newsoflegends.com/index.php/feed/";
 
+  this.ParavineId = "paravine";
+  this.ParavineRSS = "http://www.paravine.com/category/leagueoflegends/feed/";
 }
 
 /*
@@ -601,6 +603,8 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
       return this.EsportsExpressRSS;
     case this.NewsOfLegendsId:
       return this.NewsOfLegendsRSS;
+    case this.ParavineId:
+      return this.ParavineRSS;
   }
 };
 

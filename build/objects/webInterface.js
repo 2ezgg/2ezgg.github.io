@@ -15,19 +15,18 @@ function WebInterface(){
     for(var z = 0; z < this.pageChange.length; z++){
 
       if(this.pageChange[z].display=='none'){
-        $('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
-        $('#'+this.pageChange[z].id).css('display','none');
+        $('li.website-control[data-id="'+this.pageChange[z].id+'"] .remove-website').removeClass().addClass('add-website');
+        $('.nav-button[data-name="'+this.pageChange[z].id+'"]').css('display','none');
       } else {
-        $('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
-        $('#'+this.pageChange[z].id).css('display','block');
+        $('li.website-control[data-id="'+this.pageChange[z].id+'"] .add-website').removeClass().addClass('remove-website');
+        $('.nav-button[data-name="'+this.pageChange[z].id+'"]').css('display','block');
         inlineBlockArray.push(z);
       }
     }
-
     var that = this;
     var changeToInline = function(){
       for (var y = 0; y < inlineBlockArray.length; y++){
-        $('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
+        $('.nav-button[data-name="'+that.pageChange[inlineBlockArray[y]].id+'"]').css('display','inline-block');
       }
     };
 
@@ -95,7 +94,8 @@ WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
 
     if((hashData === hashWithoutParamsVal) || (hashData == appSettings.ezHomePage && this.homePage()) ){
       if(highlightArea){
-        $("a#"+hashData+" li").addClass('selected-link');
+
+        $(".nav-button[data-name=\""+hashData+"\"] li").addClass('selected-link');
       }
       return iFrameCapableLink.attr('href');
 
@@ -257,40 +257,40 @@ WebInterface.prototype.homePage = function(){
 WebInterface.prototype.rearangeSidebar = function(){
    if(idList.hasOwnProperty('search')){
      for(var i=0; i<idList.search.length; i++){
-       if(i===0){
-         $("#searchbuttons").prepend($("#"+idList.search[i].id));
-         $("#search-websites").prepend($(".website-"+idList.search[i].id));
+       if(i===0){ 
+         $("#searchbuttons").prepend($('.nav-button[data-name="'+idList.search[i].id+'"]'));
+         $("#search-websites").prepend($('.website-control[data-id="'+idList.search[i].id+'"]'));
        } else {
-         $("#searchbuttons a").eq(i).after($("#"+idList.search[i].id));
-         $("#search-websites li").eq(i).after($(".website-"+idList.search[i].id));
+         $("#searchbuttons a").eq(i).after($('.nav-button[data-name="'+idList.search[i].id+'"]'));
+         $("#search-websites li").eq(i).after($('.website-control[data-id="'+idList.search[i].id+'"]'));
        }
      }
    }
    for(var j=0; j<idList.general.length; j++){
      if(j===0){
-       $("#miscbuttons ul").prepend($("#"+idList.general[j].id));
-       $("#general-websites").prepend($(".website-"+idList.general[j].id));
+       $("#miscbuttons ul").prepend($('.nav-button[data-name="'+idList.general[j].id+'"]'));
+       $("#general-websites").prepend($('.website-control[data-id="'+idList.general[j].id+'"]'));
      } else {
-       $("#miscbuttons ul a").eq(j).after($("#"+idList.general[j].id));
-       $("#general-websites li").eq(j).after($(".website-"+idList.general[j].id));
+       $("#miscbuttons ul a").eq(j).after($('.nav-button[data-name="'+idList.general[j].id+'"]'));
+       $("#general-websites li").eq(j).after($('.website-control[data-id="'+idList.general[j].id+'"]'));
      }
    }
    for(var k=0; k<idList.summoner.length; k++){
      if(k===0){
-       $("#namebuttons ul").prepend($("#"+idList.summoner[k].id));
-       $("#summoner-websites").prepend($(".website-"+idList.summoner[k].id));
+       $("#namebuttons ul").prepend($('.nav-button[data-name="'+idList.summoner[k].id+'"]'));
+       $("#summoner-websites").prepend($('.website-control[data-id="'+idList.summoner[k].id+'"]'));
      } else {
-       $("#namebuttons ul a").eq(k).after($("#"+idList.summoner[k].id));
-       $("#summoner-websites li").eq(k).after($(".website-"+idList.summoner[k].id));
+       $("#namebuttons ul a").eq(k).after($('.nav-button[data-name="'+idList.summoner[k].id+'"]'));
+       $("#summoner-websites li").eq(k).after($('.website-control[data-id="'+idList.summoner[k].id+'"]'));
      }
    }
    for(var l=0; l<idList.champ.length; l++){
      if(l===0){
-       $("#championbuttons ul").prepend($("#"+idList.champ[l].id));
-       $("#champ-websites").prepend($(".website-"+idList.champ[l].id));
+       $("#championbuttons ul").prepend($('.nav-button[data-name="'+idList.champ[l].id+'"]'));
+       $("#champ-websites").prepend($('.website-control[data-id="'+idList.champ[l].id+'"]'));
      } else {
-       $("#championbuttons ul a").eq(l).after($("#"+idList.champ[l].id));
-       $("#champ-websites li").eq(l).after($(".website-"+idList.champ[l].id));
+       $("#championbuttons ul a").eq(l).after($('.nav-button[data-name="'+idList.champ[l].id+'"]'));
+       $("#champ-websites li").eq(l).after($('.website-control[data-id="'+idList.champ[l].id+'"]'));
      }
    }
 };

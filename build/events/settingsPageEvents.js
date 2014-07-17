@@ -2,7 +2,8 @@ $('#settings-content').on('click','.add-website', function(){
   var $this = $(this);
   $this.removeClass('add-website');
   $this.addClass('remove-website');
-  $('#'+$this.parent().data('id')).css('display','block');
+
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','block');
   var notAdded = true;
   var totalSettingsLength = web.pageChange.length;
   for(var i =0; i<totalSettingsLength; i++){
@@ -20,7 +21,7 @@ $('#settings-content').on('click','.add-website', function(){
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   setTimeout(function(){
-    $('#'+$this.parent().data('id')).css('display','inline-block');
+    $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','inline-block');
   }, 300);
   web.testIfSearchShouldBeShown();
 });
@@ -29,7 +30,7 @@ $('#settings-content').on('click','.remove-website', function(){
   var $this = $(this);
   $this.removeClass('remove-website');
   $this.addClass('add-website');
-  $('#'+$this.parent().data('id')).css('display','none');
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','none');
 
   var notAdded = true;
   var totalSettingsLength = web.pageChange.length;
@@ -96,7 +97,7 @@ $('.test-user-website').on('click', function(){
 
 $('#settings-content').on('click','.remove-user-website', function(){
   var $this = $(this);
-  $('#'+$this.parent().data('id')).remove();
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').remove();
 
   var index;
   for (var i = 0; i<web.pageAdd.length; i++){

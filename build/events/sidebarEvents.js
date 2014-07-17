@@ -73,13 +73,15 @@ $searchInput.on('keydown', function(e){
       $('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     }
     var websiteAddress;
+
     if(shiftKeyPressed) {
-      websiteAddress = $("#"+appSettings.shiftSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.shiftSearchLink+'"]').attr('href');
     } else if(ctrlKeyPressed){
-      websiteAddress = $("#"+appSettings.ctrlSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.ctrlSearchLink+'"]').attr('href');
       }  else {
-      websiteAddress = $("#"+appSettings.defaultSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.defaultSearchLink+'"]').attr('href');
     }
+
       window.open(websiteAddress);
     }
 });
@@ -117,11 +119,11 @@ $name.on('keydown', function(e){
     }
     var $id;
     if(shiftKeyPressed) {
-      $id = $("#"+appSettings.shiftNameLink);
+      $id = $('.nav-button[data-name="'+appSettings.shiftNameLink+'"]');
     } else if(ctrlKeyPressed){
-      $id = $("#"+appSettings.ctrlNameLink);
-      }  else {
-      $id = $("#"+appSettings.defaultNameLink);
+      $id = $('.nav-button[data-name="'+appSettings.ctrlNameLink+'"]');
+    }  else {
+      $id = $('.nav-button[data-name="'+appSettings.defaultNameLink+'"]');
     }
 
       clearTimeout(timerName);
@@ -235,12 +237,12 @@ $champ.on('keyup', function(e){
       $('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     }
     var $id;
-    if (shiftKeyPressed) {
-      $id = $("#"+appSettings.shiftChampLink);
-    } else if(ctrlKeyPressed) {
-      $id = $("#"+appSettings.ctrlChampLink);
-    } else {
-      $id = $("#"+appSettings.defaultChampLink);
+    if(shiftKeyPressed) {
+      $id = $('.nav-button[data-name="'+appSettings.shiftChampLink+'"]');
+    } else if(ctrlKeyPressed){
+      $id = $('.nav-button[data-name="'+appSettings.ctrlChampLink+'"]');
+      }  else {
+      $id = $('.nav-button[data-name="'+appSettings.defaultChampLink+'"]');
     }
 
     if(web.checkIfBelongs('.website-champ') && appSettings.smartEnter === 'on' && !ctrlKeyPressed && !shiftKeyPressed){

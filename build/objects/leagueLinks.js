@@ -224,6 +224,7 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
       console.log('Unable to load'+pageRssId+'feed');
     },
     success: function(data){
+      console.log(this.url);
       self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
       if (self.rssFeeds[index] === undefined || self.rssFeeds[index] === null || ((pageRssId == appSettings.ezHomePage) && (window.location.href == window.location.origin + "/")) ){
         if (self.oldDate === 0 ){
@@ -241,14 +242,16 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
           totalAdditions++;
         }
       }
+
+      var $rssCounter =  $(".rss-capable[data-name='"+pageRssId+"'] .update-info");
       if(totalAdditions){
         if(totalAdditions > 5){
-          $("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+          $rssCounter.css( "display", "inline" ).html("5<span class='lighter'>+</span>");
         } else{
-          $("."+pageRssId+"-news").css( "display", "inline" ).text(totalAdditions);
+          $rssCounter.css( "display", "inline" ).text(totalAdditions);
         }
       } else {
-        $("."+pageRssId+"-news").css( "display", "none" );
+        $rssCounter.css( "display", "none" );
       }
       rssDeferred.resolve();
     }

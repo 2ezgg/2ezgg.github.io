@@ -12,7 +12,7 @@ function tabSystem(){
     $("#settings-content").css("display","none");
     /////////////////////
 
-    $("a#youtube li").addClass('selected-link');
+    $("a[data-name='youtubevideos'] li").addClass('selected-link');
     reddit.getThreads(reddit.currentYoutubeSettings[0],reddit.currentYoutubeSettings[1],reddit.currentYoutubeSettings[2],reddit.currentYoutubeSettings[3],reddit.nextPageYoutube).done(function() {
       reddit.youtubeArea();
       reddit.mainPage();
@@ -51,7 +51,7 @@ function tabSystem(){
     /////////////////////
 
     $("#twitch-content").css( "display", "block" );
-    $("a#twitch li").addClass('selected-link');
+    $("a[data-name='twitchstreams'] li").addClass('selected-link');
     web.youtubeInUse = 'no';
     web.redditInUse = 'no';
 
@@ -82,7 +82,7 @@ function tabSystem(){
     web.twitchInUse = 'no';
 
   } else {
-    $("a#redditthreads li").addClass('selected-link');
+    $("a[data-name='redditthreads'] li").addClass('selected-link');
     web.enableRedditStyleSheet();
     if ( theUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
 
