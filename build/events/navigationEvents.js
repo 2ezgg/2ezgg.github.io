@@ -1,4 +1,4 @@
-$("#youtube").on('click',function(e){
+$(".nav-button[data-name='youtubevideos']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     var dataName = $(this).data('name');
@@ -37,7 +37,7 @@ $("#youtube").on('click',function(e){
 });
 
 
-$("#twitch").on('click',function(e){
+$(".nav-button[data-name='twitchstreams']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     if((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*8) <= Date.now()){
@@ -79,7 +79,7 @@ $("#settings").on('click',function(e){
 
 
 
-$("#redditthreads").on('click',function(e){
+$(".nav-button[data-name='redditthreads']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     web.enableRedditStyleSheet();

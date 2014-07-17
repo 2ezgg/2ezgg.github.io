@@ -2541,7 +2541,7 @@ $(window).on('scroll', function(){
   }
 });
 
-$("#redditthreads, #youtube, #twitch, #settings").on('click', function(){
+$(".nav-button[data-name='redditthreads'], .nav-button[data-name='youtubevideos'], .nav-button[data-name='twitchstreams'], #settings").on('click', function(){
   if(detectmob()){
     $('#sidebar').slideUp();
   }
@@ -2552,7 +2552,7 @@ $("#sidebar").on('click', 'a:not(.external-link).nav-button', function(e){
     $(".nav-button li").removeClass('selected-link');
     $(this).children('li').addClass('selected-link');
     
-    if(!$(this).is('#youtube')){
+    if(!$(this).is(".nav-button[data-name='youtubevideos']")){
       $("#youtube-threads").html(' ');  
       reddit.youtubeVids = [];
       reddit.youtubeCount = 0;
@@ -2572,7 +2572,7 @@ $('.tooltip').tipsy({gravity: 'w'});
 $('.settings-tooltip').tipsy({gravity: 'e'});
 
 
-$("#youtube").on('click',function(e){
+$(".nav-button[data-name='youtubevideos']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     var dataName = $(this).data('name');
@@ -2611,7 +2611,7 @@ $("#youtube").on('click',function(e){
 });
 
 
-$("#twitch").on('click',function(e){
+$(".nav-button[data-name='twitchstreams']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     if((parseInt(localStorage.getItem('streamsLastRetrieved')) + 1000*60*8) <= Date.now()){
@@ -2653,7 +2653,7 @@ $("#settings").on('click',function(e){
 
 
 
-$("#redditthreads").on('click',function(e){
+$(".nav-button[data-name='redditthreads']").on('click',function(e){
   if(e.which !== 2){
     e.preventDefault();
     web.enableRedditStyleSheet();

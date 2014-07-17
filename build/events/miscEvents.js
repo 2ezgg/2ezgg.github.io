@@ -1,4 +1,4 @@
-$("#redditthreads, #youtube, #twitch, #settings").on('click', function(){
+$(".nav-button[data-name='redditthreads'], .nav-button[data-name='youtubevideos'], .nav-button[data-name='twitchstreams'], #settings").on('click', function(){
   if(detectmob()){
     $('#sidebar').slideUp();
   }
@@ -9,7 +9,7 @@ $("#sidebar").on('click', 'a:not(.external-link).nav-button', function(e){
     $(".nav-button li").removeClass('selected-link');
     $(this).children('li').addClass('selected-link');
     
-    if(!$(this).is('#youtube')){
+    if(!$(this).is(".nav-button[data-name='youtubevideos']")){
       $("#youtube-threads").html(' ');  
       reddit.youtubeVids = [];
       reddit.youtubeCount = 0;
