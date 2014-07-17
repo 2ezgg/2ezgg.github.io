@@ -176,10 +176,10 @@ var idList = {};
 
 function homePageDetector(){
 
-  // var default idList
+  //schema 
   idList = {
     search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
-    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'Paravine', id:'paravine'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
     summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LegendsAsia', id:'asiawatch'},{name:'LegendsAsia Profile', id:'asiaprofile'},{name:'LoLSkill', id:'skill'},{name:'LoLSkill Profile', id:'summonerski'},{name:'Kassad.In', id:'kassad'},{name:'WardScore', id:'wardscore'},{name:'Elophant', id:'phant'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
     champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Esportspedia', id:'esportchamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}, {name:'Inven', id:'inven'}, {name:'ProPick', id:'pick'}]
   };
@@ -419,6 +419,8 @@ function LinkFactory(){
   this.NewsOfLegendsId = "newslegend";
   this.NewsOfLegendsRSS = "http://www.newsoflegends.com/index.php/feed/";
 
+  this.ParavineId = "paravine";
+  this.ParavineRSS = "http://www.paravine.com/category/leagueoflegends/feed/";
 }
 
 /*
@@ -839,6 +841,8 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
       return this.EsportsExpressRSS;
     case this.NewsOfLegendsId:
       return this.NewsOfLegendsRSS;
+    case this.ParavineId:
+      return this.ParavineRSS;
   }
 };
 
@@ -1087,6 +1091,7 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
       console.log('Unable to load'+pageRssId+'feed');
     },
     success: function(data){
+      console.log(this.url);
       self.rssFeeds = JSON.parse(localStorage.getItem('rssFeeds')) || [];
       if (self.rssFeeds[index] === undefined || self.rssFeeds[index] === null || ((pageRssId == appSettings.ezHomePage) && (window.location.href == window.location.origin + "/")) ){
         if (self.oldDate === 0 ){
@@ -1104,14 +1109,16 @@ LeagueLinks.prototype.rssAlerts = function(pageRssId){
           totalAdditions++;
         }
       }
+
+      var $rssCounter =  $(".rss-capable[data-name='"+pageRssId+"'] .update-info");
       if(totalAdditions){
         if(totalAdditions > 5){
-          $("."+pageRssId+"-news").css( "display", "inline" ).html("5<span class='lighter'>+</span>");
+          $rssCounter.css( "display", "inline" ).html("5<span class='lighter'>+</span>");
         } else{
-          $("."+pageRssId+"-news").css( "display", "inline" ).text(totalAdditions);
+          $rssCounter.css( "display", "inline" ).text(totalAdditions);
         }
       } else {
-        $("."+pageRssId+"-news").css( "display", "none" );
+        $rssCounter.css( "display", "none" );
       }
       rssDeferred.resolve();
     }
@@ -1896,19 +1903,18 @@ function WebInterface(){
     for(var z = 0; z < this.pageChange.length; z++){
 
       if(this.pageChange[z].display=='none'){
-        $('.website-'+this.pageChange[z].id+' .remove-website').removeClass().addClass('add-website');
-        $('#'+this.pageChange[z].id).css('display','none');
+        $('li.website-control[data-id="'+this.pageChange[z].id+'"] .remove-website').removeClass().addClass('add-website');
+        $('.nav-button[data-name="'+this.pageChange[z].id+'"]').css('display','none');
       } else {
-        $('.website-'+this.pageChange[z].id+' .add-website').removeClass().addClass('remove-website');
-        $('#'+this.pageChange[z].id).css('display','block');
+        $('li.website-control[data-id="'+this.pageChange[z].id+'"] .add-website').removeClass().addClass('remove-website');
+        $('.nav-button[data-name="'+this.pageChange[z].id+'"]').css('display','block');
         inlineBlockArray.push(z);
       }
     }
-
     var that = this;
     var changeToInline = function(){
       for (var y = 0; y < inlineBlockArray.length; y++){
-        $('#'+that.pageChange[inlineBlockArray[y]].id).css('display','inline-block');
+        $('.nav-button[data-name="'+that.pageChange[inlineBlockArray[y]].id+'"]').css('display','inline-block');
       }
     };
 
@@ -1976,7 +1982,8 @@ WebInterface.prototype.checkIfBelongs = function(optionalClass, highlightArea){
 
     if((hashData === hashWithoutParamsVal) || (hashData == appSettings.ezHomePage && this.homePage()) ){
       if(highlightArea){
-        $("a#"+hashData+" li").addClass('selected-link');
+
+        $(".nav-button[data-name=\""+hashData+"\"] li").addClass('selected-link');
       }
       return iFrameCapableLink.attr('href');
 
@@ -2138,40 +2145,40 @@ WebInterface.prototype.homePage = function(){
 WebInterface.prototype.rearangeSidebar = function(){
    if(idList.hasOwnProperty('search')){
      for(var i=0; i<idList.search.length; i++){
-       if(i===0){
-         $("#searchbuttons").prepend($("#"+idList.search[i].id));
-         $("#search-websites").prepend($(".website-"+idList.search[i].id));
+       if(i===0){ 
+         $("#searchbuttons").prepend($('.nav-button[data-name="'+idList.search[i].id+'"]'));
+         $("#search-websites").prepend($('.website-control[data-id="'+idList.search[i].id+'"]'));
        } else {
-         $("#searchbuttons a").eq(i).after($("#"+idList.search[i].id));
-         $("#search-websites li").eq(i).after($(".website-"+idList.search[i].id));
+         $("#searchbuttons a").eq(i).after($('.nav-button[data-name="'+idList.search[i].id+'"]'));
+         $("#search-websites li").eq(i).after($('.website-control[data-id="'+idList.search[i].id+'"]'));
        }
      }
    }
    for(var j=0; j<idList.general.length; j++){
      if(j===0){
-       $("#miscbuttons ul").prepend($("#"+idList.general[j].id));
-       $("#general-websites").prepend($(".website-"+idList.general[j].id));
+       $("#miscbuttons ul").prepend($('.nav-button[data-name="'+idList.general[j].id+'"]'));
+       $("#general-websites").prepend($('.website-control[data-id="'+idList.general[j].id+'"]'));
      } else {
-       $("#miscbuttons ul a").eq(j).after($("#"+idList.general[j].id));
-       $("#general-websites li").eq(j).after($(".website-"+idList.general[j].id));
+       $("#miscbuttons ul a").eq(j).after($('.nav-button[data-name="'+idList.general[j].id+'"]'));
+       $("#general-websites li").eq(j).after($('.website-control[data-id="'+idList.general[j].id+'"]'));
      }
    }
    for(var k=0; k<idList.summoner.length; k++){
      if(k===0){
-       $("#namebuttons ul").prepend($("#"+idList.summoner[k].id));
-       $("#summoner-websites").prepend($(".website-"+idList.summoner[k].id));
+       $("#namebuttons ul").prepend($('.nav-button[data-name="'+idList.summoner[k].id+'"]'));
+       $("#summoner-websites").prepend($('.website-control[data-id="'+idList.summoner[k].id+'"]'));
      } else {
-       $("#namebuttons ul a").eq(k).after($("#"+idList.summoner[k].id));
-       $("#summoner-websites li").eq(k).after($(".website-"+idList.summoner[k].id));
+       $("#namebuttons ul a").eq(k).after($('.nav-button[data-name="'+idList.summoner[k].id+'"]'));
+       $("#summoner-websites li").eq(k).after($('.website-control[data-id="'+idList.summoner[k].id+'"]'));
      }
    }
    for(var l=0; l<idList.champ.length; l++){
      if(l===0){
-       $("#championbuttons ul").prepend($("#"+idList.champ[l].id));
-       $("#champ-websites").prepend($(".website-"+idList.champ[l].id));
+       $("#championbuttons ul").prepend($('.nav-button[data-name="'+idList.champ[l].id+'"]'));
+       $("#champ-websites").prepend($('.website-control[data-id="'+idList.champ[l].id+'"]'));
      } else {
-       $("#championbuttons ul a").eq(l).after($("#"+idList.champ[l].id));
-       $("#champ-websites li").eq(l).after($(".website-"+idList.champ[l].id));
+       $("#championbuttons ul a").eq(l).after($('.nav-button[data-name="'+idList.champ[l].id+'"]'));
+       $("#champ-websites li").eq(l).after($('.website-control[data-id="'+idList.champ[l].id+'"]'));
      }
    }
 };
@@ -2271,7 +2278,7 @@ function tabSystem(){
     $("#settings-content").css("display","none");
     /////////////////////
 
-    $("a#youtube li").addClass('selected-link');
+    $("a[data-name='youtubevideos'] li").addClass('selected-link');
     reddit.getThreads(reddit.currentYoutubeSettings[0],reddit.currentYoutubeSettings[1],reddit.currentYoutubeSettings[2],reddit.currentYoutubeSettings[3],reddit.nextPageYoutube).done(function() {
       reddit.youtubeArea();
       reddit.mainPage();
@@ -2310,7 +2317,7 @@ function tabSystem(){
     /////////////////////
 
     $("#twitch-content").css( "display", "block" );
-    $("a#twitch li").addClass('selected-link');
+    $("a[data-name='twitchstreams'] li").addClass('selected-link');
     web.youtubeInUse = 'no';
     web.redditInUse = 'no';
 
@@ -2341,7 +2348,7 @@ function tabSystem(){
     web.twitchInUse = 'no';
 
   } else {
-    $("a#redditthreads li").addClass('selected-link');
+    $("a[data-name='redditthreads'] li").addClass('selected-link');
     web.enableRedditStyleSheet();
     if ( theUrl.match(/back/i) && ((parseInt(localStorage.getItem('redditLastRetrieved')) + 1000*60*60) >= Date.now()) ){
 
@@ -2906,7 +2913,8 @@ $('#settings-content').on('click','.add-website', function(){
   var $this = $(this);
   $this.removeClass('add-website');
   $this.addClass('remove-website');
-  $('#'+$this.parent().data('id')).css('display','block');
+
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','block');
   var notAdded = true;
   var totalSettingsLength = web.pageChange.length;
   for(var i =0; i<totalSettingsLength; i++){
@@ -2924,7 +2932,7 @@ $('#settings-content').on('click','.add-website', function(){
   }
   localStorage.setItem('pageChange', JSON.stringify(web.pageChange));
   setTimeout(function(){
-    $('#'+$this.parent().data('id')).css('display','inline-block');
+    $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','inline-block');
   }, 300);
   web.testIfSearchShouldBeShown();
 });
@@ -2933,7 +2941,7 @@ $('#settings-content').on('click','.remove-website', function(){
   var $this = $(this);
   $this.removeClass('remove-website');
   $this.addClass('add-website');
-  $('#'+$this.parent().data('id')).css('display','none');
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').css('display','none');
 
   var notAdded = true;
   var totalSettingsLength = web.pageChange.length;
@@ -3000,7 +3008,7 @@ $('.test-user-website').on('click', function(){
 
 $('#settings-content').on('click','.remove-user-website', function(){
   var $this = $(this);
-  $('#'+$this.parent().data('id')).remove();
+  $('.nav-button[data-name="'+$this.parent().data('id')+'"]').remove();
 
   var index;
   for (var i = 0; i<web.pageAdd.length; i++){
@@ -3125,13 +3133,15 @@ $searchInput.on('keydown', function(e){
       $('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     }
     var websiteAddress;
+
     if(shiftKeyPressed) {
-      websiteAddress = $("#"+appSettings.shiftSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.shiftSearchLink+'"]').attr('href');
     } else if(ctrlKeyPressed){
-      websiteAddress = $("#"+appSettings.ctrlSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.ctrlSearchLink+'"]').attr('href');
       }  else {
-      websiteAddress = $("#"+appSettings.defaultSearchLink).attr('href');
+      websiteAddress = $('.nav-button[data-name="'+appSettings.defaultSearchLink+'"]').attr('href');
     }
+
       window.open(websiteAddress);
     }
 });
@@ -3169,11 +3179,11 @@ $name.on('keydown', function(e){
     }
     var $id;
     if(shiftKeyPressed) {
-      $id = $("#"+appSettings.shiftNameLink);
+      $id = $('.nav-button[data-name="'+appSettings.shiftNameLink+'"]');
     } else if(ctrlKeyPressed){
-      $id = $("#"+appSettings.ctrlNameLink);
-      }  else {
-      $id = $("#"+appSettings.defaultNameLink);
+      $id = $('.nav-button[data-name="'+appSettings.ctrlNameLink+'"]');
+    }  else {
+      $id = $('.nav-button[data-name="'+appSettings.defaultNameLink+'"]');
     }
 
       clearTimeout(timerName);
@@ -3287,12 +3297,12 @@ $champ.on('keyup', function(e){
       $('#ezggadvertisement').html('<iframe src="http://ib.adnxs.com/tt?id=2359794&referrer=2ez.gg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="300" height="250"></iframe>');
     }
     var $id;
-    if (shiftKeyPressed) {
-      $id = $("#"+appSettings.shiftChampLink);
-    } else if(ctrlKeyPressed) {
-      $id = $("#"+appSettings.ctrlChampLink);
-    } else {
-      $id = $("#"+appSettings.defaultChampLink);
+    if(shiftKeyPressed) {
+      $id = $('.nav-button[data-name="'+appSettings.shiftChampLink+'"]');
+    } else if(ctrlKeyPressed){
+      $id = $('.nav-button[data-name="'+appSettings.ctrlChampLink+'"]');
+      }  else {
+      $id = $('.nav-button[data-name="'+appSettings.defaultChampLink+'"]');
     }
 
     if(web.checkIfBelongs('.website-champ') && appSettings.smartEnter === 'on' && !ctrlKeyPressed && !shiftKeyPressed){
