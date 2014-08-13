@@ -3,7 +3,7 @@ $("#sidebar-content").on('click','.iframe-capable', function(e){
   if(e.which !== 2){
     if(!detectmob()){
       e.preventDefault();
-      $this = $(this);
+      var $this = $(this);
       $("#main-content").fadeOut();
 
       var url = $this.attr('href');

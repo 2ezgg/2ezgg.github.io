@@ -5,6 +5,7 @@ if(navigator.userAgent.match(/35.0.1916/i)){
 
 //wrap into an anonomous function to prevent name space issues.
 (function($){
+	"use strict";
 var ChampionList = [
   {name:"aatrox", xpos:-0,ypos:-0, id:114},
   {name:"ahri", xpos:-36,ypos:-0, id:89},
@@ -34,6 +35,7 @@ var ChampionList = [
   {name:"galio", xpos:-144,ypos:-72, id:17},
   {name:"gangplank", xpos:-180,ypos:-72, id:18},
   {name:"garen", xpos:-216,ypos:-72, id:19},
+  {name:"gnar", xpos:-324,ypos:-396, id:120},
   {name:"gragas", xpos:-252,ypos:-72, id:20},
   {name:"graves", xpos:-288,ypos:-72, id:85},
   {name:"hecarim", xpos:-324,ypos:-72, id:96},
@@ -1071,8 +1073,8 @@ LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 		this.lolNewsServer = 'na';
 	}
 	if(changeWebsite){
-		$('#league').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
-	  $('#fantasy').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
+		$('.nav-button[data-name="league"]').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
+	  $('.nav-button[data-name="fantasy"]').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
   }
 };
 
@@ -1157,7 +1159,7 @@ RedditLol.prototype.getAbout = function(){
       success: function(data){
         var aboutHtml = data.data.description_html;
 
-        $side = $('.side');
+        var $side = $('.side');
         $side.html(aboutHtml);
         $side.html($side.text());
         aboutHtml = $side.html();
@@ -2467,7 +2469,7 @@ $("#sidebar-content").on('click','.iframe-capable', function(e){
   if(e.which !== 2){
     if(!detectmob()){
       e.preventDefault();
-      $this = $(this);
+      var $this = $(this);
       $("#main-content").fadeOut();
 
       var url = $this.attr('href');
@@ -3118,7 +3120,7 @@ $(".name, .champ, .searchinput").on('keyup', function(){
   ctrlKeyPressed = false;
 });
 
-$searchInput = $(".searchinput");
+var $searchInput = $(".searchinput");
 $searchInput.on('keyup change paste textInput input', function(e){
   if($(this).val().length === 0){
     league.returnOriginalUrl('website-search');
@@ -3220,7 +3222,6 @@ $(".server").on('change', function(){
                   .animate({'opacity':'1'},120)
                   .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
                     $(this).attr('style', ' ');
-                    clickedPreviously = false;
                   }});
 });
 

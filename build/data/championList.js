@@ -27,6 +27,7 @@ var ChampionList = [
   {name:"galio", xpos:-144,ypos:-72, id:17},
   {name:"gangplank", xpos:-180,ypos:-72, id:18},
   {name:"garen", xpos:-216,ypos:-72, id:19},
+  {name:"gnar", xpos:-324,ypos:-396, id:120},
   {name:"gragas", xpos:-252,ypos:-72, id:20},
   {name:"graves", xpos:-288,ypos:-72, id:85},
   {name:"hecarim", xpos:-324,ypos:-72, id:96},

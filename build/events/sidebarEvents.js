@@ -57,7 +57,7 @@ $(".name, .champ, .searchinput").on('keyup', function(){
   ctrlKeyPressed = false;
 });
 
-$searchInput = $(".searchinput");
+var $searchInput = $(".searchinput");
 $searchInput.on('keyup change paste textInput input', function(e){
   if($(this).val().length === 0){
     league.returnOriginalUrl('website-search');
@@ -159,7 +159,6 @@ $(".server").on('change', function(){
                   .animate({'opacity':'1'},120)
                   .animate({'backgroundColor': '#262729','color':'#777'},{duration:400, complete: function(){
                     $(this).attr('style', ' ');
-                    clickedPreviously = false;
                   }});
 });
 
