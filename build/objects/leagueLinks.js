@@ -204,8 +204,8 @@ LeagueLinks.prototype.lolWebsiteLocation = function(changeWebsite){
 		this.lolNewsServer = 'na';
 	}
 	if(changeWebsite){
-		$('#league').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
-	  $('#fantasy').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
+		$('.nav-button[data-name="league"]').attr('href', this.linkFactory.OfficialLolStartRSS +this.lolNewsServer + this.linkFactory.OfficialLolNews);
+	  $('.nav-button[data-name="fantasy"]').attr('href', this.linkFactory.FantasyStart +this.lolNewsServer + this.linkFactory.FantasyEnd); 
   }
 };
 

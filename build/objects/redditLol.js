@@ -30,7 +30,7 @@ RedditLol.prototype.getAbout = function(){
       success: function(data){
         var aboutHtml = data.data.description_html;
 
-        $side = $('.side');
+        var $side = $('.side');
         $side.html(aboutHtml);
         $side.html($side.text());
         aboutHtml = $side.html();
