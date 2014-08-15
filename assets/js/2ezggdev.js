@@ -3378,7 +3378,7 @@ $(".website-name").on('click', function(){
 });
 
 $("#summoner-accounts-list").on('click', 'li', function(){
-  $this = $(this);
+  var $this = $(this);
 
   setTimeout(function(){
     if(!removePressed){
