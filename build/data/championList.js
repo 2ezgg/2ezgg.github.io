@@ -7,6 +7,7 @@ var ChampionList = [
   {name:"anivia", xpos:-180,ypos:-0, id:4},
   {name:"annie", xpos:-216,ypos:-0, id:5},
   {name:"ashe", xpos:-252,ypos:-0, id:6},
+  {name:"azir", xpos:-0,ypos:-432, id:121},
   {name:"blitzcrank", xpos:-288,ypos:-0, id:7},
   {name:"brand", xpos:-324,ypos:-0, id:8},
   {name:"braum", xpos:-288,ypos:-396, id:119},
