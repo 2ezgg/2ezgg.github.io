@@ -451,7 +451,9 @@ header {
 .reddit-thumb img {
   margin: auto;
   display: block;
-  margin-top: 5px; }
+  margin-top: 5px; 
+  max-width: 60px;
+}
 
 .reddit-written {
   margin-left: 16px;
