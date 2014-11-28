@@ -32,7 +32,7 @@ appSettings = {
   defaultNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultNameLink')) ? settingsSaved.defaultNameLink : 'king',
   shiftNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftNameLink')) ? settingsSaved.shiftNameLink : 'nexus',
   ctrlNameLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlNameLink')) ? settingsSaved.ctrlNameLink : 'gg',
-  defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved.defaultChampLink : 'champselect',
+  defaultChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultChampLink'))  ? settingsSaved.defaultChampLink : 'championgg',
   shiftChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('shiftChampLink'))  ? settingsSaved.shiftChampLink : 'probuilds',
   ctrlChampLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('ctrlChampLink'))  ? settingsSaved.ctrlChampLink : 'kingchamp',
   defaultSearchLink:((settingsSaved !== null) && settingsSaved.hasOwnProperty('defaultSearchLink'))  ? settingsSaved.defaultSearchLink : 'google',
