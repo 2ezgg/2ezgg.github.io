@@ -183,9 +183,9 @@ function homePageDetector(){
   //schema 
   idList = {
     search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
-    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'Paravine', id:'paravine'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'Jungle Timer', id:'jungle'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'Paravine', id:'paravine'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{name:'ProMatchups', id:'promatchups'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
     summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LegendsAsia', id:'asiawatch'},{name:'LegendsAsia Profile', id:'asiaprofile'},{name:'LoLSkill', id:'skill'},{name:'LoLSkill Profile', id:'summonerski'},{name:'Kassad.In', id:'kassad'},{name:'WardScore', id:'wardscore'},{name:'Elophant', id:'phant'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
-    champ : [{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'ProBuilds', id:'probuilds'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Esportspedia', id:'esportchamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}, {name:'Inven', id:'inven'}, {name:'ProPick', id:'pick'}]
+    champ : [{name:'Champion GG', id:'championgg'},{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LeagueOfGraphs', id:'leagueofgraphs'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Esportspedia', id:'esportchamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}, {name:'Inven', id:'inven'}, {name:'ProPick', id:'pick'}]
   };
 
   var miscWebsites = JSON.parse(localStorage.getItem('pageAdd'));
@@ -273,6 +273,12 @@ function LinkFactory(){
   /*
     URLs to League Sites
   */
+  this.championGGStart = "http://champion.gg";
+  this.championGGSearch = this.championGGStart+"/champion/";
+
+  this.leagueGraphsStart = "http://www.leagueofgraphs.com";
+  this.leagueGraphsSearch = this.leagueGraphsStart+"/champions/stats/";
+
   this.LolKing = "http://www.lolking.net";
   this.LolKingChampSearch = this.LolKing+"/champions/";
   this.LolKingSearch = this.LolKing+"/search?";
@@ -346,11 +352,10 @@ function LinkFactory(){
   this.LolInvenChampSearch = this.LolInven+"/dataninfo/champion/";
   this.LolInvenChampDetail = "detail.php?code=";
 
-  this.ProPick = "http://propick.net/";
-  this.ProPickChampSearch = this.ProPick + "index.php/all/champion/";
-
   this.FantasyStart = "http://fantasy.";
   this.FantasyEnd = ".lolesports.com";
+
+
   /*
     Query Element Names
   */
@@ -383,6 +388,7 @@ function LinkFactory(){
   /*
     Champion Element Names
   */
+  this.ChampionGGChampElementName = "championgg";
   this.ChampSelectChampElementName  = "champselect";
   this.LolKingChampElementName = "kingchamp";
   this.TSMChampElementName = "tsm";
@@ -396,7 +402,7 @@ function LinkFactory(){
   this.LolGamePediaChampElementName = "leaguepediachamp";
   this.LolEsportsPediaChampElementName = "esportschamp";
   this.LolInvenChampElementName = "inven";
-  this.ProPickChampElementName = "pick";
+  this.LeagueGraphsChampElementName = "leagueofgraphs";
 
   /*
     Rss feed Urls & Ids
@@ -463,6 +469,35 @@ LinkFactory.prototype.getAllDashesName = function(champ){
 };
 LinkFactory.prototype.getOnlyLettersName = function(champ){
   return champ.replace(/[^a-zA-Z]/g, "");
+};
+/*
+  ChampionGG
+*/
+LinkFactory.prototype.getChampionGGChampionLink = function(champ){
+  return this.championGGSearch+this.getChampionGGFixedChamp(this.getOnlyLettersName(champ));
+};
+LinkFactory.prototype.getChampionGGFixedChamp = function(champ){
+  if(champ == 'wukong'){
+    return 'monkeyking';
+  }else{
+    return champ;
+  }
+};
+
+/*
+  LeagueOfGraphs
+*/
+LinkFactory.prototype.getLeagueGraphsChampionLink = function(champ){
+  return this.leagueGraphsSearch+this.getLeagueGraphsFixedChamp(this.getOnlyLettersName(champ));
+};
+LinkFactory.prototype.getLeagueGraphsFixedChamp = function(champ){
+  if(champ == 'wukong'){
+    return 'monkeyking';
+  }else if(champ=='jarvanIV'){
+    return 'jarvaniv';
+  } else {
+    return champ;
+  }
 };
 
 /*
@@ -737,17 +772,12 @@ LinkFactory.prototype.getLolInvenFixedChamp = function(champ){
 };
 
 /*
-  ProPick
-*/
-LinkFactory.prototype.getProPickChampionLink = function(champ){
-  return this.ProPickChampSearch + encodeURIComponent(champ);
-};
-
-/*
   Generates Champion URL for HTML element based on name
 */
 LinkFactory.prototype.getChampionLinkForElementName = function(elementName, champ){
   switch(elementName){
+    case this.ChampionGGChampElementName:
+      return this.getChampionGGChampionLink(champ);
     case this.ChampSelectChampElementName:
       return this.getChampSelectChampionLink(champ);
     case this.LolKingChampElementName:
@@ -768,14 +798,14 @@ LinkFactory.prototype.getChampionLinkForElementName = function(elementName, cham
       return this.getLolWikiChampionLink(champ);
     case this.LolEsportsPediaChampElementName:
       return this.getLolEsportspediaChampionLink(champ);
+    case this.LeagueGraphsChampElementName:
+      return this.getLeagueGraphsChampionLink(champ);
     case this.LolGamePediaChampElementName:
       return this.getLolGamepediaChampionLink(champ);
     case this.LolDbChampElementName:
       return this.getLolDbChampionLink(champ);
     case this.LolInvenChampElementName:
       return this.getLolInvenChampionLink(champ);
-    case this.ProPickChampElementName:
-      return this.getProPickChampionLink(champ);
   }
 };
 

@@ -13,9 +13,6 @@
       "grunt-contrib-concat":          "*",
       "grunt-cssc":                   "*",
       "grunt-contrib-jshint":         "*",
-      "grunt-htmlhint":               "*",
-      "matchdep":                     "*",
-      "webdriverjs":                  "*",
-      "mocha":                        "*"
+      "grunt-htmlhint":               "*"
     }
 }

@@ -220,11 +220,6 @@
 								<span class="lol-image" style="background-position:-176px 0px;"></span>NerfPlz Tier List
 							</li>
 						</a>
-						<a class="nav-button website-misc iframe-capable" data-name="jungle" target="_blank" href="http://2ez.gg/jungletimer/">
-							<li>
-								<span class="lol-image" style="background-position:-80px 0px;"></span>Jungle Timer
-							</li>
-						</a>
 						<a class="nav-button website-misc external-link" data-name="esports" target="_blank" href="http://lolesports.com">
 							<li>
 								<span class="lol-image" style="background-position:-112px 0px;"></span>LoL Esports
@@ -233,6 +228,11 @@
 						<a class="nav-button website-misc iframe-capable" data-name="fantasy" target="_blank" href="http://fantasy.lolesports.com" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-192px 0px;"></span>Fantasy LCS
+							</li>
+						</a>
+						<a class="nav-button website-misc iframe-capable" data-name="promatchups" data-url="http://www.promatchups.com" target="_blank" href="http://www.promatchups.com" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-192px -16px;"></span>Pro Matchups
 							</li>
 						</a>
 						<a class="nav-button website-misc iframe-capable" data-name="calendar" target="_blank" href="http://esportcalendar.com/" style="display:none">
@@ -397,7 +397,12 @@
 
 				<div class="holder half-buttons" id="championbuttons" style="border-bottom:none">
 					<ul>
-						<a class="nav-button website-champ iframe-capable" data-name="champselect" data-url="http://www.championselect.net" target="_blank" href="http://www.championselect.net">
+						<a class="nav-button website-champ iframe-capable" data-name="championgg" data-url="http://www.champion.gg" target="_blank" href="http://www.champion.gg">
+							<li>
+								<span class="lol-image" style="background-position:-224px -32px;"></span>Champion GG
+							</li>
+						</a>
+						<a class="nav-button website-champ iframe-capable" data-name="champselect" data-url="http://www.championselect.net" target="_blank" href="http://www.championselect.net" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:0px -32px;"></span>Counters
 							</li>
@@ -446,6 +451,11 @@
 								<span class="lol-image" style="background-position:-64px -32px;"></span>Elophant
 							</li>
 						</a>
+						<a class="nav-button website-champ iframe-capable" data-name="leagueofgraphs" data-url="http://www.leagueofgraphs.com" target="_blank" href="http://www.leagueofgraphs.com" style="display:none">
+							<li>
+								<span class="lol-image" style="background-position:-224px -16px;"></span>LeagueOfGraphs
+							</li>
+						</a>
 						<a class="nav-button website-champ iframe-capable" data-name="wikichamp" target="_blank" data-url="http://leagueoflegends.wikia.com/wiki/" href="http://leagueoflegends.wikia.com/wiki/">
 							<li>
 								<span class="lol-image" style="background-position:-96px -16px;"></span>LoL Wiki
@@ -466,11 +476,11 @@
 								<span class="lol-image" style="background-position:-176px -32px;"></span>Inven
 							</li>
 						</a>
-						<a class="nav-button website-champ iframe-capable" data-name="pick" target="_blank" data-url="http://propick.net/" href="http://propick.net/" style="display:none">
+						<!--<a class="nav-button website-champ iframe-capable" data-name="pick" target="_blank" data-url="http://propick.net/" href="http://propick.net/" style="display:none">
 							<li>
 								<span class="lol-image" style="background-position:-192px -16px;"></span>ProPick
 							</li>
-						</a>
+						</a>-->
 
 					</ul>
 				</div>
@@ -588,14 +598,14 @@
 					</li><li class="website-control" data-name="NerfPlz Tier List" data-id="nerfplz">
 						<span class="lol-image" style="background-position:-176px 0px;"></span> NerfPlz Tier List <span class="add-website"></span>
 
-					</li><li class="website-control" data-name="Jungle Timer" data-id="jungle">
-						<span class="lol-image" style="background-position:-80px 0px;"></span> Jungle Timer <span class="remove-website" ></span>
-
 					</li><li class="website-control" data-name="LoL Esports" data-id="esports">
 						<span class="lol-image" style="background-position:-112px 0px;"></span> LoL Esports <span class="remove-website"></span>
 
 					</li><li class="website-control" data-name="Fantasy LCS" data-id="fantasy">
 						<span class="lol-image" style="background-position:-192px 0px;"></span> Fantasy LCS <span class="add-website"></span>
+
+					</li><li class="website-control"  data-name="Pro Matchups"  data-id="promatchups">
+						<span class="lol-image" style="background-position:-192px -16px;"></span> Pro Matchups <span class="add-website"></span>
 
 					</li><li class="website-control" data-name="Esports Calendar" data-id="calendar">
 						<span class="lol-image" style="background-position:-128px 0px;"></span> Esport Calendar <span class="add-website"></span>
@@ -674,8 +684,11 @@
 
 				<h3>Champion Websites</h3>
 				<ul id="champ-websites" style="margin-bottom: 30px;">
-					<li class="website-control" data-name="Counters" data-id="champselect">
-						<span class="lol-image" style="background-position:0px -32px;"></span> Counters <span class="remove-website"></span>
+					<li class="website-control" data-name="Champion GG" data-id="championgg">
+						<span class="lol-image" style="background-position:-224px -64px;"></span> Champion GG <span class="remove-website"></span>
+
+					</li><li class="website-control" data-name="Counters" data-id="champselect">
+						<span class="lol-image" style="background-position:0px -32px;"></span> Counters <span class="add-website"></span>
 
 					</li><li class="website-control" data-name="SoloMid" data-id="tsm">
 						<span class="lol-image iframe-capable" style="background-position:-16px -32px;"></span> SoloMid <span class="remove-website"></span>
@@ -701,6 +714,9 @@
 					</li><li class="website-control"  data-name="Elophant"  data-id="elo">
 						<span class="lol-image" style="background-position:-64px -32px;"></span> Elophant <span class="remove-website"></span>
 
+					</li><li class="website-control"  data-name="LeagueOfGraphs"  data-id="leagueofgraphs">
+						<span class="lol-image" style="background-position:-224px -16px;"></span> LeagueOfGraphs <span class="add-website"></span>
+
 					</li><li class="website-control"  data-name="LoL Wiki"  data-id="wikichamp">
 						<span class="lol-image" style="background-position:-96px -16px;"></span> LoL Wiki <span class="remove-website"></span>
 					
@@ -713,9 +729,6 @@
 					</li><li class="website-control"  data-name="Inven"  data-id="inven">
 						<span class="lol-image" style="background-position:-176px -32px;"></span> Inven <span class="add-website"></span>
 					
-					</li><li class="website-control"  data-name="ProPick"  data-id="pick">
-						<span class="lol-image" style="background-position:-192px -16px;"></span> ProPick <span class="add-website"></span>
-
 					</li>
 				</ul>
 
@@ -851,6 +864,7 @@
 							<tr class="settings-odd">
 								<td>
 									<select class="defaultChampLink">
+										<option value="championgg">Champion GG</option>
 										<option value="champselect">Counters</option>
 										<option value="tsm">SoloMid</option>
 										<option value="probuilds">ProBuilds</option>
@@ -860,10 +874,11 @@
 										<option value="champgameguyz">GameGuyz</option>
 										<option value="kingchamp">LolKing Stats</option>
 										<option value="elo">Elophant</option>
+										<option value="leagueofgraphs">LeagueOfGraphs</option>
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
-										<option value="pick">ProPick</option>
+										<!---->
 									</select>
 								</td>
 								<td>Website to open after <strong>'enter'</strong> key is pressed in the<strong>'champion name'</strong> text field.</td>
@@ -871,6 +886,7 @@
 							<tr>
 								<td>
 									<select class="shiftChampLink">
+										<option value="championgg">Champion GG</option>
 										<option value="champselect">Counters</option>
 										<option value="tsm">SoloMid</option>
 										<option value="probuilds">ProBuilds</option>
@@ -880,10 +896,12 @@
 										<option value="champgameguyz">GameGuyz</option>
 										<option value="kingchamp">LolKing Stats</option>
 										<option value="elo">Elophant</option>
+										
+										<option value="leagueofgraphs">LeagueOfGraphs</option>
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
-										<option value="pick">ProPick</option>
+										
 									</select>
 								</td>
 								<td>Website to open when <strong>'shift'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
@@ -891,6 +909,7 @@
 							<tr class="settings-odd">
 								<td>
 									<select class="ctrlChampLink">
+										<option value="championgg">Champion GG</option>
 										<option value="champselect">Counters</option>
 										<option value="tsm">SoloMid</option>
 										<option value="probuilds">ProBuilds</option>
@@ -900,10 +919,12 @@
 										<option value="champgameguyz">GameGuyz</option>
 										<option value="kingchamp">LolKing Stats</option>
 										<option value="elo">Elophant</option>
+										
+										<option value="leagueofgraphs">LeagueOfGraphs</option>
 										<option value="wikichamp">LoLWiki</option>
 										<option value="leaguepediachamp">Leaguepedia</option>
 										<option value="inven">Inven</option>
-										<option value="pick">ProPick</option>
+										
 									</select>
 								</td>
 								<td>Website to open when <strong>'ctrl/command'</strong> and <strong>'enter'</strong> are pressed at the same time in the <strong>'champion name'</strong> text field.</td>
