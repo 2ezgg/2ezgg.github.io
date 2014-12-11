@@ -486,6 +486,9 @@ LinkFactory.prototype.getLolGamepediaEsportspediaFixedChamp = function(champ){
     case 'dr. mundo':
       champ = 'Dr. Mundo';
       break;
+    case 'rek\'sai':
+      champ = 'Rek\'Sai';
+      break;
     case 'kha\'zix':
       champ = 'Kha\'Zix';
       break;
