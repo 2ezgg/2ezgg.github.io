@@ -189,6 +189,9 @@ function LinkFactory(){
 
   this.ParavineId = "paravine";
   this.ParavineRSS = "http://www.paravine.com/category/leagueoflegends/feed/";
+
+  this.GoldPer10Id = "goldper10";
+  this.GoldPer10RSS = "http://www.goldper10.com/rss.xml";
 }
 
 /*
@@ -638,6 +641,8 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
       return this.NewsOfLegendsRSS;
     case this.ParavineId:
       return this.ParavineRSS;
+    case this.GoldPer10Id:
+      return this.GoldPer10RSS;
   }
 };
 
@@ -657,5 +662,9 @@ LinkFactory.prototype.getIndexForRssLink = function(rssId){
       return 5;
     case this.NewsOfLegendsId:
       return 6;
+    case this.ParavineId:
+      return 7;
+    case this.GoldPer10Id:
+      return 8;
   }
 };
