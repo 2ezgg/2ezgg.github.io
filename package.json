@@ -6,6 +6,7 @@
 
     "devDependencies" : {
       "grunt" :                   "~0.4.0",
+      "matchdep":                   "*",
       "grunt-sass":					          "*",
       "grunt-contrib-cssmin":         "*",
       "grunt-contrib-uglify":         "*",
