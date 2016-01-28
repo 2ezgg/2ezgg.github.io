@@ -58,6 +58,7 @@ var ChampionList = [{name:"aatrox", xpos:-0, ypos:-0, id:114},
 {name:"kha'zix", xpos:-252, ypos:-144, id:105},
 {name:"kindred", xpos:-216, ypos:-432, id:126},
 {name:"illaoi", xpos:-252, ypos:-432, id:127},
+{name:"jhin", xpos:-288, ypos:-432, id:128},
 {name:"kog'maw", xpos:-288, ypos:-144, id:32},
 {name:"leblanc", xpos:-324, ypos:-144, id:33},
 {name:"lee sin", xpos:-0, ypos:-180, id:34},
@@ -186,8 +187,8 @@ function homePageDetector(){
   //schema 
   idList = {
     search : [{name:'google', id:'google'},{name:'youtubesearch', id:'youtubesearch'},{name:'yahoo', id:'yahoo'},{name:'wikipedia', id:'wikipedia'}],
-    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'GoldPer10', id:'goldper10'},{ name:'S@20', id:'surrender'},{ name:'Cloth 5', id:'cloth'},{ name:'Paravine', id:'paravine'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{name:'ProMatchups', id:'promatchups'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
-    summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'LoLKing Now', id:'now'},{name:'Summoning', id:'summoning'},{name:'LegendsAsia', id:'asiawatch'},{name:'LegendsAsia Profile', id:'asiaprofile'},{name:'LoLSkill', id:'skill'},{name:'LoLSkill Profile', id:'summonerski'},{name:'Kassad.In', id:'kassad'},{name:'WardScore', id:'wardscore'},{name:'Elophant', id:'phant'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
+    general : [{name:'RedditJS', id:'reddit'},{name:'Reddit Front', id:'redditfront'},{name:'Old Reddit', id:'redditthreads'},{name:'LoL Videos', id:'youtube'},{ name:'Streams', id:'twitch'},{name:'LoL News', id:'league'},{ name:'RoG', id:'reign'},{ name:'onGamers', id:'ongamers'},{ name:'GoldPer10', id:'goldper10'},{ name:'S@20', id:'surrender'},{ name:'Paravine', id:'paravine'},{ name:'NewsOfLegends', id:'newslegend'},{ name:'ESEx', id:'esex'},{ name:'In2LoL', id:'in2'},{ name:'LoL Wiki', id:'wikia'},{ name:'Esportspedia', id:'esportpedia'},{ name:'Leaguepedia', id:'gamepedia'},{ name:'LeagueCraft', id:'craft'},{name:'NerfPlz Tier List', id:'nerfplz'},{ name:'LoL Esports', id:'esports'},{ name:'Fantasy LCS', id:'fantasy'},{name:'ProMatchups', id:'promatchups'},{ name:'Esport Calendar', id:'calendar'},{ name:'Elo Hell', id:'hell'},{name:'SummonersCode', id:'code'},{ name:'LoL IRC', id:'irc'},{ name:'LResearch', id:'research'}],
+    summoner : [{name:'LoLKing', id:'king'},{name:'Nexus', id:'nexus'},{name:'OP GG', id:'gg'},{name:'Summoning', id:'summoning'},{name:'LoLSkill', id:'skill'},{name:'LoLSkill Profile', id:'summonerski'},{name:'Kassad.In', id:'kassad'},{name:'WardScore', id:'wardscore'},{name:'Elophant', id:'phant'},{name:'Summoner GameGuyz', id:'summonergameguyz'}],
     champ : [{name:'Champion GG', id:'championgg'},{name:'Counters', id:'champselect'},{name:'SoloMid', id:'tsm'},{name:'MobaFire', id:'moba'},{name:'LoLBuilder', id:'builder'},{name:'LoLPro', id:'lolpro'},{name:'GameGuyz Champ', id:'champgameguyz'},{name:'LoLKing Stats', id:'kingchamp'},{name:'Elophant', id:'elo'},{name:'LeagueOfGraphs', id:'leagueofgraphs'},{name:'LoL Wiki', id:'wikichamp'}, {name:'Esportspedia', id:'esportchamp'}, {name:'Leaguepedia', id:'leaguepediachamp'}, {name:'Inven', id:'inven'}, {name:'ProPick', id:'pick'}]
   };
 
@@ -286,8 +287,6 @@ function LinkFactory(){
   this.LolKingChampSearch = this.LolKing+"/champions/";
   this.LolKingSearch = this.LolKing+"/search?";
 
-  this.LolKingNow = "http://www.lolking.net/now";
-
   this.LolNexus = "http://www.lolnexus.com";
   this.LolNexusSearchEnd = "/search?";
 
@@ -319,10 +318,6 @@ function LinkFactory(){
   this.ElophantChampSearchStart = this.Elophant+"/league-of-legends/champion/";
   this.ElophantChampSearchEnd = "/stats";
 
-  this.LegendsAsia = "http://www.legendsasia.com/";
-  this.LegendsAsiaWatch = this.LegendsAsia+"watch/";
-  this.LegendsAsiaProfile = this.LegendsAsia+"summoner/";
-
   this.ChampSelect = "http://www.championselect.net";
   this.ChampSelectChampSearch = this.ChampSelect+"/champ/";
 
@@ -330,7 +325,7 @@ function LinkFactory(){
   this.TSMChampSearch = this.TSM+"/guide?champ=";
 
   this.ProBuilds = "http://www.probuilds.net";
-  this.ProBuildsChampSearch = this.ProBuilds+"/champions/";
+  this.ProBuildsChampSearch = this.ProBuilds+"/champions/details/";
 
   this.MobaFire = "http://www.mobafire.com";
   this.MobaFireChampSearchStart = this.MobaFire+"/league-of-legends/";
@@ -375,7 +370,6 @@ function LinkFactory(){
   */
   this.LolNexusSummonerElementName = "nexus";
   this.KassadSummonerElementName = "kassad";
-  this.LolKingNowSummonerElementName = "now";
   this.SummoningSummonerElementName = "summoning";
   this.LolKingSummonerElementName = "king";
   this.OPSummonerElementName = "gg";
@@ -384,8 +378,6 @@ function LinkFactory(){
   this.LolDbSummonerElementName = "summonergameguyz";
   this.ElophantSummonerElementName = "phant";
   this.WardScoreSummonerElementName = "wardscore";
-  this.LegendsAsiaWatchSummonerElementName = "asiawatch";
-  this.LegendsAsiaProfileSummonerElementName = "asiaprofile";
 
 
   /*
@@ -422,9 +414,6 @@ function LinkFactory(){
 
   this.FeedBurnerId = "surrender";
   this.FeedBurnerRSS = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
-
-  this.Cloth5Id = "cloth";
-  this.Cloth5RSS = "http://cloth5.com/feed/";
 
   this.EsportsExpressId = "esex";
   this.EsportsExpressRSS = "http://esportsexpress.com/category/league-of-legends/feed/";
@@ -521,16 +510,6 @@ LinkFactory.prototype.getLolKingFixedChamp = function(champ){
   }else{
     return champ;
   }
-};
-
-/*
-  LolKingNow
-*/
-LinkFactory.prototype.getLolKingNowSummonerLink = function(region, name){
-  return this.LolKingNow+"/"+region+"/"+name;
-};
-LinkFactory.prototype.getLolKingNowChampionLink = function(){
-  return '';
 };
 
 /*
@@ -640,27 +619,6 @@ LinkFactory.prototype.getWardScoreSummonerLink = function(region, name){
 };
 
 /*
-  legendsasia
-*/
-LinkFactory.prototype.getAsiaWatchSummonerLink = function(region, name){
-  return this.LegendsAsiaWatch+this.getAsiaFixedRegion(region)+'/'+name;
-};
-
-LinkFactory.prototype.getAsiaProfileSummonerLink = function(region, name){
-  return this.LegendsAsiaProfile+this.getAsiaFixedRegion(region)+'/'+name;
-};
-
-LinkFactory.prototype.getAsiaFixedRegion = function(region){
-  if(region == 'sea'){
-    return 'sg';
-  }else if(region == 'cn'){
-    return 'cn1';
-  }else{
-    return region;
-  }
-};
-
-/*
   ChampSelect
 */
 LinkFactory.prototype.getChampSelectChampionLink = function(champ){
@@ -681,11 +639,52 @@ LinkFactory.prototype.getProBuildsChampionLink = function(champ){
   return this.ProBuildsChampSearch+this.getProBuildsFixedChamp(this.getOnlyLettersName(champ));
 };
 LinkFactory.prototype.getProBuildsFixedChamp = function(champ){
-  if(champ == 'wukong'){ //same as lolkings, made separate func incase of future changes
-    return 'monkeyking';
-  }else{
-    return champ;
+  switch(champ){
+    case 'chogath':
+      champ = 'Chogath';
+      break;
+    case 'drmundo':
+      champ = 'DrMundo';
+      break;
+    case 'reksai':
+      champ = 'RekSai';
+      break;
+    case 'khazix':
+      champ = 'Khazix';
+      break;
+    case 'kogmaw':
+      champ = 'KogMaw';
+      break;
+    case 'leesin':
+      champ = 'LeeSin';
+      break;
+    case 'masteryi':
+      champ = 'MasterYi';
+      break;
+    case 'missfortune':
+      champ = 'MissFortune';
+      break;
+    case 'twistedfate':
+      champ = 'TwistedFate';
+      break;
+    case 'velkoz':
+      champ = 'Velkoz';
+      break;
+    case 'xinzhao':
+      champ = 'XinZhao';
+      break;
+    case 'wukong':
+      champ = 'MonkeyKing';
+      break;
+    case 'jarvaniv':
+      champ = 'JarvanIV';
+      break;
+    case 'tahmkench':
+      champ = 'TahmKench';
+      break;
   }
+  return champ[0].toUpperCase() + champ.slice(1);
+
 };
 
 /*
@@ -761,6 +760,9 @@ LinkFactory.prototype.getLolGamepediaEsportspediaFixedChamp = function(champ){
     case 'xin zhao':
       champ = 'Xin Zhao';
       break;
+    case 'tahm kench':
+      champ = 'Tahm Kench';
+      break;
   }
   return encodeURIComponent(champ);
 };
@@ -824,8 +826,6 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getLolNexusSummonerLink(region, name);
     case this.KassadSummonerElementName:
       return this.getKassadSummonerLink(region, name);
-    case this.LolKingNowSummonerElementName:
-      return this.getLolKingNowSummonerLink(region, name);
     case this.SummoningSummonerElementName:
       return this.getSummoningSummonerLink(region, name);
     case this.LolKingSummonerElementName:
@@ -842,10 +842,6 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getWardScoreSummonerLink(region, name);
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
-    case this.LegendsAsiaWatchSummonerElementName:
-      return this.getAsiaWatchSummonerLink(region, name);
-    case this.LegendsAsiaProfileSummonerElementName:
-      return this.getAsiaProfileSummonerLink(region, name);
   }
 };
 
@@ -878,8 +874,6 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
       return this.OnGamersRSS;
     case this.FeedBurnerId:
       return this.FeedBurnerRSS;
-    case this.Cloth5Id:
-      return this.Cloth5RSS;
     case this.EsportsExpressId:
       return this.EsportsExpressRSS;
     case this.NewsOfLegendsId:
@@ -901,8 +895,6 @@ LinkFactory.prototype.getIndexForRssLink = function(rssId){
       return 2;
     case this.FeedBurnerId:
       return 3;
-    case this.Cloth5Id:
-      return 4;
     case this.EsportsExpressId:
       return 5;
     case this.NewsOfLegendsId:

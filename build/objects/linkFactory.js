@@ -41,8 +41,6 @@ function LinkFactory(){
   this.LolKingChampSearch = this.LolKing+"/champions/";
   this.LolKingSearch = this.LolKing+"/search?";
 
-  this.LolKingNow = "http://www.lolking.net/now";
-
   this.LolNexus = "http://www.lolnexus.com";
   this.LolNexusSearchEnd = "/search?";
 
@@ -74,10 +72,6 @@ function LinkFactory(){
   this.ElophantChampSearchStart = this.Elophant+"/league-of-legends/champion/";
   this.ElophantChampSearchEnd = "/stats";
 
-  this.LegendsAsia = "http://www.legendsasia.com/";
-  this.LegendsAsiaWatch = this.LegendsAsia+"watch/";
-  this.LegendsAsiaProfile = this.LegendsAsia+"summoner/";
-
   this.ChampSelect = "http://www.championselect.net";
   this.ChampSelectChampSearch = this.ChampSelect+"/champ/";
 
@@ -85,7 +79,7 @@ function LinkFactory(){
   this.TSMChampSearch = this.TSM+"/guide?champ=";
 
   this.ProBuilds = "http://www.probuilds.net";
-  this.ProBuildsChampSearch = this.ProBuilds+"/champions/";
+  this.ProBuildsChampSearch = this.ProBuilds+"/champions/details/";
 
   this.MobaFire = "http://www.mobafire.com";
   this.MobaFireChampSearchStart = this.MobaFire+"/league-of-legends/";
@@ -130,7 +124,6 @@ function LinkFactory(){
   */
   this.LolNexusSummonerElementName = "nexus";
   this.KassadSummonerElementName = "kassad";
-  this.LolKingNowSummonerElementName = "now";
   this.SummoningSummonerElementName = "summoning";
   this.LolKingSummonerElementName = "king";
   this.OPSummonerElementName = "gg";
@@ -139,8 +132,6 @@ function LinkFactory(){
   this.LolDbSummonerElementName = "summonergameguyz";
   this.ElophantSummonerElementName = "phant";
   this.WardScoreSummonerElementName = "wardscore";
-  this.LegendsAsiaWatchSummonerElementName = "asiawatch";
-  this.LegendsAsiaProfileSummonerElementName = "asiaprofile";
 
 
   /*
@@ -177,9 +168,6 @@ function LinkFactory(){
 
   this.FeedBurnerId = "surrender";
   this.FeedBurnerRSS = "http://feeds.feedburner.com/surrenderat20/CqWw?format=xml";
-
-  this.Cloth5Id = "cloth";
-  this.Cloth5RSS = "http://cloth5.com/feed/";
 
   this.EsportsExpressId = "esex";
   this.EsportsExpressRSS = "http://esportsexpress.com/category/league-of-legends/feed/";
@@ -276,16 +264,6 @@ LinkFactory.prototype.getLolKingFixedChamp = function(champ){
   }else{
     return champ;
   }
-};
-
-/*
-  LolKingNow
-*/
-LinkFactory.prototype.getLolKingNowSummonerLink = function(region, name){
-  return this.LolKingNow+"/"+region+"/"+name;
-};
-LinkFactory.prototype.getLolKingNowChampionLink = function(){
-  return '';
 };
 
 /*
@@ -395,27 +373,6 @@ LinkFactory.prototype.getWardScoreSummonerLink = function(region, name){
 };
 
 /*
-  legendsasia
-*/
-LinkFactory.prototype.getAsiaWatchSummonerLink = function(region, name){
-  return this.LegendsAsiaWatch+this.getAsiaFixedRegion(region)+'/'+name;
-};
-
-LinkFactory.prototype.getAsiaProfileSummonerLink = function(region, name){
-  return this.LegendsAsiaProfile+this.getAsiaFixedRegion(region)+'/'+name;
-};
-
-LinkFactory.prototype.getAsiaFixedRegion = function(region){
-  if(region == 'sea'){
-    return 'sg';
-  }else if(region == 'cn'){
-    return 'cn1';
-  }else{
-    return region;
-  }
-};
-
-/*
   ChampSelect
 */
 LinkFactory.prototype.getChampSelectChampionLink = function(champ){
@@ -436,11 +393,52 @@ LinkFactory.prototype.getProBuildsChampionLink = function(champ){
   return this.ProBuildsChampSearch+this.getProBuildsFixedChamp(this.getOnlyLettersName(champ));
 };
 LinkFactory.prototype.getProBuildsFixedChamp = function(champ){
-  if(champ == 'wukong'){ //same as lolkings, made separate func incase of future changes
-    return 'monkeyking';
-  }else{
-    return champ;
+  switch(champ){
+    case 'chogath':
+      champ = 'Chogath';
+      break;
+    case 'drmundo':
+      champ = 'DrMundo';
+      break;
+    case 'reksai':
+      champ = 'RekSai';
+      break;
+    case 'khazix':
+      champ = 'Khazix';
+      break;
+    case 'kogmaw':
+      champ = 'KogMaw';
+      break;
+    case 'leesin':
+      champ = 'LeeSin';
+      break;
+    case 'masteryi':
+      champ = 'MasterYi';
+      break;
+    case 'missfortune':
+      champ = 'MissFortune';
+      break;
+    case 'twistedfate':
+      champ = 'TwistedFate';
+      break;
+    case 'velkoz':
+      champ = 'Velkoz';
+      break;
+    case 'xinzhao':
+      champ = 'XinZhao';
+      break;
+    case 'wukong':
+      champ = 'MonkeyKing';
+      break;
+    case 'jarvaniv':
+      champ = 'JarvanIV';
+      break;
+    case 'tahmkench':
+      champ = 'TahmKench';
+      break;
   }
+  return champ[0].toUpperCase() + champ.slice(1);
+
 };
 
 /*
@@ -516,6 +514,9 @@ LinkFactory.prototype.getLolGamepediaEsportspediaFixedChamp = function(champ){
     case 'xin zhao':
       champ = 'Xin Zhao';
       break;
+    case 'tahm kench':
+      champ = 'Tahm Kench';
+      break;
   }
   return encodeURIComponent(champ);
 };
@@ -579,8 +580,6 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getLolNexusSummonerLink(region, name);
     case this.KassadSummonerElementName:
       return this.getKassadSummonerLink(region, name);
-    case this.LolKingNowSummonerElementName:
-      return this.getLolKingNowSummonerLink(region, name);
     case this.SummoningSummonerElementName:
       return this.getSummoningSummonerLink(region, name);
     case this.LolKingSummonerElementName:
@@ -597,10 +596,6 @@ LinkFactory.prototype.getSummonerLinkForElementName = function(elementName, regi
       return this.getWardScoreSummonerLink(region, name);
     case this.ElophantSummonerElementName:
       return this.getElophantSummonerLink(region, name);
-    case this.LegendsAsiaWatchSummonerElementName:
-      return this.getAsiaWatchSummonerLink(region, name);
-    case this.LegendsAsiaProfileSummonerElementName:
-      return this.getAsiaProfileSummonerLink(region, name);
   }
 };
 
@@ -633,8 +628,6 @@ LinkFactory.prototype.getRssLink = function(rssId, newsServer){
       return this.OnGamersRSS;
     case this.FeedBurnerId:
       return this.FeedBurnerRSS;
-    case this.Cloth5Id:
-      return this.Cloth5RSS;
     case this.EsportsExpressId:
       return this.EsportsExpressRSS;
     case this.NewsOfLegendsId:
@@ -656,8 +649,6 @@ LinkFactory.prototype.getIndexForRssLink = function(rssId){
       return 2;
     case this.FeedBurnerId:
       return 3;
-    case this.Cloth5Id:
-      return 4;
     case this.EsportsExpressId:
       return 5;
     case this.NewsOfLegendsId:
