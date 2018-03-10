@@ -11,7 +11,7 @@ var ChampionList = [{name:"aatrox", xpos:-0, ypos:-0, id:114},
 {name:"akali", xpos:-72, ypos:-0, id:1},
 {name:"alistar", xpos:-108, ypos:-0, id:2},
 {name:"amumu", xpos:-144, ypos:-0, id:3},
-{name:"anivia", xpos:-180, ypos:-0, id:4},
+{name:"anivia", xpos:-180, ypos:-0, id:4}, 
 {name:"annie", xpos:-216, ypos:-0, id:5},
 {name:"ashe", xpos:-252, ypos:-0, id:6},
 {name:"aurelion sol", xpos:-288, ypos:-0, id:129},
@@ -1549,86 +1549,6 @@ StreamChannels.prototype.onlineTwitchStreamers = function(){
 
   return twitchDeferred.promise();
   }
-};
-
-
-StreamChannels.prototype.getAzubuStreamers = function(){
-  var azubuDeferred = $.Deferred();
-  var self = this;
-
-    $.ajax({
-      dataType:'jsonp',
-      url:'http://liveleaguestream.com/json.php?method=getAll&jsoncallback=?',
-      error: function(){
-              console.log('Unable to load azubu api');
-          },
-      success: function(data){
-        var onlineCount = 0;
-        var offlineCount = 0;
-        var totalOnlineCount = 0;
-        self.topAzubuStreamersOnline = [];
-        self.azubuStreamersOnline = [];
-        self.azubuStreamersOffline = [];
-
-
-          for(var i=0;i<data.length;i++){
-
-
-            if(data[i].Online != '0'){
-
-              var accountFollowed = false;
-
-              for(var t=0;t<self.streamers.length;t++){
-                if (data[i].Name.toLowerCase() == self.streamers[t].name.toLowerCase()){
-                  accountFollowed = true;
-                  break;
-                }
-              }
-
-              self.topAzubuStreamersOnline[totalOnlineCount] = {
-                name: data[i].Name,
-                count: totalOnlineCount,
-                viewTotal: data[i].Viewer,
-                online: true,
-                isAlreadyAdded: accountFollowed
-              };
-              totalOnlineCount ++;
-
-              for(var y = 0;y<self.streamers.length;y++){
-                if (self.streamers[y].name.toLowerCase() == data[i].Name.toLowerCase()){
-                  self.azubuStreamersOnline[onlineCount] = {
-                    name: data[i].Name,
-                    viewTotal: data[i].Viewer,
-                    online: true,
-                  };
-                  onlineCount ++;
-                  self.totalStreamersOnline ++;
-                }
-              }
-
-
-            } else {
-              for(var z = 0;z<self.streamers.length;z++){
-                if (self.streamers[z].name.toLowerCase() == data[i].Name.toLowerCase()){
-                  self.azubuStreamersOffline[offlineCount] = {
-                    name: data[i].Name,
-                    online: false,
-                    // check if json records thumbnail of player or viewer count
-                  };
-                  offlineCount ++;
-                }
-              }
-            }
-          }
-          localStorage.setItem('totalStreamersOnline', JSON.stringify(self.totalStreamersOnline));
-          localStorage.setItem('topAzubuStreamersOnline', JSON.stringify(self.topAzubuStreamersOnline));
-          localStorage.setItem('azubuStreamersOnline', JSON.stringify(self.azubuStreamersOnline));
-          localStorage.setItem('azubuStreamersOffline', JSON.stringify(self.azubuStreamersOffline));
-          azubuDeferred.resolve();
-        },
-    });
-
-  return azubuDeferred.promise();
 };
 
 
@@ -3505,15 +3425,6 @@ function streamEvents(){
       $('.tooltip-viewers').tipsy({gravity: 'w'});
       $('.tooltip-center').tipsy({gravity: 'n'});
 
-      streams.getAzubuStreamers().done(function() {
-        streams.pushAzubuStreamers();
-        if(streams.totalStreamersOnline>0){
-          $(".twitch-online").css( "display", "inline" ).text(streams.totalStreamersOnline);
-        }
-        $('.tooltip-left').tipsy({gravity: 'e'});
-        $('.tooltip-viewers').tipsy({gravity: 'w'});
-        $('.tooltip-center').tipsy({gravity: 'n'});
-      });
       streams.topTwitchUrl = 'https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0';
       streams.topTwitchOnline(true).done(function() {
         streams.pushTopTwitchStreamers();

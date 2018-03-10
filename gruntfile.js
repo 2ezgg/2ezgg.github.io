@@ -133,5 +133,6 @@ module.exports = function(grunt){
     	});
 
     grunt.registerTask('default', []);
+    grunt.registerTask('build', ['concat', 'uglify']);
     grunt.registerTask('buildcss',  ['sass', 'cssc', 'cssmin']);
 };

@@ -55,15 +55,6 @@ function streamEvents(){
       $('.tooltip-viewers').tipsy({gravity: 'w'});
       $('.tooltip-center').tipsy({gravity: 'n'});
 
-      streams.getAzubuStreamers().done(function() {
-        streams.pushAzubuStreamers();
-        if(streams.totalStreamersOnline>0){
-          $(".twitch-online").css( "display", "inline" ).text(streams.totalStreamersOnline);
-        }
-        $('.tooltip-left').tipsy({gravity: 'e'});
-        $('.tooltip-viewers').tipsy({gravity: 'w'});
-        $('.tooltip-center').tipsy({gravity: 'n'});
-      });
       streams.topTwitchUrl = 'https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=12&offset=0';
       streams.topTwitchOnline(true).done(function() {
         streams.pushTopTwitchStreamers();
